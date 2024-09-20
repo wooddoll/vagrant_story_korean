@@ -7,7 +7,7 @@
 - 한 바이트로 2b/2b/2b/2b, 4픽셀을 표현하는데, 짝수 번째는 왼쪽(<128px), 홀수 번째는 오른쪽(128px<)에 배치되고 한 라인은 64byte이다.
 - Vagrant Story의 폰트는 흰색 배경에 검은색 폰트를 쓰기 때문에 폰트의 값 0은 투명, 1이 가장 밝은 색, 2이 중간 밝기, 3이 가장 어두운 밝기다.
 
-![](https://pandao.github.io/font14_2b_256.png)
+![](https://github.com/wooddoll/vagrant_story_korean/blob/master/font/font14_2b_256.png)
 
 # unpack / pack
 - cvtFontBin.py를 사용해서 FONT14.BIN을 이미지로 변환할 수 있다.
