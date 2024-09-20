@@ -9,5 +9,5 @@
 
 # unpack / pack
 - cvtFontBin.py를 사용해서 FONT14.BIN을 이미지로 변환할 수 있다.
-
+- 폰트에 포함된 한자는 모두 1853자
 ![](https://github.com/wooddoll/vagrant_story_korean/blob/master/font/font14_2b_256.png)
