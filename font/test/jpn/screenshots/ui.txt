@@ -1,0 +1,72 @@
+HP 250-250
+MP
+50-50
+RISK ZERO
+バトルモード
+R.ARM
+L.ARM
+HEAD
+BODY
+LEGS
+頭 HP53/87%
+対象:リム単体・キューブ 切断/物理/ヒューマン
+-
+HP 250-250
+MP 50-50
+RISK ZERO
+バトルモード
+右腕 HP45/96%
+R.ARM
+L.ARM
+HEAD
+BODY
+LEGS
+対象:リム単体・キューブ 切断/物理/ヒューマン
+-
+HP 250-250 MP
+50-50
+RISK ZERO
+バトルモード
+R.ARM
+L.ARM
+HEAD
+BODY
+LEGS
+左腕 HP45/91%
+対象:リム単体・キューブ 切断/物理/ヒューマン
+-
+HP 250-250 MP 50-50
+RISK ZERO
+バトルモード
+R.ARM
+L.ARM
+HEAD
+BODY
+LEGS
+頭 HP53/87%
+対象:リム単体・キューブ 切断/物理/ヒューマン
+-
+HP 250-250 MP
+50-50
+RISK ZERO
+バトルモード
+R.ARM
+L.ARM
+HEAD
+BODY
+LEGS
+胴 HP51/100%
+対象:リム単体・キューブ 切断/物理/ヒューマン
+-
+HP 250-250 MP
+RISK ZERO
+50-50
+バトルモード
+R.ARM
+L.ARM
+HEAD
+BODY
+LEGS
+脚 HP44/100%
+対象:リム単体・キューブ 切断/物理/ヒューマン
+-
