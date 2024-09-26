@@ -1,5 +1,4 @@
 from typing import Dict, Union, List
-from scripts import MPDstruct
 from pathlib import Path
 import pandas as pd
 import os
@@ -7,53 +6,8 @@ from copy import deepcopy
 import logging
 import yaml
 from tqdm import tqdm
-
-def makeTBL():
-    pathFontsTxt = "D:/Projects/vagrant_story_korean/font/font14_table.txt"
-
-    lines = []
-    with open(pathFontsTxt, 'rt', encoding='utf-8') as file:
-        lines = file.readlines()
-
-    tbl = {}
-
-    pos = 0
-    for r, line in enumerate(lines):        
-        for c, letter in enumerate(line):
-            if c >= 18: break
-
-            index = 18*r+c
-            if index >= 0xE5:
-                pos = index + 0xEC03
-            else:
-                pos = index
-
-            key = f"{pos:02X}" if pos <= 0xFF else f"{pos:04X}"
-            if letter == '\n':  letter = '↵'
-            if letter == '_':  letter = ' '
-            if letter == '□':  letter = ' '
-            tbl[key] = letter
-
-    
-    out_path = "D:/Projects/vagrant_story_korean/font/jpn.tbl"
-    with open(out_path, 'wt', encoding='utf-8') as file:
-        for k, v in tbl.items():
-            file.write(f"{str(k)}={str(v)}\n")
-
-def readTBL(path: str) -> Dict[int, str]:
-    lines = []
-    with open(path, 'rt', encoding='utf-8') as file:
-        lines = file.readlines()
-    
-    tbl = {}
-    for line in lines:
-        pos = line.find('=')
-        if pos == -1: continue
-        txts = line.split('=')
-        
-        tbl[int(txts[0], 16)] = txts[1][:-1]
-    
-    return tbl
+from dialog.scripts import MPDstruct
+from font.makeTBL import readTBL
 
 class convert_by_TBL():
     def __init__(self, table: Union[str, dict]) -> None:
@@ -91,7 +45,7 @@ class convert_by_TBL():
                 continue
             elif tmp == 0xE7:
                 break
-            elif tmp > 0xE5:
+            elif tmp >= 0xE5:
                 tmp = (tmp << 8) | bytesText[pos]
                 pos += 1
                 letter = self.fwd_tbl.get(tmp)
@@ -99,7 +53,7 @@ class convert_by_TBL():
                 letter = self.fwd_tbl.get(tmp)
 
             if letter is None:
-                strText += f'[{tmp:04X}]'
+                strText += f'«{tmp:04X}»'
             else:
                 strText += letter
 
@@ -113,18 +67,18 @@ class convert_by_TBL():
             tmp = ''
             letter = strText[pos]
             pos += 1
-            if letter == '[':
+            if letter == '«':
                 tmp = ''
-                while letter != ']':
+                while letter != '»':
                     letter = strText[pos]
                     pos += 1
-                    if letter == ']': break
+                    if letter == '»': break
                     tmp += letter
                 byteText.append(int(tmp[:2], 16))
                 byteText.append(int(tmp[2:], 16))
                 continue
             elif letter == '↵':
-                byteText.append(0xe7)
+                byteText.append(0xe8)
                 continue
             else:
                 ret = self.inv_tbl.get(letter)
@@ -143,8 +97,8 @@ def checkSize(text: str):
     while pos < length:
         letter = text[pos]
         pos += 1
-        if letter == '[':
-            while letter != ']':
+        if letter == '«':
+            while letter != '»':
                 letter = text[pos]
                 pos += 1
             continue
@@ -164,9 +118,9 @@ def vertical2flat(text: str):
         tmp = ''
         letter = text[pos]
         pos += 1
-        if letter == '[':
-            tmp = '['
-            while letter != ']':
+        if letter == '«':
+            tmp = '«'
+            while letter != '»':
                 letter = text[pos]
                 tmp += letter
                 pos += 1
@@ -187,9 +141,9 @@ def flat2vertical(text: str):
         tmp = ''
         letter = text[pos]
         pos += 1
-        if letter == '[':
-            tmp = '['
-            while letter != ']':
+        if letter == '«':
+            tmp = '«'
+            while letter != '»':
                 letter = text[pos]
                 tmp += letter
                 pos += 1
@@ -246,9 +200,9 @@ class ReplaceKeyword():
 
 class Find_Word():
     def __init__(self) -> None:
-        dictTable = ReplaceKeyword("D:/Projects/vagrant_story_korean/VSDictTable.tbl")
-        self.jpbtbl = convert_by_TBL("D:/Projects/vagrant_story_korean/font/jpn.tbl")
-        self.usatbl = convert_by_TBL("D:/Projects/vagrant_story_korean/font/usa.tbl")
+        dictTable = ReplaceKeyword("VSDictTable.tbl")
+        self.jpbtbl = convert_by_TBL("font/jpn.tbl")
+        self.usatbl = convert_by_TBL("font/usa.tbl")
         dictTable.expandBytes(self.jpbtbl, self.usatbl)
         self.dictTable = dictTable.table
 
@@ -288,11 +242,27 @@ class Find_Word():
                 wordinfiles.append([str(relative_path), detected])
 
         with open(outPath, 'w') as file:
-            yaml.dump(wordinfiles, file)
+            yaml.dump(wordinfiles, file, encoding='utf-8')
 
-findword = Find_Word()
-findword.find_in_folder("D:/Projects/vagrant_story_korean/", "find_in_folder.yaml")
-exit()
+#findword = Find_Word()
+#findword.find_in_folder("D:/Projects/vagrant_story_korean/", "find_in_folder.yaml")
+#exit()
+
+def exportTextFromMPD(mpd: MPDstruct, jpnTBL: convert_by_TBL):
+    dialogLists = []
+    for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
+        text = jpnTBL.cvtBytes_str(dialogBytes)
+        rows, cols = checkSize(text)
+        singleRow = []
+        singleRow.append(idx)            
+        singleRow.append(rows)
+        singleRow.append(cols)
+        if cols == 1:
+            text = vertical2flat(text)
+        singleRow.append(text)
+        dialogLists.append(singleRow)
+    
+    return dialogLists
 
 def makeMPDtexts():
     folder_path = Path('D:/Projects/vagrant_story_korean/font/test/jpn')
@@ -327,7 +297,7 @@ def makeMPDtexts():
             dialogLists.append(singleRow)
 
     df = pd.DataFrame(dialogLists, columns=['File', 'Index', 'rows', 'cols', 'Original', 'Translated'])
-    df.to_csv('VSdialog.csv', index=False)
+    df.to_csv('VSdialog.csv', index=False, encoding='utf-8')
 
 #makeMPDtexts()
 
@@ -359,11 +329,11 @@ def readExelDialog(csv_path:str):
     return dialogLists
 
 
-def importDialog2MPD(dialogLists):
-    original_folder_path = Path('D:/Projects/vagrant_story_korean/font/test/jpn')
-    output_folder_path = 'D:/Projects/vagrant_story_korean/'
+def importDialog2MPD(original_folder_path: str, dialogLists, jpnTBL:convert_by_TBL, output_folder_path:str):
+    #original_folder_path = Path('D:/Projects/vagrant_story_korean/font/test/jpn')
+    #output_folder_path = 'D:/Projects/vagrant_story_korean/'
     # TODO replace to krTBL
-    jpnTBL = convert_by_TBL("D:/Projects/vagrant_story_korean/font/jpn.tbl")
+    #jpnTBL = convert_by_TBL("D:/Projects/vagrant_story_korean/font/jpn.tbl")
 
     extension = '*.MPD'
     file_list = list(original_folder_path.glob(extension))
@@ -380,5 +350,5 @@ def importDialog2MPD(dialogLists):
         outpath = os.path.join(output_folder_path, f"{filename}.MPD")
         mpd.packData(outpath)
 
-dialogLists = readExelDialog('VSdialog.csv')
-importDialog2MPD(dialogLists)
+#dialogLists = readExelDialog('VSdialog.csv')
+#importDialog2MPD(dialogLists)

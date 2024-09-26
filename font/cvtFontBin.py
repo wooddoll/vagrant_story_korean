@@ -135,4 +135,4 @@ def testFont14Bin():
     #unpackFont14Bin(PATHBASE_TEST+"MENU/FONT14.BIN", "font14_2b_256.png")
     packFont14Bin("font14_2b_256.png", "_font14.bin")
     unpackFont14Bin("_font14.bin", "_font14_2b_256.png")
-testFont14Bin()
+#testFont14Bin()

@@ -3,6 +3,7 @@ import io
 import os
 import logging
 import math
+from pathlib import Path
 
 def int4(buffer: bytes):
     return int.from_bytes(buffer[0:4], byteorder='little')
@@ -231,6 +232,13 @@ class MPDstruct():
     def unpackData(self, input_path:str):
         with open(input_path, 'rb') as file:
             self.buffer = bytearray(file.read())
+            
+            filesize = len(self.buffer)
+            lbaSize = (filesize//2048)*2048
+            if filesize > lbaSize:
+                lbaSize += 2048
+            
+            logging.info(f"{Path(input_path).stem}: The free space in LBA is {lbaSize - filesize} bytes.")
             byte_stream = io.BytesIO(self.buffer)
 
             header = readHeader(byte_stream, 12, 4)
@@ -288,7 +296,7 @@ class MPDstruct():
                     file.seek(poses[idx])
                     file.write(data)
 
-mpd = MPDstruct()
-mpd.unpackData("D:/Projects/vagrant_story_korean/font/test/jpn/MAP001.MPD")
-mpd.packData("D:/Projects/vagrant_story_korean/MAP001.MPD")
+#mpd = MPDstruct()
+#mpd.unpackData("D:/Projects/vagrant_story_korean/font/test/jpn/MAP001.MPD")
+#mpd.packData("D:/Projects/vagrant_story_korean/MAP001.MPD")
 

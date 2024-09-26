@@ -2,12 +2,12 @@
 
 from PIL import Image
 import os
+from typing import Dict, Union, List
+import logging
 
-def makeTable(outpath: str = "vagrant_jpn.tbl"):
-    path = "D:/Users/wooddoll/Downloads/Maker CHD/Vagrant Story/Vagrant_Story_translation_korean/font/font14_table.txt"
-    
+def makeTable(font14_table: str, outpath: str = ""):
     table = {}
-    with open(path, 'rt', encoding='utf8') as f:
+    with open(font14_table, 'rt', encoding='utf8') as f:
         lines = f.readlines()
 
         index = 0
@@ -36,54 +36,59 @@ def makeTable(outpath: str = "vagrant_jpn.tbl"):
         rows = idx // 18
         cols = idx % 18
 
-        if v == '□':
+        if v == '☒':
             v = 0
         t_table[rows][cols] = v
     
-    A = 448
-    B = 846
-    C = 1265
+    #             0       1      2        3       4        5       6        7      8
+    tblSection = (229,   420,   840,    1260,   1680,    1890,   1974,    2184,   2244)
+    tblAddress =   (0xEC00, 0xEC5C, 0xECB8, 0xED14, 0xEDEE,  0x0,  0xEEC8, 0xEF24)
     table.clear()
     for r, line in enumerate(t_table):
         for c, letter in enumerate(line):
-            if letter == 0:
-                continue
+            if letter == 0: continue
+            if letter == '_':  letter = ' '
+
             index = 18*r + c
-            if index < 229:
+            if index < tblSection[0]:
                 strHex = "%0.2X" % index
-            elif 229 <= index and index < A:
-                strHex = "%0.4X" % (index + 0xEC00)
-            elif A <= index and index < B:
-                strHex = "%0.4X" % (index + 0xEC5C)
-            elif B <= index and index < C:
-                strHex = "%0.4X" % (index + 0xECB8)
-            elif C <= index and index <= 1889:
-                strHex = "%0.4X" % (index + 0xED14)
-            elif 1974 <= index and index <= 2183:
-                strHex = "%0.4X" % (index + 0xEEC8)
-            else:
-                strHex = "%0.4X" % (index + 0xEEC8)
+            elif tblSection[0] <= index and index < tblSection[1]:
+                strHex = "%0.4X" % (index + tblAddress[0])
+            elif tblSection[1] <= index and index < tblSection[2]:
+                strHex = "%0.4X" % (index + tblAddress[1])
+            elif tblSection[2] <= index and index < tblSection[3]:
+                strHex = "%0.4X" % (index + tblAddress[2])
+            elif tblSection[3] <= index and index < tblSection[4]:
+                strHex = "%0.4X" % (index + tblAddress[3])
+            elif tblSection[4] <= index and index < tblSection[5]:
+                strHex = "%0.4X" % (index + tblAddress[4])
+            elif tblSection[6] <= index and index < tblSection[7]:
+                strHex = "%0.4X" % (index + tblAddress[6])
+            elif tblSection[8] == index:
+                strHex = "%0.4X" % (index + tblAddress[7])
+            #else:
+            #    logging.critical("out of font tbl")
 
             table[strHex] = letter
 
     if outpath:
         with open(outpath, 'wt', encoding='utf8') as f:
-            f.write("EB=«16b Pad»\n")
-            f.write("E7=«End»\n")
-            f.write("E8=«↵»\n")
-            f.write("F801=«p1»\n")
-            f.write("F802=«p2»\n")
-            f.write("F803=«p3»\n")
-            f.write("F804=«p4»\n")
-            f.write("F805=«p5»\n")
-            f.write("F806=«p6»\n")
-            f.write("F807=«p7»\n")
-            f.write("F808=«p8»\n")
-            f.write("F809=«p9»\n")
-            f.write("F80A=«p10»\n")
-            f.write("FA06=«?»\n")
-            f.write("8F=«Space»\n")
-            f.write("\n")
+            #f.write("EB=«16b Pad»\n")
+            #f.write("E7=«End»\n")
+            #f.write("E8=«↵»\n")
+            #f.write("F801=«p1»\n")
+            #f.write("F802=«p2»\n")
+            #f.write("F803=«p3»\n")
+            #f.write("F804=«p4»\n")
+            #f.write("F805=«p5»\n")
+            #f.write("F806=«p6»\n")
+            #f.write("F807=«p7»\n")
+            #f.write("F808=«p8»\n")
+            #f.write("F809=«p9»\n")
+            #f.write("F80A=«p10»\n")
+            #f.write("FA06=«?»\n")
+            #f.write("8F=«Space»\n")
+            #f.write("\n")
 
             for k, v in table.items():
                 f.write(f"{k}={v}\n")
@@ -98,38 +103,51 @@ def makeTable(outpath: str = "vagrant_jpn.tbl"):
 
     return table
 
-def makeTestFontMap():
-    pass
+def readTBL(path: str) -> Dict[int, str]:
+    lines = []
+    with open(path, 'rt', encoding='utf-8') as file:
+        lines = file.readlines()
+    
+    tbl = {}
+    for line in lines:
+        pos = line.find('=')
+        if pos == -1: continue
+        txts = line.split('=')
+        
+        tbl[int(txts[0], 16)] = txts[1][:-1]
+    
+    return tbl
 
-table = makeTable()
-table['E8'] = "«↵»"
-while(True):
-    text = input("db> ")
-    if not text:
-        break
-
-    txts = text.split(',')
-    maxTxt = len(txts)
-    print(f'{maxTxt}, "', end='')
-
-    idx = 0
-    while(idx < maxTxt):
-        ii = int(txts[idx], 16)
-        idx += 1
-        if 0xE7 == ii:
+def str2Bytes():
+    table = makeTable()
+    table['E8'] = "«↵»"
+    while(True):
+        text = input("db> ")
+        if not text:
             break
-        elif 0xE8 == ii:
-            print("↵", end='')
-            continue
-        elif 229 < ii :
-            lo = int(txts[idx], 16)
-            idx += 1
-            ii = (ii << 8) | lo
-            strHex = "%0.4X" % ii
-        else:
-            strHex = "%0.2X" % ii
 
-        c = table.get(strHex, None)
-        if c is not None:
-            print(c, end='')
-    print('"')
+        txts = text.split(',')
+        maxTxt = len(txts)
+        print(f'{maxTxt}, "', end='')
+
+        idx = 0
+        while(idx < maxTxt):
+            ii = int(txts[idx], 16)
+            idx += 1
+            if 0xE7 == ii:
+                break
+            elif 0xE8 == ii:
+                print("↵", end='')
+                continue
+            elif 229 < ii :
+                lo = int(txts[idx], 16)
+                idx += 1
+                ii = (ii << 8) | lo
+                strHex = "%0.4X" % ii
+            else:
+                strHex = "%0.2X" % ii
+
+            c = table.get(strHex, None)
+            if c is not None:
+                print(c, end='')
+        print('"')
