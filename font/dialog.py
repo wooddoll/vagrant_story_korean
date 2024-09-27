@@ -200,7 +200,7 @@ class ReplaceKeyword():
 
 class Find_Word():
     def __init__(self) -> None:
-        dictTable = ReplaceKeyword("VSDictTable.tbl")
+        dictTable = ReplaceKeyword("work/VSDictTable.tbl")
         self.jpbtbl = convert_by_TBL("font/jpn.tbl")
         self.usatbl = convert_by_TBL("font/usa.tbl")
         dictTable.expandBytes(self.jpbtbl, self.usatbl)
@@ -231,11 +231,17 @@ class Find_Word():
     
     def find_in_folder(self, input_path: str, outPath: str):
         folder_path = Path(input_path)
-        file_list = [file for file in folder_path.rglob('*.MPD') if file.is_file()]
+        file_list = [file for file in folder_path.rglob('*') if file.is_file()]
 
         wordinfiles = []
         for filepath in tqdm(file_list, desc="Processing"):
+            if str(filepath.suffix) in ['.MPD', '.ARM', '.ZND', '.ZUD', '.SHP', '.SEQ', '.WEP', '.WAV', '.TIM']:
+                continue
+            
             relative_path = filepath.relative_to(folder_path)
+            if str(relative_path.parent) in ["SOUND" ]: 
+                continue
+            
             detected = self.find_Word_in_File(str(filepath))
 
             if detected:
@@ -244,9 +250,6 @@ class Find_Word():
         with open(outPath, 'w') as file:
             yaml.dump(wordinfiles, file, encoding='utf-8')
 
-#findword = Find_Word()
-#findword.find_in_folder("D:/Projects/vagrant_story_korean/", "find_in_folder.yaml")
-#exit()
 
 def exportTextFromMPD(mpd: MPDstruct, jpnTBL: convert_by_TBL):
     dialogLists = []

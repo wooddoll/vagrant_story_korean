@@ -5,7 +5,7 @@ import os
 from typing import Dict, Union, List
 import logging
 
-def makeTable(font14_table: str, outpath: str = ""):
+def makeTable(font14_table: str, outpath: str = "", LINE_COLS = 18):    
     table = {}
     with open(font14_table, 'rt', encoding='utf8') as f:
         lines = f.readlines()
@@ -13,10 +13,10 @@ def makeTable(font14_table: str, outpath: str = ""):
         index = 0
         for line in lines:
             ll = len(line) - 1
-            if ll > 18:
-                ll = 18
+            if ll > LINE_COLS:
+                ll = LINE_COLS
             
-            cidx = index*18
+            cidx = index*LINE_COLS
             for i in range(ll):
                 if cidx < 256:
                     strHex = "0x%0.2X" % cidx
@@ -29,12 +29,12 @@ def makeTable(font14_table: str, outpath: str = ""):
             
             index += 1
 
-    t_table = [ [0]*18 for _ in range(126)]
+    t_table = [ [0]*LINE_COLS for _ in range(126)]
     
     for k, v in table.items():
         idx = int(k, 16)
-        rows = idx // 18
-        cols = idx % 18
+        rows = idx // LINE_COLS
+        cols = idx % LINE_COLS
 
         if v == '☒':
             v = 0
@@ -49,7 +49,7 @@ def makeTable(font14_table: str, outpath: str = ""):
             if letter == 0: continue
             if letter == '_':  letter = ' '
 
-            index = 18*r + c
+            index = LINE_COLS*r + c
             if index < tblSection[0]:
                 strHex = "%0.2X" % index
             elif tblSection[0] <= index and index < tblSection[1]:

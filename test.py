@@ -1,7 +1,9 @@
 
 from font import makeTBL, cvtFontBin
+from font.dialog import Find_Word
 from fileStruct.structMPD import MPDstruct
 from fileStruct.structZND import ZNDstruct
+from fileStruct.structARM import ARMstruct
 
 from font import dialog
 import utils
@@ -113,6 +115,29 @@ def extractZNDnames():
         namesInfiles.extend(znd.Enemy.name_str)
         weaponesInfiles.extend(znd.Enemy.weapon_str)
     
+    ###
+    
+    usaTBL = dialog.convert_by_TBL("font/usa.tbl")
+
+    _namesInfiles = []
+    _weaponesInfiles = []
+
+    folder_path = Path(PATH_USA_VARGRANTSTORY) / Path('MAP')
+    file_list = [file for file in folder_path.rglob('*.ZND') if file.is_file()]
+    for filepath in tqdm(file_list, desc="Processing"):
+        relative_path = filepath.relative_to(folder_path)
+
+        znd = ZNDstruct(str(filepath))
+        znd.Enemy.convertName(usaTBL)
+
+        _namesInfiles.extend(znd.Enemy.name_str)
+        _weaponesInfiles.extend(znd.Enemy.weapon_str)
+    
+    for i in range(len(namesInfiles)):
+        namesInfiles[i] = f"{namesInfiles[i]}={_namesInfiles[i]}"
+        weaponesInfiles[i] = f"{weaponesInfiles[i]}={_weaponesInfiles[i]}"
+    ###
+    
     words = set()
     for name in namesInfiles:
         if name:
@@ -126,18 +151,69 @@ def extractZNDnames():
     weaponesInfiles = sorted(list(words))
 
 
-    outpath = Path(PATH_TEMP) / Path('Test/ZNDnames.txt')
-    with open(outpath, 'wt') as file:
+    outpath = Path('work/ZNDnames.txt')
+    with open(outpath, 'wt', encoding='utf-8') as file:
+        file.write(f"#Enemies Names\n")
         for name in namesInfiles:
             file.write(name + '\n')
-    
-    outpath = Path(PATH_TEMP) / Path('Test/ZNDweapones.txt')
-    with open(outpath, 'wt') as file:
+
+        file.write(f"\n#Enemies Weapons\n")
         for name in weaponesInfiles:
             file.write(name + '\n')
-    
 
-extractZNDnames()
+extractZNDnames()            
+    
+def extractARMnames():
+    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+
+    namesInfiles = []
+    folder_path = Path(PATH_TEMP_VARGRANTSTORY) / Path('SMALL')
+    file_list = [file for file in folder_path.rglob('*.ARM') if file.is_file()]
+    for filepath in tqdm(file_list, desc="Processing"):
+        relative_path = filepath.relative_to(folder_path)
+
+        arm = ARMstruct(str(filepath))
+        arm.convertName(jpnTBL)
+
+        namesInfiles.extend(arm.names_str)
+
+    ####
+
+    usaTBL = dialog.convert_by_TBL("font/usa.tbl")
+
+    engInfiles = []
+    folder_path = Path(PATH_USA_VARGRANTSTORY) / Path('SMALL')
+    file_list = [file for file in folder_path.rglob('*.ARM') if file.is_file()]
+    for filepath in tqdm(file_list, desc="Processing"):
+        relative_path = filepath.relative_to(folder_path)
+
+        arm = ARMstruct(str(filepath))
+        arm.convertName(usaTBL)
+
+        engInfiles.extend(arm.names_str)
+
+    ###
+    
+    len_jpn = len(namesInfiles)
+    len_usa = len(engInfiles)
+    if len_jpn != len_usa:
+        logging.critical("!!!")
+    
+    wordInfiles = []
+    for i in range(len_jpn):
+        jpn = namesInfiles[i]
+        eng = engInfiles[i]
+        wordInfiles.append(f"{jpn}={eng}")
+
+    outpath = Path('work/ARMnames.txt')
+    with open(outpath, 'wt', encoding='utf-8') as file:
+        file.write(f"#Area Names\n")
+        for name in wordInfiles:
+            file.write(name + '\n')
+
+#extractARMnames()
+
+#makeTBL.makeTable("font/font12_table.txt", "font/usa.tbl", 21)
 
 def check1():
     mpd = MPDstruct()
@@ -148,3 +224,5 @@ def check1():
 #check1()
 
 
+findword = Find_Word()
+findword.find_in_folder(PATH_TEMP_VARGRANTSTORY, "find_in_folder.yaml")
