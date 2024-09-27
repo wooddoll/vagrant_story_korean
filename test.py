@@ -1,12 +1,16 @@
 
 from font import makeTBL, cvtFontBin
-from dialog import dialog, scripts
+from fileStruct.structMPD import MPDstruct
+from fileStruct.structZND import ZNDstruct
+
+from font import dialog
 import utils
 from VS_pathes import *
 import pandas as pd
 import os
 from pathlib import Path
 import logging
+from tqdm import tqdm
 
 logging.basicConfig(
     level=logging.DEBUG, 
@@ -16,17 +20,22 @@ logging.basicConfig(
 
 
 PATH_testMPD = "MAP/MAP001.MPD"
+PATH_testZND = "MAP/ZONE009.ZND"
+
+
+
 def test1():
     jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
 
-    mpd = scripts.MPDstruct()
+    mpd = MPDstruct()
     mpd_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(PATH_testMPD)
     mpd.unpackData(str(mpd_path))
 
     dialogLists = dialog.exportTextFromMPD(mpd, jpnTBL)
     df = pd.DataFrame(dialogLists, columns=['Index', 'rows', 'cols', 'Original'])
-    out_path = os.path.join(PATH_TEMP, f'{Path(PATH_testMPD).stem}.csv')
-    df.to_csv(out_path, index=False, encoding='utf-8')
+    #out_path = os.path.join(PATH_TEMP, f'{Path(PATH_testMPD).stem}.csv')
+    outpath = Path(PATH_TEMP) / Path(f'Test/{Path(PATH_testMPD).stem}.csv')
+    df.to_csv(outpath, index=False, encoding='utf-8')
 
 def readExelDialog(csv_path:str):
     dialogLists = []
@@ -47,20 +56,20 @@ def readExelDialog(csv_path:str):
 def test2():
     jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
     
-    mpd = scripts.MPDstruct()
+    mpd = MPDstruct()
     mpd_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(PATH_testMPD)
     mpd.unpackData(str(mpd_path))
     
     out_path = Path(PATH_TEMP) / Path(f'{Path(PATH_testMPD).stem}.csv')
-    dialogLists = readExelDialog(out_path)
+    dialogLists = readExelDialog(str(out_path))
     
     for idx in range(len(mpd.scriptSection.dialogText.dialogBytes)):
         text = dialogLists[idx]
         byteText = jpnTBL.cvtStr_Bytes(text)
         mpd.scriptSection.dialogText.dialogBytes[idx] = byteText
     
-    outpath = Path(PATH_TEMP) / Path(PATH_testMPD)
-    mpd.packData(outpath)
+    outpath = Path(PATH_TEMP) / Path('Test') / Path(PATH_testMPD)
+    mpd.packData(str(outpath))
 
 def test3():
     mpd_path = f'{PATH_TEMP}/{PATH_testMPD}'
@@ -72,5 +81,70 @@ def test3():
 #test2()
 #test3()
 
-findword = dialog.Find_Word()
-findword.find_in_folder("C:/TEMP/Vagrant Story (J)/", "find_in_folder.yaml")
+#findword = dialog.Find_Word()
+#findword.find_in_folder("C:/TEMP/Vagrant Story (J)/", "find_in_folder.yaml")
+
+def test4():
+    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+
+    znd_path = f'{PATH_TEMP_VARGRANTSTORY}/{PATH_testZND}'
+    znd = ZNDstruct(znd_path)
+
+    znd.Enemy.convertName(jpnTBL)
+
+    outpath = Path(PATH_TEMP) / Path('Test') / Path(PATH_testZND)
+    znd.packData(str(outpath))
+
+
+def extractZNDnames():
+    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+
+    namesInfiles = []
+    weaponesInfiles = []
+
+    folder_path = Path(PATH_TEMP_VARGRANTSTORY) / Path('MAP')
+    file_list = [file for file in folder_path.rglob('*.ZND') if file.is_file()]
+    for filepath in tqdm(file_list, desc="Processing"):
+        relative_path = filepath.relative_to(folder_path)
+
+        znd = ZNDstruct(str(filepath))
+        znd.Enemy.convertName(jpnTBL)
+
+        namesInfiles.extend(znd.Enemy.name_str)
+        weaponesInfiles.extend(znd.Enemy.weapon_str)
+    
+    words = set()
+    for name in namesInfiles:
+        if name:
+            words.add(name)
+    namesInfiles = sorted(list(words))
+
+    words = set()
+    for name in weaponesInfiles:
+        if name:
+            words.add(name)
+    weaponesInfiles = sorted(list(words))
+
+
+    outpath = Path(PATH_TEMP) / Path('Test/ZNDnames.txt')
+    with open(outpath, 'wt') as file:
+        for name in namesInfiles:
+            file.write(name + '\n')
+    
+    outpath = Path(PATH_TEMP) / Path('Test/ZNDweapones.txt')
+    with open(outpath, 'wt') as file:
+        for name in weaponesInfiles:
+            file.write(name + '\n')
+    
+
+extractZNDnames()
+
+def check1():
+    mpd = MPDstruct()
+    mpd_path = Path(PATH_TEMP) / Path(PATH_testMPD)
+    mpd.unpackData(str(mpd_path))
+
+    print(mpd)
+#check1()
+
+

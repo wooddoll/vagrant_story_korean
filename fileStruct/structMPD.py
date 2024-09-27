@@ -5,31 +5,8 @@ import logging
 import math
 from pathlib import Path
 
-def int4(buffer: bytes):
-    return int.from_bytes(buffer[0:4], byteorder='little')
-def int2(buffer: bytes):
-    return int.from_bytes(buffer[0:2], byteorder='little')
+from utils import *
 
-def bytes4(num: int):
-    return num.to_bytes(4, byteorder='little', signed=False)
-def bytes2(num: int):
-    return num.to_bytes(2, byteorder='little', signed=False)
-def bytes1(num: int):
-    return num.to_bytes(1, byteorder='little', signed=False)
-
-def readHeader(byte_stream: io.BytesIO, num: int, byteSize: int):
-    headerValues = []
-    if byteSize == 1:
-        for _ in range(num):
-            headerValues.append(int(byte_stream.read(1)))
-    elif byteSize == 2:
-        for _ in range(num):
-            headerValues.append(int2(byte_stream.read(2)))
-    elif byteSize == 4:
-        for _ in range(num):
-            headerValues.append(int4(byte_stream.read(4)))
-
-    return headerValues
 
 
 class SectionBase():

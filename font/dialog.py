@@ -6,7 +6,7 @@ from copy import deepcopy
 import logging
 import yaml
 from tqdm import tqdm
-from dialog.scripts import MPDstruct
+from fileStruct.structMPD import MPDstruct
 from font.makeTBL import readTBL
 
 class convert_by_TBL():
