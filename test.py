@@ -1,9 +1,10 @@
 
 from font import makeTBL, cvtFontBin
-from font.dialog import Find_Word
+
 from fileStruct.structMPD import MPDstruct
 from fileStruct.structZND import ZNDstruct
 from fileStruct.structARM import ARMstruct
+from fileStruct.structMain import Mainstruct
 
 from font import dialog
 import utils
@@ -83,8 +84,6 @@ def test3():
 #test2()
 #test3()
 
-#findword = dialog.Find_Word()
-#findword.find_in_folder("C:/TEMP/Vagrant Story (J)/", "find_in_folder.yaml")
 
 def test4():
     jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
@@ -161,7 +160,7 @@ def extractZNDnames():
         for name in weaponesInfiles:
             file.write(name + '\n')
 
-extractZNDnames()            
+#extractZNDnames()            
     
 def extractARMnames():
     jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
@@ -178,7 +177,7 @@ def extractARMnames():
         namesInfiles.extend(arm.names_str)
 
     ####
-
+    dummyTBL = dialog.convert_by_TBLdummy()
     usaTBL = dialog.convert_by_TBL("font/usa.tbl")
 
     engInfiles = []
@@ -203,9 +202,9 @@ def extractARMnames():
     for i in range(len_jpn):
         jpn = namesInfiles[i]
         eng = engInfiles[i]
-        wordInfiles.append(f"{jpn}={eng}")
+        wordInfiles.append(f"{jpn},{eng}")
 
-    outpath = Path('work/ARMnames.txt')
+    outpath = Path('work/ARMnames.csv')
     with open(outpath, 'wt', encoding='utf-8') as file:
         file.write(f"#Area Names\n")
         for name in wordInfiles:
@@ -224,5 +223,127 @@ def check1():
 #check1()
 
 
-findword = Find_Word()
-findword.find_in_folder(PATH_TEMP_VARGRANTSTORY, "find_in_folder.yaml")
+#findword = dialog.Find_Word()
+#findword.find_in_folder(PATH_TEMP_VARGRANTSTORY, "work/find_in_folder.yaml")
+
+
+
+def makeMPDtexts(folder_path: str, fontTable: dialog.convert_by_TBL, out_path: str):
+    extension = '*.MPD'
+    file_list = list(Path(folder_path).glob(extension))
+
+    dialogLists = []
+    
+    keyTBL = dialog.ReplaceKeyword("work/VSDictTable.tbl")
+
+    for filepath in tqdm(file_list, desc="Processing"):
+        mpd = MPDstruct(str(filepath))
+
+        for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
+            text = fontTable.cvtBytes_str(dialogBytes)
+            rows, cols = dialog.checkSize(text)
+
+            singleRow = []
+            singleRow.append(filepath.stem)
+            singleRow.append(idx)            
+            singleRow.append(rows)
+            singleRow.append(cols)
+
+            if cols == 1:
+                text = dialog.vertical2flat(text)
+
+            singleRow.append(text)
+
+            knText = keyTBL.replace(text)
+            singleRow.append(knText)
+            
+            dialogLists.append(singleRow)
+
+    with open(out_path, "wt", encoding='utf-8') as file:
+        for singleRow in dialogLists:
+            fileidx = int(singleRow[0][3:])
+            idx = int(singleRow[1])
+        
+            file.write( f"«{fileidx},{idx}»{singleRow[4]}\n" )
+
+def test5():
+    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+    dialog.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/VSdialogJpn.xlsx')
+
+#test5()
+
+def test6():
+    usaTBL = dialog.convert_by_TBL("font/usa.tbl")
+    dialog.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/VSdialogUsa.csv')
+
+
+def cvtBytes():
+    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+    
+    while True:
+        inp_text = input('Hex>')
+        if not inp_text: break
+
+        inp_bytes = []
+        len_inp = len(inp_text)
+        i = 0
+        while i < len_inp:
+            while inp_text[i] != ':':
+                i += 1
+                if i >= len_inp: break
+            if i >= len_inp: break
+            i += 1
+            inp_bytes.append(int(inp_text[i:i+2], 16))
+            i += 2
+        
+        _inp_bytes = bytes(inp_bytes)
+        inp_text = jpnTBL.cvtBytes_str(_inp_bytes)
+        for v in _inp_bytes:
+            print(f"{v:02X} ", end='')
+        print(f"\n{inp_text}")
+
+#cvtBytes()
+
+def makeSkillnames():
+    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+
+    mainpath = Path(PATH_TEMP_VARGRANTSTORY) / Path('SLPS_023.77')
+    namesInfiles = []
+    skill_jpn = Mainstruct(str(mainpath))
+    skill_jpn.convertName(jpnTBL)
+    namesInfiles.extend(skill_jpn.names_str)
+
+    ####
+    dummyTBL = dialog.convert_by_TBLdummy()
+    usaTBL = dialog.convert_by_TBL("font/usa.tbl")
+
+    mainpath = Path(PATH_USA_VARGRANTSTORY) / Path('SLUS_010.40')
+    engInfiles = []
+    skill_usa = Mainstruct(str(mainpath))
+    skill_usa.convertName(usaTBL)
+    engInfiles.extend(skill_usa.names_str)
+
+    ###
+    
+    len_jpn = len(namesInfiles)
+    len_usa = len(engInfiles)
+    if len_jpn != len_usa:
+        logging.critical("!!!")
+    
+    wordInfiles = []
+    for i in range(len_jpn):
+        jpn = namesInfiles[i]
+        eng = engInfiles[i]
+        wordInfiles.append(f"{jpn},{eng}")
+
+    outpath = Path('work/SkillNames.csv')
+    with open(outpath, 'wt', encoding='utf-8') as file:
+        file.write(f"#Skill Names\n")
+        for name in wordInfiles:
+            file.write(name + '\n')
+
+
+#makeSkillnames()
+
+findword = dialog.Find_Word()
+findword.find_in_folder(PATH_USA_VARGRANTSTORY, "work/find_in_USA.yaml")

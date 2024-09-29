@@ -9,6 +9,38 @@ from tqdm import tqdm
 from fileStruct.structMPD import MPDstruct
 from font.makeTBL import readTBL
 
+class convert_by_TBLdummy():
+    def __init__(self) -> None:
+        pass
+    def cvtBytes_str(self, bytesText: bytes) -> str:
+        pos = 0
+        length = len(bytesText)
+
+        strText = ''
+        while(pos < length):
+            letter = None
+            tmp = bytesText[pos]
+            pos += 1
+            
+            if tmp == 0xE8:
+                strText += '↵'
+                continue
+            elif tmp == 0xE7:
+                break
+            elif tmp >= 0xE5:
+                tmp = (tmp << 8) | bytesText[pos]
+                pos += 1
+                letter = f'{tmp:04X} '
+            else:
+                letter = f'{tmp:02X} '
+
+            if letter is None:
+                strText += f'«{tmp:04X}»'
+            else:
+                strText += letter
+
+        return strText
+    
 class convert_by_TBL():
     def __init__(self, table: Union[str, dict]) -> None:
         if isinstance(table, str):
@@ -196,21 +228,50 @@ class ReplaceKeyword():
             outText = outText.replace(items[0], items[1])
         return outText
 
+class FindKeyword():
+    def __init__(self, path_table: str) -> None:
+        self.table = []
+        
+        with open(path_table, "rt", encoding='utf-8') as file:
+            lines = file.readlines()
+            
+            for line in lines:
+                if line[0] in ['#', ' ', '\n', '\r']: continue
+                txts = line.split(' ')                
+                text = ' '.join(txts[1:])
+                row = []
+                row.append(text)
+                row.append(text)
+                self.table.append(row)
+    
+    def expandBytes(self, leftTable: convert_by_TBL, rightTable: convert_by_TBL):
+        for idx in range(len(self.table)):
+            left = self.table[idx][0]
+            self.table[idx].append(leftTable.cvtStr_Bytes(left))
+            right = self.table[idx][1]
+            self.table[idx].append(rightTable.cvtStr_Bytes(right))
+    
+    def replace(self, text:str):
+        outText = deepcopy(text)
+        for items in self.table:
+            outText = outText.replace(items[0], items[1])
+        return outText
 
 
 class Find_Word():
     def __init__(self) -> None:
-        dictTable = ReplaceKeyword("work/VSDictTable.tbl")
+        dictTable = FindKeyword("work/VSwords_en.txt")
         self.jpbtbl = convert_by_TBL("font/jpn.tbl")
         self.usatbl = convert_by_TBL("font/usa.tbl")
         dictTable.expandBytes(self.jpbtbl, self.usatbl)
         self.dictTable = dictTable.table
 
     def findWord_in_Bytes(self, data: bytes, word: bytes):
-        search_len = len(word)
+        word0 = word + b'\xE7'
+        search_len = len(word0)
         results = []
         for i in range(len(data) - search_len + 1):
-            if data[i:i + search_len] == word:
+            if data[i:i + search_len] == word0:
                 results.append(i)
     
         return results
@@ -235,11 +296,11 @@ class Find_Word():
 
         wordinfiles = []
         for filepath in tqdm(file_list, desc="Processing"):
-            if str(filepath.suffix) in ['.MPD', '.ARM', '.ZND', '.ZUD', '.SHP', '.SEQ', '.WEP', '.WAV', '.TIM']:
+            if str(filepath.suffix) in ['.MPD', '.ARM', '.ZND', '.ZUD', '.SHP', '.SEQ', '.WEP', '.WAV', '.TIM', '.XA']:
                 continue
             
             relative_path = filepath.relative_to(folder_path)
-            if str(relative_path.parent) in ["SOUND" ]: 
+            if str(relative_path.parent) in [ "SOUND" ]: 
                 continue
             
             detected = self.find_Word_in_File(str(filepath))
@@ -267,20 +328,19 @@ def exportTextFromMPD(mpd: MPDstruct, jpnTBL: convert_by_TBL):
     
     return dialogLists
 
-def makeMPDtexts():
-    folder_path = Path('D:/Projects/vagrant_story_korean/font/test/jpn')
+def makeMPDtexts(folder_path: str, fontTable: convert_by_TBL, out_path: str):
     extension = '*.MPD'
-    file_list = list(folder_path.glob(extension))
+    file_list = list(Path(folder_path).glob(extension))
 
     dialogLists = []
-    jpnTBL = convert_by_TBL("D:/Projects/vagrant_story_korean/font/jpn.tbl")
-    keyTBL = ReplaceKeyword("VSDictTable.tbl")
+    
+    keyTBL = ReplaceKeyword("work/VSDictTable.tbl")
 
     for filepath in tqdm(file_list, desc="Processing"):
         mpd = MPDstruct(str(filepath))
 
         for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
-            text = jpnTBL.cvtBytes_str(dialogBytes)
+            text = fontTable.cvtBytes_str(dialogBytes)
             rows, cols = checkSize(text)
 
             singleRow = []
@@ -296,11 +356,11 @@ def makeMPDtexts():
             # TODO
             knText = keyTBL.replace(text)
             singleRow.append(knText)
-            #singleRow.append(text)
             dialogLists.append(singleRow)
 
     df = pd.DataFrame(dialogLists, columns=['File', 'Index', 'rows', 'cols', 'Original', 'Translated'])
-    df.to_csv('VSdialog.csv', index=False, encoding='utf-8')
+    #df.to_csv(out_path, index=False, encoding='utf-8')
+    df.to_excel(out_path, index=False)
 
 #makeMPDtexts()
 
