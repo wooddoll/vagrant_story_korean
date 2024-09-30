@@ -2,6 +2,10 @@
 - 일어판을 한글화
 
 ## 진행상황
+- 2024-9-30:
+   - 아이템이름 추출; MENU/ITEMNAME.BIN
+   - 아이템설명 추출; MENU/ITEMHELP.BIN - 파일 후반부에 아이템에 대한 설명이 있긴 한데... 주소를 어떻게 읽는지 모르겠다.
+   - 참고 <https://gamefaqs.gamespot.com/ps/914326-vagrant-story/faqs/8485>
 - 2024-9-29: 기술이름 추출; SLPS_023.77
    - 참고 <https://datacrystal.tcrf.net/wiki/Vagrant_Story/Main_exe>, <https://datacrystal.tcrf.net/wiki/Vagrant_Story/skills>
 - 2024-9-27: 일어판 LBA table 확인
