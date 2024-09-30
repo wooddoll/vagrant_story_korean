@@ -21,7 +21,4 @@
 ## 
   
 ## 참고
-- <https://datacrystal.tcrf.net/wiki/Vagrant_Story> 
-  * <https://datacrystal.tcrf.net/wiki/Vagrant_Story/File_formats>
-  * <https://datacrystal.tcrf.net/wiki/Vagrant_Story/Script_Opcodes>
-  * <https://datacrystal.tcrf.net/wiki/Vagrant_Story/TBL>
+- 나중에 확인 <https://archaic-ruins.lngn.net/utils/translte.htm>
