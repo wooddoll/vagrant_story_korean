@@ -7,6 +7,7 @@ import logging
 import yaml
 from tqdm import tqdm
 from font.makeTBL import readTBL
+from utils import *
 
 class convert_by_TBLdummy():
     def __init__(self) -> None:
@@ -55,7 +56,7 @@ class convert_by_TBL():
                 continue
             
             if self.inv_tbl.get(v) is not None:
-                logging.critical(f'duplicated, {self.inv_tbl[v]} <= {k}')
+                #logging.critical(f'duplicated, {self.inv_tbl[v]} <= {k}')
                 continue
                     
             if k < 0xE5:
@@ -75,11 +76,13 @@ class convert_by_TBL():
             tmp = bytesText[pos]
             pos += 1
             
-            if tmp == 0xE8:
-                strText += '↵'
-                continue
+            if tmp == 0xE6:
+                letter = None
             elif tmp == 0xE7:
                 break
+            elif tmp == 0xE8:
+                strText += '↵'
+                continue
             elif tmp >= 0xE5:
                 tmp = (tmp << 8) | bytesText[pos]
                 pos += 1
@@ -88,7 +91,7 @@ class convert_by_TBL():
                 letter = self.fwd_tbl.get(tmp)
 
             if letter is None:
-                strText += f'«{tmp:04X}»'
+                strText += f'«{tmp:02X}»' if tmp <= 0xFF else f'«{tmp:04X}»'
             else:
                 strText += letter
 
@@ -109,8 +112,11 @@ class convert_by_TBL():
                     pos += 1
                     if letter == '»': break
                     tmp += letter
-                byteText.append(int(tmp[:2], 16))
-                byteText.append(int(tmp[2:], 16))
+                if len(tmp) == 2:
+                    byteText.append(int(tmp[:2], 16))
+                else:
+                    byteText.append(int(tmp[:2], 16))
+                    byteText.append(int(tmp[2:], 16))
                 continue
             elif letter == '↵':
                 byteText.append(0xE8)

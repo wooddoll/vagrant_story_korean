@@ -8,6 +8,7 @@ from font.dialog import convert_by_TBL
 from utils import *
 from tqdm import tqdm
 from font import dialog
+import pandas as pd
 
 class SectionBase():
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
@@ -325,13 +326,13 @@ def exportTextFromMPD(mpd: MPDstruct, jpnTBL: convert_by_TBL):
     dialogLists = []
     for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
         text = jpnTBL.cvtBytes_str(dialogBytes)
-        rows, cols = checkSize(text)
+        rows, cols = dialog.checkSize(text)
         singleRow = []
         singleRow.append(idx)            
         singleRow.append(rows)
         singleRow.append(cols)
         if cols == 1:
-            text = vertical2flat(text)
+            text = dialog.vertical2flat(text)
         singleRow.append(text)
         dialogLists.append(singleRow)
     
@@ -343,14 +344,14 @@ def makeMPDtexts(folder_path: str, fontTable: convert_by_TBL, out_path: str):
 
     dialogLists = []
     
-    keyTBL = ReplaceKeyword("work/VSDictTable.tbl")
+    keyTBL = dialog.ReplaceKeyword("work/VSDictTable.tbl")
 
     for filepath in tqdm(file_list, desc="Processing"):
         mpd = MPDstruct(str(filepath))
 
         for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
             text = fontTable.cvtBytes_str(dialogBytes)
-            rows, cols = checkSize(text)
+            rows, cols = dialog.checkSize(text)
 
             singleRow = []
             singleRow.append(filepath.stem)
@@ -359,17 +360,17 @@ def makeMPDtexts(folder_path: str, fontTable: convert_by_TBL, out_path: str):
             singleRow.append(cols)
 
             if cols == 1:
-                text = vertical2flat(text)
+                text = dialog.vertical2flat(text)
 
             singleRow.append(text)
             # TODO
-            knText = keyTBL.replace(text)
-            singleRow.append(knText)
+            #knText = keyTBL.replace(text)
+            #singleRow.append(knText)
             dialogLists.append(singleRow)
 
-    df = pd.DataFrame(dialogLists, columns=['File', 'Index', 'rows', 'cols', 'Original', 'Translated'])
-    #df.to_csv(out_path, index=False, encoding='utf-8')
-    df.to_excel(out_path, index=False)
+    df = pd.DataFrame(dialogLists, columns=['File', 'Index', 'rows', 'cols', 'Original'])#, 'Translated'])
+    df.to_csv(out_path, index=False, encoding='utf-8')
+    #df.to_excel(out_path, index=False)
 
 #makeMPDtexts()
 

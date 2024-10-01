@@ -50,7 +50,7 @@ class Mainstruct():
             if len_name < 0x18:
                 self.names_byte[idx].extend([0]*(0x18 - len_name))
             if len_name > 0x18:
-                logging.critical(f"check the room name, size overflowed({len_name} > {0x18})")
+                logging.critical(f"check the skills name, size overflowed({len_name} > {0x18})")
                 self.names_byte[idx] = self.names_byte[idx][:0x18]
 
         byte_stream.seek(self.ptrSkillNames)

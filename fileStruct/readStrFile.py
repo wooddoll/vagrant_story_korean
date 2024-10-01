@@ -6,13 +6,11 @@ from pathlib import Path
 from font.dialog import convert_by_TBL
 from utils import *
 
-class ReadItemHelp():
-    Nums = 679
-    
+class ReadItemHelp(): 
     def __init__(self, input_path: str = '') -> None:
         self.string_byte = []
         self.string_str = []
-
+        self.Nums = -1
         if input_path:
             self.unpackData(input_path)
 
@@ -31,6 +29,9 @@ class ReadItemHelp():
             buffer = bytearray(file.read())
             len_buffer = len(buffer)
             byte_stream = io.BytesIO(buffer)
+            
+            self.Nums = int2(byte_stream.read(2))
+            byte_stream.seek(0)
             
             ptrs = []
             for idx in range(self.Nums):

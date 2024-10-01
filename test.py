@@ -6,7 +6,9 @@ from fileStruct.structMPD import MPDstruct
 from fileStruct.structZND import ZNDstruct
 from fileStruct.structARM import ARMstruct
 from fileStruct.structMain import Mainstruct
+from fileStruct.readNameFile import ItemNames
 from fileStruct.readStrFile import ReadItemHelp
+from fileStruct.readMONFile import MonStructure
 
 from font import dialog
 import utils
@@ -30,12 +32,12 @@ PATH_testZND = "MAP/ZONE009.ZND"
 #dummyTBL = dialog.convert_by_TBLdummy()
 
 #jpnTBL = makeTBL.makeTable("font/font14_table.txt", "font/jpn.tbl")
-#jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
 
-udaTBL = makeTBL.makeTable("font/font12_table.txt", "font/usa.tbl")
+#udaTBL = makeTBL.makeTable("font/font12_table.txt", "font/usa.tbl", 21)
 usaTBL = dialog.convert_by_TBL("font/usa.tbl")
 
-exit()
+#exit()
 
 def test1():
     mpd = MPDstruct()
@@ -133,33 +135,35 @@ def extractZNDnames():
         _namesInfiles.extend(znd.Enemy.name_str)
         _weaponesInfiles.extend(znd.Enemy.weapon_str)
     
-    for i in range(len(namesInfiles)):
-        namesInfiles[i] = f"{namesInfiles[i]}={_namesInfiles[i]}"
-        weaponesInfiles[i] = f"{weaponesInfiles[i]}={_weaponesInfiles[i]}"
     ###
     
-    words = set()
-    for name in namesInfiles:
-        if name:
-            words.add(name)
-    namesInfiles = sorted(list(words))
+    #for i in range(len(namesInfiles)):
+    #    namesInfiles[i] = f"{namesInfiles[i]}={_namesInfiles[i]}"
+    #    weaponesInfiles[i] = f"{weaponesInfiles[i]}={_weaponesInfiles[i]}"
+#
+    #words = set()
+    #for name in namesInfiles:
+    #    if name:
+    #        words.add(name)
+    #namesInfiles = sorted(list(words))
+#
+    #words = set()
+    #for name in weaponesInfiles:
+    #    if name:
+    #        words.add(name)
+    #weaponesInfiles = sorted(list(words))
 
-    words = set()
-    for name in weaponesInfiles:
-        if name:
-            words.add(name)
-    weaponesInfiles = sorted(list(words))
+    for i in range(len(namesInfiles)):
+        namesInfiles[i] = [ namesInfiles[i], _namesInfiles[i] ]
+        weaponesInfiles[i] = [ weaponesInfiles[i], _weaponesInfiles[i] ]
+    
+    df_name = pd.DataFrame(namesInfiles, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/MAP_ZND_names.csv'
+    df_name.to_csv(outpath, index=False, encoding='utf-8')
 
-
-    outpath = Path('work/ZNDnames.txt')
-    with open(outpath, 'wt', encoding='utf-8') as file:
-        file.write(f"#Enemies Names\n")
-        for name in namesInfiles:
-            file.write(name + '\n')
-
-        file.write(f"\n#Enemies Weapons\n")
-        for name in weaponesInfiles:
-            file.write(name + '\n')
+    df_weapon = pd.DataFrame(weaponesInfiles, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/MAP_ZND_weapon.csv'
+    df_weapon.to_csv(outpath, index=False, encoding='utf-8')
 
 #extractZNDnames()            
     
@@ -188,7 +192,7 @@ def extractARMnames():
         engInfiles.extend(arm.names_str)
 
     ###
-    
+
     len_jpn = len(namesInfiles)
     len_usa = len(engInfiles)
     if len_jpn != len_usa:
@@ -198,13 +202,17 @@ def extractARMnames():
     for i in range(len_jpn):
         jpn = namesInfiles[i]
         eng = engInfiles[i]
-        wordInfiles.append(f"{jpn},{eng}")
+        wordInfiles.append([jpn, eng])
 
-    outpath = Path('work/ARMnames.csv')
-    with open(outpath, 'wt', encoding='utf-8') as file:
-        file.write(f"#Area Names\n")
-        for name in wordInfiles:
-            file.write(name + '\n')
+    df = pd.DataFrame(wordInfiles, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/SMALL_ARM_names.csv'
+    df.to_csv(outpath, index=False, encoding='utf-8')
+    
+    #outpath = Path('work/ARMnames.csv')
+    #with open(outpath, 'wt', encoding='utf-8') as file:
+    #    file.write(f"#Area Names\n")
+    #    for name in wordInfiles:
+    #        file.write(name + '\n')
 
 #extractARMnames()
 
@@ -262,18 +270,11 @@ def makeMPDtexts(folder_path: str, fontTable: dialog.convert_by_TBL, out_path: s
         
             file.write( f"«{fileidx},{idx}»{singleRow[4]}\n" )
 
-def test5():
-    dialog.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/VSdialogJpn.xlsx')
 
-#test5()
-
-def test6():
-    dialog.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/VSdialogUsa.csv')
+    
 
 
 def cvtBytes():
-    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
-    
     while True:
         inp_text = input('Hex>')
         if not inp_text: break
@@ -282,11 +283,11 @@ def cvtBytes():
         len_inp = len(inp_text)
         i = 0
         while i < len_inp:
-            while inp_text[i] != ':':
+            while inp_text[i] == ' ':
                 i += 1
                 if i >= len_inp: break
-            if i >= len_inp: break
-            i += 1
+                continue
+            if i+2 >= len_inp: break
             inp_bytes.append(int(inp_text[i:i+2], 16))
             i += 2
         
@@ -297,6 +298,33 @@ def cvtBytes():
         print(f"\n{inp_text}")
 
 #cvtBytes()
+
+
+def cvtBytes2():
+    while True:
+        inp_text = input('Hex>')
+        if not inp_text: break
+
+        inp_bytes = []
+        len_inp = len(inp_text)
+        i = 0
+        while i < len_inp:
+            while inp_text[i] == ' ':
+                i += 1
+                if i >= len_inp: break
+                continue
+            if i+2 >= len_inp: break
+            inp_bytes.append(int(inp_text[i:i+2], 16))
+            i += 2
+        
+        _inp_bytes = bytes(inp_bytes)
+        inp_text = usaTBL.cvtBytes_str(_inp_bytes)
+        for v in _inp_bytes:
+            print(f"{v:02X} ", end='')
+        print(f"\n{inp_text}")
+
+
+
 
 def makeSkillnames():
     mainpath = Path(PATH_TEMP_VARGRANTSTORY) / Path('SLPS_023.77')
@@ -323,32 +351,54 @@ def makeSkillnames():
     for i in range(len_jpn):
         jpn = namesInfiles[i]
         eng = engInfiles[i]
-        wordInfiles.append(f"{jpn},{eng}")
+        wordInfiles.append([jpn, eng])
 
-    outpath = Path('work/SkillNames.csv')
-    with open(outpath, 'wt', encoding='utf-8') as file:
-        file.write(f"#Skill Names\n")
-        for name in wordInfiles:
-            file.write(name + '\n')
-
+    df = pd.DataFrame(wordInfiles, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/SLPS_main.csv'
+    df.to_csv(outpath, index=False, encoding='utf-8')
+    
 
 #makeSkillnames()
 
 #findword = dialog.Find_Word()
 #findword.find_in_folder(PATH_USA_VARGRANTSTORY, "work/find_in_USA.yaml")
 
-def test7():
+def MCMAN_en_jp():
+    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/MCMAN.BIN")
+    help_jp = ReadItemHelp(str(inp_path))
+    help_jp.cvtByte2Str(jpnTBL)
+
+    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/MCMAN.BIN")
+    help_en = ReadItemHelp(str(inp_path))
+    help_en.cvtByte2Str(usaTBL)
+
+    texts = []
+    for jp, en in zip(help_jp.string_str, help_en.string_str):
+        texts.append([jp, en])
+
+    df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/MENU_MCMAN_BIN.csv'
+    df.to_csv(outpath, index=False, encoding='utf-8')
+
+
+def ITEMHELP_en_jp():
     inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
-    help = ReadItemHelp(str(inp_path))
-    help.cvtByte2Str(jpnTBL)
+    help_jp = ReadItemHelp(str(inp_path))
+    help_jp.cvtByte2Str(jpnTBL)
 
-    help.cvtStr2Byte(jpnTBL)
-    help.packData('work/ITEMHELP.BIN')
-    
-    for text in help.string_str:
-        print(text)
+    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
+    help_en = ReadItemHelp(str(inp_path))
+    help_en.cvtByte2Str(usaTBL)
 
-test7()
+    texts = []
+    for jp, en in zip(help_jp.string_str, help_en.string_str):
+        texts.append([jp, en])
+
+    df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/MENU_ITEMHELP_BIN.csv'
+    df.to_csv(outpath, index=False, encoding='utf-8')
+
+#test7()
         
 def test8():
     inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
@@ -377,5 +427,57 @@ def test9():
             ptr = utils.int2(buffer[2*i:2*i+2]) * 2
             print(f"{i} _ {hex(2*i)} : {hex(ptr)}")
 
+def ItemNames_en_jp():
+    names_en = ItemNames(PATH_USA_VARGRANTSTORY)
+    names_en.cvtByte2Name(usaTBL)
+    names_jp = ItemNames(PATH_TEMP_VARGRANTSTORY)
+    names_jp.cvtByte2Name(jpnTBL)
+    
+    texts = []
+    for jp, en in zip(names_jp.name_str, names_en.name_str):
+        texts.append([jp, en])
 
-            
+    df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/MENU_ITEMNAME_BIN.csv'
+    df.to_csv(outpath, index=False, encoding='utf-8')
+
+def SMALL_MON_BIN_en():
+    mon = MonStructure(PATH_USA_VARGRANTSTORY)
+    mon.cvtByte2Name(usaTBL)
+    texts_en = []
+    for idx in range(mon.ItemNumber):
+        texts_en.append( [mon.name_str[idx], mon.string_str[idx]] )
+    
+    df_en = pd.DataFrame(texts_en, columns=['name', 'desc.'])
+    outpath = 'work/strings/SMALL_MON_BIN_en.csv'
+    df_en.to_csv(outpath, index=False, encoding='utf-8')
+
+def SMALL_MON_BIN_jp():
+    mon = MonStructure(PATH_TEMP_VARGRANTSTORY)
+    mon.cvtByte2Name(jpnTBL)
+    texts_jp = []
+    for idx in range(mon.ItemNumber):
+        texts_jp.append( [mon.name_str[idx], mon.string_str[idx]] )
+    
+    df_jp = pd.DataFrame(texts_jp, columns=['name', 'desc.'])
+    outpath = 'work/strings/SMALL_MON_BIN_jp.csv'
+    df_jp.to_csv(outpath, index=False, encoding='utf-8')
+
+def extractAll():
+    ITEMHELP_en_jp()
+    exit()
+    extractARMnames()
+    extractZNDnames()
+    makeSkillnames()
+    ItemNames_en_jp()
+    MCMAN_en_jp()
+    
+    SMALL_MON_BIN_en()
+    SMALL_MON_BIN_jp()
+
+    fileStruct.structMPD.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.csv')
+    fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.csv')
+    
+extractAll()
+
+#cvtBytes2()
