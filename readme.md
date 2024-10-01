@@ -7,7 +7,7 @@
 - MENU/MCMAN.BIN      ; ui 
 - MENU/ITEMHELP.BIN   ; item text
 - MAP/*.MPD           ; dialog!!, treasure weapon name
-- MAP/*.ZND           ; NPC name, weapone name
+- MAP/*.ZND           ; NPC name, weapon name
 - SMALL/*.ARM         ; room names
 
 ## 진행상황
