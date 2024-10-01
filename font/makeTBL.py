@@ -23,6 +23,8 @@ def makeTable(font14_table: str, outpath: str = "", LINE_COLS = 18):
                 else:
                     strHex = "0x%0.4X" % cidx
 
+                if table.get(strHex) is not None:
+                    logging.critical(f'duplicated {strHex}={str(line[i])}')
                 table[strHex] = str(line[i])
 
                 cidx += 1
@@ -47,7 +49,6 @@ def makeTable(font14_table: str, outpath: str = "", LINE_COLS = 18):
     for r, line in enumerate(t_table):
         for c, letter in enumerate(line):
             if letter == 0: continue
-            if letter == '_':  letter = ' '
 
             index = LINE_COLS*r + c
             if index < tblSection[0]:

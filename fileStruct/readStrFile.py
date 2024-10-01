@@ -6,8 +6,8 @@ from pathlib import Path
 from font.dialog import convert_by_TBL
 from utils import *
 
-class ReadStrings():
-    OFFSET = 0x54E
+class ReadItemHelp():
+    Nums = 679
     
     def __init__(self, input_path: str = '') -> None:
         self.string_byte = []
@@ -16,18 +16,12 @@ class ReadStrings():
         if input_path:
             self.unpackData(input_path)
 
-    def cvtName2Byte(self, table: convert_by_TBL):
+    def cvtStr2Byte(self, table: convert_by_TBL):
         self.string_byte.clear()
         for data in self.string_str:
-            byteData = table.cvtStr_Bytes(data)
-            if byteData[-1] != 0xE7:
-                byteData.append(0xE7)
-            len_byteData = len(byteData)
-            if (len_byteData%2) == 1:
-                byteData.append(0xEB)
-            self.string_byte.append(byteData)
+            self.string_byte.append(table.cvtStr_Bytes(data, True))
     
-    def cvtByte2Name(self, table: convert_by_TBL):
+    def cvtByte2Str(self, table: convert_by_TBL):
         self.string_str.clear()
         for data in self.string_byte:
             self.string_str.append(table.cvtBytes_str(data))
@@ -36,24 +30,36 @@ class ReadStrings():
         with open(input_path, 'rb') as file:
             buffer = bytearray(file.read())
             len_buffer = len(buffer)
-
+            byte_stream = io.BytesIO(buffer)
+            
+            ptrs = []
+            for idx in range(self.Nums):
+                pos = int2(byte_stream.read(2))
+                ptrs.append(2*pos)
+            ptrs.append(len_buffer)
+            
+            if (ptrs[0]//2) != self.Nums:
+                logging.critical(f"check the number of texts, size different; {self.Nums} != current({ptrs[0]//2})")
+                
             self.string_byte.clear()
-            pos = self.OFFSET
-            while pos < len_buffer:
-                curr = pos
-                while buffer[curr] != 0xE7:
-                    curr += 1
-                    if curr >= len_buffer: break
-                
-                if curr < len_buffer and buffer[curr+1] == 0xEB:
-                    curr += 1
-                data = buffer[pos:curr]
+            for idx in range(self.Nums):
+                pos = ptrs[idx]
+                nextpos = ptrs[idx+1]
+                data = buffer[pos:nextpos]
                 self.string_byte.append(data)
-                
-                pos = curr + 1
 
     def packData(self, output_path:str):
+        if self.Nums != len(self.string_byte):
+            logging.critical(f"check the number of texts, size different; {self.Nums} != current({len(self.string_byte)})")
+        
+        ptrs = [ self.Nums ]
+        for idx in range(self.Nums):
+            ptrs.append(ptrs[-1] + len(self.string_byte[idx])//2)
+
         with open(output_path, 'wb') as file:
+            for idx in range(self.Nums):
+                file.write(bytes2(ptrs[idx]))
+                
             for idx in range(len(self.string_byte)):
                 data = self.string_byte[idx]
                 file.write(data)

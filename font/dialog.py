@@ -6,7 +6,6 @@ from copy import deepcopy
 import logging
 import yaml
 from tqdm import tqdm
-from fileStruct.structMPD import MPDstruct
 from font.makeTBL import readTBL
 
 class convert_by_TBLdummy():
@@ -55,6 +54,10 @@ class convert_by_TBL():
             if len(v) != 1:
                 continue
             
+            if self.inv_tbl.get(v) is not None:
+                logging.critical(f'duplicated, {self.inv_tbl[v]} <= {k}')
+                continue
+                    
             if k < 0xE5:
                 self.inv_tbl[v] = [k]
             else:
@@ -91,7 +94,7 @@ class convert_by_TBL():
 
         return strText
 
-    def cvtStr_Bytes(self, strText: str) -> bytearray:
+    def cvtStr_Bytes(self, strText: str, align2B = False) -> bytearray:
         length = len(strText)
         pos = 0
         byteText = bytearray()
@@ -110,12 +113,16 @@ class convert_by_TBL():
                 byteText.append(int(tmp[2:], 16))
                 continue
             elif letter == '↵':
-                byteText.append(0xe8)
+                byteText.append(0xE8)
                 continue
             else:
                 ret = self.inv_tbl.get(letter)
                 if ret is not None:
                     byteText.extend(ret)
+        
+        byteText.append(0xE7)
+        if align2B and len(byteText) % 2:
+            byteText.append(0xEB)
 
         return byteText
 
@@ -312,57 +319,6 @@ class Find_Word():
             yaml.dump(wordinfiles, file, encoding='utf-8')
 
 
-def exportTextFromMPD(mpd: MPDstruct, jpnTBL: convert_by_TBL):
-    dialogLists = []
-    for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
-        text = jpnTBL.cvtBytes_str(dialogBytes)
-        rows, cols = checkSize(text)
-        singleRow = []
-        singleRow.append(idx)            
-        singleRow.append(rows)
-        singleRow.append(cols)
-        if cols == 1:
-            text = vertical2flat(text)
-        singleRow.append(text)
-        dialogLists.append(singleRow)
-    
-    return dialogLists
-
-def makeMPDtexts(folder_path: str, fontTable: convert_by_TBL, out_path: str):
-    extension = '*.MPD'
-    file_list = list(Path(folder_path).glob(extension))
-
-    dialogLists = []
-    
-    keyTBL = ReplaceKeyword("work/VSDictTable.tbl")
-
-    for filepath in tqdm(file_list, desc="Processing"):
-        mpd = MPDstruct(str(filepath))
-
-        for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
-            text = fontTable.cvtBytes_str(dialogBytes)
-            rows, cols = checkSize(text)
-
-            singleRow = []
-            singleRow.append(filepath.stem)
-            singleRow.append(idx)            
-            singleRow.append(rows)
-            singleRow.append(cols)
-
-            if cols == 1:
-                text = vertical2flat(text)
-
-            singleRow.append(text)
-            # TODO
-            knText = keyTBL.replace(text)
-            singleRow.append(knText)
-            dialogLists.append(singleRow)
-
-    df = pd.DataFrame(dialogLists, columns=['File', 'Index', 'rows', 'cols', 'Original', 'Translated'])
-    #df.to_csv(out_path, index=False, encoding='utf-8')
-    df.to_excel(out_path, index=False)
-
-#makeMPDtexts()
 
 def readExelDialog(csv_path:str):
     dialogLists = {}
@@ -392,26 +348,3 @@ def readExelDialog(csv_path:str):
     return dialogLists
 
 
-def importDialog2MPD(original_folder_path: str, dialogLists, jpnTBL:convert_by_TBL, output_folder_path:str):
-    #original_folder_path = Path('D:/Projects/vagrant_story_korean/font/test/jpn')
-    #output_folder_path = 'D:/Projects/vagrant_story_korean/'
-    # TODO replace to krTBL
-    #jpnTBL = convert_by_TBL("D:/Projects/vagrant_story_korean/font/jpn.tbl")
-
-    extension = '*.MPD'
-    file_list = list(original_folder_path.glob(extension))
-    for filepath in tqdm(file_list, desc="Processing"):
-        mpd = MPDstruct(str(filepath))
-
-        filename = filepath.stem
-        texts = dialogLists.get(filename)
-        if texts is not None:
-            for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
-                byteText = jpnTBL.cvtStr_Bytes(texts[idx])
-                mpd.scriptSection.dialogText.dialogBytes[idx] = byteText
-
-        outpath = os.path.join(output_folder_path, f"{filename}.MPD")
-        mpd.packData(outpath)
-
-#dialogLists = readExelDialog('VSdialog.csv')
-#importDialog2MPD(dialogLists)

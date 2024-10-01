@@ -4,10 +4,10 @@ import os
 import logging
 import math
 from pathlib import Path
-
+from font.dialog import convert_by_TBL
 from utils import *
-
-
+from tqdm import tqdm
+from font import dialog
 
 class SectionBase():
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
@@ -25,6 +25,47 @@ class SectionBase():
     def packData(self):
         return self.buffer
 
+class TreasureSection():
+    ptrWeaponName = 0x94
+    
+    def __init__(self, buffer: bytes | None = None) -> None:
+        self.buffer = None
+        self.name_str = ''
+        self.name_byte = None
+
+        if buffer is not None:
+            self.unpackData(buffer)
+
+    def __len__(self):
+        return len(self.buffer) if self.buffer is not None else 0
+    
+    def unpackData(self, buffer: bytes):
+        if buffer is not None:
+            self.buffer = bytearray(buffer)
+        else:
+            return
+        
+        byte_stream = io.BytesIO(self.buffer)
+        byte_stream.seek(self.ptrWeaponName)
+        data = byte_stream.read(0x18)
+        self.name_byte = trimTextBytes(data)
+
+    def cvtByte2Name(self, table: convert_by_TBL):
+        self.name_str = table.cvtBytes_str(self.name_byte)
+        
+    def cvtName2Byte(self, table: convert_by_TBL):
+        self.name_byte = table.cvtStr_Bytes(self.name_str, True)
+            
+    def packData(self):
+        if self.buffer is None:
+            return
+
+        byte_stream = io.BytesIO(self.buffer)
+        byte_stream.seek(self.name_byte)
+        byte_stream.write(0x18)
+        
+        return self.buffer
+        
 class DialogText(SectionBase):
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.buffer = None
@@ -201,7 +242,7 @@ class MPDstruct():
         self.scriptSection      = ScriptSection()
         self.doorSection        = SectionBase()
         self.enemySection       = SectionBase()
-        self.treasureSection    = SectionBase()
+        self.treasureSection    = TreasureSection()
 
         if input_path:
             self.unpackData(input_path)
@@ -277,3 +318,81 @@ class MPDstruct():
 #mpd.unpackData("D:/Projects/vagrant_story_korean/font/test/jpn/MAP001.MPD")
 #mpd.packData("D:/Projects/vagrant_story_korean/MAP001.MPD")
 
+
+
+
+def exportTextFromMPD(mpd: MPDstruct, jpnTBL: convert_by_TBL):
+    dialogLists = []
+    for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
+        text = jpnTBL.cvtBytes_str(dialogBytes)
+        rows, cols = checkSize(text)
+        singleRow = []
+        singleRow.append(idx)            
+        singleRow.append(rows)
+        singleRow.append(cols)
+        if cols == 1:
+            text = vertical2flat(text)
+        singleRow.append(text)
+        dialogLists.append(singleRow)
+    
+    return dialogLists
+
+def makeMPDtexts(folder_path: str, fontTable: convert_by_TBL, out_path: str):
+    extension = '*.MPD'
+    file_list = list(Path(folder_path).glob(extension))
+
+    dialogLists = []
+    
+    keyTBL = ReplaceKeyword("work/VSDictTable.tbl")
+
+    for filepath in tqdm(file_list, desc="Processing"):
+        mpd = MPDstruct(str(filepath))
+
+        for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
+            text = fontTable.cvtBytes_str(dialogBytes)
+            rows, cols = checkSize(text)
+
+            singleRow = []
+            singleRow.append(filepath.stem)
+            singleRow.append(idx)            
+            singleRow.append(rows)
+            singleRow.append(cols)
+
+            if cols == 1:
+                text = vertical2flat(text)
+
+            singleRow.append(text)
+            # TODO
+            knText = keyTBL.replace(text)
+            singleRow.append(knText)
+            dialogLists.append(singleRow)
+
+    df = pd.DataFrame(dialogLists, columns=['File', 'Index', 'rows', 'cols', 'Original', 'Translated'])
+    #df.to_csv(out_path, index=False, encoding='utf-8')
+    df.to_excel(out_path, index=False)
+
+#makeMPDtexts()
+
+def importDialog2MPD(original_folder_path: str, dialogLists, jpnTBL:convert_by_TBL, output_folder_path:str):
+    #original_folder_path = Path('D:/Projects/vagrant_story_korean/font/test/jpn')
+    #output_folder_path = 'D:/Projects/vagrant_story_korean/'
+    # TODO replace to krTBL
+    #jpnTBL = convert_by_TBL("D:/Projects/vagrant_story_korean/font/jpn.tbl")
+
+    extension = '*.MPD'
+    file_list = list(original_folder_path.glob(extension))
+    for filepath in tqdm(file_list, desc="Processing"):
+        mpd = MPDstruct(str(filepath))
+
+        filename = filepath.stem
+        texts = dialogLists.get(filename)
+        if texts is not None:
+            for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
+                byteText = jpnTBL.cvtStr_Bytes(texts[idx])
+                mpd.scriptSection.dialogText.dialogBytes[idx] = byteText
+
+        outpath = os.path.join(output_folder_path, f"{filename}.MPD")
+        mpd.packData(outpath)
+
+#dialogLists = readExelDialog('VSdialog.csv')
+#importDialog2MPD(dialogLists)

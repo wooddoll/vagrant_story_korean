@@ -1,10 +1,12 @@
 
 from font import makeTBL, cvtFontBin
 
+import fileStruct
 from fileStruct.structMPD import MPDstruct
 from fileStruct.structZND import ZNDstruct
 from fileStruct.structARM import ARMstruct
 from fileStruct.structMain import Mainstruct
+from fileStruct.readStrFile import ReadItemHelp
 
 from font import dialog
 import utils
@@ -22,23 +24,32 @@ logging.basicConfig(
 
 
 
-PATH_testMPD = "MAP/MAP001.MPD"
+PATH_testMPD = "MAP/MAP041.MPD"
 PATH_testZND = "MAP/ZONE009.ZND"
 
+#dummyTBL = dialog.convert_by_TBLdummy()
 
+#jpnTBL = makeTBL.makeTable("font/font14_table.txt", "font/jpn.tbl")
+#jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+
+udaTBL = makeTBL.makeTable("font/font12_table.txt", "font/usa.tbl")
+usaTBL = dialog.convert_by_TBL("font/usa.tbl")
+
+exit()
 
 def test1():
-    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
-
     mpd = MPDstruct()
     mpd_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(PATH_testMPD)
     mpd.unpackData(str(mpd_path))
 
-    dialogLists = dialog.exportTextFromMPD(mpd, jpnTBL)
+    dialogLists = fileStruct.structMPD.exportTextFromMPD(mpd, jpnTBL)
     df = pd.DataFrame(dialogLists, columns=['Index', 'rows', 'cols', 'Original'])
     #out_path = os.path.join(PATH_TEMP, f'{Path(PATH_testMPD).stem}.csv')
     outpath = Path(PATH_TEMP) / Path(f'Test/{Path(PATH_testMPD).stem}.csv')
     df.to_csv(outpath, index=False, encoding='utf-8')
+
+#test1()
+
 
 def readExelDialog(csv_path:str):
     dialogLists = []
@@ -57,8 +68,6 @@ def readExelDialog(csv_path:str):
     return dialogLists
 
 def test2():
-    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
-    
     mpd = MPDstruct()
     mpd_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(PATH_testMPD)
     mpd.unpackData(str(mpd_path))
@@ -79,15 +88,12 @@ def test3():
     cmd = f'{PATH_psxinject} "{PATH_TEMP_VARGRANTSTORY_IMAGE}" {PATH_testMPD} {str(mpd_path)}'
     utils.run_cmd(cmd, PATH_TEMP)
 
-#jpnTBL = makeTBL.makeTable("font/font14_table.txt", "font/jpn.tbl")
-#test1()
+
 #test2()
 #test3()
 
 
 def test4():
-    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
-
     znd_path = f'{PATH_TEMP_VARGRANTSTORY}/{PATH_testZND}'
     znd = ZNDstruct(znd_path)
 
@@ -98,8 +104,6 @@ def test4():
 
 
 def extractZNDnames():
-    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
-
     namesInfiles = []
     weaponesInfiles = []
 
@@ -115,9 +119,6 @@ def extractZNDnames():
         weaponesInfiles.extend(znd.Enemy.weapon_str)
     
     ###
-    
-    usaTBL = dialog.convert_by_TBL("font/usa.tbl")
-
     _namesInfiles = []
     _weaponesInfiles = []
 
@@ -163,8 +164,6 @@ def extractZNDnames():
 #extractZNDnames()            
     
 def extractARMnames():
-    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
-
     namesInfiles = []
     folder_path = Path(PATH_TEMP_VARGRANTSTORY) / Path('SMALL')
     file_list = [file for file in folder_path.rglob('*.ARM') if file.is_file()]
@@ -177,9 +176,6 @@ def extractARMnames():
         namesInfiles.extend(arm.names_str)
 
     ####
-    dummyTBL = dialog.convert_by_TBLdummy()
-    usaTBL = dialog.convert_by_TBL("font/usa.tbl")
-
     engInfiles = []
     folder_path = Path(PATH_USA_VARGRANTSTORY) / Path('SMALL')
     file_list = [file for file in folder_path.rglob('*.ARM') if file.is_file()]
@@ -267,13 +263,11 @@ def makeMPDtexts(folder_path: str, fontTable: dialog.convert_by_TBL, out_path: s
             file.write( f"«{fileidx},{idx}»{singleRow[4]}\n" )
 
 def test5():
-    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
     dialog.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/VSdialogJpn.xlsx')
 
 #test5()
 
 def test6():
-    usaTBL = dialog.convert_by_TBL("font/usa.tbl")
     dialog.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/VSdialogUsa.csv')
 
 
@@ -305,8 +299,6 @@ def cvtBytes():
 #cvtBytes()
 
 def makeSkillnames():
-    jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
-
     mainpath = Path(PATH_TEMP_VARGRANTSTORY) / Path('SLPS_023.77')
     namesInfiles = []
     skill_jpn = Mainstruct(str(mainpath))
@@ -314,9 +306,6 @@ def makeSkillnames():
     namesInfiles.extend(skill_jpn.names_str)
 
     ####
-    dummyTBL = dialog.convert_by_TBLdummy()
-    usaTBL = dialog.convert_by_TBL("font/usa.tbl")
-
     mainpath = Path(PATH_USA_VARGRANTSTORY) / Path('SLUS_010.40')
     engInfiles = []
     skill_usa = Mainstruct(str(mainpath))
@@ -345,5 +334,48 @@ def makeSkillnames():
 
 #makeSkillnames()
 
-findword = dialog.Find_Word()
-findword.find_in_folder(PATH_USA_VARGRANTSTORY, "work/find_in_USA.yaml")
+#findword = dialog.Find_Word()
+#findword.find_in_folder(PATH_USA_VARGRANTSTORY, "work/find_in_USA.yaml")
+
+def test7():
+    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
+    help = ReadItemHelp(str(inp_path))
+    help.cvtByte2Str(jpnTBL)
+
+    help.cvtStr2Byte(jpnTBL)
+    help.packData('work/ITEMHELP.BIN')
+    
+    for text in help.string_str:
+        print(text)
+
+test7()
+        
+def test8():
+    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
+    with open(str(inp_path), 'rb') as file:
+        buffer = bytearray(file.read())
+        len_buffer = len(buffer)
+        
+        for i in range(0, len_buffer, 2):
+            data0 = utils.int2(buffer[i:i+2])
+            data1 = utils.int2(buffer[i+2:i+4])
+            data2 = utils.int2(buffer[i+4:i+6])
+            data3 = utils.int2(buffer[i+6:i+8])
+            
+            if (data1 - data0) == 0xf and (data2 - data1) == 0x16 and (data3 - data2) == 0xE:
+                print(f"{hex(i)}({hex(data0)}), {hex(i+2)}({hex(data1)}) - ", end='')
+                print(f"{hex(i+2)}({hex(data1)}), {hex(i+4)}({hex(data2)}) - ", end='')
+                print(f"{hex(i+4)}({hex(data2)}), {hex(i+6)}({hex(data3)})")
+                
+def test9():
+    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
+    with open(str(inp_path), 'rb') as file:
+        buffer = bytearray(file.read())
+        len_buffer = len(buffer)
+        
+        for i in range(679):
+            ptr = utils.int2(buffer[2*i:2*i+2]) * 2
+            print(f"{i} _ {hex(2*i)} : {hex(ptr)}")
+
+
+            

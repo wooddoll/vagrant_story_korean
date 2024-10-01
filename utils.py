@@ -99,6 +99,14 @@ def injectFile(image_path:str, path_file):
 
 #injectFile(PATH_TEMP_VARGRANTSTORY_IMAGE, "")
 
+def trimTextBytes(byte_array: bytearray):
+    len_bytes = len(byte_array)
+    pos = 0
+    while pos < len_bytes:
+        if byte_array[pos] == 0xE7: break
+        pos += 1
+
+    return byte_array[:pos]
 
 def format_byte_array(byte_array: bytearray, ControlWord: bool = False):
     if not ControlWord:
