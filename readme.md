@@ -1,6 +1,15 @@
 # Vagrant Story 한글화 
 - 일어판을 한글화
 
+## 문자열 추출 파일
+- SLPS_023.77         ; skill name x256
+- MENU/ITEMNAME.BIN   ; item name  x512
+- MENU/MCMAN.BIN      ; ui 
+- MENU/ITEMHELP.BIN   ; item text
+- MAP/*.MPD           ; dialog!!, treasure weapon name
+- MAP/*.ZND           ; NPC name, weapone name
+- SMALL/*.ARM         ; room names
+
 ## 진행상황
 - 2024-10-1: font table 수정
    - font image를 OCR로 읽었는데, 다시 확인해보니 잘못읽어서 중복된 한자로 된게 여러개 있다. 해상도가 너무 낮아서 대충 비슷하게 생긴 한자로 수정함. 어째 번역이 좀 이상하더라...
