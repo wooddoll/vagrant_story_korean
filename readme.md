@@ -4,7 +4,9 @@
 ## 진행상황
 - 2024-9-30:
    - 아이템이름 추출; MENU/ITEMNAME.BIN
-   - 아이템설명 추출; MENU/ITEMHELP.BIN - 파일 후반부에 아이템에 대한 설명이 있긴 한데... 주소를 어떻게 읽는지 모르겠다.
+      - 24바이트씩 이름이 512개가 연속으로 있음 
+   - 아이템설명 추출; MENU/ITEMHELP.BIN
+      - 2바이트 주소가 679개 연이어 있음. 실제 주소값은 읽은 값의 2배임
    - 참고 <https://gamefaqs.gamespot.com/ps/914326-vagrant-story/faqs/8485>
 - 2024-9-29: 기술이름 추출; SLPS_023.77
    - 참고 <https://datacrystal.tcrf.net/wiki/Vagrant_Story/Main_exe>, <https://datacrystal.tcrf.net/wiki/Vagrant_Story/skills>
@@ -18,6 +20,7 @@
    - 참고 <https://datacrystal.tcrf.net/wiki/Vagrant_Story/ZND_files>
 - 2024-9-23: 대사 추출; MAP/*.MPD
    - 참고 <https://datacrystal.tcrf.net/wiki/Vagrant_Story/MPD_files>
+   - 보물상자에 있는 무기의 이름도 있음 - 몇개만 확인해봤는데, 전부 빈칸이다. 나중에 다시 확인
    - 대부분의 파일 크기가 LBA경계 보다 작아서 대사길이가 좀 늘어도 여유가 있음
 - 2024-9-19: 일본어 폰트 추출; MENU/FONT14.BIN
    - 참고 <https://github.com/HilltopWorks/VagrantStory-Font/tree/main>
