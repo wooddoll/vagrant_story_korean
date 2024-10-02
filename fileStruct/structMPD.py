@@ -9,6 +9,8 @@ from utils import *
 from tqdm import tqdm
 from font import dialog
 import pandas as pd
+from fileStruct.readNameFile import ReadNames
+from fileStruct.readStrFile import ReadStrings
 
 class SectionBase():
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
@@ -29,7 +31,7 @@ class SectionBase():
 class TreasureSection():
     ptrWeaponName = 0x94
     
-    def __init__(self, buffer: bytes | None = None) -> None:
+    def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.buffer = None
         self.name_str = ''
         self.name_byte = None
@@ -66,8 +68,42 @@ class TreasureSection():
         byte_stream.write(0x18)
         
         return self.buffer
+
+class DialogText():
+    def __init__(self, buffer: Union[bytes, None] = None) -> None:
+        self.strings = ReadStrings()
+        self.strings_byte = self.strings._byte
+        self.strings_str = self.strings._str
         
-class DialogText(SectionBase):
+        if buffer is not None:
+            self.unpackData(buffer)
+    
+    def cvtStr2Byte(self, table: convert_by_TBL):
+        self.strings.cvtStr2Byte(table)
+        self.strings_byte = self.strings._byte
+    
+    def cvtByte2Str(self, table: convert_by_TBL):
+        self.strings.cvtByte2Str(table)
+        self.strings_str = self.strings._str
+    
+    def unpackData(self, buffer: bytes):
+        self.strings.unpackData(buffer)
+        self.strings_byte = self.strings._byte
+        
+    def packData(self):
+        if self.strings.buffer is None:
+            return None
+        
+        preSize = len(self.strings.buffer) - 2*self.strings.itemNums
+        sumBytes = 0
+        for text in self.strings_byte:
+            sumBytes += len(text)
+        if preSize < sumBytes:
+            logging.warning(f"check the dialogs length, size overflowed; privious({preSize}) < current({sumBytes})")
+        
+        return self.strings.packData()
+  
+class DialogText2(SectionBase):
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.buffer = None
         self.dialogBytes = []
@@ -323,9 +359,9 @@ class MPDstruct():
 
 
 def exportTextFromMPD(mpd: MPDstruct, jpnTBL: convert_by_TBL):
+    mpd.scriptSection.dialogText.cvtByte2Str(jpnTBL)
     dialogLists = []
-    for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
-        text = jpnTBL.cvtBytes_str(dialogBytes)
+    for idx, text in enumerate(mpd.scriptSection.dialogText.strings_str):
         rows, cols = dialog.checkSize(text)
         singleRow = []
         singleRow.append(idx)            

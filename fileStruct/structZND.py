@@ -16,7 +16,7 @@ class ZND_MPD_data():
         self.file_name: str = ''
 
 class ZND_MPD():
-    def __init__(self, buffer: bytes | None = None) -> None:
+    def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.MPD: List[ZND_MPD_data] = []
 
         if buffer is not None:
@@ -56,7 +56,7 @@ class ZND_MPD():
             byte_stream.write(bytes4(data.file_size))        
 
 class ZND_Enemy():
-    def __init__(self, buffer: bytes | None = None) -> None:
+    def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.name_byte: List[bytearray] = []
         self.weapon_byte: List[bytearray] = []
 

@@ -76,16 +76,15 @@ class convert_by_TBL():
             tmp = bytesText[pos]
             pos += 1
             
-            if tmp == 0xE6:
-                letter = None
-            elif tmp == 0xE7:
+            if tmp == 0xE7:
                 break
             elif tmp == 0xE8:
                 strText += '↵'
                 continue
             elif tmp >= 0xE5:
-                tmp = (tmp << 8) | bytesText[pos]
-                pos += 1
+                if (pos+1) < length:
+                    tmp = (tmp << 8) | bytesText[pos]
+                    pos += 1
                 letter = self.fwd_tbl.get(tmp)
             else:
                 letter = self.fwd_tbl.get(tmp)
@@ -112,10 +111,9 @@ class convert_by_TBL():
                     pos += 1
                     if letter == '»': break
                     tmp += letter
-                if len(tmp) == 2:
-                    byteText.append(int(tmp[:2], 16))
-                else:
-                    byteText.append(int(tmp[:2], 16))
+                
+                byteText.append(int(tmp[:2], 16))
+                if len(tmp) == 4:
                     byteText.append(int(tmp[2:], 16))
                 continue
             elif letter == '↵':

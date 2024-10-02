@@ -50,7 +50,7 @@ def test1():
     outpath = Path(PATH_TEMP) / Path(f'Test/{Path(PATH_testMPD).stem}.csv')
     df.to_csv(outpath, index=False, encoding='utf-8')
 
-#test1()
+test1()
 
 
 def readExelDialog(csv_path:str):
@@ -276,7 +276,7 @@ def makeMPDtexts(folder_path: str, fontTable: dialog.convert_by_TBL, out_path: s
 
 def cvtBytes():
     while True:
-        inp_text = input('Hex>')
+        inp_text = input('Jpn>')
         if not inp_text: break
 
         inp_bytes = []
@@ -297,12 +297,10 @@ def cvtBytes():
             print(f"{v:02X} ", end='')
         print(f"\n{inp_text}")
 
-#cvtBytes()
-
 
 def cvtBytes2():
     while True:
-        inp_text = input('Hex>')
+        inp_text = input('Usa>')
         if not inp_text: break
 
         inp_bytes = []
@@ -391,7 +389,7 @@ def ITEMHELP_en_jp():
     help_en.cvtByte2Str(usaTBL)
 
     texts = []
-    for jp, en in zip(help_jp.string_str, help_en.string_str):
+    for jp, en in zip(help_jp.strings_str, help_en.strings_str):
         texts.append([jp, en])
 
     df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
@@ -428,13 +426,14 @@ def test9():
             print(f"{i} _ {hex(2*i)} : {hex(ptr)}")
 
 def ItemNames_en_jp():
-    names_en = ItemNames(PATH_USA_VARGRANTSTORY)
+    
+    names_en = ItemNames(str(Path(PATH_USA_VARGRANTSTORY) / Path('MENU/ITEMNAME.BIN')))
     names_en.cvtByte2Name(usaTBL)
-    names_jp = ItemNames(PATH_TEMP_VARGRANTSTORY)
+    names_jp = ItemNames(str(Path(PATH_TEMP_VARGRANTSTORY) / Path('MENU/ITEMNAME.BIN')))
     names_jp.cvtByte2Name(jpnTBL)
     
     texts = []
-    for jp, en in zip(names_jp.name_str, names_en.name_str):
+    for jp, en in zip(names_jp.names_str, names_en.names_str):
         texts.append([jp, en])
 
     df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
@@ -463,21 +462,70 @@ def SMALL_MON_BIN_jp():
     outpath = 'work/strings/SMALL_MON_BIN_jp.csv'
     df_jp.to_csv(outpath, index=False, encoding='utf-8')
 
+def MENU12_en_jp():
+    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/MENU12.BIN")
+    help_jp = ReadItemHelp(str(inp_path))
+    help_jp.cvtByte2Str(jpnTBL)
+
+    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/MENU12.BIN")
+    help_en = ReadItemHelp(str(inp_path))
+    help_en.cvtByte2Str(usaTBL)
+
+    texts = []
+    for jp, en in zip(help_jp.string_str, help_en.string_str):
+        texts.append([jp, en])
+
+    df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/MENU_MENU12_BIN.csv'
+    df.to_csv(outpath, index=False, encoding='utf-8')
+
+
 def extractAll():
-    ITEMHELP_en_jp()
-    exit()
-    extractARMnames()
-    extractZNDnames()
     makeSkillnames()
     ItemNames_en_jp()
+    ITEMHELP_en_jp()
     MCMAN_en_jp()
+    MENU12_en_jp()  
     
     SMALL_MON_BIN_en()
     SMALL_MON_BIN_jp()
 
+    extractARMnames()
+    extractZNDnames()
+    
     fileStruct.structMPD.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.csv')
     fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.csv')
-    
-extractAll()
 
-#cvtBytes2()
+#  
+#extractAll()
+#exit()
+
+while True:
+    cvtBytes()
+    cvtBytes2()
+    
+
+
+'''
+BATTLE.PRG
+$82068 - $A2 - $823AA
+$831DC - 31 - $833B6
+$835DC - $0B - 
+
+TITLE.PRG   / really use?
+$C42C - 
+
+MENU0.PRG detected
+MENU1.PRG
+MENU2.PRG
+MENU3.PRG
+MENU4.PRG
+MENU5.PRG
+MENU7.PRG
+MENU8.PRG
+MENU9.PRG
+MENUB.PRG
+MENUD.PRG
+MENUE.PRG
+'''
+
