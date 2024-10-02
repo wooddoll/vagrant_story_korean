@@ -4,11 +4,13 @@
 ## 문자열 추출 파일
 - SLPS_023.77         ; skill name x256
 - MENU/ITEMNAME.BIN   ; item name  x512
-- MENU/MCMAN.BIN      ; ui 
+- MENU/MCMAN.BIN      ; ui
+- MENU/MENU12.BIN     ; ui 
 - MENU/ITEMHELP.BIN   ; item text
 - MAP/*.MPD           ; dialog!!, treasure weapon name
 - MAP/*.ZND           ; NPC name, weapon name
 - SMALL/*.ARM         ; room names
+- SMALL/MON.BIN       ; monster desc.
 
 ## 진행상황
 - 2024-10-1: font table 수정
