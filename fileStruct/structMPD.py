@@ -89,7 +89,10 @@ class DialogText():
     def unpackData(self, buffer: bytes):
         self.strings.unpackData(buffer)
         self.strings_byte = self.strings._byte
-        
+    
+    def __len__(self):
+        return len(self.strings.buffer) if self.strings.buffer is not None else 0
+    
     def packData(self):
         if self.strings.buffer is None:
             return None
@@ -101,108 +104,8 @@ class DialogText():
         if preSize < sumBytes:
             logging.warning(f"check the dialogs length, size overflowed; privious({preSize}) < current({sumBytes})")
         
-        return self.strings.packData()
-  
-class DialogText2(SectionBase):
-    def __init__(self, buffer: Union[bytes, None] = None) -> None:
-        self.buffer = None
-        self.dialogBytes = []
-
-        if buffer is not None:
-            self.unpackData(buffer)
-
-    def readHeader(self):
-        if self.buffer is None:
-            return [], []
-        
-        byte_stream = io.BytesIO(self.buffer)
-        maxSize = len(self.buffer)
-
-        numDialogs = int2(byte_stream.read(2))
-        ptrText = [2*numDialogs]
-        for i in range(numDialogs - 1):
-            ptrText.append(2*int2(byte_stream.read(2)))
-
-        lenText = []
-        for i in range(numDialogs - 1):
-            lenText.append(ptrText[i+1] - ptrText[i])
-        lenText.append(maxSize - ptrText[-1])
-
-        return ptrText, lenText
-    
-    def checkDialog(self):
-        for idx, text in enumerate(self.dialogBytes):
-            endpos = -1
-            for i, c in enumerate(text):
-                if c == 0xE7:
-                    endpos = i + 1
-                    break
-            if endpos == -1:
-                text.extend(bytes1(0xE7))
-                endpos = len(text)
-            text = text[:endpos]
-            size = len(text)
-            if size%2 == 1:
-                text.extend(bytes1(0xEB))
-
-            self.dialogBytes[idx] = text
-
-    def unpackData(self, buffer: bytes):
-        if buffer is not None:
-            self.buffer = bytearray(buffer)
-        else:
-            return
-        
-        ptrText, lenText = self.readHeader()
-
-        byte_stream = io.BytesIO(buffer)
-
-        self.dialogBytes = []
-        for pos, size in zip(ptrText, lenText):
-            if size == 0:
-                continue
-
-            byte_stream.seek(pos)
-
-            text = bytearray(byte_stream.read(1))
-            while(text[-1] != 0xE7):
-                text.extend(byte_stream.read(1))
-
-            if len(text) > size:
-                logging.critical(f"check the text end mark(E7), size overflowed({len(text)} > {size})")
-            
-            self.dialogBytes.append(text)
-
-    def packData(self):
-        if self.buffer is None:
-            return None
-        
-        self.checkDialog()
-
-        ptrText, lenText = self.readHeader()
-        preSize = len(self.buffer) - ptrText[0]
-
-        numTexts = len(self.dialogBytes)
-        if ptrText[0]//2 != numTexts:
-            logging.critical(f"check the number of dialogs, size different; privious({ptrText[0]//2}) != current({numTexts})")
-
-        ptrText.append(-1)
-        for idx, text in enumerate(self.dialogBytes):
-            lenText[idx] = len(text)
-            ptrText[idx+1] = ptrText[idx] + lenText[idx]
-        sumBytes = sum(lenText)
-
-        if preSize < sumBytes:
-            logging.warning(f"check the dialogs length, size overflowed; privious({preSize}) < current({sumBytes})")
-
-        byte_stream = io.BytesIO(self.buffer)
-        for idx in range(numTexts):
-            byte_stream.write(bytes2(ptrText[idx]//2))
-
-        for text in self.dialogBytes:
-            byte_stream.write(text)
-
-        return byte_stream.getbuffer()
+        self.strings.buffer = self.strings.packData()
+        return self.strings.buffer
     
 class ScriptSection(SectionBase):
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
@@ -244,6 +147,8 @@ class ScriptSection(SectionBase):
         sizes = []
         sections = [self.scriptOpcodes, self.dialogText, self.unknownSection1, self.unknownSection2]
 
+        dialogText = self.dialogText.packData()
+        
         for idx in range(4):
             sizes.append(len(sections[idx]))
             if idx > 0:
@@ -264,7 +169,7 @@ class ScriptSection(SectionBase):
         byte_stream.write(bytes2(header[7]))
 
         for idx in range(4):
-            data = sections[idx].packData()
+            data = dialogText if idx == 1 else sections[idx].packData()
             if data is not None:
                 byte_stream.seek(poses[idx])
                 byte_stream.write(data)
@@ -318,6 +223,8 @@ class MPDstruct():
         poses = [header[0]]
         sizes = []
         
+        scriptSection = self.scriptSection.packData()
+        
         sections = [self.roomSection, self.clearedSection, self.scriptSection, self.doorSection, self.enemySection, self.treasureSection]
 
         for idx in range(6):
@@ -325,8 +232,7 @@ class MPDstruct():
             if idx > 0:
                 poses.append(poses[idx-1] + sizes[idx-1])
         sumSizes = sum(sizes)
-
-        scriptSection = self.scriptSection.packData()
+        
         maxScriptSectionSize = header[6] - header[4]
         writeSize = len(scriptSection) if scriptSection is not None else 0
         if writeSize > maxScriptSectionSize:

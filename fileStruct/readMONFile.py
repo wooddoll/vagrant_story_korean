@@ -7,7 +7,7 @@ from font.dialog import convert_by_TBL
 from utils import *
 
 class MonStructure():
-    FileName = 'SMALL/MON.BIN'
+    FileName = '`SMALL/MON.BIN`'
     ItemNumber = 150
     ItemBytes = 0x2C
     StringPtr = ItemBytes*ItemNumber

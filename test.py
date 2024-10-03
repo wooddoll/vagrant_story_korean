@@ -14,10 +14,11 @@ from font import dialog
 import utils
 from VS_pathes import *
 import pandas as pd
-import os
+import io
 from pathlib import Path
 import logging
 from tqdm import tqdm
+import yaml
 
 logging.basicConfig(
     level=logging.DEBUG, 
@@ -26,7 +27,7 @@ logging.basicConfig(
 
 
 
-PATH_testMPD = "MAP/MAP041.MPD"
+PATH_testMPD = "MAP/MAP001.MPD"
 PATH_testZND = "MAP/ZONE009.ZND"
 
 #dummyTBL = dialog.convert_by_TBLdummy()
@@ -43,6 +44,9 @@ def test1():
     mpd = MPDstruct()
     mpd_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(PATH_testMPD)
     mpd.unpackData(str(mpd_path))
+    mpd.scriptSection.dialogText.cvtByte2Str(jpnTBL)
+    mpd.scriptSection.dialogText.cvtStr2Byte(jpnTBL)
+    mpd.packData(f'work/test/{PATH_testMPD}')
 
     dialogLists = fileStruct.structMPD.exportTextFromMPD(mpd, jpnTBL)
     df = pd.DataFrame(dialogLists, columns=['Index', 'rows', 'cols', 'Original'])
@@ -50,7 +54,7 @@ def test1():
     outpath = Path(PATH_TEMP) / Path(f'Test/{Path(PATH_testMPD).stem}.csv')
     df.to_csv(outpath, index=False, encoding='utf-8')
 
-test1()
+#test1()
 
 
 def readExelDialog(csv_path:str):
@@ -291,6 +295,9 @@ def cvtBytes():
             inp_bytes.append(int(inp_text[i:i+2], 16))
             i += 2
         
+        if not inp_bytes:
+            exit()
+            
         _inp_bytes = bytes(inp_bytes)
         inp_text = jpnTBL.cvtBytes_str(_inp_bytes)
         for v in _inp_bytes:
@@ -315,6 +322,9 @@ def cvtBytes2():
             inp_bytes.append(int(inp_text[i:i+2], 16))
             i += 2
         
+        if not inp_bytes:
+            exit()
+            
         _inp_bytes = bytes(inp_bytes)
         inp_text = usaTBL.cvtBytes_str(_inp_bytes)
         for v in _inp_bytes:
@@ -479,6 +489,141 @@ def MENU12_en_jp():
     outpath = 'work/strings/MENU_MENU12_BIN.csv'
     df.to_csv(outpath, index=False, encoding='utf-8')
 
+
+def find_string_in_File(filePath: str):
+    fileBuffer = None
+    with open(filePath, 'rb') as file:
+        fileBuffer = file.read()
+    if fileBuffer is None:
+        return None
+    
+    byte_stream = io.BytesIO(fileBuffer)
+    len_file = len(fileBuffer)
+    wordinfile = []
+    
+    pos = 0
+    while pos < len_file:
+        byte_stream.seek(pos)
+        prev = utils.int2(byte_stream.read(2))
+        startPos = pos
+        temp = [prev]
+        while pos < len_file-2:
+            curr = utils.int2(byte_stream.read(2))
+            if prev < curr:
+                prev = curr
+                temp.append(prev)
+            elif len(temp) > 3:
+                valid = 0
+                for inc in temp:
+                    byte_stream.seek(startPos + 2*inc - 2)
+                    e1 = byte_stream.read(1)
+                    e2 = byte_stream.read(1)
+                    if int.from_bytes(e1) == 0xE7 or int.from_bytes(e2) == 0xE7:
+                        valid += 1
+                if len(temp)*0.75 < valid:
+                    wordinfile.append([startPos, len(temp)])
+                    pos = startPos + 2*temp[-1]
+                else:
+                    pos = startPos + 2*len(temp)
+                break
+            else:
+                pos = startPos + 2*len(temp)
+                break
+        if pos >= len_file-2:
+            break
+        
+    return wordinfile
+
+
+def find_word_in_File(filePath: str):
+    byteData = None
+    with open(filePath, 'rb') as file:
+        byteData = file.read()
+    if byteData is None:
+        return None
+    
+    len_data = len(byteData)
+    
+    def subfind(startPos: int, step: int = 0x18):
+        def find0BackE7(pos: int):
+            v1 = byteData[pos]
+            v2 = byteData[pos+1]
+            if v1 != 0 or v2 == 0:
+                return False
+
+            for i in range(step):
+                idx = pos - i
+                if idx <= 0: 
+                    return False
+                if byteData[idx] == 0xE7:
+                    return True
+            return False
+
+        currPos = startPos
+
+        count = 0
+        if currPos >= len_data-1:
+            return []
+        
+        while find0BackE7(currPos):
+            currPos += step
+            count += 1
+            if currPos >= len_data:
+                break
+            
+        if count < 3:
+            return []
+
+        return [hex(startPos), count]
+    
+    wordinfile_18 = []
+    pos = 0x1
+    step = 0x18
+    while pos < len_data:
+        ret = subfind(pos, step)
+        if ret:
+            wordinfile_18.append(ret)
+            pos += step*ret[1]
+        else:
+            pos += 2
+    
+    wordinfile_2C = []
+    pos = 0x1
+    step = 0x2C
+    while pos < len_data:
+        ret = subfind(pos, step)
+        if ret:
+            wordinfile_2C.append(ret)
+            pos += step*ret[1]
+        else:
+            pos += 2
+            
+    return wordinfile_18, wordinfile_2C
+
+
+wordinfile_18, wordinfile_2C = find_word_in_File(f'{PATH_USA_VARGRANTSTORY}/BATTLE/BATTLE.PRG')
+print(wordinfile_18)
+print(wordinfile_2C)
+
+def findStrings():
+    folder_path = Path(PATH_USA_VARGRANTSTORY)
+    file_list = [file for file in folder_path.rglob('*') if file.is_file()]
+    wordinfiles = []
+    for filepath in tqdm(file_list, desc="Processing"):
+        if str(filepath.suffix) in ['.MPD', '.ARM', '.ZND', '.ZUD', '.SHP', '.SEQ', '.WEP', '.WAV', '.TIM', '.XA']:
+            continue
+        
+        relative_path = filepath.relative_to(folder_path)
+        if str(relative_path.parent) in [ "SOUND" ]: 
+            continue
+
+        detected = find_string_in_File(str(filepath))
+
+        if detected:
+            wordinfiles.append([str(relative_path), detected])
+
+    with open('work/test/findStrings.yaml', 'wt') as file:
+        yaml.dump(wordinfiles, file, encoding='utf-8')
 
 def extractAll():
     makeSkillnames()
