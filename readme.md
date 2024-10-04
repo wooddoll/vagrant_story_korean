@@ -7,12 +7,14 @@
 - MENU/MCMAN.BIN      ; ui
 - MENU/MENU12.BIN     ; ui 
 - MENU/ITEMHELP.BIN   ; item text
+- MENU/MENU?.PRG      ; ui
 - MAP/*.MPD           ; dialog!!, treasure weapon name
 - MAP/*.ZND           ; NPC name, weapon name
 - SMALL/*.ARM         ; room names
 - SMALL/MON.BIN       ; monster desc.
 
 ## 진행상황
+- 2024-10-4: MENU/*.PRG (UI) 추가
 - 2024-10-1: font table 수정
    - font image를 OCR로 읽었는데, 다시 확인해보니 잘못읽어서 중복된 한자로 된게 여러개 있다. 해상도가 너무 낮아서 정확히 식별은 안됨. 대충 비슷하게 생긴 한자로 수정함. 어째 번역이 좀 이상하더라...
 - 2024-9-30:
