@@ -13,7 +13,7 @@ class ARMstruct():
 
         self.ptrRoomNames: int = 0
         self.names_str: List[str] = []
-        self.names_byte: List[bytearray] = []
+        self.names_byte: List[bytes] = []
         
         if input_path:
             self.unpackData(input_path)
@@ -56,8 +56,6 @@ class ARMstruct():
 
         for idx in range(num_rooms):
             len_name = len(self.names_byte[idx])
-            if len_name < 0x20:
-                self.names_byte[idx].extend([0]*(0x20 - len_name))
             if len_name > 0x20:
                 logging.critical(f"check the room name, size overflowed({len_name} > {0x20})")
                 self.names_byte[idx] = self.names_byte[idx][:0x20]

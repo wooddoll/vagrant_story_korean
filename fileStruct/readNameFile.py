@@ -17,6 +17,9 @@ class ReadNames():
         if buffer is not None:
             self.unpackData(buffer)
 
+    def __len__(self):
+        return self.itemNums*self.itemBytes if self.buffer is not None else 0
+    
     def cvtStr2Byte(self, table: convert_by_TBL):
         self._byte.clear()
         for data in self._str:
@@ -28,26 +31,20 @@ class ReadNames():
             self._str.append(table.cvtBytes_str(data))
             
     def unpackData(self, buffer: bytes):
-        self.buffer = buffer        
-        len_Buffer = len(buffer)
-        
-        len_items = len_Buffer // self.itemBytes
-        if len_items != self.itemNums:
-            logging.critical("!!!")
-        
+        self.buffer = buffer[:self.itemBytes*self.itemNums]
         byte_stream = io.BytesIO(buffer)
         
         self._byte.clear()
         for _ in range(self.itemNums):
             bytename = byte_stream.read(self.itemBytes)
-            self._byte.append(bytename) 
+            self._byte.append(trimTextBytes(bytename)) 
 
     def packData(self):
         if self.buffer is None:
             return None
 
         if len(self._byte) != self.itemNums:
-            logging.critical("!!!")
+            logging.critical(f"check the words numbers, size mismatched; privious({self.itemNums}) != current({len(self._byte)})")
             
         byte_stream = io.BytesIO(self.buffer)
         for idx in range(self.itemNums):
@@ -55,42 +52,9 @@ class ReadNames():
             
             if len_bytes > self.itemBytes:
                 bytename = self._byte[idx][:self.itemBytes]
+                logging.critical(f"check the word length, size overflowed; allocated({self.itemBytes}) < current({len_bytes})")
             else:
                 bytename = self._byte[idx]
                 
             byte_stream.seek(idx * self.itemBytes)
             byte_stream.write(bytename)
-
-
-class ItemNames():
-    ItemNumber = 512
-    ItemBytes = 0x18
-
-    def __init__(self, input_path: str = '') -> None:
-        self.names = ReadNames(self.ItemBytes, self.ItemNumber)
-        self.names_byte = self.names._byte
-        self.names_str = self.names._str
-
-        if input_path:
-            self.unpackData(input_path)
-
-    def cvtName2Byte(self, table: convert_by_TBL):
-        self.names.cvtStr2Byte(table)
-        self.names_byte = self.names._byte
-    
-    def cvtByte2Name(self, table: convert_by_TBL):
-        self.names.cvtByte2Str(table)
-        self.names_str = self.names._str
-            
-    def unpackData(self, input_path:str):
-        with open(input_path, 'rb') as file:
-            buffer = bytearray(file.read())
-            self.names.unpackData(buffer)
-        
-        self.strings_byte = self.names._byte
-
-    def packData(self, output_path:str):
-        byteData = self.names.packData()
-        if byteData is not None:
-            with open(output_path, 'wb') as file:
-                file.write(byteData)

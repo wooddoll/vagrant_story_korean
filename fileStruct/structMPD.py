@@ -291,8 +291,9 @@ def makeMPDtexts(folder_path: str, fontTable: convert_by_TBL, out_path: str):
     for filepath in tqdm(file_list, desc="Processing"):
         mpd = MPDstruct(str(filepath))
 
-        for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
-            text = fontTable.cvtBytes_str(dialogBytes)
+        mpd.scriptSection.dialogText.cvtByte2Str(fontTable)
+        for idx in range(mpd.scriptSection.dialogText.strings.itemNums):
+            text = mpd.scriptSection.dialogText.strings_str[idx]
             rows, cols = dialog.checkSize(text)
 
             singleRow = []

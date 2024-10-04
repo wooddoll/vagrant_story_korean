@@ -13,6 +13,7 @@ class ReadStrings():
         self.itemNums = -1
         self._byte = []
         self._str = []
+        self.len_buffer = -1
         
         if buffer is not None:
             self.unpackData(buffer)
@@ -26,11 +27,10 @@ class ReadStrings():
         self._str.clear()
         for data in self._byte:
             self._str.append(table.cvtBytes_str(data))
-            
+    
     def unpackData(self, buffer: bytes):
-        self.buffer = buffer
-        len_buffer = len(self.buffer)
-        byte_stream = io.BytesIO(self.buffer)
+        len_buffer = len(buffer)
+        byte_stream = io.BytesIO(buffer)
         
         self.itemNums = int2(byte_stream.read(2))
         byte_stream.seek(0)
@@ -46,14 +46,24 @@ class ReadStrings():
             pos = ptrs[idx]
             nextpos = ptrs[idx+1]
             data = buffer[pos:nextpos]
-            self._byte.append(data)
+            self._byte.append(trimTextBytes(data))
+
+        len_buffer = len(self._byte[-1]) + 1
+        if len_buffer%2:
+            len_buffer += 1
+        self.len_buffer = len_buffer + ptrs[-2]
+        
+        self.buffer = buffer[:len_buffer]
+
+    def __len__(self):
+        return self.len_buffer if self.buffer is not None else 0
 
     def packData(self):
         if self.buffer is None:
             return None
         
         if self.itemNums != len(self._byte):
-            logging.critical(f"check the number of texts, size different; {self.itemNums} != current({len(self._byte)})")
+            logging.critical(f"check the number of strings, size different; {self.itemNums} != current({len(self._byte)})")
         
         ptrs = [ self.itemNums ]
         for idx in range(self.itemNums):
@@ -67,35 +77,8 @@ class ReadStrings():
             data = self._byte[idx]
             byte_stream.write(data)
         
-        return byte_stream.getvalue()
-
-
-class ReadItemHelp(): 
-    def __init__(self, input_path: str = '') -> None:
-        self.strings = ReadStrings()
-        self.strings_byte = self.strings._byte
-        self.strings_str = self.strings._str
-        
-        if input_path:
-            self.unpackData(input_path)
-
-    def cvtStr2Byte(self, table: convert_by_TBL):
-        self.strings.cvtStr2Byte(table)
-        self.strings_byte = self.strings._byte
-    
-    def cvtByte2Str(self, table: convert_by_TBL):
-        self.strings.cvtByte2Str(table)
-        self.strings_str = self.strings._str
+        currPos = byte_stream.tell()
+        if self.len_buffer < currPos:
+            logging.critical(f"check the length of strings, size overflowed; {self.len_buffer} < current({currPos})")
             
-    def unpackData(self, input_path:str):
-        with open(input_path, 'rb') as file:
-            buffer = bytearray(file.read())
-            self.strings.unpackData(buffer)
-        
-        self.strings_byte = self.strings._byte
-        
-    def packData(self, output_path:str):
-        byteData = self.strings.packData()
-        if byteData is not None:
-            with open(output_path, 'wb') as file:
-                file.write(byteData)
+        return byte_stream.getvalue()

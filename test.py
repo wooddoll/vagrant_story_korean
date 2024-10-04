@@ -2,13 +2,32 @@
 from font import makeTBL, cvtFontBin
 
 import fileStruct
-from fileStruct.structMPD import MPDstruct
-from fileStruct.structZND import ZNDstruct
+
 from fileStruct.structARM import ARMstruct
-from fileStruct.structMain import Mainstruct
-from fileStruct.readNameFile import ItemNames
-from fileStruct.readStrFile import ReadItemHelp
-from fileStruct.readMONFile import MonStructure
+from fileStruct.structZND import ZNDstruct
+from fileStruct.structMPD import MPDstruct
+
+from fileStruct.read_MON_BIN import MON_BIN
+from fileStruct.read_MCMAN_BIN import MCMAN_BIN
+from fileStruct.read_ITEMNAME_BIN import ITEMNAME_BIN
+from fileStruct.read_ITEMHELP_BIN import ITEMHELP_BIN
+
+from fileStruct.read_SL_Main import SL_Main
+from fileStruct.read_TITLE_PRG import TITLE_PRG
+from fileStruct.read_BATTLE_PRG import BATTLE_PRG
+from fileStruct.read_MENU0_PRG import MENU0_PRG
+from fileStruct.read_MENU1_PRG import MENU1_PRG
+from fileStruct.read_MENU2_PRG import MENU2_PRG
+from fileStruct.read_MENU3_PRG import MENU3_PRG
+from fileStruct.read_MENU4_PRG import MENU4_PRG
+from fileStruct.read_MENU5_PRG import MENU5_PRG
+from fileStruct.read_MENU7_PRG import MENU7_PRG
+from fileStruct.read_MENU8_PRG import MENU8_PRG
+from fileStruct.read_MENU9_PRG import MENU9_PRG
+from fileStruct.read_MENUB_PRG import MENUB_PRG
+from fileStruct.read_MENUD_PRG import MENUD_PRG
+from fileStruct.read_MENUE_PRG import MENUE_PRG
+from fileStruct.read_MENU12_PRG import MENU12_PRG
 
 from font import dialog
 import utils
@@ -109,7 +128,7 @@ def test4():
     znd.packData(str(outpath))
 
 
-def extractZNDnames():
+def extract_ZND_jp_en():
     namesInfiles = []
     weaponesInfiles = []
 
@@ -171,7 +190,7 @@ def extractZNDnames():
 
 #extractZNDnames()            
     
-def extractARMnames():
+def extract_ARM_jp_en():
     namesInfiles = []
     folder_path = Path(PATH_TEMP_VARGRANTSTORY) / Path('SMALL')
     file_list = [file for file in folder_path.rglob('*.ARM') if file.is_file()]
@@ -246,9 +265,10 @@ def makeMPDtexts(folder_path: str, fontTable: dialog.convert_by_TBL, out_path: s
 
     for filepath in tqdm(file_list, desc="Processing"):
         mpd = MPDstruct(str(filepath))
-
-        for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
-            text = fontTable.cvtBytes_str(dialogBytes)
+        mpd.scriptSection.dialogText.cvtByte2Str(fontTable)
+        
+        for idx in range(mpd.scriptSection.dialogText.strings.itemNums):            
+            text = mpd.scriptSection.dialogText.strings_str[idx]
             rows, cols = dialog.checkSize(text)
 
             singleRow = []
@@ -334,18 +354,18 @@ def cvtBytes2():
 
 
 
-def makeSkillnames():
+def extract_SL_Main_jp_en():
     mainpath = Path(PATH_TEMP_VARGRANTSTORY) / Path('SLPS_023.77')
     namesInfiles = []
-    skill_jpn = Mainstruct(str(mainpath))
-    skill_jpn.convertName(jpnTBL)
+    skill_jpn = SL_Main(str(mainpath))
+    skill_jpn.cvtByte2Str(jpnTBL)
     namesInfiles.extend(skill_jpn.names_str)
 
     ####
     mainpath = Path(PATH_USA_VARGRANTSTORY) / Path('SLUS_010.40')
     engInfiles = []
-    skill_usa = Mainstruct(str(mainpath))
-    skill_usa.convertName(usaTBL)
+    skill_usa = SL_Main(str(mainpath))
+    skill_usa.cvtByte2Str(usaTBL)
     engInfiles.extend(skill_usa.names_str)
 
     ###
@@ -371,17 +391,17 @@ def makeSkillnames():
 #findword = dialog.Find_Word()
 #findword.find_in_folder(PATH_USA_VARGRANTSTORY, "work/find_in_USA.yaml")
 
-def MCMAN_en_jp():
+def extract_MCMAN_jp_en():
     inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/MCMAN.BIN")
-    help_jp = ReadItemHelp(str(inp_path))
+    help_jp = MCMAN_BIN(str(inp_path))
     help_jp.cvtByte2Str(jpnTBL)
 
     inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/MCMAN.BIN")
-    help_en = ReadItemHelp(str(inp_path))
+    help_en = MCMAN_BIN(str(inp_path))
     help_en.cvtByte2Str(usaTBL)
 
     texts = []
-    for jp, en in zip(help_jp.string_str, help_en.string_str):
+    for jp, en in zip(help_jp.strings_str, help_en.strings_str):
         texts.append([jp, en])
 
     df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
@@ -389,13 +409,13 @@ def MCMAN_en_jp():
     df.to_csv(outpath, index=False, encoding='utf-8')
 
 
-def ITEMHELP_en_jp():
+def extract_ITEMHELP_jp_en():
     inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
-    help_jp = ReadItemHelp(str(inp_path))
+    help_jp = ITEMHELP_BIN(str(inp_path))
     help_jp.cvtByte2Str(jpnTBL)
 
     inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
-    help_en = ReadItemHelp(str(inp_path))
+    help_en = ITEMHELP_BIN(str(inp_path))
     help_en.cvtByte2Str(usaTBL)
 
     texts = []
@@ -435,11 +455,10 @@ def test9():
             ptr = utils.int2(buffer[2*i:2*i+2]) * 2
             print(f"{i} _ {hex(2*i)} : {hex(ptr)}")
 
-def ItemNames_en_jp():
-    
-    names_en = ItemNames(str(Path(PATH_USA_VARGRANTSTORY) / Path('MENU/ITEMNAME.BIN')))
+def extract_ITEMNAME_jp_en():
+    names_en = ITEMNAME_BIN(str(Path(PATH_USA_VARGRANTSTORY) / Path('MENU/ITEMNAME.BIN')))
     names_en.cvtByte2Name(usaTBL)
-    names_jp = ItemNames(str(Path(PATH_TEMP_VARGRANTSTORY) / Path('MENU/ITEMNAME.BIN')))
+    names_jp = ITEMNAME_BIN(str(Path(PATH_TEMP_VARGRANTSTORY) / Path('MENU/ITEMNAME.BIN')))
     names_jp.cvtByte2Name(jpnTBL)
     
     texts = []
@@ -450,43 +469,71 @@ def ItemNames_en_jp():
     outpath = 'work/strings/MENU_ITEMNAME_BIN.csv'
     df.to_csv(outpath, index=False, encoding='utf-8')
 
-def SMALL_MON_BIN_en():
-    mon = MonStructure(PATH_USA_VARGRANTSTORY)
-    mon.cvtByte2Name(usaTBL)
+def extract_SMALL_MON_BIN_en():
+    mon = MON_BIN(PATH_USA_VARGRANTSTORY)
+    mon.cvtByte2Str(usaTBL)
     texts_en = []
     for idx in range(mon.ItemNumber):
-        texts_en.append( [mon.name_str[idx], mon.string_str[idx]] )
+        texts_en.append( [mon.name_str[idx], mon.strings_str[idx]] )
     
     df_en = pd.DataFrame(texts_en, columns=['name', 'desc.'])
     outpath = 'work/strings/SMALL_MON_BIN_en.csv'
     df_en.to_csv(outpath, index=False, encoding='utf-8')
 
-def SMALL_MON_BIN_jp():
-    mon = MonStructure(PATH_TEMP_VARGRANTSTORY)
-    mon.cvtByte2Name(jpnTBL)
+def extract_SMALL_MON_BIN_jp():
+    mon = MON_BIN(PATH_TEMP_VARGRANTSTORY)
+    mon.cvtByte2Str(jpnTBL)
     texts_jp = []
     for idx in range(mon.ItemNumber):
-        texts_jp.append( [mon.name_str[idx], mon.string_str[idx]] )
+        texts_jp.append( [mon.name_str[idx], mon.strings_str[idx]] )
     
     df_jp = pd.DataFrame(texts_jp, columns=['name', 'desc.'])
     outpath = 'work/strings/SMALL_MON_BIN_jp.csv'
     df_jp.to_csv(outpath, index=False, encoding='utf-8')
 
-def MENU12_en_jp():
-    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/MENU12.BIN")
-    help_jp = ReadItemHelp(str(inp_path))
+def extract_MENU_PRG_jp_en(name: str):
+    func = None
+    if f'{name}_PRG' in globals():
+        func = globals()[f'{name}_PRG']
+    if func is None:
+        logging.warning(f'wrong function name {name}')
+        return
+    
+    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(f"MENU/{name}.PRG")
+    help_jp = func(str(inp_path))
     help_jp.cvtByte2Str(jpnTBL)
 
-    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/MENU12.BIN")
-    help_en = ReadItemHelp(str(inp_path))
+    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path(f"MENU/{name}.PRG")
+    help_en = func(str(inp_path))
     help_en.cvtByte2Str(usaTBL)
 
     texts = []
-    for jp, en in zip(help_jp.string_str, help_en.string_str):
+    for jp, en in zip(help_jp.strings_str, help_en.strings_str):
         texts.append([jp, en])
 
     df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
-    outpath = 'work/strings/MENU_MENU12_BIN.csv'
+    outpath = f'work/strings/MENU_{name}_PRG.csv'
+    df.to_csv(outpath, index=False, encoding='utf-8')
+
+
+def extract_MENU9_jp_en():
+    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/MENU9.BIN")
+    help_jp = MENU9_PRG(str(inp_path))
+    help_jp.cvtByte2Str(jpnTBL)
+
+    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/MENU9.BIN")
+    help_en = MENU9_PRG(str(inp_path))
+    help_en.cvtByte2Str(usaTBL)
+
+    texts = []
+    for jp, en in zip(help_jp.strings1_str, help_en.strings1_str):
+        texts.append([jp, en])
+    
+    for jp, en in zip(help_jp.strings2_str, help_en.strings2_str):
+        texts.append([jp, en])
+
+    df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/MENU_MENU9_PRG.csv'
     df.to_csv(outpath, index=False, encoding='utf-8')
 
 
@@ -505,6 +552,10 @@ def find_string_in_File(filePath: str):
     while pos < len_file:
         byte_stream.seek(pos)
         prev = utils.int2(byte_stream.read(2))
+        if prev < 2:
+            pos += 2
+            continue
+        
         startPos = pos
         temp = [prev]
         while pos < len_file-2:
@@ -518,10 +569,10 @@ def find_string_in_File(filePath: str):
                     byte_stream.seek(startPos + 2*inc - 2)
                     e1 = byte_stream.read(1)
                     e2 = byte_stream.read(1)
-                    if int.from_bytes(e1) == 0xE7 or int.from_bytes(e2) == 0xE7:
+                    if int.from_bytes(e1, 'little') == 0xE7 or int.from_bytes(e2, 'little') == 0xE7:
                         valid += 1
                 if len(temp)*0.75 < valid:
-                    wordinfile.append([startPos, len(temp)])
+                    wordinfile.append([hex(startPos), len(temp)])
                     pos = startPos + 2*temp[-1]
                 else:
                     pos = startPos + 2*len(temp)
@@ -535,6 +586,104 @@ def find_string_in_File(filePath: str):
     return wordinfile
 
 
+def find0BackE7(byteData: bytes, pos: int, step: int):
+    v1 = byteData[pos]
+    v2 = byteData[pos+1]
+    if v1 != 0 or v2 == 0:
+        return False
+    for i in range(step):
+        idx = pos - i
+        if idx <= 0: 
+            return False
+        if byteData[idx] == 0xE7:
+            return True
+    return False
+
+def subfind(byteData: bytes, startPos: int, step: int = 0x18):
+    len_data = len(byteData)
+    
+    currPos = startPos
+    count = 0
+    if currPos >= len_data-1:
+        return []
+    
+    while find0BackE7(byteData, currPos, step):
+        currPos += step
+        count += 1
+        if currPos >= len_data:
+            break
+        
+    if count < 3:
+        return []
+    return [hex(startPos), count]
+
+def findBackE7(byteData: bytes, pos: int, step: int):
+    for i in range(step):
+        idx = pos - i
+        if idx <= 0: 
+            return False
+        if byteData[idx] == 0xE7 and byteData[idx+1] == 0: 
+            return True
+    return False
+
+def subfind0X(byteData: bytes, startPos: int, step: int = 0x18):
+    len_data = len(byteData)
+    
+    currPos = startPos + step
+    count = 0
+    if currPos >= len_data-1:
+        return -1
+    
+    while currPos < len_data-1:
+        v1 = byteData[currPos]
+        v2 = byteData[currPos+1]
+        if v1 == 0 and v2 != 0:
+            count += 1
+            currPos += step
+            continue
+        break
+        
+    if count < 3:
+        return -1
+    return count
+
+def checkWords(byteData: bytes, startPos: int):
+    v1 = byteData[startPos]
+    v2 = byteData[startPos+1]
+    if v1 != 0 or v2 == 0:
+        return -1
+    
+    len_data = len(byteData)
+    pos = startPos + 2
+    end = startPos + 0x3F
+    isValid = False
+    while pos < len_data-1:
+        v1 = byteData[pos]
+        v2 = byteData[pos+1]
+        if v1 == 0xE7 and v2 == 0:
+            isValid = True
+            break
+        if pos >= end:
+            break
+        pos += 1
+    if not isValid:
+        return -1
+    
+    isValid = False
+    while pos < len_data-1:
+        v1 = byteData[pos]
+        v2 = byteData[pos+1]
+        if v1 == 0 and v2 != 0:
+            isValid = True
+            break
+        if pos >= end:
+            break
+        pos += 1
+    if not isValid:
+        return -1
+    
+    return pos - startPos
+
 def find_word_in_File(filePath: str):
     byteData = None
     with open(filePath, 'rb') as file:
@@ -544,106 +693,96 @@ def find_word_in_File(filePath: str):
     
     len_data = len(byteData)
     
-    def subfind(startPos: int, step: int = 0x18):
-        def find0BackE7(pos: int):
-            v1 = byteData[pos]
-            v2 = byteData[pos+1]
-            if v1 != 0 or v2 == 0:
-                return False
+    wordinfile = []
+    #pos = 0x1
+    pos = 0x1
+    
+    while pos < len_data-1:
+        step = checkWords(byteData, pos)
+        if 0x10 > step:
+            pos += 2
+            continue
 
-            for i in range(step):
-                idx = pos - i
-                if idx <= 0: 
-                    return False
-                if byteData[idx] == 0xE7:
-                    return True
-            return False
-
-        currPos = startPos
-
-        count = 0
-        if currPos >= len_data-1:
-            return []
+        count = subfind0X(byteData, pos, step)
+        if 3 > count:
+            pos += 2
+            continue
+            
+        isValidCount = 0
+        for i in range(count):
+            ppx = pos + step
+            if findBackE7(byteData, ppx, step):
+                isValidCount += 1
         
-        while find0BackE7(currPos):
-            currPos += step
-            count += 1
-            if currPos >= len_data:
-                break
-            
-        if count < 3:
-            return []
-
-        return [hex(startPos), count]
-    
-    wordinfile_18 = []
-    pos = 0x1
-    step = 0x18
-    while pos < len_data:
-        ret = subfind(pos, step)
-        if ret:
-            wordinfile_18.append(ret)
-            pos += step*ret[1]
+        if count*0.75 < isValidCount:
+            wordinfile.append([hex(pos), hex(step), count])
+            pos += step*count
         else:
             pos += 2
-    
-    wordinfile_2C = []
-    pos = 0x1
-    step = 0x2C
-    while pos < len_data:
-        ret = subfind(pos, step)
-        if ret:
-            wordinfile_2C.append(ret)
-            pos += step*ret[1]
-        else:
-            pos += 2
-            
-    return wordinfile_18, wordinfile_2C
+        
+    return wordinfile
 
 
-wordinfile_18, wordinfile_2C = find_word_in_File(f'{PATH_USA_VARGRANTSTORY}/BATTLE/BATTLE.PRG')
-print(wordinfile_18)
-print(wordinfile_2C)
+#wordinfile = find_word_in_File(f'{PATH_USA_VARGRANTSTORY}/BATTLE/BATTLE.PRG')
+#print(wordinfile)
+
 
 def findStrings():
     folder_path = Path(PATH_USA_VARGRANTSTORY)
     file_list = [file for file in folder_path.rglob('*') if file.is_file()]
     wordinfiles = []
     for filepath in tqdm(file_list, desc="Processing"):
-        if str(filepath.suffix) in ['.MPD', '.ARM', '.ZND', '.ZUD', '.SHP', '.SEQ', '.WEP', '.WAV', '.TIM', '.XA']:
+        if str(filepath.suffix) in ['.MPD', '.ARM', '.ZND', '.ZUD', '.SHP', '.SEQ', '.WEP', '.WAV', '.TIM', '.XA', '.P', '.ESQ', '.EVT']:
             continue
         
         relative_path = filepath.relative_to(folder_path)
-        if str(relative_path.parent) in [ "SOUND" ]: 
+        if str(relative_path.parent) in [ 'SOUND', 'MOV' ]: 
             continue
 
         detected = find_string_in_File(str(filepath))
-
+        if detected:
+            wordinfiles.append([str(relative_path), detected])
+        
+        detected = find_word_in_File(str(filepath))
         if detected:
             wordinfiles.append([str(relative_path), detected])
 
     with open('work/test/findStrings.yaml', 'wt') as file:
         yaml.dump(wordinfiles, file, encoding='utf-8')
+#findStrings()
 
 def extractAll():
-    makeSkillnames()
-    ItemNames_en_jp()
-    ITEMHELP_en_jp()
-    MCMAN_en_jp()
-    MENU12_en_jp()  
-    
-    SMALL_MON_BIN_en()
-    SMALL_MON_BIN_jp()
-
-    extractARMnames()
-    extractZNDnames()
+    extract_ARM_jp_en()
+    extract_ZND_jp_en()
     
     fileStruct.structMPD.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.csv')
     fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.csv')
-
+    
+    extract_SMALL_MON_BIN_en()
+    extract_SMALL_MON_BIN_jp()
+    extract_MCMAN_jp_en()
+    extract_ITEMNAME_jp_en()
+    extract_ITEMHELP_jp_en()
+    
+    extract_SL_Main_jp_en()
+    extract_MENU_PRG_jp_en('MENU0')
+    extract_MENU_PRG_jp_en('MENU1')
+    extract_MENU_PRG_jp_en('MENU2')
+    extract_MENU_PRG_jp_en('MENU3')
+    extract_MENU_PRG_jp_en('MENU4')
+    extract_MENU_PRG_jp_en('MENU5')
+    extract_MENU_PRG_jp_en('MENU7')
+    extract_MENU_PRG_jp_en('MENU8')
+    extract_MENU9_jp_en()
+    extract_MENU_PRG_jp_en('MENUB')
+    extract_MENU_PRG_jp_en('MENUD')
+    extract_MENU_PRG_jp_en('MENUE')
+    extract_MENU_PRG_jp_en('MENU12')
 #  
-#extractAll()
-#exit()
+extractAll()
+exit()
+
+
 
 while True:
     cvtBytes()
