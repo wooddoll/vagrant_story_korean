@@ -82,3 +82,77 @@ class ReadStrings():
             logging.critical(f"check the length of strings, size overflowed; {self.len_buffer} < current({currPos})")
             
         return byte_stream.getvalue()
+
+def createStringClass(filename: str, stringPtr: int):
+    class Class_String: 
+        FileName = filename
+        StringPtr = stringPtr
+
+        def __init__(self, input_path: str = '') -> None:
+            self.strings = ReadStrings()
+            self.strings_byte = self.strings._byte
+            self.strings_str = self.strings._str
+
+            if os.path.isfile(input_path):
+                self.unpackData(input_path)
+            elif os.path.isdir(input_path):
+                filepath = Path(input_path) / Path(self.FileName)
+                if os.path.isfile(str(filepath)):
+                    self.unpackData(str(filepath))
+                else:
+                    logging.warning(f'{input_path} is not valid path.')
+            else:
+                logging.warning(f'{input_path} is not valid path.')
+
+        def cvtStr2Byte(self, table: convert_by_TBL):
+            self.strings.cvtStr2Byte(table)
+            self.strings_byte = self.strings._byte
+
+        def cvtByte2Str(self, table: convert_by_TBL):
+            self.strings.cvtByte2Str(table)
+            self.strings_str = self.strings._str
+
+        def unpackData(self, input_path: str):
+            with open(input_path, 'rb') as file:
+                buffer = bytearray(file.read())
+                self.strings.unpackData(buffer[self.StringPtr:])
+                self.strings_byte = self.strings._byte
+
+        def packData(self, output_path: str):
+            byteData = self.strings.packData()
+            if byteData is not None:
+                with open(output_path, 'wb') as file:
+                    file.seek(self.StringPtr)
+                    file.write(byteData)
+    
+    return Class_String
+
+MENU0_PRG = createStringClass('MENU/MENU0.PRG', 0x2258)
+MENU1_PRG = createStringClass('MENU/MENU1.PRG', 0xC78)
+MENU2_PRG = createStringClass('MENU/MENU2.PRG', 0x1e90)
+MENU3_PRG = createStringClass('MENU/MENU3.PRG', 0x6bb8)
+
+MENU4_PRG_en = createStringClass('MENU/MENU4.PRG', 0x4C48)
+MENU4_PRG_jp = createStringClass('MENU/MENU4.PRG', 0x4c44)
+
+MENU5_PRG_en = createStringClass('MENU/MENU5.PRG', 0x5bfc)
+MENU5_PRG_jp = createStringClass('MENU/MENU5.PRG', 0x5c14)
+
+MENU7_PRG_en = createStringClass('MENU/MENU7.PRG', 0x81b0)
+MENU7_PRG_jp = createStringClass('MENU/MENU7.PRG', 0x7c54)
+
+MENU8_PRG_en = createStringClass('MENU/MENU8.PRG', 0x2d58)
+MENU8_PRG_jp = createStringClass('MENU/MENU8.PRG', 0x429c)
+
+#9
+
+MENUB_PRG = createStringClass('MENU/MENUB.PRG', 0x7a80)
+
+MENUD_PRG_en = createStringClass('MENU/MENUD.PRG', 0x6d2c)
+MENUD_PRG_jp = createStringClass('MENU/MENUD.PRG', 0x6d30)
+
+MENUE_PRG_en = createStringClass('MENU/MENUE.PRG', 0x2654)
+MENUE_PRG_jp = createStringClass('MENU/MENUE.PRG', 0x2644)
+
+MENU12_BIN = createStringClass('MENU/MENU12.BIN', 0x0)
+MCMAN_BIN = createStringClass('MENU/MCMAN.BIN', 0x0)

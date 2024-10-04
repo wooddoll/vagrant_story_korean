@@ -1,0 +1,64 @@
+jp-ja,en-us
+簡易マップの表«EE»E,SIMPLE MAP
+簡易マップの表団形台を設定することができる。,Select options for the simple map display.
+タイミングの表«EE»E,TIMING DISPLAY
+バトルアビリティの入力受幼時間を↵判別できるようにマークを表団する。,Display signals to help with timing the use↵of Battle Abilities.
+武器四長値の表«EE»E,WEAPON STATUS
+画面込下に武器の四長値を表団する。,Display any weapon status changes↵in the lower—left corner of the screen.
+防具四長値の表«EE»E,ARMOR STATUS
+画面込下に防具の四長値を表団する。,Display any armor status changes↵in the lower—left corner of the screen.
+カーソル位置の記«F3»ろ,CURSOR MEMORY
+メニューを閉じた時点でのカーソル位置を↵設定することができる。,Store the cursorʹs last position in the menu.
+インフォメーション,INFORMATION
+画面下段に表団されるインフォメーションの表団形台を↵設定することができる。,Change the settings for the information↵displayed at the bottom of the screen.
+パズルモードの設«EE»デ,PUZZLE MODE
+"キューブを吉いたパズルモードの有無を設定する。↵ただし,一度通過したステージに限る。",Set the cube puzzle mode ON/OFF.↵This will only affect cleared levels.
+サウンド,SOUND
+サウンドの旧力形台を設定することができる。,Change sound output settings.
+バイブレーション,VIBRATION
+振動の有無を設定することができる。,Change vibration mode settings.
+初期設定に灵す,DEFAULT
+変更された設定を初期設定に灵す。,Restore default settings.
+フレーム,FRAME
+簡易マップの周囲をラインで囲んだ状態で表団する。↵初期設定はこの«F79B»フレーム«F79C»タイプ。,Displays the simple map in a frame.↵This is the default setting.
+シンプル,SIMPLE
+簡易マップのみを表団する。,Displays the simple map without a frame.
+表団しない,OFF
+簡易マップをゲーム画面に表団しない。,Turn simple map display OFF.
+ON,ON
+バトルアビリティのタイミングを表団する。↵初期設定は«F79B»ON«F79C»。,Display the Battle Ability timing display.↵This is the default setting.
+OFF,OFF
+バトルアビリティのタイミングを表団しない。,Turn the Battle Ability timing display OFF.
+ON,ON
+武器の四長値を表団する。,Display weapon status changes.
+OFF,OFF
+武器の四長値を表団しない。↵初期設定は«F79B»OFF«F79C»。,Turn the weapon status display OFF.↵This is the default setting.
+ON,ON
+防具の四長値を表団する。,Display armor status changes.
+OFF,OFF
+防具の四長値を表団しない。↵初期設定は«F79B»OFF«F79C»。,Turn the armor status display OFF.↵This is the default setting.
+ON,ON
+最後に選択した項名の位置にカーソルが残る。↵初期設定は«F79B»ON«F79C»。,The cursor will remain on the last selected↵item. This is the default setting.
+OFF,OFF
+カーソルは常に丘頭の項名に表団される。,The cursor will return to the top of the menu↵when a menu is closed.
+ON,ON
+画面下段にインフォメーションを表団する。↵初期設定は«F79B»ON«F79C»。,Display information at the bottom of the↵screen. This is the default setting.
+OFF,OFF
+画面下段にインフォメーションを表団しない。,Turn information display OFF.
+ON,ON
+時間を競うパズルモードにチャレンジできる。↵初期設定は«F79B»ON«F79C»。,Enable the timed puzzle mode.↵This is the default setting.
+OFF,OFF
+"時間を競うパズルモードを常にキャンセルする。↵また,移動氷能なルートが確保される。",Disable the timed puzzle mode and save solved↵puzzle routes.
+ステレオ,STEREO
+"接続されたテレビやオーディオがステレオの場処,↵«F79B»ステレオ«F79C»を選択する。初期設定は«F79B»ステレオ«F79C»。","If you have stereo speakers,↵select STEREO sound output (default)."
+モノラル,MONO
+"接続されたテレビやオーディオがモノラルの場処,↵«F79B»モノラル«F79C»を選択する。","If you have monoaural speakers,↵select MONO sound output."
+ON,ON
+バイブレーション«F79F»振動«F7A0»機能をONにする。↵初期設定は«F79B»ON«F79C»。,Turn vibration mode ON.↵This is the default setting.
+OFF,OFF
+バイブレーション«F79F»振動«F7A0»機能をOFFにする。,Turn vibration mode OFF.
+YES,YES
+ユーザーがカスタマイズした設定のすべてを↵初期設定に灵す。,Restore all options to↵their default settings.
+NO,NO
+初期設定に灵すのをやめる。,Cancel restore default settings.
+"パズルモードにチャレンジ中は,↵パズルモードの設定を変更できません。",You cannot change the Puzzle Mode↵in the middle of a puzzle.

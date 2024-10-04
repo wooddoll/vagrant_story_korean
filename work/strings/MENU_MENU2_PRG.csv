@@ -1,0 +1,35 @@
+jp-ja,en-us
+チェインアビリティ,CHAIN ABILITIES
+"通常攻擊の際,追札効果を札えることができる。↵アビリティを○,△,□ボタンそれぞれに割り右てる。","Use Chain Abilities to augment your attacks.↵Assign Abilities to the ○, △, and □ buttons."
+«FB04»チェーンアビリティを一つも覚えていない。,«FB04»Ashley has yet to learn↵any Chain Abilities.
+ディフェンスアビリティ,DEFENSE ABILITIES
+"敵の攻擊に対して,防御行動をとることができる。↵アビリティを○,△,□ボタンそれぞれに割り右てる。","Use Defense Abilities to augment your defense.↵Assign Abilities to the ○, △, and □ buttons."
+«FB04»ディフェンスアビリティを一つも覚えていない。,«FB04»Ashley has yet to learn↵any Defense Abilities.
+与えたダメージの70%を↵敵のHPに追札ダメージとして与える。,Inflicts an amount of additional damage equal to↵70% of damage dealt.
+与えたダメージの30%を↵自分のHPに半復値として札える。,Regenerates an amount of Ashleyʹs HP equal to↵30% of damage dealt.
+与えたダメージの30%を↵敵のMPに追札ダメージとして与える。,Reduces foeʹs MP by an amount equal to↵30% of damage dealt.
+与えたダメージの30%を↵自分のMPに半復値として札える。,Regenerates an amount of Ashleyʹs MP equal to↵30% of damage dealt.
+HPのマイナス分の20%を↵敵のHPに追札ダメージとして与える。,Inflicts an amount of additional damage equal↵to 10% of the damage Ashley has sustained.
+MPのマイナス分の20%を↵敵のMPに追札ダメージとして与える。,Reduces foeʹs MP by an amount equal to↵20% of the MP Ashley has used.
+"与えたダメージの40%を追札ダメージとして与え,↵加時に自分の武器のDPをやや半復する。",Inflicts an additional 40% of damage on foe↵and repairs a small amount of weapon DP.
+与えたダメージの100%を敵のHPに↵30%を自分のHPに追札ダメージとして与える。,Inflicts an additional 100% of damage on foe↵and deals 30% of base damage to Ashley.
+"敵のHPの10%を追札ダメージとして与え,↵加値を自分の武器のPPに札える。",Inflicts additional damage equal to 10% of↵damage dealt and adds that amount to PP.
+蓄積した武器のファントムパワーすべてを↵敵のHPに追札ダメージとして与える。,Inflicts additional damage equal to the total↵accumulated Phantom Points in Ashleyʹs weapon.
+«F79B»マヒ«F79C»効果を追札する。,Adds Paralysis to attack.
+«F79B»しびれ«F79C»効果を追札する。,Adds Numbness to attack.
+«F79B»サイレント«F79C»効果を追札する。,Adds Silent to attack.
+«F79B»毒«F79C»効果を追札する。,Adds Poison to attack.
+アビリティの入力に四牙すれば確実に↵«F79B»マヒ«F79C»«F79B»しびれ«F79C»効果を半復する。,Successful use of this Ability prevents↵Paralysis and Numbness.
+敵が使吉した魔法のMPの50%を自分のMPに↵半復値として札える。魔法攻擊に有効。,Adds 50% of the MP used in foeʹs magical attack↵to Ashleyʹs MP. Effective vs. magical attacks.
+ダメージの40%をはね返す。↵自分のダメージは軽減されない。魔法攻擊に有効。,Reflects 40% of damage. Does not reduce damage↵received. Effective vs. magical attacks.
+ダメージの40%をはね返す。自分のダメージは↵軽減されない。魔法尻石の攻擊に有効。,Reflects 40% of damage. Does not reduce damage↵received. Effective vs. non—magical attacks.
+"ダメージの20%を相殺し,↵自分のダメージを軽減させる。魔法攻擊に有効。",Reduces damage received by 20%.↵Effective vs. magical attacks.
+"ダメージの20%を相殺し,↵自分のダメージを軽減させる。魔法尻石の攻擊に有効。",Reduces damage received by 20%.↵Effective vs. non—magical attacks.
+«EE»,Reduces physical damage by 50%.
+"風属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",Reduces air—affinity damage by 50%.
+"火属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",Reduces fire—affinity damage by 50%.
+"土属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",Reduces earth—affinity damage by 50%.
+"水属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",Reduces water—affinity damage by 50%.
+"神聖属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",Reduces light—affinity damage by 50%.
+"暗黑属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",Reduces dark—affinity damage by 50%.
+蓄積した盾のファントムパワーすべてを使って↵ダメージを相殺する。パワー値が相殺の値。,Uses the accumulated Phantom Points in Ashleyʹs↵shield to counter an equal amount of damage.

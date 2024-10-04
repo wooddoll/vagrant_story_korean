@@ -1,0 +1,26 @@
+jp-ja,en-us
+,WEAPONS
+,BLADES
+,GRIPS
+,SHIELDS
+,ARMOR
+ンド,GEMS
+,MISC
+を装備する。,OPTIONS
+ップ,EQUIP
+"やシールドの組み壮てや解体,修理等を行う。",Choose items to equip.
+/ウェポン,SETUP
+/シールド,Assemble / disassemble / repair weapons↵and shields.
+/由«F2»W,EQUIP/WEAPON
+/込«F2»W,EQUIP/SHIELD
+/«F1»C,EQUIP/R.ARM
+/胴«EE»ぐ,EQUIP/L.ARM
+/«F7»?,EQUIP/HEAD
+/アクセサリー,EQUIP/BODY
+,EQUIP/LEGS
+ぢ備していない。,EQUIP/ACCESSORY
+アイ,NONE
+テムダウン«F79C»状態では↵このコマンドを使吉することはできません。,Nothing equipped.
+"足のため,↵このコマンドを使吉することはできません。",
+,You cannot use this command↵with tarnished equipment.
+,Insufficient MP.↵You cannot use this command.

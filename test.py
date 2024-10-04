@@ -12,22 +12,12 @@ from fileStruct.read_MCMAN_BIN import MCMAN_BIN
 from fileStruct.read_ITEMNAME_BIN import ITEMNAME_BIN
 from fileStruct.read_ITEMHELP_BIN import ITEMHELP_BIN
 
+from fileStruct.readStrFile import *
+
 from fileStruct.read_SL_Main import SL_Main
 from fileStruct.read_TITLE_PRG import TITLE_PRG
-from fileStruct.read_BATTLE_PRG import BATTLE_PRG
-from fileStruct.read_MENU0_PRG import MENU0_PRG
-from fileStruct.read_MENU1_PRG import MENU1_PRG
-from fileStruct.read_MENU2_PRG import MENU2_PRG
-from fileStruct.read_MENU3_PRG import MENU3_PRG
-from fileStruct.read_MENU4_PRG import MENU4_PRG
-from fileStruct.read_MENU5_PRG import MENU5_PRG
-from fileStruct.read_MENU7_PRG import MENU7_PRG
-from fileStruct.read_MENU8_PRG import MENU8_PRG
-from fileStruct.read_MENU9_PRG import MENU9_PRG
-from fileStruct.read_MENUB_PRG import MENUB_PRG
-from fileStruct.read_MENUD_PRG import MENUD_PRG
-from fileStruct.read_MENUE_PRG import MENUE_PRG
-from fileStruct.read_MENU12_PRG import MENU12_PRG
+from fileStruct.read_BATTLE_PRG import *
+from fileStruct.read_MENU9_PRG import *
 
 from font import dialog
 import utils
@@ -294,10 +284,6 @@ def makeMPDtexts(folder_path: str, fontTable: dialog.convert_by_TBL, out_path: s
         
             file.write( f"«{fileidx},{idx}»{singleRow[4]}\n" )
 
-
-    
-
-
 def cvtBytes():
     while True:
         inp_text = input('Jpn>')
@@ -323,7 +309,6 @@ def cvtBytes():
         for v in _inp_bytes:
             print(f"{v:02X} ", end='')
         print(f"\n{inp_text}")
-
 
 def cvtBytes2():
     while True:
@@ -384,7 +369,39 @@ def extract_SL_Main_jp_en():
     df = pd.DataFrame(wordInfiles, columns=['jp-ja', 'en-us'])
     outpath = 'work/strings/SLPS_main.csv'
     df.to_csv(outpath, index=False, encoding='utf-8')
+
+
+def extract_TITLE_PRG_jp_en():
+    mainpath = Path(PATH_TEMP_VARGRANTSTORY) / Path('TITLE/TITLE.PRG')
+    namesInfiles = []
+    skill_jpn = TITLE_PRG(str(mainpath))
+    skill_jpn.cvtByte2Str(jpnTBL)
+    namesInfiles.extend(skill_jpn.names_str)
+
+    ####
+    mainpath = Path(PATH_USA_VARGRANTSTORY) / Path('TITLE/TITLE.PRG')
+    engInfiles = []
+    skill_usa = TITLE_PRG(str(mainpath))
+    skill_usa.cvtByte2Str(usaTBL)
+    engInfiles.extend(skill_usa.names_str)
+
+    ###
     
+    len_jpn = len(namesInfiles)
+    len_usa = len(engInfiles)
+    if len_jpn != len_usa:
+        logging.critical("!!!")
+    
+    wordInfiles = []
+    for i in range(len_jpn):
+        jpn = namesInfiles[i]
+        eng = engInfiles[i]
+        wordInfiles.append([jpn, eng])
+
+    df = pd.DataFrame(wordInfiles, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/SLPS_main.csv'
+    df.to_csv(outpath, index=False, encoding='utf-8')
+
 
 #makeSkillnames()
 
@@ -491,38 +508,53 @@ def extract_SMALL_MON_BIN_jp():
     outpath = 'work/strings/SMALL_MON_BIN_jp.csv'
     df_jp.to_csv(outpath, index=False, encoding='utf-8')
 
-def extract_MENU_PRG_jp_en(name: str):
-    func = None
-    if f'{name}_PRG' in globals():
-        func = globals()[f'{name}_PRG']
-    if func is None:
-        logging.warning(f'wrong function name {name}')
-        return
+def extract_MENU_PRG_jp_en(name: str, suffix: str = 'PRG'):
+    class_en = None
+    class_jp = None
     
-    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(f"MENU/{name}.PRG")
-    help_jp = func(str(inp_path))
-    help_jp.cvtByte2Str(jpnTBL)
-
-    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path(f"MENU/{name}.PRG")
-    help_en = func(str(inp_path))
+    if f'{name}_{suffix}' in globals():
+        class_en = globals()[f'{name}_{suffix}']
+        class_jp = globals()[f'{name}_{suffix}']
+        
+    if class_en is None:
+        if f'{name}_{suffix}_en' in globals():
+            class_en = globals()[f'{name}_{suffix}_en']
+        if class_en is None:
+            logging.warning(f'wrong function name {name}')
+            return
+        
+    if class_jp is None:
+        if f'{name}_{suffix}_jp' in globals():
+            class_jp = globals()[f'{name}_{suffix}_jp']
+        if class_jp is None:    
+            logging.warning(f'wrong function name {name}')
+            return
+    
+    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path(f"MENU/{name}.{suffix}")
+    help_en = class_en(str(inp_path))
     help_en.cvtByte2Str(usaTBL)
 
+    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(f"MENU/{name}.{suffix}")
+    help_jp = class_jp(str(inp_path))
+    help_jp.cvtByte2Str(jpnTBL)
+    
     texts = []
     for jp, en in zip(help_jp.strings_str, help_en.strings_str):
         texts.append([jp, en])
 
     df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
-    outpath = f'work/strings/MENU_{name}_PRG.csv'
+    outpath = f'work/strings/MENU_{name}_{suffix}.csv'
     df.to_csv(outpath, index=False, encoding='utf-8')
 
+#extract_MENU_PRG_jp_en('MENU0')
 
 def extract_MENU9_jp_en():
-    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/MENU9.BIN")
-    help_jp = MENU9_PRG(str(inp_path))
+    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/MENU9.PRG")
+    help_jp = MENU9_PRG_jp(str(inp_path))
     help_jp.cvtByte2Str(jpnTBL)
 
-    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/MENU9.BIN")
-    help_en = MENU9_PRG(str(inp_path))
+    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/MENU9.PRG")
+    help_en = MENU9_PRG_en(str(inp_path))
     help_en.cvtByte2Str(usaTBL)
 
     texts = []
@@ -728,8 +760,8 @@ def find_word_in_File(filePath: str):
 
 
 def findStrings():
-    folder_path = Path(PATH_USA_VARGRANTSTORY)
-    file_list = [file for file in folder_path.rglob('*') if file.is_file()]
+    folder_path = Path(PATH_TEMP_VARGRANTSTORY)
+    file_list = [file for file in folder_path.rglob('*.PRG') if file.is_file()]
     wordinfiles = []
     for filepath in tqdm(file_list, desc="Processing"):
         if str(filepath.suffix) in ['.MPD', '.ARM', '.ZND', '.ZUD', '.SHP', '.SEQ', '.WEP', '.WAV', '.TIM', '.XA', '.P', '.ESQ', '.EVT']:
@@ -749,22 +781,24 @@ def findStrings():
 
     with open('work/test/findStrings.yaml', 'wt') as file:
         yaml.dump(wordinfiles, file, encoding='utf-8')
+
 #findStrings()
 
 def extractAll():
-    extract_ARM_jp_en()
-    extract_ZND_jp_en()
+    #extract_ARM_jp_en()
+    #extract_ZND_jp_en()
     
-    fileStruct.structMPD.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.csv')
-    fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.csv')
+    #fileStruct.structMPD.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.csv')
+    #fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.csv')
     
-    extract_SMALL_MON_BIN_en()
-    extract_SMALL_MON_BIN_jp()
-    extract_MCMAN_jp_en()
-    extract_ITEMNAME_jp_en()
-    extract_ITEMHELP_jp_en()
+    #extract_SMALL_MON_BIN_en()
+    #extract_SMALL_MON_BIN_jp()
+    #extract_MCMAN_jp_en()
+    #extract_ITEMNAME_jp_en()
+    #extract_ITEMHELP_jp_en()
     
-    extract_SL_Main_jp_en()
+    #extract_SL_Main_jp_en()
+    #extract_TITLE_PRG_jp_en()  # nothing in jp
     extract_MENU_PRG_jp_en('MENU0')
     extract_MENU_PRG_jp_en('MENU1')
     extract_MENU_PRG_jp_en('MENU2')
@@ -777,7 +811,7 @@ def extractAll():
     extract_MENU_PRG_jp_en('MENUB')
     extract_MENU_PRG_jp_en('MENUD')
     extract_MENU_PRG_jp_en('MENUE')
-    extract_MENU_PRG_jp_en('MENU12')
+    extract_MENU_PRG_jp_en('MENU12', 'BIN')
 #  
 extractAll()
 exit()

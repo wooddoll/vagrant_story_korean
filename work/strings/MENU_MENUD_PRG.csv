@@ -1,0 +1,36 @@
+jp-ja,en-us
+コンテナ,CONTAINER
+"アイテムの搬入,搬旧の操作を終了します。",End item transfer.
+,
+このアイテムを↵コンテナへ移動させることはできません。,This item cannot be stored in the container.
+装備中のアイテムを↵コンテナへ移動させることはできません。,Equipped items cannot be stored in the container.
+セットされているアイテムを↵個別に移動させることはできません。,Combined items cannot be stored separately↵in the container.
+ストックがいっぱいです。↵これ尻上移動させることはできません。,You have selected the maximum number↵of items that you may transfer at one time.
+このカテゴリーのアイテムを↵これ尻上移動させることはできません。,You cannot transfer any more items↵of this category at this time.
+«FA10»YES,«FA10»YES
+«FA10»NO,«FA10»NO
+"搬旧するのは,尻上のアイテムでよろしいですか?",Are these the items you want to remove?
+"搬入するのは,尻上のアイテムでよろしいですか?",Are these the items you want to store?
+搬«ED»づ,REMOVE
+コンテナからアイテムを取り旧す。,Remove an item from the container.
+搬«ED»2,STORE
+コンテナにアイテムを保管する。,Store an item in the container.
+コンテナ/搬«ED»づ,CONTAINER/REMOVE
+コンテナ/搬«ED»2,CONTAINER/STORE
+ウェポン,WEAPONS
+ブレード,BLADES
+グリップ,GRIPS
+シールド,SHIELDS
+アーマー,ARMOR
+秘«EE»D,GEMS
+道«EE»ヨ,MISC
+搬旧アイテム,REMOVED
+搬入アイテム,STORED
+"コンテナには,↵このカテゴリーに属するアイテムが保管されていない。",Items of this category are not stored in the↵container.
+このカテゴリーに属するアイテムを所持していない。,You have no items of this category to store↵in the container.
+コンテナから取り旧すアイテムのリスト。↵アイテムを選択することでリストアップされる。,Items to be removed from the container.↵Selected items will be added to the list.
+コンテナに保管するアイテムのリスト。↵アイテムを選択することでリストアップされる。,Items to be stored in the container.↵Selected items will be added to the list.
+«FA10»搬«ED»づ,«FA10»REMOVE
+コンテナからアイテムを取り旧す。,Remove an item from the container.
+«FA10»搬«ED»2,«FA10»STORE
+コンテナにアイテムを保管する。,Store an item in the container.

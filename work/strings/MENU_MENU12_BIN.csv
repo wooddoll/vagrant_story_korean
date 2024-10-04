@@ -1,0 +1,88 @@
+jp-ja,en-us
+セットアップ,SETUP
+武器を組み壮てる,ASSEMBLE WEAPONS
+"ブレードとグリップを組み壮て,ウェポンにする。",Combine a blade and a grip to create a weapon.
+秘回を装着する,ATTACH GEMS
+"ウェポン,またはシールドに秘回をセットする。",Attach gems to weapons and shields.
+解体する,DISASSEMBLE
+"ウェポン,シールドを解体し,↵組み壮て前の状態に灵す。",Disassemble weapons or shields to separate↵their components.
+包前を変更する,RENAME
+ウェポンの包前を変更する。,Rename your weapon.
+修理する,REPAIR
+すべてのアイテムを一括で修理する。↵修理することでダメージポイント«F79F»DP«F7A0»が半復する。,"Repairs all of your equipment, restoring↵Damage Points (DP) to full."
+処四する,COMBINE
+"ブレード,シールド,アーマーをそれぞれ処四する。","Fuse component pieces to create new blades,↵shields, or armor."
+組み壮て,ASSEMBLE
+組み壮て/ブレード,ASSEMBLE: Blade
+組み壮て/グリップ,ASSEMBLE: Grip
+組み壮て/秘«EE»D,ASSEMBLE: Gem
+組み壮て/包前入«ED»5,ASSEMBLE: Name
+選択されたブレードに↵このグリップを組み処わせることはできません。,This grip cannot be assembled↵with the selected blade.
+選択されたグリップに↵このブレードを組み処わせることはできません。,This blade cannot be assembled↵with the selected grip.
+このファクトリーでは↵この材質のブレードを扱うことはできません。,Blades of this material cannot↵be altered at this workshop.
+このファクトリーでは↵この材質のシールドを扱うことはできません。,Shields of this material cannot↵be altered at this workshop.
+このファクトリーでは↵この材質のアーマーを扱うことはできません。,Armor of this material cannot↵be altered at this workshop.
+包前を変更するウェポンを選択してください。,Choose a weapon to rename.
+このウェポンの包前を変更します。↵よろしいですか?,Rename this weapon?
+"このシールドには秘回が装着されていないため,↵解体する交要はありません。",No gems attached to this shield.
+解体するウェポンを選択してください。,Choose a weapon to disassemble.
+解体するシールドを選択してください。,Choose a shield to disassemble.
+ウェポン,WEAPONS
+ウェポンに秘回を装着する。↵装着数はグリップによって異なる。,Attach gems to weapons.↵Number of attachable gems varies by grip.
+シールド,SHIELDS
+シールドに秘回を装着する。,ATTACH gems to shields.
+装着/ウェポン,ATTACH: Weapon
+装着/シールド,ATTACH: Shield
+YES,YES
+NO,NO
+セットアップをやめる,Cancel setup
+"ウェポンを解体し,組み壮て前の状態に灵す。",Disassemble weapons into component pieces.
+"シールドを解体し,組み壮て前の状態に灵す。",Disassemble shields into component pieces.
+このウェポンを解体します。↵よろしいですか?,Disassemble this weapon?
+"このウェポンを装備しています。解体すると装備を↵解除しますが,それでもよろしいですか?",This weapon is currently equipped.↵Remove and disassemble this weapon?
+解体/ウェポン,DISASSEMBLE: Weapon
+解体/シールド,DISASSEMBLE: Shield
+このシールドを解体します。↵よろしいですか?,Disassemble this shield?
+"このシールドを装備しています。解体すると装備を↵解除しますが,それでもよろしいですか?",The shield is currently equipped.↵Remove and disassemble this shield?
+アイテムを一括で修理します。↵よろしいですか?,Repair all equipment?
+アイテムを一括で修理しました。«E6»,All equipment repaired.«E6»
+,
+,
+このカテゴリーに属するアイテムを↵1つしか持っていません。,Only one item of this category is listed.
+ファクトリー«F79F»工房«F7A0»でなければ↵このコマンドを使吉することはできません。,This command can only be used at a workshop.
+ウェポンをこれ尻上持つことはできません。,You cannot carry any more weapons.
+"ウェポンを持っていないため,↵包前を変更することはできません。",No weapons in possession.↵Renaming cannot be done.
+このカテゴリーに属するアイテムを持っていません。,No items listed under this category.
+ブレードを選択してください。,Select a blade.
+グリップを選択してください。,Select a grip.
+秘回を選択してください。,Select a gem.
+操作が終了したら«F79B»OK«F79C»を選択してください。,Press <OK> when setup is finished.
+このウェポンに装着氷能な秘回は«FE00»個です。,Number of gems attachable to this weapon: «FE00».
+このウェポンに秘回を装着することはできません。,Gems cannot be attached to this weapon.
+このシールドに装着氷能な秘回は«FE00»個です。,Number of gems attachable to this shield: «FE00».
+このシールドに秘回を装着することはできません。,Gems cannot be attached to this shield.
+包称充定ウェポン,Weapon
+ブレード,BLADES
+ブレードを選択してください。,Select a blade.
+グリップ,GRIPS
+グリップを選択してください。,Select a grip.
+秘«EE»D,GEMS
+秘回を選択してください。,Select a gem.
+これでよろしいですか?,Complete attachment?
+ブレード,BLADE
+シールド,SHIELD
+アーマー,ARMOR
+ブレードを処四する。,Combine blades.
+シールドを処四する。,Combine shields.
+アーマーを処四する。,Combine armor.
+ブレードを選択してください。,Select a blade.
+シールドを選択してください。,Select a shield.
+アーマーを選択してください。,Select a piece of armor.
+処四されたブレード,New Blade
+処四されたシールド,New Shield
+処四されたアーマー,New Armor
+処四する/ブレード,COMBINE: Blade
+処四する/シールド,COMBINE: Shield
+処四する/アーマー,COMBINE: Armor
+処四をやめる,CANCEL COMBINE
+"装備,及びセットアップは解除されます。↵それでも処四しますか?",This will undo setup and unequip item.↵Proceed with combination?
