@@ -9,7 +9,6 @@ from utils import *
 from tqdm import tqdm
 from font import dialog
 import pandas as pd
-from fileStruct.readNameFile import ReadNames
 from fileStruct.readStrFile import ReadStrings
 
 class SectionBase():
@@ -331,9 +330,7 @@ def importDialog2MPD(original_folder_path: str, dialogLists, jpnTBL:convert_by_T
         filename = filepath.stem
         texts = dialogLists.get(filename)
         if texts is not None:
-            for idx, dialogBytes in enumerate(mpd.scriptSection.dialogText.dialogBytes):
-                byteText = jpnTBL.cvtStr_Bytes(texts[idx])
-                mpd.scriptSection.dialogText.dialogBytes[idx] = byteText
+            mpd.scriptSection.dialogText.cvtStr2Byte(jpnTBL)
 
         outpath = os.path.join(output_folder_path, f"{filename}.MPD")
         mpd.packData(outpath)

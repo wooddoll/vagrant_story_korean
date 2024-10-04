@@ -2,7 +2,7 @@ import os
 import logging
 from pathlib import Path
 from font.dialog import convert_by_TBL
-from fileStruct.readNameFile import ReadNames
+from fileStruct.readWordFile import ReadWords
 
 
 class SL_Main():
@@ -13,7 +13,7 @@ class SL_Main():
     ItemDummy = 0x1C
 
     def __init__(self, input_path: str = '') -> None:
-        self.names = ReadNames(self.ItemBytes + self.ItemDummy, self.ItemNumber)
+        self.names = ReadWords(self.ItemBytes + self.ItemDummy, self.ItemNumber)
         self.names_byte = self.names._byte
         self.names_str = self.names._str
 

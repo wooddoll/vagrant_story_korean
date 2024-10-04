@@ -1,14 +1,14 @@
 jp-ja,en-us
-ウォーロック«FA0A»«F79F»攻擊«F7»チ,WARLOCK    (ATT)
+ウォーロック«FA0A»«F79F»攻擊«F7A0»,WARLOCK    (ATT)
 ターゲットにダメージを与える攻擊魔法のリスト。,A list of spells that deal damage.
 ウォーロック«F79F»攻擊魔法«F7A0»を覚えていない。,Ashley has yet to learn↵any Warlock (attack) spells.
-シーアルジー«FA04»«F79F»半復«F7»チ,SHAMAN     (REC)
+シーアルジー«FA04»«F79F»半復«F7A0»,SHAMAN     (REC)
 HPやステータス異常等を半復する半復魔法のリスト。,A list of spells that cure status↵abnormalities or restore HP.
 シーアルジー«F79F»半復魔法«F7A0»を覚えていない。,Ashley has yet to learn↵any Shaman (recovery) spells.
-ソーサリー«FA11»«F79F»補助«F7»チ,SORCERER   (AID)
+ソーサリー«FA11»«F79F»補助«F7A0»,SORCERER   (AID)
 ターゲットをステータス異常にする等の↵補助魔法のリスト。,A list of spells that cause status abnormalities↵in foes or otherwise aid Ashley in battle.
 ソーサリー«F79F»補助魔法«F7A0»を覚えていない。,Ashley has yet to learn↵any Sorcerer (aid) spells.
-エンチャント«FA08»«F79F»属性«F7»チ,ENCHANTER  (AFF)
+エンチャント«FA08»«F79F»属性«F7A0»,ENCHANTER  (AFF)
 ウェポンやシールドなどのエレメント«F79F»属性«F7A0»を↵変化させる属性魔法のリスト。,A list of spells that change the elemental↵affinities of equipment.
 エンチャント«F79F»属性魔法«F7A0»を覚えていない。,Ashley has yet to learn any↵Enchanter (affinity) spells.
 «EE»,Physical Attack; Conjuration; Single Target.↵Strikes enemies with an explosive shockwave.

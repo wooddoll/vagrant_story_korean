@@ -11,7 +11,7 @@ NONE,NONE
 ウェポン,WEAPON
 シールド,SHIELD
 アーマー,ARMOR
-«FF00»«FA0C»/«FA0C»«FF»1,«FF00» / «FF»1
+«FF00»«FA0C»/«FA0C»«FF01»,«FF00» / «FF01»
 最悪の状態。動かすことができないほど。,Critical wounds. Crippled.
 悪い状態。ひどくダメージを受けている。,Damaged badly.
 普通の状態。他険ではないが半復が交要。,Wounded. Requires treatment.

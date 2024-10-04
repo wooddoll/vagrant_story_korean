@@ -82,7 +82,7 @@ class convert_by_TBL():
                 strText += '↵'
                 continue
             elif tmp >= 0xE5:
-                if (pos+1) < length:
+                if pos < length:
                     tmp = (tmp << 8) | bytesText[pos]
                     pos += 1
                 letter = self.fwd_tbl.get(tmp)

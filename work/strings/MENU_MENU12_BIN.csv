@@ -15,8 +15,8 @@ jp-ja,en-us
 組み壮て,ASSEMBLE
 組み壮て/ブレード,ASSEMBLE: Blade
 組み壮て/グリップ,ASSEMBLE: Grip
-組み壮て/秘«EE»D,ASSEMBLE: Gem
-組み壮て/包前入«ED»5,ASSEMBLE: Name
+組み壮て/秘回,ASSEMBLE: Gem
+組み壮て/包前入力,ASSEMBLE: Name
 選択されたブレードに↵このグリップを組み処わせることはできません。,This grip cannot be assembled↵with the selected blade.
 選択されたグリップに↵このブレードを組み処わせることはできません。,This blade cannot be assembled↵with the selected grip.
 このファクトリーでは↵この材質のブレードを扱うことはできません。,Blades of this material cannot↵be altered at this workshop.
@@ -66,7 +66,7 @@ NO,NO
 ブレードを選択してください。,Select a blade.
 グリップ,GRIPS
 グリップを選択してください。,Select a grip.
-秘«EE»D,GEMS
+秘回,GEMS
 秘回を選択してください。,Select a gem.
 これでよろしいですか?,Complete attachment?
 ブレード,BLADE

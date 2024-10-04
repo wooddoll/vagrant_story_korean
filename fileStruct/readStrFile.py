@@ -156,3 +156,5 @@ MENUE_PRG_jp = createStringClass('MENU/MENUE.PRG', 0x2644)
 
 MENU12_BIN = createStringClass('MENU/MENU12.BIN', 0x0)
 MCMAN_BIN = createStringClass('MENU/MCMAN.BIN', 0x0)
+
+ITEMHELP_BIN = createStringClass('MENU/ITEMHELP.BIN', 0x0)

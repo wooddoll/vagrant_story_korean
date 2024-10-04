@@ -25,7 +25,7 @@ class ARMstruct():
             
             num_rooms = int4(byte_stream.read(4))
             len_graphicsSection = []
-            for idx in range(num_rooms):
+            for _ in range(num_rooms):
                 byte_stream.seek(4, os.SEEK_CUR)
                 len_graphicsSection.append(int4(byte_stream.read(4)))
                 byte_stream.seek(4, os.SEEK_CUR)
@@ -35,7 +35,7 @@ class ARMstruct():
             byte_stream.seek(self.ptrRoomNames)
             
             self.names_byte.clear()
-            for idx in range(num_rooms):
+            for _ in range(num_rooms):
                 self.names_byte.append(byte_stream.read(0x20))
                 byte_stream.seek(4, os.SEEK_CUR)
 

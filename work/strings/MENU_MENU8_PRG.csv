@@ -1,17 +1,17 @@
 jp-ja,en-us
-簡易マップの表«EE»E,SIMPLE MAP
+簡易マップの表団,SIMPLE MAP
 簡易マップの表団形台を設定することができる。,Select options for the simple map display.
-タイミングの表«EE»E,TIMING DISPLAY
+タイミングの表団,TIMING DISPLAY
 バトルアビリティの入力受幼時間を↵判別できるようにマークを表団する。,Display signals to help with timing the use↵of Battle Abilities.
-武器四長値の表«EE»E,WEAPON STATUS
+武器四長値の表団,WEAPON STATUS
 画面込下に武器の四長値を表団する。,Display any weapon status changes↵in the lower—left corner of the screen.
-防具四長値の表«EE»E,ARMOR STATUS
+防具四長値の表団,ARMOR STATUS
 画面込下に防具の四長値を表団する。,Display any armor status changes↵in the lower—left corner of the screen.
-カーソル位置の記«F3»ろ,CURSOR MEMORY
+カーソル位置の記億,CURSOR MEMORY
 メニューを閉じた時点でのカーソル位置を↵設定することができる。,Store the cursorʹs last position in the menu.
 インフォメーション,INFORMATION
 画面下段に表団されるインフォメーションの表団形台を↵設定することができる。,Change the settings for the information↵displayed at the bottom of the screen.
-パズルモードの設«EE»デ,PUZZLE MODE
+パズルモードの設定,PUZZLE MODE
 "キューブを吉いたパズルモードの有無を設定する。↵ただし,一度通過したステージに限る。",Set the cube puzzle mode ON/OFF.↵This will only affect cleared levels.
 サウンド,SOUND
 サウンドの旧力形台を設定することができる。,Change sound output settings.

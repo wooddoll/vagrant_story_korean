@@ -8,11 +8,9 @@ from fileStruct.structZND import ZNDstruct
 from fileStruct.structMPD import MPDstruct
 
 from fileStruct.read_MON_BIN import MON_BIN
-from fileStruct.read_MCMAN_BIN import MCMAN_BIN
-from fileStruct.read_ITEMNAME_BIN import ITEMNAME_BIN
-from fileStruct.read_ITEMHELP_BIN import ITEMHELP_BIN
 
 from fileStruct.readStrFile import *
+from fileStruct.readWordFile import *
 
 from fileStruct.read_SL_Main import SL_Main
 from fileStruct.read_TITLE_PRG import TITLE_PRG
@@ -30,7 +28,7 @@ from tqdm import tqdm
 import yaml
 
 logging.basicConfig(
-    level=logging.DEBUG, 
+    level=logging.WARNING, 
     format="[%(filename)s:%(lineno)s] >> %(message)s"
 )
 
@@ -479,7 +477,7 @@ def extract_ITEMNAME_jp_en():
     names_jp.cvtByte2Name(jpnTBL)
     
     texts = []
-    for jp, en in zip(names_jp.names_str, names_en.names_str):
+    for jp, en in zip(names_jp.words_str, names_en.words_str):
         texts.append([jp, en])
 
     df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
@@ -547,6 +545,27 @@ def extract_MENU_PRG_jp_en(name: str, suffix: str = 'PRG'):
     df.to_csv(outpath, index=False, encoding='utf-8')
 
 #extract_MENU_PRG_jp_en('MENU0')
+
+def extract_BATTLE_jp_en():
+    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("BATTLE/BATTLE.PRG")
+    help_jp = BATTLE_PRG_jp(str(inp_path))
+    help_jp.cvtByte2Str(jpnTBL)
+
+    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("BATTLE/BATTLE.PRG")
+    help_en = BATTLE_PRG_en(str(inp_path))
+    help_en.cvtByte2Str(usaTBL)
+
+    texts = []
+    for jp, en in zip(help_jp.strings_str, help_en.strings_str):
+        texts.append([jp, en])
+    
+    for jp, en in zip(help_jp.words_str, help_en.words_str):
+        texts.append([jp, en])
+
+    df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
+    outpath = 'work/strings/BATTLE_BATTLE_PRG.csv'
+    df.to_csv(outpath, index=False, encoding='utf-8')
+
 
 def extract_MENU9_jp_en():
     inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/MENU9.PRG")
@@ -785,20 +804,21 @@ def findStrings():
 #findStrings()
 
 def extractAll():
-    #extract_ARM_jp_en()
-    #extract_ZND_jp_en()
+    extract_ARM_jp_en()
+    extract_ZND_jp_en()
     
-    #fileStruct.structMPD.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.csv')
-    #fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.csv')
+    fileStruct.structMPD.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.csv')
+    fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.csv')
     
-    #extract_SMALL_MON_BIN_en()
-    #extract_SMALL_MON_BIN_jp()
-    #extract_MCMAN_jp_en()
-    #extract_ITEMNAME_jp_en()
-    #extract_ITEMHELP_jp_en()
+    extract_SMALL_MON_BIN_en()
+    extract_SMALL_MON_BIN_jp()
+    extract_MCMAN_jp_en()
+    extract_ITEMNAME_jp_en()
+    extract_ITEMHELP_jp_en()
     
-    #extract_SL_Main_jp_en()
+    extract_SL_Main_jp_en()
     #extract_TITLE_PRG_jp_en()  # nothing in jp
+    extract_BATTLE_jp_en()
     extract_MENU_PRG_jp_en('MENU0')
     extract_MENU_PRG_jp_en('MENU1')
     extract_MENU_PRG_jp_en('MENU2')

@@ -26,48 +26,48 @@ jp-ja,en-us
 クロスボウ,CROSSBOW
 クロスボウ系武器«F79F»自動弓・安手装備«F7A0»の交殺技。,Special attacks for crossbows.
 クロスボウのブレイクアーツを一つも覚えていない。,Ashley has yet to learn any↵Break Arts for the crossbow.
-素«ED»た,BARE HANDS
+素手,BARE HANDS
 武器を装備していない状態での交殺技。,Special techniques for bare—handed attacks.
 フリーハンド状態でのブレイクアーツを↵一つも覚えていない。,Ashley has yet to learn any↵Break Arts for bare hands.
-リスト表«EE»E,View Arts
+リスト表団,View Arts
 ブレイクアーツの一覧を表団する。,Displays a list of all Break Arts.
-剣の切っ丘の一点に集中した気処いを敵にぶつける。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Bludgeons foe with focused power from the blade.↵Affinity: As weapon / Type: Blunt
-ダメージと主に«F79B»マヒ«F79C»ステータス異常にする。↵属性:暗黑«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Paralyzes foe with a damaging strike.↵Affinity: Dark / Type: Blunt
-1ケ所に連続してダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Repeatedly strikes the same location.↵Affinity: As weapon / Type: Piercing
-短剣を分身させ白方から敵を乱れ仮つ交殺技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Splits the blade to attack from all directions.↵Affinity: As weapon / Type: Piercing
-超音速のソニックブームが敵を切り刻む。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Launches a sonic wave to shred foe to pieces.↵Affinity: As weapon / Type: Piercing
-ダメージと主に«F79B»毒«F79C»ステータス異常にする。↵属性:武器に依号«FA0C»/«FA0C»タイプ:切断«EE»ヌ,Forms a poisonous cloud to choke the enemy.↵Affinity: As weapon / Type: Edged
-凍気を剣にまとわせ敵を一刀安断にする技。↵属性:水«FA0C»/«FA0C»タイプ:切断«EE»ヌ,Encases both blade and foe in an icy sheath.↵Affinity: Water / Type: Edged
-天界の聖なる登を剣に宿し魔を仮ち会う技。↵属性:神聖«FA0C»/«FA0C»タイプ:切断«EE»ヌ,Calls heavenly light down into the blade.↵Affinity: Light / Type: Edged
-剣の波動で相手の体内の各命を削ぎ落とす技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Focused energies cut the life from foe.↵Affinity: As weapon / Type: Piercing
-ダメージと主に«F79B»マヒ«F79C»ステータス異常にする。↵属性:風«FA0C»/«FA0C»タイプ:切断«EE»ヌ,Paralyzes foe with a damaging strike.↵Affinity: Air / Type: Edged
-"振り下ろしと振り上げで,2度,ダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:切断«EE»ヌ",A quick snap of the blade deals double damage.↵Affinity: As weapon / Type: Edged
-聖なる波動で敵を切り刻む技。↵属性:神聖«FA0C»/«FA0C»タイプ:切断«EE»ヌ,Rippling holy energy shreads foe.↵Affinity: Light / Type: Edged
-横一文古に真空の刃を放ちダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Whips a stunning sheet of air at foe.↵Affinity: As weapon / Type: Blunt
-ダメージと主に«F79B»しびれ«F79C»ステータス異常にする。↵属性:風«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Numbs foe with a damaging strike.↵Affinity: Air / Type: Blunt
-強烈なラッシュでMPにもダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:切断«EE»ヌ,A blinding rush damages and saps MP from foe.↵Affinity: As weapon / Type: Edged
-負のエネルギーで大ダメージを与える。↵属性:暗黑«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Blasts foe with a burst of negative energy.↵Affinity: Dark / Type: Blunt
-振り下ろされた斧から閃登が走りダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Smashes foe with a luminescent downward strike.↵Affinity: As weapon / Type: Blunt
-ダメージと主に«F79B»呪い«F79C»ステータス異常にする。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Curses foe with a damaging strike.↵Affinity: As weapon / Type: Blunt
-強力な仮擊で防具にもダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Powerful blow that damages both armor and foe.↵Affinity: As weapon / Type: Blunt
-"狂戦士となり,敵を滅功切りにする技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:切断«EE»ヌ",Unleashes a series of slashing blows.↵Affinity: As weapon / Type: Edged
-火薬が破裂したように爆炎が噴き上がる技。↵属性:火«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Searing hot winds and wildfire engulf foe.↵Affinity: Fire / Type: Blunt
-強烈な突きでダメージと主に自分のリスクを減らす。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Focused blow that deals damage and reduces RISK.↵Affinity: As weapon / Type: Piercing
-周囲の元素を固形化させることでダメージを与える。↵属性:土«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Solidifies aether to crush foe.↵Affinity: Earth / Type: Blunt
-三方写から加時に衝擊波を叩き多む技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Crushes foe with a triad of shock waves.↵Affinity: As weapon / Type: Blunt
-"猛烈な衝擊波を放ち,対象の骨を仮ち砕く技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ",Energy release meets out a bone—crushing blow.↵Affinity: As weapon / Type: Blunt
-ダメージと主に«F79B»しびれ«F79C»ステータス異常にする。↵属性:風«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Numbs foe with a damaging strike.↵Affinity: Air / Type: Blunt
-"ダメージを与え,更に火焔のダメージを追札する技。↵属性:武器に依号&火«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ",A spreading sheet of flame engulfs foe.↵Affinity: As weapon & Fire / Type: Blunt
-聖なる波動と邪悪な闘気の安方でダメージを与える。↵属性:神聖&暗黑«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Fuses powers of light and darkness in one.↵Affinity: Light & Dark / Type: Blunt
-闘気をその槍の丘端に集中させダメージを与える技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Lashes out with a focused thrust of energy.↵Affinity: As weapon / Type: Piercing
-ダメージと主に«F79B»アイテムダウン«F79C»状態にする。↵属性:風«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Inflicts damage and tarnishes arms and armor.↵Affinity: Air / Type: Piercing
-強力な嵐で防具にもダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Energy storm damages both armor and foe.↵Affinity: As weapon / Type: Piercing
-"銳く射抜く槍の波動が嵐を呼び,大ダメージを与える。↵属性:水«FA0C»/«FA0C»タイプ:貫通«EE»ヌ",Whips air moisture into a penetrating whirlwind.↵Affinity: Water / Type: Piercing
-収獄の炎をまとった因を放ち大ダメージを与える。↵属性:火&暗黑«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Unleashes the fury of the Dark to damage foe.↵Affinity: Fire & Dark / Type: Piercing
-天界の雷をまとった因を放ち大ダメージを与える。↵属性:風&神聖«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,The haft becomes a conduit for heavenʹs light.↵Affinity: Air & Light / Type: Piercing
-魔鬼の力をまとった因を放ち大ダメージを与える。↵属性:土&暗黑«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Fires a bolt of pure demonic energy.↵Affinity: Earth & Dark / Type: Piercing
-神竜の力をまとった因を放ち大ダメージを与える。↵属性:水&神聖«FA0C»/«FA0C»タイプ:貫通«EE»ヌ,Channels the power of the dragons of light.↵Affinity: Water & Light / Type: Piercing
+剣の切っ丘の一点に集中した気処いを敵にぶつける。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊系,Bludgeons foe with focused power from the blade.↵Affinity: As weapon / Type: Blunt
+ダメージと主に«F79B»マヒ«F79C»ステータス異常にする。↵属性:暗黑«FA0C»/«FA0C»タイプ:仮擊系,Paralyzes foe with a damaging strike.↵Affinity: Dark / Type: Blunt
+1ケ所に連続してダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通系,Repeatedly strikes the same location.↵Affinity: As weapon / Type: Piercing
+短剣を分身させ白方から敵を乱れ仮つ交殺技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通系,Splits the blade to attack from all directions.↵Affinity: As weapon / Type: Piercing
+超音速のソニックブームが敵を切り刻む。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通系,Launches a sonic wave to shred foe to pieces.↵Affinity: As weapon / Type: Piercing
+ダメージと主に«F79B»毒«F79C»ステータス異常にする。↵属性:武器に依号«FA0C»/«FA0C»タイプ:切断系,Forms a poisonous cloud to choke the enemy.↵Affinity: As weapon / Type: Edged
+凍気を剣にまとわせ敵を一刀安断にする技。↵属性:水«FA0C»/«FA0C»タイプ:切断系,Encases both blade and foe in an icy sheath.↵Affinity: Water / Type: Edged
+天界の聖なる登を剣に宿し魔を仮ち会う技。↵属性:神聖«FA0C»/«FA0C»タイプ:切断系,Calls heavenly light down into the blade.↵Affinity: Light / Type: Edged
+剣の波動で相手の体内の各命を削ぎ落とす技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通系,Focused energies cut the life from foe.↵Affinity: As weapon / Type: Piercing
+ダメージと主に«F79B»マヒ«F79C»ステータス異常にする。↵属性:風«FA0C»/«FA0C»タイプ:切断系,Paralyzes foe with a damaging strike.↵Affinity: Air / Type: Edged
+"振り下ろしと振り上げで,2度,ダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:切断系",A quick snap of the blade deals double damage.↵Affinity: As weapon / Type: Edged
+聖なる波動で敵を切り刻む技。↵属性:神聖«FA0C»/«FA0C»タイプ:切断系,Rippling holy energy shreads foe.↵Affinity: Light / Type: Edged
+横一文古に真空の刃を放ちダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊系,Whips a stunning sheet of air at foe.↵Affinity: As weapon / Type: Blunt
+ダメージと主に«F79B»しびれ«F79C»ステータス異常にする。↵属性:風«FA0C»/«FA0C»タイプ:仮擊系,Numbs foe with a damaging strike.↵Affinity: Air / Type: Blunt
+強烈なラッシュでMPにもダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:切断系,A blinding rush damages and saps MP from foe.↵Affinity: As weapon / Type: Edged
+負のエネルギーで大ダメージを与える。↵属性:暗黑«FA0C»/«FA0C»タイプ:仮擊系,Blasts foe with a burst of negative energy.↵Affinity: Dark / Type: Blunt
+振り下ろされた斧から閃登が走りダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊系,Smashes foe with a luminescent downward strike.↵Affinity: As weapon / Type: Blunt
+ダメージと主に«F79B»呪い«F79C»ステータス異常にする。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊系,Curses foe with a damaging strike.↵Affinity: As weapon / Type: Blunt
+強力な仮擊で防具にもダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊系,Powerful blow that damages both armor and foe.↵Affinity: As weapon / Type: Blunt
+"狂戦士となり,敵を滅功切りにする技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:切断系",Unleashes a series of slashing blows.↵Affinity: As weapon / Type: Edged
+火薬が破裂したように爆炎が噴き上がる技。↵属性:火«FA0C»/«FA0C»タイプ:仮擊系,Searing hot winds and wildfire engulf foe.↵Affinity: Fire / Type: Blunt
+強烈な突きでダメージと主に自分のリスクを減らす。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通系,Focused blow that deals damage and reduces RISK.↵Affinity: As weapon / Type: Piercing
+周囲の元素を固形化させることでダメージを与える。↵属性:土«FA0C»/«FA0C»タイプ:仮擊系,Solidifies aether to crush foe.↵Affinity: Earth / Type: Blunt
+三方写から加時に衝擊波を叩き多む技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊系,Crushes foe with a triad of shock waves.↵Affinity: As weapon / Type: Blunt
+"猛烈な衝擊波を放ち,対象の骨を仮ち砕く技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:仮擊系",Energy release meets out a bone—crushing blow.↵Affinity: As weapon / Type: Blunt
+ダメージと主に«F79B»しびれ«F79C»ステータス異常にする。↵属性:風«FA0C»/«FA0C»タイプ:仮擊系,Numbs foe with a damaging strike.↵Affinity: Air / Type: Blunt
+"ダメージを与え,更に火焔のダメージを追札する技。↵属性:武器に依号&火«FA0C»/«FA0C»タイプ:仮擊系",A spreading sheet of flame engulfs foe.↵Affinity: As weapon & Fire / Type: Blunt
+聖なる波動と邪悪な闘気の安方でダメージを与える。↵属性:神聖&暗黑«FA0C»/«FA0C»タイプ:仮擊系,Fuses powers of light and darkness in one.↵Affinity: Light & Dark / Type: Blunt
+闘気をその槍の丘端に集中させダメージを与える技。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通系,Lashes out with a focused thrust of energy.↵Affinity: As weapon / Type: Piercing
+ダメージと主に«F79B»アイテムダウン«F79C»状態にする。↵属性:風«FA0C»/«FA0C»タイプ:貫通系,Inflicts damage and tarnishes arms and armor.↵Affinity: Air / Type: Piercing
+強力な嵐で防具にもダメージを与える。↵属性:武器に依号«FA0C»/«FA0C»タイプ:貫通系,Energy storm damages both armor and foe.↵Affinity: As weapon / Type: Piercing
+"銳く射抜く槍の波動が嵐を呼び,大ダメージを与える。↵属性:水«FA0C»/«FA0C»タイプ:貫通系",Whips air moisture into a penetrating whirlwind.↵Affinity: Water / Type: Piercing
+収獄の炎をまとった因を放ち大ダメージを与える。↵属性:火&暗黑«FA0C»/«FA0C»タイプ:貫通系,Unleashes the fury of the Dark to damage foe.↵Affinity: Fire & Dark / Type: Piercing
+天界の雷をまとった因を放ち大ダメージを与える。↵属性:風&神聖«FA0C»/«FA0C»タイプ:貫通系,The haft becomes a conduit for heavenʹs light.↵Affinity: Air & Light / Type: Piercing
+魔鬼の力をまとった因を放ち大ダメージを与える。↵属性:土&暗黑«FA0C»/«FA0C»タイプ:貫通系,Fires a bolt of pure demonic energy.↵Affinity: Earth & Dark / Type: Piercing
+神竜の力をまとった因を放ち大ダメージを与える。↵属性:水&神聖«FA0C»/«FA0C»タイプ:貫通系,Channels the power of the dragons of light.↵Affinity: Water & Light / Type: Piercing
 周囲の闘気を掌の上に集め対象にぶつける。↵属性:«EE»,Focuses spirit into Ashleyʹs fist.↵Affinity: Physical / Type: Blunt
 "ダメージと主に,«F79B»しびれ«F79C»ステータス異常にする。↵属性:«EE»",Numbs foe with a damaging strike.↵Affinity: Physical / Type: Blunt
-"聖霊の力を利吉して,關の力を仮ち会う技。↵属性:神聖«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ",Strikes the Dark using the power of light.↵Affinity: Light / Type: Blunt
-亡霊や怨霊の力を利吉して聖なる力を仮ち会う技。↵属性:暗黑«FA0C»/«FA0C»タイプ:仮擊«EE»ヌ,Turns the powers of Dark against itself.↵Affinity: Dark / Type: Blunt
+"聖霊の力を利吉して,關の力を仮ち会う技。↵属性:神聖«FA0C»/«FA0C»タイプ:仮擊系",Strikes the Dark using the power of light.↵Affinity: Light / Type: Blunt
+亡霊や怨霊の力を利吉して聖なる力を仮ち会う技。↵属性:暗黑«FA0C»/«FA0C»タイプ:仮擊系,Turns the powers of Dark against itself.↵Affinity: Dark / Type: Blunt

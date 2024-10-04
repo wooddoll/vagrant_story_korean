@@ -13,11 +13,11 @@ NO,NO
 "ウェポン,シールドを解体し,↵組み壮て前の状態に灵す。",Disassemble equipment to separate the↵components.
 整理する,ORGANIZE
 "所持品に加じアイテムがある場処,↵個数をまとめることで所持数を增やす。",Organize duplicate items to increase↵your maximum carrying capacity.
-所持品整«F0»W,ORGANIZE INVENTORY
+所持品整理,ORGANIZE INVENTORY
 "アイテムメニューを呼び旧し,↵所持品の整理を行う。",Open the Items menu to organize your inventory.
 «FF00»を解体します。↵よろしいですか?,Disassemble «FF00»?
 «FF00»を整理します。↵よろしいですか?,Organize «FF00»?
-装«F0»か,EQUIP
+装備,EQUIP
 アイテムを装備する。,Choose items to equip.
 セットアップ,SETUP
 "ウェポンやシールドの組み壮てや解体,修理等を行う。","Build, disassemble, or repair your equipment."
@@ -27,6 +27,6 @@ NO,NO
 グリップ,GRIPS
 シールド,SHIELDS
 アーマー,ARMOR
-秘«EE»D,GEMS
-道«EE»ヨ,MISC
+秘回,GEMS
+道具,MISC
 サブコマンド,OPTIONS

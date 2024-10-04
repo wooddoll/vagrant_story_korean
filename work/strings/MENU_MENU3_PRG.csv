@@ -11,11 +11,11 @@ jp-ja,en-us
 "やシールドの組み壮てや解体,修理等を行う。",Choose items to equip.
 /ウェポン,SETUP
 /シールド,Assemble / disassemble / repair weapons↵and shields.
-/由«F2»W,EQUIP/WEAPON
-/込«F2»W,EQUIP/SHIELD
-/«F1»C,EQUIP/R.ARM
-/胴«EE»ぐ,EQUIP/L.ARM
-/«F7»?,EQUIP/HEAD
+/由腕,EQUIP/WEAPON
+/込腕,EQUIP/SHIELD
+/頭,EQUIP/R.ARM
+/胴体,EQUIP/L.ARM
+/脚,EQUIP/HEAD
 /アクセサリー,EQUIP/BODY
 ,EQUIP/LEGS
 ぢ備していない。,EQUIP/ACCESSORY

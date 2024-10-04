@@ -5,24 +5,24 @@ from pathlib import Path
 from font.dialog import convert_by_TBL
 from utils import *
 from fileStruct.readStrFile import ReadStrings
-from fileStruct.readNameFile import ReadNames
+from fileStruct.readWordFile import ReadWords
 
 def createString_Word_Class(filename: str, stringPtr: int, wordPtr: int, wordNum: int, wordBytes: int):
     class Class_String_Word():
         FileName = filename
         StringPtr = stringPtr     
-        NamePtr = wordPtr
-        NameNumber = wordNum
-        NameBytes = wordBytes
+        WordPtr = wordPtr
+        WordNumber = wordNum
+        WordBytes = wordBytes
 
         def __init__(self, input_path: str = '') -> None:
             self.strings = ReadStrings()
             self.strings_byte = self.strings._byte
             self.strings_str = self.strings._str
 
-            self.names = ReadNames(self.NameBytes, self.NameNumber)
-            self.names_byte = self.names._byte
-            self.names_str = self.names._str
+            self.words = ReadWords(self.WordBytes, self.WordNumber)
+            self.words_byte = self.words._byte
+            self.words_str = self.words._str
 
             if os.path.isfile(input_path):
                 self.unpackData(input_path)
@@ -35,19 +35,19 @@ def createString_Word_Class(filename: str, stringPtr: int, wordPtr: int, wordNum
             else:
                 logging.warning(f'{input_path} is not valid path.')
 
-        def cvtName2Byte(self, table: convert_by_TBL):
+        def cvtStr2Byte(self, table: convert_by_TBL):
             self.strings.cvtStr2Byte(table)
             self.strings_byte = self.strings._byte
 
-            self.names.cvtStr2Byte(table)
-            self.names_byte = self.names._byte
+            self.words.cvtStr2Byte(table)
+            self.words_byte = self.words._byte
 
-        def cvtByte2Name(self, table: convert_by_TBL):
+        def cvtByte2Str(self, table: convert_by_TBL):
             self.strings.cvtByte2Str(table)
             self.strings_str = self.strings._str
 
-            self.names.cvtByte2Str(table)
-            self.names_str = self.names._str
+            self.words.cvtByte2Str(table)
+            self.words_str = self.words._str
 
         def unpackData(self, input_path:str):
             with open(input_path, 'rb') as file:
@@ -56,12 +56,12 @@ def createString_Word_Class(filename: str, stringPtr: int, wordPtr: int, wordNum
                 self.strings.unpackData(buffer[self.StringPtr:])
                 self.strings_byte = self.strings._byte
 
-                self.names.unpackData(buffer[self.NamePtr:self.NamePtr + self.NameNumber*self.NameBytes])
+                self.words.unpackData(buffer[self.WordPtr : self.WordPtr + self.WordNumber*self.WordBytes])
 
         def packData(self, output_path:str):
             if len(self.strings._byte) != self.strings.itemNums:
                 logging.critical("!!!")
-            if len(self.names_byte) != self.NameNumber:
+            if len(self.words_byte) != self.WordNumber:
                 logging.critical("!!!")
 
             with open(output_path, 'wb') as file:
@@ -70,10 +70,12 @@ def createString_Word_Class(filename: str, stringPtr: int, wordPtr: int, wordNum
                     file.seek(self.StringPtr)
                     file.write(stringData)
 
-                nameData = self.names.packData()
+                nameData = self.words.packData()
                 if nameData is not None:
-                    file.seek(self.NamePtr)
+                    file.seek(self.WordPtr)
                     file.write(nameData)
+
+    return Class_String_Word
 
 BATTLE_PRG_en = createString_Word_Class('BATTLE/BATTLE.PRG', 0x82068, 0x83758, 21, 0x18)
 BATTLE_PRG_jp = createString_Word_Class('BATTLE/BATTLE.PRG', 0x82050, 0x83520, 21, 0x18)

@@ -1,5 +1,5 @@
 jp-ja,en-us
-標準的な戦闘吉ナイフ。軽くて誰にでも扱える。,A good dagger for the novice.
+«F0»,A good dagger for the novice.
 日常吉・戦闘吉のどちらでも使える万能ナイフ。,A good knife for both combat and daily use.
 狩りで使吉される同剝ぎ吉のナイフ。,"A good, sturdy knife you can depend on."
 切丘が尖り刺突能力に優れた投げナイフ。,A finely honed throwing knife.
@@ -23,7 +23,7 @@ jp-ja,en-us
 刀身が緩やかに湾囚した片刃の刀剣。刺突も氷能。,"A sword with a single—edged, curved blade."
 極東の異国で〝タクミノワザ〞を吉いて作られた剣。,A sword forged by craftsmen of the Orient.
 片手剣と呼ぶにはあまりに大きく長く重い刀剣。,"A very long, heavy sword."
-單事吉重量剣として標準採吉された争刃剣。,A broad—bladed sword used by the Kingsguard.
+單事吉重量剣として«F0»,A broad—bladed sword used by the Kingsguard.
 末方の海賊バイキングたちが愛吉した重い争刃剣。,A heavy sword used by the norsemen.
 細身だが鉄をも断ち切るといわれる東方の異国剣。,A well—known slashing sword of the Orient.
 〝斬る〞より〝叩く〞が相応しい重量級の争刃剣。,A blunt—tipped sword used for executions.
@@ -80,7 +80,7 @@ jp-ja,en-us
 刺突吉の細身のスパイクと切断吉の争刃を持つ槍。,A polearm with a sharply spiked blade.
 三日月型の斧刃を丘端に持つ長槍。,A pike with a crescent—shaped axe blade.
 "ヴォウジェの発展型で,より切断吉に改良されている。",Similar to a voulge but with a bigger blade.
-長剣ほどの長さのスパイクはそれ自体が銳利な刃物。,A polearm with a long sword—like blade.
+長剣ほどの長さのスパイクはそれ自体が銳利な刃«EE»,A polearm with a long sword—like blade.
 弦の巻き幼け機を一体化することで利便性を高めた。,A crossbow with improved drawing mechanism.
 戦場での携帯のために軽量化された自動弓。,"A lightweight, automatic crossbow."
 因尻石の回や鉄球をとばすための自動弓。,A crossbow firing rocks and iron pellets.
@@ -90,7 +90,7 @@ jp-ja,en-us
 拳大の鉄球でも飛ばせるよう改良された自動弓。,A crossbow firing small cannonballs.
 分厚い鉄鎧ですら仮ち抜くだけの威力を備えた弓。,A powerful bow designed to pierce heavy armor.
 滑らないように細い革ひもが巻かれた木製のグリップ。,A wooden grip wrapped with leather.
-手指を司るために突起物状のつばが幼いたグリップ。,A grip with a metal guard for the finger.
+手指を司るために突起«EE»,A grip with a metal guard for the finger.
 十古型のつばの幼いた金属製のグリップ。,A grip with a cross—shaped guard.
 剣を持つ手指を司るためにフードが幼いたグリップ。,A hooded grip to protect the hands.
 "つばに小さな短剣がついており,相手の手指を狙う。",A grip with a small blade to counterattack.
@@ -120,8 +120,8 @@ jp-ja,en-us
 因じりに銳利なフックの幼いた因。,A bolt with a sharply hooked arrowhead.
 磨かれた回彈。因と異なり貫通力は乏しい。,A stone projectile with poor penetration.
 鋼鉄製の彈丸。薄い装叫なら簡単に貫く。,"A Hagane projectile, effective vs. light armor."
-魔神タロスの力を封じた長回«F79F»フェルドスパー«F7A0»。↵物理属性のパワーがやや上昇する。,Feldspar imbued with the dark powers of Talos.↵Increases the power of direct attacks.
-タイタン族の魂を封じた孔雀回«F79F»マラカイト«F7A0»。↵物理属性のパワーが上昇する。,Malachite with a Titanʹs soul bound inside.↵Increases the power of direct attacks.
+魔神タロスの力を封じた長回«F79F»フェルドスパー«F7A0»。↵«EE»,Feldspar imbued with the dark powers of Talos.↵Increases the power of direct attacks.
+タイタン族の魂を封じた孔雀回«F79F»マラカイト«F7A0»。↵«EE»,Malachite with a Titanʹs soul bound inside.↵Increases the power of direct attacks.
 風の精霊シルフの力を封じた黄印«F79F»トパーズ«F7A0»。↵風属性のパワーがやや上昇する。,Topaz imbued with the power of the Sylphs.↵Slightly increases air affinity.
 風の魔人ジンの魂を封じた琥珀«F79F»アンバー«F7A0»。↵風属性のパワーが上昇する。,Amber imbued with the power of Djinn.↵Increases air affinity.
 火の精霊サラマンダーの力を封じた紅印«F79F»ルビー«F7A0»。↵火属性のパワーがやや上昇する。,Ruby imbued with the power of the Salamanders.↵Slightly increases fire affinity.
@@ -421,7 +421,7 @@ jp-ja,en-us
 "ファントム«F79F»死霊・精霊«F7A0»タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵phantom enemies.
 "ドラゴン«F79F»竜族«F7A0»タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵dragon enemies.
 "イービル«F79F»悪魔«F7A0»タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵evil enemies.
-"物理属性の攻擊値,または防御値。",Physical attack and defense value.
+«EE»,Physical attack and defense value.
 "風属性の攻擊値,または防御値。",Air affinity attack and defense value.
 "火属性の攻擊値,または防御値。",Fire affinity attack and defense value.
 "土属性の攻擊値,または防御値。",Earth affinity attack and defense value.
@@ -472,7 +472,7 @@ PP«F79F»最大値«F7A0»の高い順に並べる。,Sorts by max PP in descen
 «FA10»EVIL,«FA10»EVIL
 イービル・タイプに対する攻擊値の高い順に並べる。,Sorts by effectiveness against evil foes.
 «FA10»PHYSICS,«FA10»PHYSICAL
-物理属性の攻擊値の高い順に並べる。,Sorts by effectiveness of physical attacks.
+«EE»,Sorts by effectiveness of physical attacks.
 «FA10»AIR,«FA10»AIR
 風属性の攻擊値の高い順に並べる。,Sorts by level of air affinity.
 «FA10»FIRE,«FA10»FIRE
@@ -504,7 +504,7 @@ PP«F79F»最大値«F7A0»の高い順に並べる。,Sorts by max PP in descen
 «FA10»EVIL,«FA10»EVIL
 イービル・タイプに対する防御値の高い順に並べる。,Sorts by effectiveness against evil foes.
 «FA10»PHYSICS,«FA10»PHYSICAL
-物理属性の防御値の高い順に並べる。,Sorts by defense level of physical attacks.
+«EE»,Sorts by defense level of physical attacks.
 «FA10»AIR,«FA10»AIR
 風属性の防御値の高い順に並べる。,Sorts by defense level of air affinity.
 «FA10»FIRE,«FA10»FIRE
@@ -536,7 +536,7 @@ PP«F79F»最大値«F7A0»の高い順に並べる。,Sorts by max PP in descen
 «FA10»EVIL,«FA10»EVIL
 "イービル・タイプに対する攻擊値,防御値への↵影響力の高い順に並べる。",Sorts by effectiveness against evil foes.
 «FA10»PHYSICS,«FA10»PHYSICAL
-"物理属性の攻擊値,防御値への↵影響力の高い順に並べる。",Sorts by effectiveness against physical attacks.
+«EE»,Sorts by effectiveness against physical attacks.
 «FA10»AIR,«FA10»AIR
 "風属性値の攻擊値,防御値への↵影響力の高い順に並べる。",Sorts by level of air affinity.
 «FA10»FIRE,«FA10»FIRE
@@ -621,7 +621,7 @@ PP«F79F»最大値«F7A0»の高い順に並べる。,Sorts by max PP in descen
 収霊神パロロコングの翼を型どった吐金製のリング。↵翼を持つ者は幸福になれるという旬說から作られた。,"White gold ring adorned with the wings of↵the earth deity, Palolo."
 水の精霊ウンディーネの魂が封じられていると↵いわれる腕輪。,Arm bracelet imbued with the essence↵of an undine water spirit.
 海の妖精タアロアが海獸クラーケンを鎮めるために↵使吉した指輪。ピンキーリングとして着吉する。,"Delicate ring used by the sea spirit, Talia,↵to pacify the Kraken."
-〝十二宮物語〞に冬場する女騎士アグリアスが戦場で↵つけていたとされる口紅。登の妖精から授けられた。,Balm used by the great knight Agrias↵as told in the Zodiac Brave Story.
+〝十二宮«EE»,Balm used by the great knight Agrias↵as told in the Zodiac Brave Story.
 "愛と実りの女神カデシュのシンボル,↵バラと蛇をあしらった純銀製の指輪。","Silver ring with rose and snake motif, symbol↵of the love and fertility goddess, Kadesh."
 鍊金術師アグリッパが創り旧した悪魔を封仙する首輪。↵現去ではアグリッパ自身が封仙されているという。,"Choker imbued with evil, made by the alchemist↵Agrippa. Said to now imprison Agrippaʹs soul."
 «F79B»災いと悲しみをもたらす者«F79C»という宿命をもって↵各まれた美女ディアドラが着吉していたイヤリング。,"Earring favored by the famed beauty Diadra,↵who was fated to bring sadness and ruin."

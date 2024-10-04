@@ -2,7 +2,7 @@ import os
 import logging
 from pathlib import Path
 from font.dialog import convert_by_TBL
-from fileStruct.readNameFile import ReadNames
+from fileStruct.readWordFile import ReadWords
 
 
 class TITLE_PRG():
@@ -13,7 +13,7 @@ class TITLE_PRG():
     ItemBytes = 0x20
 
     def __init__(self, input_path: str = '') -> None:
-        self.names = ReadNames(self.ItemBytes, self.ItemNumber)
+        self.names = ReadWords(self.ItemBytes, self.ItemNumber)
         self.names_byte = self.names._byte
         self.names_str = self.names._str
 
@@ -28,11 +28,11 @@ class TITLE_PRG():
         else:
             logging.warning(f'{input_path} is not valid path.')
 
-    def cvtName2Byte(self, table: convert_by_TBL):
+    def cvtStr2Byte(self, table: convert_by_TBL):
         self.names.cvtStr2Byte(table)
         self.names_byte = self.names._byte
     
-    def cvtByte2Name(self, table: convert_by_TBL):
+    def cvtByte2Str(self, table: convert_by_TBL):
         self.names.cvtByte2Str(table)
         self.names_str = self.names._str
             
