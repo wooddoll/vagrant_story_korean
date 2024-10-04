@@ -9,7 +9,7 @@ jp-ja,en-us
 包前を変更する,RENAME
 ウェポンの包前を変更する。,Rename your weapon.
 修理する,REPAIR
-すべてのアイテムを一括で修理する。↵修理することでダメージポイント«F79F»DP«F7A0»が半復する。,"Repairs all of your equipment, restoring↵Damage Points (DP) to full."
+すべてのアイテムを一括で修理する。↵修理することでダメージポイント⌜DP⌟が半復する。,"Repairs all of your equipment, restoring↵Damage Points (DP) to full."
 処四する,COMBINE
 "ブレード,シールド,アーマーをそれぞれ処四する。","Fuse component pieces to create new blades,↵shields, or armor."
 組み壮て,ASSEMBLE
@@ -49,14 +49,14 @@ NO,NO
 ,
 ,
 このカテゴリーに属するアイテムを↵1つしか持っていません。,Only one item of this category is listed.
-ファクトリー«F79F»工房«F7A0»でなければ↵このコマンドを使吉することはできません。,This command can only be used at a workshop.
+ファクトリー⌜工房⌟でなければ↵このコマンドを使吉することはできません。,This command can only be used at a workshop.
 ウェポンをこれ尻上持つことはできません。,You cannot carry any more weapons.
 "ウェポンを持っていないため,↵包前を変更することはできません。",No weapons in possession.↵Renaming cannot be done.
 このカテゴリーに属するアイテムを持っていません。,No items listed under this category.
 ブレードを選択してください。,Select a blade.
 グリップを選択してください。,Select a grip.
 秘回を選択してください。,Select a gem.
-操作が終了したら«F79B»OK«F79C»を選択してください。,Press <OK> when setup is finished.
+操作が終了したら⎾OK⏌を選択してください。,Press <OK> when setup is finished.
 このウェポンに装着氷能な秘回は«FE00»個です。,Number of gems attachable to this weapon: «FE00».
 このウェポンに秘回を装着することはできません。,Gems cannot be attached to this weapon.
 このシールドに装着氷能な秘回は«FE00»個です。,Number of gems attachable to this shield: «FE00».

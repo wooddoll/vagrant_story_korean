@@ -96,7 +96,7 @@ jp-ja,en-us
 "つばに小さな短剣がついており,相手の手指を狙う。",A grip with a small blade to counterattack.
 つばから柄頭までリング状のガードの幼いたグリップ。,A grip covered with ringlets for protection.
 それぞれの指をかけるためのリングが幼いたグリップ。,A grip with rings for each finger.
-アサシン«F79F»暗殺者«F7A0»たちが吉いた軽量のグリップ。,A lightweight haft used by assassins.
+アサシン⌜暗殺者⌟たちが吉いた軽量のグリップ。,A lightweight haft used by assassins.
 甘平キルティア文古がらせん状に刻まれたグリップ。,A grip engraved with ancient Kildean script.
 軽量で扱いやすい木製のグリップ。,A lightweight grip made of wood.
 木製グリップの表面を滑らないように札工されている。,A wooden handle coated in resin for better grip.
@@ -120,32 +120,32 @@ jp-ja,en-us
 因じりに銳利なフックの幼いた因。,A bolt with a sharply hooked arrowhead.
 磨かれた回彈。因と異なり貫通力は乏しい。,A stone projectile with poor penetration.
 鋼鉄製の彈丸。薄い装叫なら簡単に貫く。,"A Hagane projectile, effective vs. light armor."
-魔神タロスの力を封じた長回«F79F»フェルドスパー«F7A0»。↵«EE»,Feldspar imbued with the dark powers of Talos.↵Increases the power of direct attacks.
-タイタン族の魂を封じた孔雀回«F79F»マラカイト«F7A0»。↵«EE»,Malachite with a Titanʹs soul bound inside.↵Increases the power of direct attacks.
-風の精霊シルフの力を封じた黄印«F79F»トパーズ«F7A0»。↵風属性のパワーがやや上昇する。,Topaz imbued with the power of the Sylphs.↵Slightly increases air affinity.
-風の魔人ジンの魂を封じた琥珀«F79F»アンバー«F7A0»。↵風属性のパワーが上昇する。,Amber imbued with the power of Djinn.↵Increases air affinity.
-火の精霊サラマンダーの力を封じた紅印«F79F»ルビー«F7A0»。↵火属性のパワーがやや上昇する。,Ruby imbued with the power of the Salamanders.↵Slightly increases fire affinity.
-火の魔人イフリートの魂を封じた紅印髄↵«F79F»カーネリアン«F7A0»。火属性のパワーが上昇する。,Carnelian imbued with the power of Ifrit.↵Increases fire affinity.
-土の精霊ノームの力を封じた翠印«F79F»エメラルド«F7A0»。↵土属性のパワーがやや上昇する。,Emerald imbued with the power of the Gnomes.↵Slightly increases earth affinity.
-土の魔人ダオの魂を封じた月長回«F79F»ムーンストーン«F7A0»。↵土属性のパワーが上昇する。,Moonstone imbued with the power of Dao.↵Increases earth affinity.
-水の精霊ウンディーネの力を封じた碧印«F79F»ジャスパー«F7A0»。↵水属性のパワーがやや上昇する。,Jasper imbued with the power of the Undines.↵Slightly increases water affinity.
-水の魔人マリッドの魂を封じた藍印«F79F»アクアマリン«F7A0»。↵水属性のパワーが上昇する。,Aquamarine imbued with the power of Marid.↵Increases water affinity.
-天界の精霊エンジェルの力を封じた真珠«F79F»パール«F7A0»。↵神聖属性のパワーがやや上昇する。,Pearl imbued with the power of the angels.↵Slightly increases light affinity.
-天使長セラフィムの魂を封じた金剛回↵«F79F»ダイアモンド«F7A0»。神聖属性のパワーが上昇する。,Diamond with a seraphʹs soul bound inside.↵Increases light affinity.
-魔界の悪魔モーロックの力を封じた黑印«F79F»ジェット«F7A0»。↵暗黑属性のパワーがやや上昇する。,Jet stone sealed with Morlockʹs magical power.↵Slightly increases dark affinity.
-魔界の魔神ベリアルの魂を封じた黑真珠↵«F79F»ブラックパール«F7A0»。暗黑属性のパワーが上昇する。,Blackpearl with Berialʹs soul bound inside.↵Increases dark affinity.
-梟雄ハイラルの力を封じた星青印«F79F»スターサファイア«F7A0»。↵ヒューマンに対するパワーがやや上昇する。,Star sapphire with the power of Haeralis the↵Brave. Slightly increases power against humans.
-英雄オルランドゥの骸階を封じた陽起回«F79F»アクチノ↵ライト«F7A0»。ヒューマンに対するパワーが上昇する。,Actinolite containing a fragment of Orlanduʹs↵skeleton. Increases power against humans.
-獸王オライオンの力を封じた黑珊瑚«F79F»ブラック↵コーラル«F7A0»。ビーストに対するパワーがやや上昇する。,Black coral holding the hair of Orion the Beast.↵Slightly increases power against beasts.
-獸神オグミオスの魂を封じた紫水晶«F79F»アメシスト«F7A0»。↵ビーストに対するパワーが上昇する。,Amethyst containing Ogmius the Guardianʹs soul.↵Increases power against beasts.
-聖人ヨクスの御力を封じた天藍回«F79F»ラズライト«F7A0»。↵アンデッドに対するパワーがやや上昇する。,Lazurite containing St.Iocusʹs prayer.↵Slightly increases power against undead.
-天騎士バルバネスの遺灰を封じた空晶回«F79F»カイアス↵トライト«F7A0»。アンデッドに対するパワーが上昇する。,Chiastrite containing the ashes of Balvus.↵Increases power against undead.
-西方の三聖霊の責気を封じた翡翠«F79F»ジェイド«F7A0»。↵ファントムに対するパワーがやや上昇する。,Jade containing the Nordic holy spirits.↵Slightly increases power against phantoms.
-英雄ベオウルフの遺髮を封じた磁鉄柘榴回«F79F»アルマン↵ダイン«F7A0»。ファントムに対するパワーが上昇する。,Armandine holding Beowulf the Greatʹs hair.↵Increases power against phantoms.
-ドラゴンの力を封じた蛇紋回«F79F»サーペンタイン«F7A0»。↵ドラゴンに対するパワーがやや上昇する。,Serpentine containing a dragonʹs power.↵Slightly increases power against dragons.
-英雄シグルドの魂を封じた炎瑪瑙«F79F»ファイアアゲート«F7A0»。↵ドラゴンに対するパワーが上昇する。,Fire agate with the soul of Sigguld the Dragoon.↵Increases power against dragons.
-悪魔の血液を封じた赤蛋吐回«F79F»ブラッドオパール«F7A0»。↵イービルに対するパワーがやや上昇する。,Blood opal containing the blood of devils.↵Slightly increases power against evil enemies.
-堕天使アルテマの魂を封じた柘榴回«F79F»ガーネット«F7A0»。↵イービルに対するパワーが上昇する。,Garnet containing Altema the Fallenʹs spirit.↵Increases power against evil enemies.
+魔神タロスの力を封じた長回⌜フェルドスパー⌟。↵«EE»,Feldspar imbued with the dark powers of Talos.↵Increases the power of direct attacks.
+タイタン族の魂を封じた孔雀回⌜マラカイト⌟。↵«EE»,Malachite with a Titanʹs soul bound inside.↵Increases the power of direct attacks.
+風の精霊シルフの力を封じた黄印⌜トパーズ⌟。↵風属性のパワーがやや上昇する。,Topaz imbued with the power of the Sylphs.↵Slightly increases air affinity.
+風の魔人ジンの魂を封じた琥珀⌜アンバー⌟。↵風属性のパワーが上昇する。,Amber imbued with the power of Djinn.↵Increases air affinity.
+火の精霊サラマンダーの力を封じた紅印⌜ルビー⌟。↵火属性のパワーがやや上昇する。,Ruby imbued with the power of the Salamanders.↵Slightly increases fire affinity.
+火の魔人イフリートの魂を封じた紅印髄↵⌜カーネリアン⌟。火属性のパワーが上昇する。,Carnelian imbued with the power of Ifrit.↵Increases fire affinity.
+土の精霊ノームの力を封じた翠印⌜エメラルド⌟。↵土属性のパワーがやや上昇する。,Emerald imbued with the power of the Gnomes.↵Slightly increases earth affinity.
+土の魔人ダオの魂を封じた月長回⌜ムーンストーン⌟。↵土属性のパワーが上昇する。,Moonstone imbued with the power of Dao.↵Increases earth affinity.
+水の精霊ウンディーネの力を封じた碧印⌜ジャスパー⌟。↵水属性のパワーがやや上昇する。,Jasper imbued with the power of the Undines.↵Slightly increases water affinity.
+水の魔人マリッドの魂を封じた藍印⌜アクアマリン⌟。↵水属性のパワーが上昇する。,Aquamarine imbued with the power of Marid.↵Increases water affinity.
+天界の精霊エンジェルの力を封じた真珠⌜パール⌟。↵神聖属性のパワーがやや上昇する。,Pearl imbued with the power of the angels.↵Slightly increases light affinity.
+天使長セラフィムの魂を封じた金剛回↵⌜ダイアモンド⌟。神聖属性のパワーが上昇する。,Diamond with a seraphʹs soul bound inside.↵Increases light affinity.
+魔界の悪魔モーロックの力を封じた黑印⌜ジェット⌟。↵暗黑属性のパワーがやや上昇する。,Jet stone sealed with Morlockʹs magical power.↵Slightly increases dark affinity.
+魔界の魔神ベリアルの魂を封じた黑真珠↵⌜ブラックパール⌟。暗黑属性のパワーが上昇する。,Blackpearl with Berialʹs soul bound inside.↵Increases dark affinity.
+梟雄ハイラルの力を封じた星青印⌜スターサファイア⌟。↵ヒューマンに対するパワーがやや上昇する。,Star sapphire with the power of Haeralis the↵Brave. Slightly increases power against humans.
+英雄オルランドゥの骸階を封じた陽起回⌜アクチノ↵ライト⌟。ヒューマンに対するパワーが上昇する。,Actinolite containing a fragment of Orlanduʹs↵skeleton. Increases power against humans.
+獸王オライオンの力を封じた黑珊瑚⌜ブラック↵コーラル⌟。ビーストに対するパワーがやや上昇する。,Black coral holding the hair of Orion the Beast.↵Slightly increases power against beasts.
+獸神オグミオスの魂を封じた紫水晶⌜アメシスト⌟。↵ビーストに対するパワーが上昇する。,Amethyst containing Ogmius the Guardianʹs soul.↵Increases power against beasts.
+聖人ヨクスの御力を封じた天藍回⌜ラズライト⌟。↵アンデッドに対するパワーがやや上昇する。,Lazurite containing St.Iocusʹs prayer.↵Slightly increases power against undead.
+天騎士バルバネスの遺灰を封じた空晶回⌜カイアス↵トライト⌟。アンデッドに対するパワーが上昇する。,Chiastrite containing the ashes of Balvus.↵Increases power against undead.
+西方の三聖霊の責気を封じた翡翠⌜ジェイド⌟。↵ファントムに対するパワーがやや上昇する。,Jade containing the Nordic holy spirits.↵Slightly increases power against phantoms.
+英雄ベオウルフの遺髮を封じた磁鉄柘榴回⌜アルマン↵ダイン⌟。ファントムに対するパワーが上昇する。,Armandine holding Beowulf the Greatʹs hair.↵Increases power against phantoms.
+ドラゴンの力を封じた蛇紋回⌜サーペンタイン⌟。↵ドラゴンに対するパワーがやや上昇する。,Serpentine containing a dragonʹs power.↵Slightly increases power against dragons.
+英雄シグルドの魂を封じた炎瑪瑙⌜ファイアアゲート⌟。↵ドラゴンに対するパワーが上昇する。,Fire agate with the soul of Sigguld the Dragoon.↵Increases power against dragons.
+悪魔の血液を封じた赤蛋吐回⌜ブラッドオパール⌟。↵イービルに対するパワーがやや上昇する。,Blood opal containing the blood of devils.↵Slightly increases power against evil enemies.
+堕天使アルテマの魂を封じた柘榴回⌜ガーネット⌟。↵イービルに対するパワーが上昇する。,Garnet containing Altema the Fallenʹs spirit.↵Increases power against evil enemies.
 旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造孔雀回。,"An artificial malachite made by the ancient↵Kildeans, named after a legendary knight."
 旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造蛇紋回。,"An artificial serpentine made by the ancient↵Kildeans, named after a legendary knight."
 旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造猫名回。,"An artificial catʹs eye made by the ancient↵Kildeans, named after a legendary knight."
@@ -159,14 +159,14 @@ jp-ja,en-us
 魔法の四牙率を約20%アップする。↵この効果は武器に装備しなければ意味がない。,Increases the success rate of magic by 20%.↵It must be equipped on a weapon.
 魔法尻石の効果の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade non—magical↵attacks by 20%. Must be equipped on a shield.
 魔法の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade magical attacks↵by 20%. It must be equipped on a shield.
-«F79B»STRダウン«F79C»の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺSTR—downʺ by 20%.↵It must be equipped on a shield.
-«F79B»INTダウン«F79C»の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺINT—downʺ by 20%.↵It must be equipped on a shield.
-«F79B»AGLダウン«F79C»の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺAGL—downʺ by 20%.↵It must be equipped on a shield.
+⎾STRダウン⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺSTR—downʺ by 20%.↵It must be equipped on a shield.
+⎾INTダウン⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺINT—downʺ by 20%.↵It must be equipped on a shield.
+⎾AGLダウン⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺAGL—downʺ by 20%.↵It must be equipped on a shield.
 ,
-«F79B»サイレント«F79C»の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺSilentʺ by 20%.↵It must be equipped on a shield.
-«F79B»マヒ«F79C»の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺParalysisʺ by 20%.↵It must be equipped on a shield.
-«F79B»毒«F79C»の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺPoisonʺ by 20%.↵It must be equipped on a shield.
-«F79B»しびれ«F79C»の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺNumbnessʺ by 20%.↵It must be equipped on a shield.
+⎾サイレント⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺSilentʺ by 20%.↵It must be equipped on a shield.
+⎾マヒ⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺParalysisʺ by 20%.↵It must be equipped on a shield.
+⎾毒⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺPoisonʺ by 20%.↵It must be equipped on a shield.
+⎾しびれ⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。,Increases the chance to evade ʺNumbnessʺ by 20%.↵It must be equipped on a shield.
 ,
 ,
 ,
@@ -198,11 +198,11 @@ jp-ja,en-us
 神々よりレアモンデの高僧に授けられたとされる秘薬。↵HPとMPを完曲に半復する。,The nostrum that a high priest received from↵the heavens. Restores all HP and MP.
 王都バルナインの鍊金術士達が作り旧した試験薬。↵HPとリスクを約25ポイント半復する。,An experimental potion made by Valnainʹs↵alchemists. Restores 25 HP; lowers RISK by 25.
 件時平の魔道士が作り旧したといわれる試験薬。↵HPとリスクを約50ポイント半復する。,Reagent made by sorcerers in ancient times.↵Restores 50 HP; lowers RISK by 50 points.
-身体を癒すと旬えられている失界樹の樹液。↵«F79B»マヒ«F79C»ステータス異常を半復する。,Extract of Yggdrasil known to heal status↵abnormalities. Cures ʺParalysis.ʺ
-精霊オリアスが大蛇王との戦いに備えて調処したと↵いわれる解毒薬。«F79B»毒«F79C»ステータス異常を半復。,Made by the faerie king as a remedy for use in↵battle against serpents. Cures ʺPoison.ʺ
-ゾルナの花弁にヤクの胆汁を混ぜた丸薬。↵«F79B»しびれ«F79C»ステータス異常を半復する。,Pellets made from flower petals and dried↵yak livers. Cures ʺNumbness.ʺ
-聖人ヨクスの刻仙が為された護符。↵«F79B»呪い«F79C»ステータス異常を半復する。,A talisman bearing the icon of St.Iocus.↵Cures ʺCurse.ʺ
-様々な薬草を調処して作られた飲み薬。↵«F79B»マヒ・毒・しびれ«F79C»を半復する。,"Potion made with odd bits of herbs.↵Cures ʺParalysis,ʺ ʺPoison,ʺ and ʺNumbness.ʺ"
+身体を癒すと旬えられている失界樹の樹液。↵⎾マヒ⏌ステータス異常を半復する。,Extract of Yggdrasil known to heal status↵abnormalities. Cures ʺParalysis.ʺ
+精霊オリアスが大蛇王との戦いに備えて調処したと↵いわれる解毒薬。⎾毒⏌ステータス異常を半復。,Made by the faerie king as a remedy for use in↵battle against serpents. Cures ʺPoison.ʺ
+ゾルナの花弁にヤクの胆汁を混ぜた丸薬。↵⎾しびれ⏌ステータス異常を半復する。,Pellets made from flower petals and dried↵yak livers. Cures ʺNumbness.ʺ
+聖人ヨクスの刻仙が為された護符。↵⎾呪い⏌ステータス異常を半復する。,A talisman bearing the icon of St.Iocus.↵Cures ʺCurse.ʺ
+様々な薬草を調処して作られた飲み薬。↵⎾マヒ・毒・しびれ⏌を半復する。,"Potion made with odd bits of herbs.↵Cures ʺParalysis,ʺ ʺPoison,ʺ and ʺNumbness.ʺ"
 乾燥させた羽虫を漬け多んだ薬酒。↵サイレントやSTRダウンなどの魔法効果を解除する。,Potion of dried snowfly wings.↵Cancels magical effects cast on target.
 "妖精たちの持つ不思議な粉薬。↵一時的に移動速度がアップし,飛距離も延びる。",Powder that faeries use to accelerate↵movement and improve jumps temporarily.
 初平バレンディア王が吉いたとされる不思議な薬。↵STRを数ポイントだけアップする。,Elixir used by the first king of Valendia.↵Adds a few points of STR.
@@ -245,110 +245,110 @@ jp-ja,en-us
 "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",You donʹt want to read the description↵for this item——believe me.
 "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",You donʹt want to read the description↵for this item——believe me.
 "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",You donʹt want to read the description↵for this item——believe me.
-«F79B»ソリッドショック«F79C»のグリモア«F79F»呪文書«F7A0»。↵強烈な衝擊波を放ちダメージを与える。,Grimoire containing the spell ʺSolid Shock.ʺ↵Strikes enemies with an explosive shockwave.
-«F79B»ライトニングボウ«F79C»のグリモア«F79F»呪文書«F7A0»。↵雷の因を放ちダメージを与える。,Grimoire containing the spell ʺLightning Bolt.ʺ↵Shoots out arrows of lightning.
-«F79B»ファイアボール«F79C»のグリモア«F79F»呪文書«F7A0»。↵灼熱の炎の彈を対象にぶつけダメージを与える。,Grimoire containing the spell ʺFireball.ʺ↵Pummels enemies with balls of fire.
-«F79B»ヴァルカンランス«F79C»のグリモア«F79F»呪文書«F7A0»。↵銳利な火山彈を放ちダメージを与える。,Grimoire containing the spell ʺVulcan Lance.ʺ↵Showers enemies with volcanic debris.
-«F79B»アクアブラスト«F79C»のグリモア«F79F»呪文書«F7A0»。↵強烈な冷気を超高速で放ちダメージを与える。,Grimoire containing the spell ʺAqua Blast.ʺ↵Engulfs enemies with freezing water blast.
-«F79B»スピリットサージ«F79C»のグリモア«F79F»呪文書«F7A0»。↵登の精霊を放ちダメージを与える。,Grimoire containing the spell ʺSpirit Surge.ʺ↵Summons a spirit of light to attack enemies.
-«F79B»デスラプトペイン«F79C»のグリモア«F79F»呪文書«F7A0»。↵苦痛の呪いを放ちダメージを与える。,Grimoire containing the spell ʺDark Chant.ʺ↵Afflicts enemies with crippling pain.
-«F79B»イクソシズム«F79C»のグリモア«F79F»呪文書«F7A0»。↵アンデッドを除霊する。,Grimoire containing the spell ʺExorcism.ʺ↵Exorcise undead foes.
-"«F79B»バニッシュ«F79C»のグリモア«F79F»呪文書«F7A0»。↵禁断の即死の魔法。ただし,アンデッドには効かない。",Grimoire containing the spell ʺBanish.ʺ↵Forbidden spell of instant death.
-«F79B»イクスプロジョン«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象の場所で爆発を起こし衝擊波でダメージを与える。,"Grimoire containing the spell ʺExplosion.ʺ↵A highly focused, devastating blast."
+⎾ソリッドショック⏌のグリモア⌜呪文書⌟。↵強烈な衝擊波を放ちダメージを与える。,Grimoire containing the spell ʺSolid Shock.ʺ↵Strikes enemies with an explosive shockwave.
+⎾ライトニングボウ⏌のグリモア⌜呪文書⌟。↵雷の因を放ちダメージを与える。,Grimoire containing the spell ʺLightning Bolt.ʺ↵Shoots out arrows of lightning.
+⎾ファイアボール⏌のグリモア⌜呪文書⌟。↵灼熱の炎の彈を対象にぶつけダメージを与える。,Grimoire containing the spell ʺFireball.ʺ↵Pummels enemies with balls of fire.
+⎾ヴァルカンランス⏌のグリモア⌜呪文書⌟。↵銳利な火山彈を放ちダメージを与える。,Grimoire containing the spell ʺVulcan Lance.ʺ↵Showers enemies with volcanic debris.
+⎾アクアブラスト⏌のグリモア⌜呪文書⌟。↵強烈な冷気を超高速で放ちダメージを与える。,Grimoire containing the spell ʺAqua Blast.ʺ↵Engulfs enemies with freezing water blast.
+⎾スピリットサージ⏌のグリモア⌜呪文書⌟。↵登の精霊を放ちダメージを与える。,Grimoire containing the spell ʺSpirit Surge.ʺ↵Summons a spirit of light to attack enemies.
+⎾デスラプトペイン⏌のグリモア⌜呪文書⌟。↵苦痛の呪いを放ちダメージを与える。,Grimoire containing the spell ʺDark Chant.ʺ↵Afflicts enemies with crippling pain.
+⎾イクソシズム⏌のグリモア⌜呪文書⌟。↵アンデッドを除霊する。,Grimoire containing the spell ʺExorcism.ʺ↵Exorcise undead foes.
+"⎾バニッシュ⏌のグリモア⌜呪文書⌟。↵禁断の即死の魔法。ただし,アンデッドには効かない。",Grimoire containing the spell ʺBanish.ʺ↵Forbidden spell of instant death.
+⎾イクスプロジョン⏌のグリモア⌜呪文書⌟。↵対象の場所で爆発を起こし衝擊波でダメージを与える。,"Grimoire containing the spell ʺExplosion.ʺ↵A highly focused, devastating blast."
 ,
 ,
 ,
-«F79B»サンダーバースト«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象の頭上に大量の雷を落としダメージを与える。,Grimoire containing the spell ʺThunderburst.ʺ↵Calls down a great bolt from the heavens.
+⎾サンダーバースト⏌のグリモア⌜呪文書⌟。↵対象の頭上に大量の雷を落としダメージを与える。,Grimoire containing the spell ʺThunderburst.ʺ↵Calls down a great bolt from the heavens.
 ,
 ,
 ,
-«F79B»フレイムスフィア«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象の空間に超高溫の炎を作りダメージを与える。,Grimoire containing the spell ʺFlame Sphere.ʺ↵Wreaths target in flames.
+⎾フレイムスフィア⏌のグリモア⌜呪文書⌟。↵対象の空間に超高溫の炎を作りダメージを与える。,Grimoire containing the spell ʺFlame Sphere.ʺ↵Wreaths target in flames.
 ,
 ,
 ,
-«F79B»ガイアストライク«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象の空間の重力を急存に上げダメージを与える。,Grimoire containing the spell ʺGaea Strike.ʺ↵Creates crushing gravity warp around target.
+⎾ガイアストライク⏌のグリモア⌜呪文書⌟。↵対象の空間の重力を急存に上げダメージを与える。,Grimoire containing the spell ʺGaea Strike.ʺ↵Creates crushing gravity warp around target.
 ,
 ,
 ,
-«F79B»アヴァランチ«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象の空間を瞬時に絶対零度にしダメージを与える。,Grimoire containing the spell ʺAvalanche.ʺ↵Super—freezes air around target.
+⎾アヴァランチ⏌のグリモア⌜呪文書⌟。↵対象の空間を瞬時に絶対零度にしダメージを与える。,Grimoire containing the spell ʺAvalanche.ʺ↵Super—freezes air around target.
 ,
 ,
 ,
-"«F79B»ラディウス«F79C»のグリモア«F79F»呪文書«F7A0»。↵神々の登の波動を集結させ,ダメージを与える。",Grimoire containing the spell ʺRadial Surge.ʺ↵Pierces enemies with focused rays of light.
+"⎾ラディウス⏌のグリモア⌜呪文書⌟。↵神々の登の波動を集結させ,ダメージを与える。",Grimoire containing the spell ʺRadial Surge.ʺ↵Pierces enemies with focused rays of light.
 ,
 ,
 ,
-"«F79B»メテオインパクト«F79C»のグリモア«F79F»呪文書«F7A0»。↵天空より隕回を呼び集め,ダメージを与える。",Grimoire containing the spell ʺMeteor.ʺ↵Rains meteors down on the target.
+"⎾メテオインパクト⏌のグリモア⌜呪文書⌟。↵天空より隕回を呼び集め,ダメージを与える。",Grimoire containing the spell ʺMeteor.ʺ↵Rains meteors down on the target.
 ,
 ,
 ,
-«F79B»ドレインハート«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象のHPを自分のものにする。,Grimoire containing the spell ʺDrain Heart.ʺ↵Steals HP from enemies.
-«F79B»ドレインマインド«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象のMPを自分のものにする。,Grimoire containing the spell ʺDrain Mind.ʺ↵Steals MP from enemies.
-«F79B»ヒール«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象の傷を癒すことでHPを半復する。,Grimoire containing the spell ʺHeal.ʺ↵Restores targetʹs HP.
-«F79B»リストレイション«F79C»のグリモア«F79F»呪文書«F7A0»。↵«F79B»マヒ«F79C»ステータス異常を半復する。,Grimoire containing the spell ʺRestoration.ʺ↵Cures ʺParalysis.ʺ
-«F79B»アンチドーテ«F79C»のグリモア«F79F»呪文書«F7A0»。↵«F79B»毒«F79C»ステータス異常を半復する。,Grimoire containing the spell ʺAntidote.ʺ↵Cures ʺPoison.ʺ
-«F79B»ブレッシング«F79C»のグリモア«F79F»呪文書«F7A0»。↵«F79B»呪い«F79C»ステータス異常を半復する。,Grimoire containing the spell ʺBlessing.ʺ↵Cures ʺCurse.ʺ
-«F79B»クリアランス«F79C»のグリモア«F79F»呪文書«F7A0»。↵マヒ・毒・しびれを半復する。,"Grimoire containing the spell ʺClearance.ʺ↵Cures ʺParalysis,ʺ ʺPoison,ʺ and ʺNumbness.ʺ"
-"«F79B»ジェネラスヒール«F79C»のグリモア«F79F»呪文書«F7A0»。↵一定時間,徐々にHPが半復していく。",Grimoire containing the spell ʺSurging Balm.ʺ↵Recharges HP over a short period of time.
-«F79B»ハーキュリアン«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象のストレングス«F79F»力«F7A0»を一定時間增札する。,Grimoire containing the spell ʺHerakles.ʺ↵Temporarily increases targetʹs strength.
-«F79B»ミゼラブルボディ«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象のストレングス«F79F»力«F7A0»を一定時間減少する。,Grimoire containing the spell ʺDegenerate.ʺ↵Temporarily decreases targetʹs strength.
-«F79B»インライテン«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象のインテリジェンス«F79F»知力«F7A0»を一定時間增札する。,Grimoire containing the spell ʺEnlighten.ʺ↵Temporarily increases targetʹs intelligence.
-«F79B»フィブルマインド«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象のインテリジェンス«F79F»知力«F7A0»を一定時間減少する。,Grimoire containing the spell ʺPsychodrain.ʺ↵Temporarily decreases targetʹs intelligence.
-«F79B»インビゴレイト«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象のアジリティ«F79F»素早さ«F7A0»を一定時間增札する。,Grimoire containing the spell ʺInvigorate.ʺ↵Temporarily increases targetʹs agility.
-«F79B»レイジーボーンズ«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象のアジリティ«F79F»素早さ«F7A0»を一定時間減少する。,Grimoire containing the spell ʺLeadbones.ʺ↵Temporarily decreases targetʹs agility.
-«F79B»プロテクト«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象の武器や防具の性能を一定時間增札する。,Grimoire containing the spell ʺProstasia.ʺ↵Temporarily raises targetʹs equipment.
-«F79B»アンプロテクト«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象の武器や防具の性能を一定時間減少する。,Grimoire containing the spell ʺTarnish.ʺ↵Temporarily weakens targetʹs equipment.
-«F79B»サイレントスペル«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象を一時的に魔法を使えないようにする。,Grimoire containing the spell ʺSilence.ʺ↵Temporarily prevents target from casting spells.
-"«F79B»インバリドスペル«F79C»のグリモア«F79F»呪文書«F7A0»。↵自分にかけられた魔法を一半だけ,確実に無効にする。",Grimoire containing the spell ʺMagic Ward.ʺ↵Nullifies the next spell cast on target.
-«F79B»スタンクラウド«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象を«F79B»マヒ«F79C»ステータス異常にする。,Grimoire containing the spell ʺStun Cloud.ʺ↵Casts ʺParalysisʺ on target.
-«F79B»ポイズンミスト«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象を«F79B»毒«F79C»ステータス異常にする。,Grimoire containing the spell ʺPoison Mist.ʺ↵Casts ʺPoisonʺ on target.
-«F79B»カース«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象を«F79B»呪い«F79C»ステータス異常にする。,Grimoire containing the spell ʺCurse.ʺ↵Casts ʺCurseʺ on target.
-«F79B»フィクセイト«F79C»のグリモア«F79F»呪文書«F7A0»。↵マップ中の移動ブロックを一定時間停止させる。,Grimoire containing the spell ʺFixate.ʺ↵Stops the roomʹs Cloudstones from moving.
-«F79B»ディスペル«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象にかかっている魔法を無効化する。,Grimoire containing the spell ʺDispel.ʺ↵Nullifies any spell currently affecting target.
-«F79B»アンロック«F79C»のグリモア«F79F»呪文書«F7A0»。↵魔法でロックされた宝箱の鍵を石す。,Grimoire containing the spell ʺUnlock.ʺ↵Opens treasure chests locked with magic.
-«F79B»マーク«F79C»のグリモア«F79F»呪文書«F7A0»。↵トラップを一時的に視認することができる。,Grimoire containing the spell ʺEureka.ʺ↵Reveals all traps in the room.
-«F79B»アナライシス«F79C»のグリモア«F79F»呪文書«F7A0»。↵対象のパラメータを分析する。,Grimoire containing the spell ʺAnalysis.ʺ↵Analyzes enemiesʹ parameters and stats.
-«F79B»ルフトアタッチ«F79C»のグリモア«F79F»呪文書«F7A0»。↵武器の«F79B»風属性«F79C»を一定時間強化する。,Grimoire containing the spell ʺLuft Fusion.ʺ↵Temporarily raises weaponʹs air affinity.
-«F79B»スパークアタッチ«F79C»のグリモア«F79F»呪文書«F7A0»。↵武器の«F79B»火属性«F79C»を一定時間強化する。,Grimoire containing the spell ʺSpark Fusion.ʺ↵Temporarily raises weaponʹs fire affinity.
-«F79B»ソイルアタッチ«F79C»のグリモア«F79F»呪文書«F7A0»。↵武器の«F79B»土属性«F79C»を一定時間強化する。,Grimoire containing the spell ʺSoil Fusion.ʺ↵Temporarily raises weaponʹs earth affinity.
-«F79B»フロストアタッチ«F79C»のグリモア«F79F»呪文書«F7A0»。↵武器の«F79B»水属性«F79C»を一定時間強化する。,Grimoire containing the spell ʺFrost Fusion.ʺ↵Temporarily raises weaponʹs water affinity.
-«F79B»ルフトガード«F79C»のグリモア«F79F»呪文書«F7A0»。↵防具の«F79B»風属性«F79C»を一定時間強化する。,Grimoire containing the spell ʺAero Guard.ʺ↵Temporarily raises armorʹs air affinity.
-«F79B»スパークガード«F79C»のグリモア«F79F»呪文書«F7A0»。↵防具の«F79B»火属性«F79C»を一定時間強化する。,Grimoire containing the spell ʺPyro Guard.ʺ↵Temporarily raises armorʹs fire affinity.
-«F79B»ソイルガード«F79C»のグリモア«F79F»呪文書«F7A0»。↵防具の«F79B»土属性«F79C»を一定時間強化する。,Grimoire containing the spell ʺTerra Guard.ʺ↵Temporarily raises armorʹs earth affinity.
-«F79B»フロストガード«F79C»のグリモア«F79F»呪文書«F7A0»。↵防具の«F79B»水属性«F79C»を一定時間強化する。,Grimoire containing the spell ʺAqua Guard.ʺ↵Temporarily raises armorʹs water affinity.
+⎾ドレインハート⏌のグリモア⌜呪文書⌟。↵対象のHPを自分のものにする。,Grimoire containing the spell ʺDrain Heart.ʺ↵Steals HP from enemies.
+⎾ドレインマインド⏌のグリモア⌜呪文書⌟。↵対象のMPを自分のものにする。,Grimoire containing the spell ʺDrain Mind.ʺ↵Steals MP from enemies.
+⎾ヒール⏌のグリモア⌜呪文書⌟。↵対象の傷を癒すことでHPを半復する。,Grimoire containing the spell ʺHeal.ʺ↵Restores targetʹs HP.
+⎾リストレイション⏌のグリモア⌜呪文書⌟。↵⎾マヒ⏌ステータス異常を半復する。,Grimoire containing the spell ʺRestoration.ʺ↵Cures ʺParalysis.ʺ
+⎾アンチドーテ⏌のグリモア⌜呪文書⌟。↵⎾毒⏌ステータス異常を半復する。,Grimoire containing the spell ʺAntidote.ʺ↵Cures ʺPoison.ʺ
+⎾ブレッシング⏌のグリモア⌜呪文書⌟。↵⎾呪い⏌ステータス異常を半復する。,Grimoire containing the spell ʺBlessing.ʺ↵Cures ʺCurse.ʺ
+⎾クリアランス⏌のグリモア⌜呪文書⌟。↵マヒ・毒・しびれを半復する。,"Grimoire containing the spell ʺClearance.ʺ↵Cures ʺParalysis,ʺ ʺPoison,ʺ and ʺNumbness.ʺ"
+"⎾ジェネラスヒール⏌のグリモア⌜呪文書⌟。↵一定時間,徐々にHPが半復していく。",Grimoire containing the spell ʺSurging Balm.ʺ↵Recharges HP over a short period of time.
+⎾ハーキュリアン⏌のグリモア⌜呪文書⌟。↵対象のストレングス⌜力⌟を一定時間增札する。,Grimoire containing the spell ʺHerakles.ʺ↵Temporarily increases targetʹs strength.
+⎾ミゼラブルボディ⏌のグリモア⌜呪文書⌟。↵対象のストレングス⌜力⌟を一定時間減少する。,Grimoire containing the spell ʺDegenerate.ʺ↵Temporarily decreases targetʹs strength.
+⎾インライテン⏌のグリモア⌜呪文書⌟。↵対象のインテリジェンス⌜知力⌟を一定時間增札する。,Grimoire containing the spell ʺEnlighten.ʺ↵Temporarily increases targetʹs intelligence.
+⎾フィブルマインド⏌のグリモア⌜呪文書⌟。↵対象のインテリジェンス⌜知力⌟を一定時間減少する。,Grimoire containing the spell ʺPsychodrain.ʺ↵Temporarily decreases targetʹs intelligence.
+⎾インビゴレイト⏌のグリモア⌜呪文書⌟。↵対象のアジリティ⌜素早さ⌟を一定時間增札する。,Grimoire containing the spell ʺInvigorate.ʺ↵Temporarily increases targetʹs agility.
+⎾レイジーボーンズ⏌のグリモア⌜呪文書⌟。↵対象のアジリティ⌜素早さ⌟を一定時間減少する。,Grimoire containing the spell ʺLeadbones.ʺ↵Temporarily decreases targetʹs agility.
+⎾プロテクト⏌のグリモア⌜呪文書⌟。↵対象の武器や防具の性能を一定時間增札する。,Grimoire containing the spell ʺProstasia.ʺ↵Temporarily raises targetʹs equipment.
+⎾アンプロテクト⏌のグリモア⌜呪文書⌟。↵対象の武器や防具の性能を一定時間減少する。,Grimoire containing the spell ʺTarnish.ʺ↵Temporarily weakens targetʹs equipment.
+⎾サイレントスペル⏌のグリモア⌜呪文書⌟。↵対象を一時的に魔法を使えないようにする。,Grimoire containing the spell ʺSilence.ʺ↵Temporarily prevents target from casting spells.
+"⎾インバリドスペル⏌のグリモア⌜呪文書⌟。↵自分にかけられた魔法を一半だけ,確実に無効にする。",Grimoire containing the spell ʺMagic Ward.ʺ↵Nullifies the next spell cast on target.
+⎾スタンクラウド⏌のグリモア⌜呪文書⌟。↵対象を⎾マヒ⏌ステータス異常にする。,Grimoire containing the spell ʺStun Cloud.ʺ↵Casts ʺParalysisʺ on target.
+⎾ポイズンミスト⏌のグリモア⌜呪文書⌟。↵対象を⎾毒⏌ステータス異常にする。,Grimoire containing the spell ʺPoison Mist.ʺ↵Casts ʺPoisonʺ on target.
+⎾カース⏌のグリモア⌜呪文書⌟。↵対象を⎾呪い⏌ステータス異常にする。,Grimoire containing the spell ʺCurse.ʺ↵Casts ʺCurseʺ on target.
+⎾フィクセイト⏌のグリモア⌜呪文書⌟。↵マップ中の移動ブロックを一定時間停止させる。,Grimoire containing the spell ʺFixate.ʺ↵Stops the roomʹs Cloudstones from moving.
+⎾ディスペル⏌のグリモア⌜呪文書⌟。↵対象にかかっている魔法を無効化する。,Grimoire containing the spell ʺDispel.ʺ↵Nullifies any spell currently affecting target.
+⎾アンロック⏌のグリモア⌜呪文書⌟。↵魔法でロックされた宝箱の鍵を石す。,Grimoire containing the spell ʺUnlock.ʺ↵Opens treasure chests locked with magic.
+⎾マーク⏌のグリモア⌜呪文書⌟。↵トラップを一時的に視認することができる。,Grimoire containing the spell ʺEureka.ʺ↵Reveals all traps in the room.
+⎾アナライシス⏌のグリモア⌜呪文書⌟。↵対象のパラメータを分析する。,Grimoire containing the spell ʺAnalysis.ʺ↵Analyzes enemiesʹ parameters and stats.
+⎾ルフトアタッチ⏌のグリモア⌜呪文書⌟。↵武器の⎾風属性⏌を一定時間強化する。,Grimoire containing the spell ʺLuft Fusion.ʺ↵Temporarily raises weaponʹs air affinity.
+⎾スパークアタッチ⏌のグリモア⌜呪文書⌟。↵武器の⎾火属性⏌を一定時間強化する。,Grimoire containing the spell ʺSpark Fusion.ʺ↵Temporarily raises weaponʹs fire affinity.
+⎾ソイルアタッチ⏌のグリモア⌜呪文書⌟。↵武器の⎾土属性⏌を一定時間強化する。,Grimoire containing the spell ʺSoil Fusion.ʺ↵Temporarily raises weaponʹs earth affinity.
+⎾フロストアタッチ⏌のグリモア⌜呪文書⌟。↵武器の⎾水属性⏌を一定時間強化する。,Grimoire containing the spell ʺFrost Fusion.ʺ↵Temporarily raises weaponʹs water affinity.
+⎾ルフトガード⏌のグリモア⌜呪文書⌟。↵防具の⎾風属性⏌を一定時間強化する。,Grimoire containing the spell ʺAero Guard.ʺ↵Temporarily raises armorʹs air affinity.
+⎾スパークガード⏌のグリモア⌜呪文書⌟。↵防具の⎾火属性⏌を一定時間強化する。,Grimoire containing the spell ʺPyro Guard.ʺ↵Temporarily raises armorʹs fire affinity.
+⎾ソイルガード⏌のグリモア⌜呪文書⌟。↵防具の⎾土属性⏌を一定時間強化する。,Grimoire containing the spell ʺTerra Guard.ʺ↵Temporarily raises armorʹs earth affinity.
+⎾フロストガード⏌のグリモア⌜呪文書⌟。↵防具の⎾水属性⏌を一定時間強化する。,Grimoire containing the spell ʺAqua Guard.ʺ↵Temporarily raises armorʹs water affinity.
 ,
-«F79B»黄銅の鍵«F79C»が掛けられた扉を開けることができる。,Opens doors locked with the Bronze Key.
-«F79B»黑鉄の鍵«F79C»が掛けられた扉を開けることができる。,Opens doors locked with the Iron Key.
-«F79B»吐銀の鍵«F79C»が掛けられた扉を開けることができる。,Opens doors locked with the Silver Key.
-«F79B»黄金の鍵«F79C»が掛けられた扉を開けることができる。,Opens doors locked with the Gold Key.
-«F79B»吐鋼の鍵«F79C»が掛けられた扉を開けることができる。,Opens doors locked with the Platinum Key.
-«F79B»赤鉄の鍵«F79C»が掛けられた扉を開けることができる。,Opens doors locked with the Steel Key.
-«F79B»聖仙騎士占の鍵«F79C»が掛けられた扉を↵開けることができる。,Opens doors locked with the Crimson Key.
+⎾黄銅の鍵⏌が掛けられた扉を開けることができる。,Opens doors locked with the Bronze Key.
+⎾黑鉄の鍵⏌が掛けられた扉を開けることができる。,Opens doors locked with the Iron Key.
+⎾吐銀の鍵⏌が掛けられた扉を開けることができる。,Opens doors locked with the Silver Key.
+⎾黄金の鍵⏌が掛けられた扉を開けることができる。,Opens doors locked with the Gold Key.
+⎾吐鋼の鍵⏌が掛けられた扉を開けることができる。,Opens doors locked with the Platinum Key.
+⎾赤鉄の鍵⏌が掛けられた扉を開けることができる。,Opens doors locked with the Steel Key.
+⎾聖仙騎士占の鍵⏌が掛けられた扉を↵開けることができる。,Opens doors locked with the Crimson Key.
 鍵が掛けられた宝箱を開けることができる。,Opens locked treasure chests.
-«F79B»ワイン貯蔵庫«F79C»内の封仙された扉を↵開けることができる。追億の刻仙。,Unseals a door in the Wine Cellar.
-«F79B»収下墓収«F79C»内の封仙された扉を↵開けることができる。信仰の刻仙。,Unseals a door in the Catacombs.
-«F79B»アイアンメイデン«F79C»内の封仙された扉を↵開けることができる。防衛の刻仙。,Unseals a door in the Iron Maiden B1.
-«F79B»街を囲む石壁 末部«F79C»内の封仙された扉を↵開けることができる。高潔の刻仙。,Unseals a door in the City Walls North.
-«F79B»廃坑 第1字層«F79C»内の封仙された扉を↵開けることができる。礼意の刻仙。,Unseals a door in the Abandoned Mines B1.
-«F79B»廃坑 第1字層«F79C»内の封仙された扉を↵開けることができる。反抗の刻仙。,Unseals a door in the Abandoned Mines B1.
-«F79B»ライムストーン運搬溝«F79C»内の封仙された扉を↵開けることができる。追想の刻仙。,Unseals a door in the Limestone Quarry.
-«F79B»ライムストーン運搬溝«F79C»内の封仙された扉を↵開けることができる。包声の刻仙。,Unseals a door in the Limestone Quarry.
-«F79B»ライムストーン運搬溝«F79C»内の封仙された扉を↵開けることができる。加情の刻仙。,Unseals a door in the Limestone Quarry.
-«F79B»大聖堂3字«F79C»内の封仙された扉を↵開けることができる。熱血の刻仙。,Unseals a door in the Great Cathedral L3.
-«F79B»大聖堂1字«F79C»内の封仙された扉を↵開けることができる。勇気の刻仙。,Unseals a door in the Great Cathedral L1.
-«F79B»大聖堂2字«F79C»内の封仙された扉を↵開けることができる。友情の刻仙。,Unseals a door in the Great Cathedral L2.
-«F79B»大聖堂2字«F79C»内の封仙された扉を↵開けることができる。勝利の刻仙。,Unseals a door in the Great Cathedral L2.
-«F79B»レアモンデ砦«F79C»内の封仙された扉を↵開けることができる。希望の刻仙。,Unseals a door in the Keep.
-«F79B»レアモンデ砦«F79C»内の封仙された扉を↵開けることができる。運命の刻仙。,Unseals a door in the Keep.
-«F79B»レアモンデ砦«F79C»内の封仙された扉を↵開けることができる。期待の刻仙。,Unseals a door in the Keep.
-«F79B»レアモンデ砦«F79C»内の封仙された扉を↵開けることができる。和処の刻仙。,Unseals a door in the Keep.
-«F79B»レアモンデ砦«F79C»内の封仙された扉を↵開けることができる。我慢の刻仙。,Unseals a door in the Keep.
-«F79B»レアモンデ砦«F79C»内の封仙された扉を↵開けることができる。絶望の刻仙。,Unseals a door in the Keep.
-«F79B»レアモンデ砦«F79C»内の封仙された扉を↵開けることができる。神秘の刻仙。,Unseals a door in the Keep.
-«F79B»レアモンデ砦«F79C»内の封仙された扉を↵開けることができる。達四の刻仙。,Unseals a door in the Keep.
-«F79B»ワイン貯蔵庫«F79C»内の封仙された扉を↵開けることができる。共遠の愛の刻仙。,Unseals a door in the Wine Cellar.
-«F79B»辺街収 東部«F79C»内の封仙された扉を↵開けることができる。魔力の刻仙。,Unseals a door in Town Center East.
-«F79B»辺街収 南部«F79C»内の封仙された扉を↵開けることができる。幸福の刻仙。,Unseals a door in Town Center South.
+⎾ワイン貯蔵庫⏌内の封仙された扉を↵開けることができる。追億の刻仙。,Unseals a door in the Wine Cellar.
+⎾収下墓収⏌内の封仙された扉を↵開けることができる。信仰の刻仙。,Unseals a door in the Catacombs.
+⎾アイアンメイデン⏌内の封仙された扉を↵開けることができる。防衛の刻仙。,Unseals a door in the Iron Maiden B1.
+⎾街を囲む石壁 末部⏌内の封仙された扉を↵開けることができる。高潔の刻仙。,Unseals a door in the City Walls North.
+⎾廃坑 第1字層⏌内の封仙された扉を↵開けることができる。礼意の刻仙。,Unseals a door in the Abandoned Mines B1.
+⎾廃坑 第1字層⏌内の封仙された扉を↵開けることができる。反抗の刻仙。,Unseals a door in the Abandoned Mines B1.
+⎾ライムストーン運搬溝⏌内の封仙された扉を↵開けることができる。追想の刻仙。,Unseals a door in the Limestone Quarry.
+⎾ライムストーン運搬溝⏌内の封仙された扉を↵開けることができる。包声の刻仙。,Unseals a door in the Limestone Quarry.
+⎾ライムストーン運搬溝⏌内の封仙された扉を↵開けることができる。加情の刻仙。,Unseals a door in the Limestone Quarry.
+⎾大聖堂3字⏌内の封仙された扉を↵開けることができる。熱血の刻仙。,Unseals a door in the Great Cathedral L3.
+⎾大聖堂1字⏌内の封仙された扉を↵開けることができる。勇気の刻仙。,Unseals a door in the Great Cathedral L1.
+⎾大聖堂2字⏌内の封仙された扉を↵開けることができる。友情の刻仙。,Unseals a door in the Great Cathedral L2.
+⎾大聖堂2字⏌内の封仙された扉を↵開けることができる。勝利の刻仙。,Unseals a door in the Great Cathedral L2.
+⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。希望の刻仙。,Unseals a door in the Keep.
+⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。運命の刻仙。,Unseals a door in the Keep.
+⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。期待の刻仙。,Unseals a door in the Keep.
+⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。和処の刻仙。,Unseals a door in the Keep.
+⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。我慢の刻仙。,Unseals a door in the Keep.
+⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。絶望の刻仙。,Unseals a door in the Keep.
+⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。神秘の刻仙。,Unseals a door in the Keep.
+⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。達四の刻仙。,Unseals a door in the Keep.
+⎾ワイン貯蔵庫⏌内の封仙された扉を↵開けることができる。共遠の愛の刻仙。,Unseals a door in the Wine Cellar.
+⎾辺街収 東部⏌内の封仙された扉を↵開けることができる。魔力の刻仙。,Unseals a door in Town Center East.
+⎾辺街収 南部⏌内の封仙された扉を↵開けることができる。幸福の刻仙。,Unseals a door in Town Center South.
 ,
 ,
 ,
@@ -415,12 +415,12 @@ jp-ja,en-us
 安,Two—
 ダメージポイント。アイテムの損傷度を表す。↵現去値が小さいほど損傷が存しいことを意味している。,Damage Points. The meter decreases as the↵item is damaged.
 ファントムポイント。↵アイテムが令永していた〝魔〞の強さを表す。,Phantom Points. The meter increases as the↵item absorbs the Dark.
-"ヒューマン«F79F»人間・亜人間«F7A0»タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵human/demihuman enemies.
-"ビースト«F79F»魔獸«F7A0»タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵beast enemies.
-"アンデッド«F79F»各きる屍«F7A0»タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵undead enemies.
-"ファントム«F79F»死霊・精霊«F7A0»タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵phantom enemies.
-"ドラゴン«F79F»竜族«F7A0»タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵dragon enemies.
-"イービル«F79F»悪魔«F7A0»タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵evil enemies.
+"ヒューマン⌜人間・亜人間⌟タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵human/demihuman enemies.
+"ビースト⌜魔獸⌟タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵beast enemies.
+"アンデッド⌜各きる屍⌟タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵undead enemies.
+"ファントム⌜死霊・精霊⌟タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵phantom enemies.
+"ドラゴン⌜竜族⌟タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵dragon enemies.
+"イービル⌜悪魔⌟タイプに対する↵攻擊値,または防御値。",The itemʹs level of strength against↵evil enemies.
 «EE»,Physical attack and defense value.
 "風属性の攻擊値,または防御値。",Air affinity attack and defense value.
 "火属性の攻擊値,または防御値。",Fire affinity attack and defense value.
@@ -433,9 +433,9 @@ jp-ja,en-us
 "貫通系武器の攻擊値,または防御値。",Piercing attack and defense.
 武器の射程範囲。,Weaponʹs range of attack.
 武器で攻擊した際に札算されるリスクポイント。,RISK points added with each use of the weapon.
-ストレングス«F79F»力«F7A0»。↵高いほど攻擊力や耐久力などが上がる。,Strength level.↵Affects attack and defense power.
-インテリジェンス«F79F»知力«F7A0»。↵高いほど魔法の効果や抵抗力などが上がる。,Intelligence level.↵Affects magic attacks and defense.
-アジリティ«F79F»素早さ«F7A0»。↵高いほど攻擊命中率や半避率などが上がる。,Agility level.↵Affects chance to hit and evade.
+ストレングス⌜力⌟。↵高いほど攻擊力や耐久力などが上がる。,Strength level.↵Affects attack and defense power.
+インテリジェンス⌜知力⌟。↵高いほど魔法の効果や抵抗力などが上がる。,Intelligence level.↵Affects magic attacks and defense.
+アジリティ⌜素早さ⌟。↵高いほど攻擊命中率や半避率などが上がる。,Agility level.↵Affects chance to hit and evade.
 ,
 «FA10»分類,«FA10»SORT
 分類の順に並べる。,Sorts items by category.
@@ -446,19 +446,19 @@ jp-ja,en-us
 «FA10»ブレードタイプ,«FA10»BLADE TYPE
 仮擊系/切断系/貫通系の順に並べる。,Sorts in Blunt/Edged/Piercing order.
 «FA10»DP,«FA10»DP
-DP«F79F»現去値«F7A0»の高い順に並べる。,Sorts by current DP in descending order.
+DP⌜現去値⌟の高い順に並べる。,Sorts by current DP in descending order.
 «FA10»DPMAX,«FA10»MAX DP
-DP«F79F»最大値«F7A0»の高い順に並べる。,Sorts by max DP in descending order.
+DP⌜最大値⌟の高い順に並べる。,Sorts by max DP in descending order.
 «FA10»PP,«FA10»PP
-PP«F79F»現去値«F7A0»の高い順に並べる。,Sorts by current PP in descending order.
+PP⌜現去値⌟の高い順に並べる。,Sorts by current PP in descending order.
 «FA10»PPMAX,«FA10»MAX PP
-PP«F79F»最大値«F7A0»の高い順に並べる。,Sorts by max PP in descending order.
+PP⌜最大値⌟の高い順に並べる。,Sorts by max PP in descending order.
 «FA10»STR,«FA10»STR
-ストレングス«F79F»力«F7A0»の高い順に並べる。,Sorts by STR in descending order.
+ストレングス⌜力⌟の高い順に並べる。,Sorts by STR in descending order.
 «FA10»INT,«FA10»INT
-インテリジェンス«F79F»知力«F7A0»の高い順に並べる。,Sorts by INT in descending order.
+インテリジェンス⌜知力⌟の高い順に並べる。,Sorts by INT in descending order.
 «FA10»AGL,«FA10»AGL
-アジリティ«F79F»素早さ«F7A0»の高い順に並べる。,Sorts by AGL in descending order.
+アジリティ⌜素早さ⌟の高い順に並べる。,Sorts by AGL in descending order.
 «FA10»HUMAN,«FA10»HUMAN
 ヒューマン・タイプに対する攻擊値の高い順に並べる。,Sorts by effectiveness against human foes.
 «FA10»BEAST,«FA10»BEAST
@@ -624,12 +624,12 @@ PP«F79F»最大値«F7A0»の高い順に並べる。,Sorts by max PP in descen
 〝十二宮«EE»,Balm used by the great knight Agrias↵as told in the Zodiac Brave Story.
 "愛と実りの女神カデシュのシンボル,↵バラと蛇をあしらった純銀製の指輪。","Silver ring with rose and snake motif, symbol↵of the love and fertility goddess, Kadesh."
 鍊金術師アグリッパが創り旧した悪魔を封仙する首輪。↵現去ではアグリッパ自身が封仙されているという。,"Choker imbued with evil, made by the alchemist↵Agrippa. Said to now imprison Agrippaʹs soul."
-«F79B»災いと悲しみをもたらす者«F79C»という宿命をもって↵各まれた美女ディアドラが着吉していたイヤリング。,"Earring favored by the famed beauty Diadra,↵who was fated to bring sadness and ruin."
+⎾災いと悲しみをもたらす者⏌という宿命をもって↵各まれた美女ディアドラが着吉していたイヤリング。,"Earring favored by the famed beauty Diadra,↵who was fated to bring sadness and ruin."
 旬說に冬場する巨人タイタン族の指輪。↵巨人吉なのでブレスレットとして使吉する。,"Ring worn by the Titans of legend, large↵enough to be used as a bracelet by mortals."
 旬說に冬場する巨人タイタン族の王女ラウフェイが↵着吉していたとされるパワープレスレット。,"Armlet of might worn by the legendary queen↵of the Titans, Lau Fei."
 "壳れない職人が死の間際,妻のために作ったブローチ。↵彼の死後,繊細で上品な細工が大絶賛を受けた。",Brooch a poor craftsman made for his wife.↵Lauded for its quality after his death.
 "神話の時平,魔法の戦車プシュパカを引く天馬と↵年信するために作られたマジックアイテム。",Earring made in ancient times to talk with↵the Pegasi drawing the chariot ʺPushpaka.ʺ
-"悪鬼にとりつかれたエドガーが着吉していたピアス。↵復帰後,彼はネクロマンサー«F79F»屍術師«F7A0»となった。","Earring possessed by a demon—wight, worn by the↵great necromancer Edgar."
+"悪鬼にとりつかれたエドガーが着吉していたピアス。↵復帰後,彼はネクロマンサー⌜屍術師⌟となった。","Earring possessed by a demon—wight, worn by the↵great necromancer Edgar."
 聖仙型のアクセントが幼いた牛革のチョーカー。↵辛口なアクセサリーだ。,Decorative leather choker with a↵pendant in the shape of a cross.
 "暗殺者として育てられ,それゆえ歴用の表舞申に壮つ↵ことを許されなかった者たちの無念が封じられた腕輪。",Armlet imbued with the vain ambition of those↵whose names the storytellers do not sing.
 甘平キルティアの偉大な魔導師にして踊り子の↵メレンカンプが着吉していたアンクレット。,"Anklet worn by Müllenkamp, a dancer, and the↵head priestess of ancient Kiltia."
@@ -651,7 +651,7 @@ PP«F79F»最大値«F7A0»の高い順に並べる。,Sorts by max PP in descen
 グローブ,Glove
 このカテゴリーに属するアイテムを持っていない。,You have no items in this category.
 称生:«FF00»«FF01»,Class: «FF00»«FF01»
-↵«FF09»製«FA0C»«FF08»«F79F»«FF07»系/«FF06»手装備«F7A0»,↵«FF09» «FF08»(«FF07»/«FF06»Handed)
+↵«FF09»製«FA0C»«FF08»⌜«FF07»系/«FF06»手装備⌟,↵«FF09» «FF08»(«FF07»/«FF06»Handed)
 ↵«FF05»,↵«FF05»
 ↵«FF09»製«FA0C»«FF08»,↵«FF09» «FF08»
 NONE,NONE

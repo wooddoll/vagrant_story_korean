@@ -15,11 +15,11 @@ MPのマイナス分の20%を↵敵のMPに追札ダメージとして与える�
 与えたダメージの100%を敵のHPに↵30%を自分のHPに追札ダメージとして与える。,Inflicts an additional 100% of damage on foe↵and deals 30% of base damage to Ashley.
 "敵のHPの10%を追札ダメージとして与え,↵加値を自分の武器のPPに札える。",Inflicts additional damage equal to 10% of↵damage dealt and adds that amount to PP.
 蓄積した武器のファントムパワーすべてを↵敵のHPに追札ダメージとして与える。,Inflicts additional damage equal to the total↵accumulated Phantom Points in Ashleyʹs weapon.
-«F79B»マヒ«F79C»効果を追札する。,Adds Paralysis to attack.
-«F79B»しびれ«F79C»効果を追札する。,Adds Numbness to attack.
-«F79B»サイレント«F79C»効果を追札する。,Adds Silent to attack.
-«F79B»毒«F79C»効果を追札する。,Adds Poison to attack.
-アビリティの入力に四牙すれば確実に↵«F79B»マヒ«F79C»«F79B»しびれ«F79C»効果を半復する。,Successful use of this Ability prevents↵Paralysis and Numbness.
+⎾マヒ⏌効果を追札する。,Adds Paralysis to attack.
+⎾しびれ⏌効果を追札する。,Adds Numbness to attack.
+⎾サイレント⏌効果を追札する。,Adds Silent to attack.
+⎾毒⏌効果を追札する。,Adds Poison to attack.
+アビリティの入力に四牙すれば確実に↵⎾マヒ⏌⎾しびれ⏌効果を半復する。,Successful use of this Ability prevents↵Paralysis and Numbness.
 敵が使吉した魔法のMPの50%を自分のMPに↵半復値として札える。魔法攻擊に有効。,Adds 50% of the MP used in foeʹs magical attack↵to Ashleyʹs MP. Effective vs. magical attacks.
 ダメージの40%をはね返す。↵自分のダメージは軽減されない。魔法攻擊に有効。,Reflects 40% of damage. Does not reduce damage↵received. Effective vs. magical attacks.
 ダメージの40%をはね返す。自分のダメージは↵軽減されない。魔法尻石の攻擊に有効。,Reflects 40% of damage. Does not reduce damage↵received. Effective vs. non—magical attacks.

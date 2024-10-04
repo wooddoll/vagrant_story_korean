@@ -1,16 +1,16 @@
 jp-ja,en-us
-ウォーロック«FA0A»«F79F»攻擊«F7A0»,WARLOCK    (ATT)
+ウォーロック«FA0A»⌜攻擊⌟,WARLOCK    (ATT)
 ターゲットにダメージを与える攻擊魔法のリスト。,A list of spells that deal damage.
-ウォーロック«F79F»攻擊魔法«F7A0»を覚えていない。,Ashley has yet to learn↵any Warlock (attack) spells.
-シーアルジー«FA04»«F79F»半復«F7A0»,SHAMAN     (REC)
+ウォーロック⌜攻擊魔法⌟を覚えていない。,Ashley has yet to learn↵any Warlock (attack) spells.
+シーアルジー«FA04»⌜半復⌟,SHAMAN     (REC)
 HPやステータス異常等を半復する半復魔法のリスト。,A list of spells that cure status↵abnormalities or restore HP.
-シーアルジー«F79F»半復魔法«F7A0»を覚えていない。,Ashley has yet to learn↵any Shaman (recovery) spells.
-ソーサリー«FA11»«F79F»補助«F7A0»,SORCERER   (AID)
+シーアルジー⌜半復魔法⌟を覚えていない。,Ashley has yet to learn↵any Shaman (recovery) spells.
+ソーサリー«FA11»⌜補助⌟,SORCERER   (AID)
 ターゲットをステータス異常にする等の↵補助魔法のリスト。,A list of spells that cause status abnormalities↵in foes or otherwise aid Ashley in battle.
-ソーサリー«F79F»補助魔法«F7A0»を覚えていない。,Ashley has yet to learn↵any Sorcerer (aid) spells.
-エンチャント«FA08»«F79F»属性«F7A0»,ENCHANTER  (AFF)
-ウェポンやシールドなどのエレメント«F79F»属性«F7A0»を↵変化させる属性魔法のリスト。,A list of spells that change the elemental↵affinities of equipment.
-エンチャント«F79F»属性魔法«F7A0»を覚えていない。,Ashley has yet to learn any↵Enchanter (affinity) spells.
+ソーサリー⌜補助魔法⌟を覚えていない。,Ashley has yet to learn↵any Sorcerer (aid) spells.
+エンチャント«FA08»⌜属性⌟,ENCHANTER  (AFF)
+ウェポンやシールドなどのエレメント⌜属性⌟を↵変化させる属性魔法のリスト。,A list of spells that change the elemental↵affinities of equipment.
+エンチャント⌜属性魔法⌟を覚えていない。,Ashley has yet to learn any↵Enchanter (affinity) spells.
 «EE»,Physical Attack; Conjuration; Single Target.↵Strikes enemies with an explosive shockwave.
 風属性攻擊魔法。投射型。リム単体。↵雷の因を放ちダメージを与える。,Air Affinity; Conjuration; Single Target.↵Shoots out arrows of lightning.
 火属性攻擊魔法。投射型。リム単体。↵灼熱の炎の彈を放ちダメージを与える。,Fire Affinity; Conjuration; Single Target.↵Pummels enemies with balls of fire.
@@ -30,37 +30,37 @@ HPやステータス異常等を半復する半復魔法のリスト。,A list o
 暗黑属性攻擊魔法。放旧型。リム単体。↵対象のHPを自分のものにする。,Dark Affinity; Evocation; Single Target.↵Steals HP from enemies.
 暗黑属性攻擊魔法。放旧型。ユニット単体。↵対象のMPを自分のものにする。,Dark Affinity; Evocation; Single Target.↵Steals MP from enemies.
 神聖属性半復魔法。放旧型。ユニット単体。↵対象の傷を癒すことでHPを半復する。,Light Affinity; Evocation; Single Target.↵Restores targetʹs HP.
-神聖属性半復魔法。放旧型。ユニット単体。↵«F79B»マヒ«F79C»ステータス異常を半復する。,Light Affinity; Evocation; Single Target.↵Cures ʺParalysis.ʺ
-神聖属性半復魔法。放旧型。ユニット単体。↵«F79B»毒«F79C»ステータス異常を半復する。,Light Affinity; Evocation; Single Target.↵Cures ʺPoison.ʺ
-神聖属性半復魔法。放旧型。ユニット単体。↵«F79B»呪い«F79C»ステータス異常を半復する。,Light Affinity; Evocation; Single Target.↵Cures ʺCurse.ʺ
+神聖属性半復魔法。放旧型。ユニット単体。↵⎾マヒ⏌ステータス異常を半復する。,Light Affinity; Evocation; Single Target.↵Cures ʺParalysis.ʺ
+神聖属性半復魔法。放旧型。ユニット単体。↵⎾毒⏌ステータス異常を半復する。,Light Affinity; Evocation; Single Target.↵Cures ʺPoison.ʺ
+神聖属性半復魔法。放旧型。ユニット単体。↵⎾呪い⏌ステータス異常を半復する。,Light Affinity; Evocation; Single Target.↵Cures ʺCurse.ʺ
 神聖属性半復魔法。放旧型。ユニット単体。↵マヒ・毒・しびれを半復する。,Light Affinity; Evocation; Single Target.↵Cures all status abnormalities.
 神聖属性半復魔法。放旧型。ユニット単体。↵徐々にHPが半復していく。,Light Affinity; Evocation; Single Target.↵Recharges HP over a short period of time.
-補助魔法。放旧型。ユニット単体。↵対象のストレングス«F79F»力«F7A0»を一定時間增札する。,Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs strength.
-補助魔法。放旧型。ユニット単体。↵対象のストレングス«F79F»力«F7A0»を一定時間減少する。,Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs strength.
-補助魔法。放旧型。ユニット単体。↵対象のインテリジェンス«F79F»知力«F7A0»を一定時間增札する。,Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs intelligence.
-補助魔法。放旧型。ユニット単体。↵対象のインテリジェンス«F79F»知力«F7A0»を一定時間減少する。,Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs intelligence.
-補助魔法。放旧型。ユニット単体。↵対象のアジリティ«F79F»素早さ«F7A0»を一定時間增札する。,Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs agility.
-補助魔法。放旧型。ユニット単体。↵対象のアジリティ«F79F»素早さ«F7A0»を一定時間減少する。,Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs agility.
+補助魔法。放旧型。ユニット単体。↵対象のストレングス⌜力⌟を一定時間增札する。,Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs strength.
+補助魔法。放旧型。ユニット単体。↵対象のストレングス⌜力⌟を一定時間減少する。,Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs strength.
+補助魔法。放旧型。ユニット単体。↵対象のインテリジェンス⌜知力⌟を一定時間增札する。,Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs intelligence.
+補助魔法。放旧型。ユニット単体。↵対象のインテリジェンス⌜知力⌟を一定時間減少する。,Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs intelligence.
+補助魔法。放旧型。ユニット単体。↵対象のアジリティ⌜素早さ⌟を一定時間增札する。,Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs agility.
+補助魔法。放旧型。ユニット単体。↵対象のアジリティ⌜素早さ⌟を一定時間減少する。,Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs agility.
 補助魔法。放旧型。ユニット単体。↵対象の武器や防具の性能を一定時間增札する。,Support Magic; Evocation; Single Target.↵Temporarily strengthens targetʹs equipment.
 補助魔法。放旧型。ユニット単体。↵対象の武器や防具の性能を一定時間減少する。,Support Magic; Evocation; Single Target.↵Temporarily weakens targetʹs equipments.
 補助魔法。放旧型。ユニット単体。↵対象を一時的に魔法を使えないようにする。,Support Magic; Evocation; Single Target.↵Temporarily prevents target from casting spells.
 "補助魔法。放旧型。ユニット単体。↵対象にかけられた魔法を一半だけ,確実に無効にする。",Support Magic; Evocation; Single Target.↵Nullifies the next spell cast on target.
-補助魔法。放旧型。ユニット単体。↵対象を«F79B»マヒ«F79C»ステータス異常にする。,Support Magic; Evocation; Single Target.↵Casts ʺParalysisʺ on target.
-補助魔法。放旧型。ユニット単体。↵対象を«F79B»毒«F79C»ステータス異常にする。,Support Magic; Evocation; Single Target.↵Casts ʺPoisonʺ on target.
-暗黑属性補助魔法。放旧型。ユニット単体。↵対象を«F79B»呪い«F79C»ステータス異常にする。,Support Magic; Evocation; Single Target.↵Casts ʺCurseʺ on target.
+補助魔法。放旧型。ユニット単体。↵対象を⎾マヒ⏌ステータス異常にする。,Support Magic; Evocation; Single Target.↵Casts ʺParalysisʺ on target.
+補助魔法。放旧型。ユニット単体。↵対象を⎾毒⏌ステータス異常にする。,Support Magic; Evocation; Single Target.↵Casts ʺPoisonʺ on target.
+暗黑属性補助魔法。放旧型。ユニット単体。↵対象を⎾呪い⏌ステータス異常にする。,Support Magic; Evocation; Single Target.↵Casts ʺCurseʺ on target.
 補助魔法。放旧型。↵マップ中の移動ブロックを一定時間停止させる。,Support Magic; Evocation.↵Freezes the roomʹs Cloudstones in place.
 補助魔法。放旧型。ユニット単体。↵対象にかかっている魔法を無効化する。,Support Magic; Evocation; Single Target.↵Nullifies any spell currently affecting target.
 補助魔法。放旧型。宝箱単体。魔法でロックされた↵宝箱の鍵を石す。RISKが高いほど四牙率が高い。,Support Magic; Evocation; Treasure Chest.↵Opens treasure chests locked with magic.
 補助魔法。放旧型。トラップ複数。トラップを一時的に↵視認することができる。そのマップのみ有効。,Support Magic; Evocation; Multiple Traps.↵Reveals all traps in the room.
 補助魔法。放旧型。ユニット単体。対象のパラメータを↵分析する。RISKが高いほど四牙率が高い。,Support Magic; Evocation; Single Target.↵Analyzes enemiesʹ parameters and stats.
-風属性属性魔法。放旧型。ユニット単体。↵武器の«F79B»風属性«F79C»を一定時間強化する。,Air affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs air affinity.
-火属性属性魔法。放旧型。ユニット単体。↵武器の«F79B»火属性«F79C»を一定時間強化する。,Fire affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs fire affinity.
-土属性属性魔法。放旧型。ユニット単体。↵武器の«F79B»土属性«F79C»を一定時間強化する。,Earth affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs earth affinity.
-水属性属性魔法。放旧型。ユニット単体。↵武器の«F79B»水属性«F79C»を一定時間強化する。,Water affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs water affinity.
-風属性属性魔法。放旧型。ユニット単体。↵防具の«F79B»風属性«F79C»を一定時間強化する。,Air affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs air affinity.
-火属性属性魔法。放旧型。ユニット単体。↵防具の«F79B»火属性«F79C»を一定時間強化する。,Fire affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs fire affinity.
-土属性属性魔法。放旧型。ユニット単体。↵防具の«F79B»土属性«F79C»を一定時間強化する。,Earth affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs earth affinity.
-水属性属性魔法。放旧型。ユニット単体。↵防具の«F79B»水属性«F79C»を一定時間強化する。,Water affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs water affinity.
+風属性属性魔法。放旧型。ユニット単体。↵武器の⎾風属性⏌を一定時間強化する。,Air affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs air affinity.
+火属性属性魔法。放旧型。ユニット単体。↵武器の⎾火属性⏌を一定時間強化する。,Fire affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs fire affinity.
+土属性属性魔法。放旧型。ユニット単体。↵武器の⎾土属性⏌を一定時間強化する。,Earth affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs earth affinity.
+水属性属性魔法。放旧型。ユニット単体。↵武器の⎾水属性⏌を一定時間強化する。,Water affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs water affinity.
+風属性属性魔法。放旧型。ユニット単体。↵防具の⎾風属性⏌を一定時間強化する。,Air affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs air affinity.
+火属性属性魔法。放旧型。ユニット単体。↵防具の⎾火属性⏌を一定時間強化する。,Fire affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs fire affinity.
+土属性属性魔法。放旧型。ユニット単体。↵防具の⎾土属性⏌を一定時間強化する。,Earth affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs earth affinity.
+水属性属性魔法。放旧型。ユニット単体。↵防具の⎾水属性⏌を一定時間強化する。,Water affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs water affinity.
 ソリッドショック,Solid Shock
 ライトニングボウ,Lightning Bolt
 ファイアボール,Fireball
