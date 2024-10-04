@@ -833,8 +833,8 @@ def extractAll():
     extract_MENU_PRG_jp_en('MENUE')
     extract_MENU_PRG_jp_en('MENU12', 'BIN')
 #  
-extractAll()
-exit()
+#extractAll()
+#exit()
 
 
 
