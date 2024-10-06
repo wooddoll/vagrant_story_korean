@@ -1,0 +1,124 @@
+{
+  "MENU5": {
+    "000": {
+      "string": "結界",
+      "@@localazy:comment:string": "The Paling"
+    },
+    "001": {
+      "string": "ワイン貯蔵庫",
+      "@@localazy:comment:string": "Wine Cellar"
+    },
+    "002": {
+      "string": "収下墓収",
+      "@@localazy:comment:string": "Catacombs"
+    },
+    "003": {
+      "string": "収下教当",
+      "@@localazy:comment:string": "Sanctum"
+    },
+    "004": {
+      "string": "廃坑 第1字層",
+      "@@localazy:comment:string": "Abandoned Mines B1"
+    },
+    "005": {
+      "string": "廃坑 第2字層",
+      "@@localazy:comment:string": "Abandoned Mines B2"
+    },
+    "006": {
+      "string": "ライムストーン運搬溝",
+      "@@localazy:comment:string": "Limestone Quarry"
+    },
+    "007": {
+      "string": "キルティア神殿",
+      "@@localazy:comment:string": "Temple of Kiltia"
+    },
+    "008": {
+      "string": "大聖堂 収下1字",
+      "@@localazy:comment:string": "Great Cathedral B1"
+    },
+    "009": {
+      "string": "大聖堂 1字",
+      "@@localazy:comment:string": "Great Cathedral L1"
+    },
+    "010": {
+      "string": "大聖堂 2字",
+      "@@localazy:comment:string": "Great Cathedral L2"
+    },
+    "011": {
+      "string": "大聖堂 3字",
+      "@@localazy:comment:string": "Great Cathedral L3"
+    },
+    "012": {
+      "string": "大聖堂 4字",
+      "@@localazy:comment:string": "Great Cathedral L4"
+    },
+    "013": {
+      "string": "忘れられた坑道",
+      "@@localazy:comment:string": "Forgotten Pathway"
+    },
+    "014": {
+      "string": "避難通路",
+      "@@localazy:comment:string": "Escapeway"
+    },
+    "015": {
+      "string": "アイアンメイデン Ѩ1",
+      "@@localazy:comment:string": "Iron Maiden B1"
+    },
+    "016": {
+      "string": "アイアンメイデン Ѩ2",
+      "@@localazy:comment:string": "Iron Maiden B2"
+    },
+    "017": {
+      "string": "アイアンメイデン Ѩ3",
+      "@@localazy:comment:string": "Iron Maiden B3"
+    },
+    "019": {
+      "string": "収下街 西部",
+      "@@localazy:comment:string": "Undercity West"
+    },
+    "020": {
+      "string": "収下街 東部",
+      "@@localazy:comment:string": "Undercity East"
+    },
+    "021": {
+      "string": "レアモンデ砦",
+      "@@localazy:comment:string": "The Keep"
+    },
+    "022": {
+      "string": "街を囲む石壁 西側",
+      "@@localazy:comment:string": "City Walls West"
+    },
+    "023": {
+      "string": "街を囲む石壁 南側",
+      "@@localazy:comment:string": "City Walls South"
+    },
+    "024": {
+      "string": "街を囲む石壁 東側",
+      "@@localazy:comment:string": "City Walls East"
+    },
+    "025": {
+      "string": "街を囲む石壁 末側",
+      "@@localazy:comment:string": "City Walls North"
+    },
+    "026": {
+      "string": "羽虫の森",
+      "@@localazy:comment:string": "Snowfly Forest"
+    },
+    "027": {
+      "string": "羽虫の森 東部",
+      "@@localazy:comment:string": "Snowfly Forest East"
+    },
+    "028": {
+      "string": "辺街収 西部",
+      "@@localazy:comment:string": "Town Center West"
+    },
+    "029": {
+      "string": "辺街収 南部",
+      "@@localazy:comment:string": "Town Center South"
+    },
+    "030": {
+      "string": "辺街収 東部",
+      "@@localazy:comment:string": "Town Center East"
+    }
+  }
+}

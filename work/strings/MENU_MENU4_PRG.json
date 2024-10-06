@@ -1,0 +1,240 @@
+{
+  "MENU4": {
+    "000": {
+      "string": "ストレングス⌜力⌟。↵高いほど攻擊力や耐久力などが上がる。",
+      "@@localazy:comment:string": "Strength level.↵Affects attack and defense power."
+    },
+    "001": {
+      "string": "インテリジェンス⌜知力⌟。↵高いほど魔法の効果や抵抗力などが上がる。",
+      "@@localazy:comment:string": "Intelligence level.↵Affects magic attacks and defense."
+    },
+    "002": {
+      "string": "アジリティ⌜素早さ⌟。↵高いほど攻擊命中率や半避率などが上がる。",
+      "@@localazy:comment:string": "Agility level.↵Affects chance to hit and evade."
+    },
+    "003": {
+      "string": "ヒットポイント⌜各命力⌟。↵0になると死んでしまう。",
+      "@@localazy:comment:string": "Hit Points (life).↵The game ends when HP reach 0."
+    },
+    "004": {
+      "string": "マジックポイント⌜魔法力⌟。↵魔法を行使するのに交要。",
+      "@@localazy:comment:string": "Magic Points.↵Used for casting spells."
+    },
+    "005": {
+      "string": "リスクポイント。高いほど受けるダメージが大きく↵なったり,ヒット率が下がったりする。",
+      "@@localazy:comment:string": "RISK points. A high RISK means you will receive↵more damage and be less likely to score hits."
+    },
+    "007": {
+      "string": "NONE",
+      "@@localazy:comment:string": "NONE"
+    },
+    "008": {
+      "string": "何も装備していない。",
+      "@@localazy:comment:string": "Nothing equipped."
+    },
+    "009": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "WEAPON"
+    },
+    "010": {
+      "string": "シールド",
+      "@@localazy:comment:string": "SHIELD"
+    },
+    "011": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "ARMOR"
+    },
+    "012": {
+      "string": "«FF00»«FA0C»/«FA0C»«FF01»",
+      "@@localazy:comment:string": "«FF00» / «FF01»"
+    },
+    "013": {
+      "string": "最悪の状態。動かすことができないほど。",
+      "@@localazy:comment:string": "Critical wounds. Crippled."
+    },
+    "014": {
+      "string": "悪い状態。ひどくダメージを受けている。",
+      "@@localazy:comment:string": "Damaged badly."
+    },
+    "015": {
+      "string": "普通の状態。他険ではないが半復が交要。",
+      "@@localazy:comment:string": "Wounded. Requires treatment."
+    },
+    "016": {
+      "string": "良い状態。しかし,吉心したほうがよい。",
+      "@@localazy:comment:string": "Good. Use caution."
+    },
+    "017": {
+      "string": "最良の状態。半復の交要はない。",
+      "@@localazy:comment:string": "Excellent condition."
+    },
+    "018": {
+      "string": "⎾STRダウン⏌↵STRが一時的に減少している状態を団す。",
+      "@@localazy:comment:string": "STR—down↵Strength temporarily decreased."
+    },
+    "019": {
+      "string": "⎾STRアップ⏌↵STRが一時的に增札している状態を団す。",
+      "@@localazy:comment:string": "STR—up↵Strength temporarily increased."
+    },
+    "020": {
+      "string": "⎾INTダウン⏌↵INTが一時的に減少している状態を団す。",
+      "@@localazy:comment:string": "INT—down↵Intelligence temporarily decreased."
+    },
+    "021": {
+      "string": "⎾INTアップ⏌↵INTが一時的に增札している状態を団す。",
+      "@@localazy:comment:string": "INT—up↵Intelligence temporarily increased."
+    },
+    "022": {
+      "string": "⎾AGLダウン⏌↵AGLが一時的に減少している状態を団す。",
+      "@@localazy:comment:string": "AGL—down↵Agility temporarily decreased."
+    },
+    "023": {
+      "string": "⎾AGLアップ⏌↵AGLが一時的に增札している状態を団す。",
+      "@@localazy:comment:string": "AGL—up↵Agility temporarily increased."
+    },
+    "024": {
+      "string": "⎾クイック⏌↵移動スピードが一時的に上昇している状態を団す。",
+      "@@localazy:comment:string": "QUICKEN↵Movement speed increased."
+    },
+    "025": {
+      "string": "⎾サイレント⏌↵魔法詠唱を封じられた状態を団す。",
+      "@@localazy:comment:string": "SILENT↵Cannot cast spells for a period of time."
+    },
+    "026": {
+      "string": "⎾マヒ⏌↵通常攻擊とブレイクアーツを行使することができない。",
+      "@@localazy:comment:string": "PARALYSIS↵Physical attacks and Break Arts cannot be used."
+    },
+    "027": {
+      "string": "⎾毒⏌↵一定時間每に毒ダメージを受ける状態を団す。",
+      "@@localazy:comment:string": "POISON↵HP decrease over time."
+    },
+    "028": {
+      "string": "⎾しびれ⏌«FA0C»移動速度が低下する。↵また,バトルアビリティを使吉できない。",
+      "@@localazy:comment:string": "NUMBNESS   Movement speed decreases.↵Battle Abilities cannot be used."
+    },
+    "029": {
+      "string": "⎾呪い⏌«FA0C»STR,INT,AGLの↵すべてが一時的に低下している状態を団す。",
+      "@@localazy:comment:string": "CURSE↵STR, INT, and AGL temporarily decreased."
+    },
+    "030": {
+      "string": "⎾リジェネ⏌↵一時的にHPの半復速度がアップする。",
+      "@@localazy:comment:string": "REGENERATE↵HP recovery speed increases."
+    },
+    "031": {
+      "string": "⎾魔法無効⏌«FA0C»自分にかけられた魔法を↵一半だけ確実に無効にする状態を団す。",
+      "@@localazy:comment:string": "MAGIC WARD↵Nullifies the next spell cast on target."
+    },
+    "032": {
+      "string": "⎾アイテムダウン⏌↵武器や防具の性能が減少している状態を団す。",
+      "@@localazy:comment:string": "EQUIP—down↵Weapon and armor temporarily weakened."
+    },
+    "033": {
+      "string": "⎾アイテムアップ⏌↵武器や防具の性能を增札している状態を団す。",
+      "@@localazy:comment:string": "EQUIP—up↵Weapon and armor temporarily strengthened."
+    },
+    "034": {
+      "string": "⎾アタッチエア⌜↑エア⌟⏌↵一時的に武器の⎾風属性⏌の能力がアップする。",
+      "@@localazy:comment:string": "+ AIR (AIR—up)↵Weaponʹs air affinity temporarily increases."
+    },
+    "035": {
+      "string": "⎾アタッチファイア⌜↑ファイア⌟⏌↵一時的に武器の⎾火属性⏌の能力がアップする。",
+      "@@localazy:comment:string": "+ FIRE (FIRE—up)↵Weaponʹs fire affinity temporarily increases."
+    },
+    "036": {
+      "string": "⎾アタッチアース⌜↑アース⌟⏌↵一時的に武器の⎾土属性⏌の能力がアップする。",
+      "@@localazy:comment:string": "+ EARTH (EARTH—up)↵Weaponʹs earth affinity temporarily increases."
+    },
+    "037": {
+      "string": "⎾アタッチウォーター⌜↑ウォーター⌟⏌↵一時的に武器の⎾水属性⏌の能力がアップする。",
+      "@@localazy:comment:string": "+ WATER (WATER—up)↵Weaponʹs water affinity temporarily increases."
+    },
+    "038": {
+      "string": "⎾アタッチアース⌜↓エア⌟⏌↵一時的に武器の⎾風属性⏌の能力がダウンする。",
+      "@@localazy:comment:string": "+ EARTH (AIR—down)↵Weaponʹs air affinity temporarily decreases."
+    },
+    "039": {
+      "string": "⎾アタッチウォーター⌜↓ファイア⌟⏌↵一時的に武器の⎾火属性⏌の能力がダウンする。",
+      "@@localazy:comment:string": "+ WATER (FIRE—down)↵Weaponʹs fire affinity temporarily decreases."
+    },
+    "040": {
+      "string": "⎾アタッチエア⌜↓アース⌟⏌↵一時的に武器の⎾土属性⏌の能力がダウンする。",
+      "@@localazy:comment:string": "+ AIR (EARTH—down)↵Weaponʹs earth affinity temporarily decreases."
+    },
+    "041": {
+      "string": "⎾アタッチファイア⌜↓ウォーター⌟⏌↵一時的に武器の⎾水属性⏌の能力がダウンする。",
+      "@@localazy:comment:string": "+ FIRE (WATER—down)↵Weaponʹs water affinity temporarily decreases."
+    },
+    "042": {
+      "string": "⎾レジストエア⌜↑エア⌟⏌↵一時的に防具の⎾風属性⏌の能力がアップする。",
+      "@@localazy:comment:string": "RESIST AIR (AIR—up)↵Armorʹs air affinity temporarily increases."
+    },
+    "043": {
+      "string": "⎾レジストファイア⌜↑ファイア⌟⏌↵一時的に防具の⎾火属性⏌の能力がアップする。",
+      "@@localazy:comment:string": "RESIST FIRE (FIRE—up)↵Armorʹs fire affinity temporarily increases."
+    },
+    "044": {
+      "string": "⎾レジストアース⌜↑アース⌟⏌↵一時的に防具の⎾土属性⏌の能力がアップする。",
+      "@@localazy:comment:string": "RESIST EARTH (EARTH—up)↵Armorʹs earth affinity temporarily increases."
+    },
+    "045": {
+      "string": "⎾レジストウォーター⌜↑ウォーター⌟⏌↵一時的に防具の⎾水属性⏌の能力がアップする。",
+      "@@localazy:comment:string": "RESIST WATER (WATER—up)↵Armorʹs water affinity temporarily increases."
+    },
+    "046": {
+      "string": "⎾レジストアース⌜↓エア⌟⏌↵一時的に防具の⎾風属性⏌の能力がダウンする。",
+      "@@localazy:comment:string": "RESIST EARTH (AIR—down)↵Armorʹs air affinity temporarily decreases."
+    },
+    "047": {
+      "string": "⎾レジストウォーター⌜↓ファイア⌟⏌↵一時的に防具の⎾火属性⏌の能力がダウンする。",
+      "@@localazy:comment:string": "RESIST WATER (FIRE—down)↵Armorʹs fire affinity temporarily decreases."
+    },
+    "048": {
+      "string": "⎾レジストエア⌜↓アース⌟⏌↵一時的に防具の⎾土属性⏌の能力がダウンする。",
+      "@@localazy:comment:string": "RESIST AIR (EARTH—down)↵Armorʹs earth affinity temporarily decreases."
+    },
+    "049": {
+      "string": "⎾レジストファイア⌜↓ウォーター⌟⏌↵一時的に防具の⎾水属性⏌の能力がダウンする。",
+      "@@localazy:comment:string": "RESIST FIRE (WATER—down)↵Armorʹs water affinity temporarily decreases."
+    },
+    "050": {
+      "string": "«EE»",
+      "@@localazy:comment:string": "Hit location defense value vs. physical attacks.↵Armor bonuses not included."
+    },
+    "051": {
+      "string": "風属性に対するリム⌜部位⌟の防御値。↵防具の防御値を含まない。",
+      "@@localazy:comment:string": "Hit location defense value vs. air.↵Armor bonuses not included."
+    },
+    "052": {
+      "string": "火属性に対するリム⌜部位⌟の防御値。↵防具の防御値を含まない。",
+      "@@localazy:comment:string": "Hit location defense value vs. fire.↵Armor bonuses not included."
+    },
+    "053": {
+      "string": "土属性に対するリム⌜部位⌟の防御値。↵防具の防御値を含まない。",
+      "@@localazy:comment:string": "Hit location defense value vs. earth.↵Armor bonuses not included."
+    },
+    "054": {
+      "string": "水属性に対するリム⌜部位⌟の防御値。↵防具の防御値を含まない。",
+      "@@localazy:comment:string": "Hit location defense value vs. water.↵Armor bonuses not included."
+    },
+    "055": {
+      "string": "神聖属性に対するリム⌜部位⌟の防御値。↵防具の防御値を含まない。",
+      "@@localazy:comment:string": "Hit location defense value vs. light.↵Armor bonuses not included."
+    },
+    "056": {
+      "string": "暗黑属性に対するリム⌜部位⌟の防御値。↵防具の防御値を含まない。",
+      "@@localazy:comment:string": "Hit location defense value vs. dark.↵Armor bonuses not included."
+    },
+    "057": {
+      "string": "仮擊系武器に対するリム⌜部位⌟の防御値。↵防具の防御値を含まない。",
+      "@@localazy:comment:string": "Hit location defense value vs. blunt attacks.↵Armor bonuses not included."
+    },
+    "058": {
+      "string": "切断系武器に対するリム⌜部位⌟の防御値。↵防具の防御値を含まない。",
+      "@@localazy:comment:string": "Hit location defense value vs. edged attacks.↵Armor bonuses not included."
+    },
+    "059": {
+      "string": "貫通系武器に対するリム⌜部位⌟の防御値。↵防具の防御値を含まない。",
+      "@@localazy:comment:string": "Hit location defense value vs. piercing attacks.↵Armor bonuses not included."
+    }
+  }
+}

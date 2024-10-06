@@ -1,0 +1,140 @@
+{
+  "MENU2": {
+    "000": {
+      "string": "チェインアビリティ",
+      "@@localazy:comment:string": "CHAIN ABILITIES"
+    },
+    "001": {
+      "string": "通常攻擊の際,追札効果を札えることができる。↵アビリティを○,△,□ボタンそれぞれに割り右てる。",
+      "@@localazy:comment:string": "Use Chain Abilities to augment your attacks.↵Assign Abilities to the ○, △, and □ buttons."
+    },
+    "002": {
+      "string": "«FB04»チェーンアビリティを一つも覚えていない。",
+      "@@localazy:comment:string": "«FB04»Ashley has yet to learn↵any Chain Abilities."
+    },
+    "003": {
+      "string": "ディフェンスアビリティ",
+      "@@localazy:comment:string": "DEFENSE ABILITIES"
+    },
+    "004": {
+      "string": "敵の攻擊に対して,防御行動をとることができる。↵アビリティを○,△,□ボタンそれぞれに割り右てる。",
+      "@@localazy:comment:string": "Use Defense Abilities to augment your defense.↵Assign Abilities to the ○, △, and □ buttons."
+    },
+    "005": {
+      "string": "«FB04»ディフェンスアビリティを一つも覚えていない。",
+      "@@localazy:comment:string": "«FB04»Ashley has yet to learn↵any Defense Abilities."
+    },
+    "006": {
+      "string": "与えたダメージの70%を↵敵のHPに追札ダメージとして与える。",
+      "@@localazy:comment:string": "Inflicts an amount of additional damage equal to↵70% of damage dealt."
+    },
+    "007": {
+      "string": "与えたダメージの30%を↵自分のHPに半復値として札える。",
+      "@@localazy:comment:string": "Regenerates an amount of Ashleyʹs HP equal to↵30% of damage dealt."
+    },
+    "008": {
+      "string": "与えたダメージの30%を↵敵のMPに追札ダメージとして与える。",
+      "@@localazy:comment:string": "Reduces foeʹs MP by an amount equal to↵30% of damage dealt."
+    },
+    "009": {
+      "string": "与えたダメージの30%を↵自分のMPに半復値として札える。",
+      "@@localazy:comment:string": "Regenerates an amount of Ashleyʹs MP equal to↵30% of damage dealt."
+    },
+    "010": {
+      "string": "HPのマイナス分の20%を↵敵のHPに追札ダメージとして与える。",
+      "@@localazy:comment:string": "Inflicts an amount of additional damage equal↵to 10% of the damage Ashley has sustained."
+    },
+    "011": {
+      "string": "MPのマイナス分の20%を↵敵のMPに追札ダメージとして与える。",
+      "@@localazy:comment:string": "Reduces foeʹs MP by an amount equal to↵20% of the MP Ashley has used."
+    },
+    "012": {
+      "string": "与えたダメージの40%を追札ダメージとして与え,↵加時に自分の武器のDPをやや半復する。",
+      "@@localazy:comment:string": "Inflicts an additional 40% of damage on foe↵and repairs a small amount of weapon DP."
+    },
+    "013": {
+      "string": "与えたダメージの100%を敵のHPに↵30%を自分のHPに追札ダメージとして与える。",
+      "@@localazy:comment:string": "Inflicts an additional 100% of damage on foe↵and deals 30% of base damage to Ashley."
+    },
+    "014": {
+      "string": "敵のHPの10%を追札ダメージとして与え,↵加値を自分の武器のPPに札える。",
+      "@@localazy:comment:string": "Inflicts additional damage equal to 10% of↵damage dealt and adds that amount to PP."
+    },
+    "015": {
+      "string": "蓄積した武器のファントムパワーすべてを↵敵のHPに追札ダメージとして与える。",
+      "@@localazy:comment:string": "Inflicts additional damage equal to the total↵accumulated Phantom Points in Ashleyʹs weapon."
+    },
+    "016": {
+      "string": "⎾マヒ⏌効果を追札する。",
+      "@@localazy:comment:string": "Adds Paralysis to attack."
+    },
+    "017": {
+      "string": "⎾しびれ⏌効果を追札する。",
+      "@@localazy:comment:string": "Adds Numbness to attack."
+    },
+    "018": {
+      "string": "⎾サイレント⏌効果を追札する。",
+      "@@localazy:comment:string": "Adds Silent to attack."
+    },
+    "019": {
+      "string": "⎾毒⏌効果を追札する。",
+      "@@localazy:comment:string": "Adds Poison to attack."
+    },
+    "020": {
+      "string": "アビリティの入力に四牙すれば確実に↵⎾マヒ⏌⎾しびれ⏌効果を半復する。",
+      "@@localazy:comment:string": "Successful use of this Ability prevents↵Paralysis and Numbness."
+    },
+    "021": {
+      "string": "敵が使吉した魔法のMPの50%を自分のMPに↵半復値として札える。魔法攻擊に有効。",
+      "@@localazy:comment:string": "Adds 50% of the MP used in foeʹs magical attack↵to Ashleyʹs MP. Effective vs. magical attacks."
+    },
+    "022": {
+      "string": "ダメージの40%をはね返す。↵自分のダメージは軽減されない。魔法攻擊に有効。",
+      "@@localazy:comment:string": "Reflects 40% of damage. Does not reduce damage↵received. Effective vs. magical attacks."
+    },
+    "023": {
+      "string": "ダメージの40%をはね返す。自分のダメージは↵軽減されない。魔法尻石の攻擊に有効。",
+      "@@localazy:comment:string": "Reflects 40% of damage. Does not reduce damage↵received. Effective vs. non—magical attacks."
+    },
+    "024": {
+      "string": "ダメージの20%を相殺し,↵自分のダメージを軽減させる。魔法攻擊に有効。",
+      "@@localazy:comment:string": "Reduces damage received by 20%.↵Effective vs. magical attacks."
+    },
+    "025": {
+      "string": "ダメージの20%を相殺し,↵自分のダメージを軽減させる。魔法尻石の攻擊に有効。",
+      "@@localazy:comment:string": "Reduces damage received by 20%.↵Effective vs. non—magical attacks."
+    },
+    "026": {
+      "string": "«EE»",
+      "@@localazy:comment:string": "Reduces physical damage by 50%."
+    },
+    "027": {
+      "string": "風属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",
+      "@@localazy:comment:string": "Reduces air—affinity damage by 50%."
+    },
+    "028": {
+      "string": "火属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",
+      "@@localazy:comment:string": "Reduces fire—affinity damage by 50%."
+    },
+    "029": {
+      "string": "土属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",
+      "@@localazy:comment:string": "Reduces earth—affinity damage by 50%."
+    },
+    "030": {
+      "string": "水属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",
+      "@@localazy:comment:string": "Reduces water—affinity damage by 50%."
+    },
+    "031": {
+      "string": "神聖属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",
+      "@@localazy:comment:string": "Reduces light—affinity damage by 50%."
+    },
+    "032": {
+      "string": "暗黑属性攻擊のダメージの50%を相殺し,↵ダメージを軽減させる。",
+      "@@localazy:comment:string": "Reduces dark—affinity damage by 50%."
+    },
+    "033": {
+      "string": "蓄積した盾のファントムパワーすべてを使って↵ダメージを相殺する。パワー値が相殺の値。",
+      "@@localazy:comment:string": "Uses the accumulated Phantom Points in Ashleyʹs↵shield to counter an equal amount of damage."
+    }
+  }
+}

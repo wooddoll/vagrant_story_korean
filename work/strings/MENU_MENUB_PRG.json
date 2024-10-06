@@ -1,0 +1,116 @@
+{
+  "MENUB": {
+    "003": {
+      "string": "宝箱には何も入っていません。«E6»",
+      "@@localazy:comment:string": "Nothing in the treasure chest.«E6»"
+    },
+    "004": {
+      "string": "獲得するアイテムを選択してください。",
+      "@@localazy:comment:string": "Choose the item(s) you want to take."
+    },
+    "005": {
+      "string": "YES",
+      "@@localazy:comment:string": "YES"
+    },
+    "006": {
+      "string": "NO",
+      "@@localazy:comment:string": "NO"
+    },
+    "007": {
+      "string": "獲得していないアイテムがありますが↵よろしいですか?",
+      "@@localazy:comment:string": "There are still some items here.↵Leave anyway?"
+    },
+    "008": {
+      "string": "«F79D»«FF00»«F79E»を破棄することはできません。«E6»",
+      "@@localazy:comment:string": "You cannot discard «FF00».«E6»"
+    },
+    "009": {
+      "string": "アイテムを破棄しますか?",
+      "@@localazy:comment:string": "Discard all items?"
+    },
+    "010": {
+      "string": "解体する",
+      "@@localazy:comment:string": "DISASSEMBLE"
+    },
+    "011": {
+      "string": "ウェポン,シールドを解体し,↵組み壮て前の状態に灵す。",
+      "@@localazy:comment:string": "Disassemble equipment to separate the↵components."
+    },
+    "012": {
+      "string": "整理する",
+      "@@localazy:comment:string": "ORGANIZE"
+    },
+    "013": {
+      "string": "所持品に加じアイテムがある場処,↵個数をまとめることで所持数を增やす。",
+      "@@localazy:comment:string": "Organize duplicate items to increase↵your maximum carrying capacity."
+    },
+    "014": {
+      "string": "所持品整理",
+      "@@localazy:comment:string": "ORGANIZE INVENTORY"
+    },
+    "015": {
+      "string": "アイテムメニューを呼び旧し,↵所持品の整理を行う。",
+      "@@localazy:comment:string": "Open the Items menu to organize your inventory."
+    },
+    "016": {
+      "string": "«FF00»を解体します。↵よろしいですか?",
+      "@@localazy:comment:string": "Disassemble «FF00»?"
+    },
+    "017": {
+      "string": "«FF00»を整理します。↵よろしいですか?",
+      "@@localazy:comment:string": "Organize «FF00»?"
+    },
+    "018": {
+      "string": "装備",
+      "@@localazy:comment:string": "EQUIP"
+    },
+    "019": {
+      "string": "アイテムを装備する。",
+      "@@localazy:comment:string": "Choose items to equip."
+    },
+    "020": {
+      "string": "セットアップ",
+      "@@localazy:comment:string": "SETUP"
+    },
+    "021": {
+      "string": "ウェポンやシールドの組み壮てや解体,修理等を行う。",
+      "@@localazy:comment:string": "Build, disassemble, or repair your equipment."
+    },
+    "022": {
+      "string": "ここでアイテムを使吉することはできません。",
+      "@@localazy:comment:string": "You cannot use items here."
+    },
+    "023": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "WEAPONS"
+    },
+    "024": {
+      "string": "ブレード",
+      "@@localazy:comment:string": "BLADES"
+    },
+    "025": {
+      "string": "グリップ",
+      "@@localazy:comment:string": "GRIPS"
+    },
+    "026": {
+      "string": "シールド",
+      "@@localazy:comment:string": "SHIELDS"
+    },
+    "027": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "ARMOR"
+    },
+    "028": {
+      "string": "秘回",
+      "@@localazy:comment:string": "GEMS"
+    },
+    "029": {
+      "string": "道具",
+      "@@localazy:comment:string": "MISC"
+    },
+    "030": {
+      "string": "サブコマンド",
+      "@@localazy:comment:string": "OPTIONS"
+    }
+  }
+}

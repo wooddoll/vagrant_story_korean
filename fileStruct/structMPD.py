@@ -9,6 +9,7 @@ from utils import *
 from tqdm import tqdm
 from font import dialog
 import pandas as pd
+import json
 from fileStruct.readStrFile import ReadStrings
 
 class SectionBase():
@@ -263,18 +264,21 @@ class MPDstruct():
 
 
 
-def exportTextFromMPD(mpd: MPDstruct, jpnTBL: convert_by_TBL):
-    mpd.scriptSection.dialogText.cvtByte2Str(jpnTBL)
+def exportTextFromMPD(mpd: MPDstruct, fontTable: convert_by_TBL):
+    mpd.scriptSection.dialogText.cvtByte2Str(fontTable)
     dialogLists = []
-    for idx, text in enumerate(mpd.scriptSection.dialogText.strings_str):
+    mpd.scriptSection.dialogText.cvtByte2Str(fontTable)
+    for idx in range(mpd.scriptSection.dialogText.strings.itemNums):
+        text = mpd.scriptSection.dialogText.strings_str[idx]
         rows, cols = dialog.checkSize(text)
-        singleRow = []
-        singleRow.append(idx)            
-        singleRow.append(rows)
-        singleRow.append(cols)
+        singleRow = {}
         if cols == 1:
             text = dialog.vertical2flat(text)
-        singleRow.append(text)
+        singleRow['string'] = text
+        #singleRow['@@localazy:comment:string'] = ''
+        singleRow['@@localazy:limit:string'] = str((rows, cols))
+        
+        
         dialogLists.append(singleRow)
     
     return dialogLists
@@ -283,36 +287,27 @@ def makeMPDtexts(folder_path: str, fontTable: convert_by_TBL, out_path: str):
     extension = '*.MPD'
     file_list = list(Path(folder_path).glob(extension))
 
-    dialogLists = []
+    dialogLists = {}
     
     keyTBL = dialog.ReplaceKeyword("work/VSDictTable.tbl")
 
     for filepath in tqdm(file_list, desc="Processing"):
         mpd = MPDstruct(str(filepath))
 
-        mpd.scriptSection.dialogText.cvtByte2Str(fontTable)
-        for idx in range(mpd.scriptSection.dialogText.strings.itemNums):
-            text = mpd.scriptSection.dialogText.strings_str[idx]
-            rows, cols = dialog.checkSize(text)
+        texts = exportTextFromMPD(mpd, fontTable)
+        if texts:
+            dialogLists[filepath.stem] = texts
+            #for idx in range(len(texts)):
+            #    dialogLists[f'{filepath.stem}[{idx}]'] = texts[idx]
 
-            singleRow = []
-            singleRow.append(filepath.stem)
-            singleRow.append(idx)            
-            singleRow.append(rows)
-            singleRow.append(cols)
-
-            if cols == 1:
-                text = dialog.vertical2flat(text)
-
-            singleRow.append(text)
-            # TODO
-            #knText = keyTBL.replace(text)
-            #singleRow.append(knText)
-            dialogLists.append(singleRow)
-
-    df = pd.DataFrame(dialogLists, columns=['File', 'Index', 'rows', 'cols', 'Original'])#, 'Translated'])
-    df.to_csv(out_path, index=False, encoding='utf-8')
-    #df.to_excel(out_path, index=False)
+    if out_path:
+        with open(out_path, 'w', encoding='utf-8') as f:
+            json.dump(dialogLists, f, indent=2, ensure_ascii=False)
+        #df = pd.DataFrame(dialogLists, columns=['File', 'Index', 'rows', 'cols', 'Original'])#, 'Translated'])
+        #df.to_csv(out_path, index=False, encoding='utf-8')
+        #df.to_excel(out_path, index=False)
+    
+    return dialogLists
 
 #makeMPDtexts()
 

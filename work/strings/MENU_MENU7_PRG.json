@@ -1,0 +1,24 @@
+{
+  "MENU7": {
+    "000": {
+      "string": "コンテナをチェックしますか?",
+      "@@localazy:comment:string": "Check the container?"
+    },
+    "001": {
+      "string": "YES",
+      "@@localazy:comment:string": "YES"
+    },
+    "002": {
+      "string": "NO",
+      "@@localazy:comment:string": "NO"
+    },
+    "003": {
+      "string": "コンテナ",
+      "@@localazy:comment:string": "CONTAINER"
+    },
+    "004": {
+      "string": "データをセーブしないと,コンテナでの操作は↵取り消されます。データをセーブしますか?",
+      "@@localazy:comment:string": "The container transaction will be cancelled↵if game is not saved. Save?"
+    }
+  }
+}

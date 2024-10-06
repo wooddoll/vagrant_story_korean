@@ -1,0 +1,68 @@
+{
+  "MENU3": {
+    "005": {
+      "string": "ンド",
+      "@@localazy:comment:string": ""
+    },
+    "007": {
+      "string": "を装備する。",
+      "@@localazy:comment:string": "Choose items to equip."
+    },
+    "008": {
+      "string": "ップ",
+      "@@localazy:comment:string": ""
+    },
+    "009": {
+      "string": "やシールドの組み壮てや解体,修理等を行う。",
+      "@@localazy:comment:string": "Assemble / disassemble / repair weapons↵and shields."
+    },
+    "010": {
+      "string": "/ウェポン",
+      "@@localazy:comment:string": "WEAPONS"
+    },
+    "011": {
+      "string": "/シールド",
+      "@@localazy:comment:string": "SHIELDS"
+    },
+    "012": {
+      "string": "/由腕",
+      "@@localazy:comment:string": "R.ARM?"
+    },
+    "013": {
+      "string": "/込腕",
+      "@@localazy:comment:string": "L.ARM?"
+    },
+    "014": {
+      "string": "/頭",
+      "@@localazy:comment:string": "HEAD"
+    },
+    "015": {
+      "string": "/胴体",
+      "@@localazy:comment:string": "BODY"
+    },
+    "016": {
+      "string": "/脚",
+      "@@localazy:comment:string": "LEGS"
+    },
+    "017": {
+      "string": "/アクセサリー",
+      "@@localazy:comment:string": "ACCESSORY"
+    },
+    "019": {
+      "string": "ぢ備していない。",
+      "@@localazy:comment:string": "Nothing equipped."
+    },
+    "020": {
+      "string": "アイ",
+      "@@localazy:comment:string": ""
+    },
+    "021": {
+      "string": "テムダウン⏌状態では↵このコマンドを使吉することはできません。",
+      "@@localazy:comment:string": "Insufficient MP.↵You cannot use this command."
+    },
+    "022": {
+      "string": "足のため,↵このコマンドを使吉することはできません。",
+      "@@localazy:comment:string": "You cannot use this command↵with tarnished equipment."
+    }
+  }
+}

@@ -1,0 +1,2048 @@
+{
+  "ITEMNAME": {
+    "001": {
+      "string": "バトルナイフ",
+      "@@localazy:comment:string": "Battle Knife"
+    },
+    "002": {
+      "string": "スクラマサクス",
+      "@@localazy:comment:string": "Scramasax"
+    },
+    "003": {
+      "string": "ダーク",
+      "@@localazy:comment:string": "Dirk"
+    },
+    "004": {
+      "string": "キドニーダガー",
+      "@@localazy:comment:string": "Throwing Knife"
+    },
+    "005": {
+      "string": "ペシュカド",
+      "@@localazy:comment:string": "Kudi"
+    },
+    "006": {
+      "string": "チンクエディア",
+      "@@localazy:comment:string": "Cinquedea"
+    },
+    "007": {
+      "string": "クリス",
+      "@@localazy:comment:string": "Kris"
+    },
+    "008": {
+      "string": "ハットチェット",
+      "@@localazy:comment:string": "Hatchet"
+    },
+    "009": {
+      "string": "ククリ",
+      "@@localazy:comment:string": "Khukuri"
+    },
+    "010": {
+      "string": "バゼラード",
+      "@@localazy:comment:string": "Baselard"
+    },
+    "011": {
+      "string": "スティレット",
+      "@@localazy:comment:string": "Stiletto"
+    },
+    "012": {
+      "string": "ジャマダハル",
+      "@@localazy:comment:string": "Jamadhar"
+    },
+    "013": {
+      "string": "スパタ",
+      "@@localazy:comment:string": "Spatha"
+    },
+    "014": {
+      "string": "グラディウス",
+      "@@localazy:comment:string": "Scimitar"
+    },
+    "015": {
+      "string": "レイピア",
+      "@@localazy:comment:string": "Rapier"
+    },
+    "016": {
+      "string": "ショートソード",
+      "@@localazy:comment:string": "Short Sword"
+    },
+    "017": {
+      "string": "フィランギ",
+      "@@localazy:comment:string": "Firangi"
+    },
+    "018": {
+      "string": "シャムシール",
+      "@@localazy:comment:string": "Shamshir"
+    },
+    "019": {
+      "string": "ファルシオン",
+      "@@localazy:comment:string": "Falchion"
+    },
+    "020": {
+      "string": "ショテル",
+      "@@localazy:comment:string": "Shotel"
+    },
+    "021": {
+      "string": "コラ",
+      "@@localazy:comment:string": "Khora"
+    },
+    "022": {
+      "string": "コピス",
+      "@@localazy:comment:string": "Khopesh"
+    },
+    "023": {
+      "string": "サムライブレード",
+      "@@localazy:comment:string": "Wakizashi"
+    },
+    "024": {
+      "string": "ロンパイア",
+      "@@localazy:comment:string": "Rhomphaia"
+    },
+    "025": {
+      "string": "ブロードソード",
+      "@@localazy:comment:string": "Broad Sword"
+    },
+    "026": {
+      "string": "バイキングソード",
+      "@@localazy:comment:string": "Norse Sword"
+    },
+    "027": {
+      "string": "カタナ",
+      "@@localazy:comment:string": "Katana"
+    },
+    "028": {
+      "string": "ワルーンソード",
+      "@@localazy:comment:string": "Executioner"
+    },
+    "029": {
+      "string": "クレイモアー",
+      "@@localazy:comment:string": "Claymore"
+    },
+    "030": {
+      "string": "スキアヴォーナ",
+      "@@localazy:comment:string": "Schiavona"
+    },
+    "031": {
+      "string": "バスタードソード",
+      "@@localazy:comment:string": "Bastard Sword"
+    },
+    "032": {
+      "string": "ファルクス",
+      "@@localazy:comment:string": "Nodachi"
+    },
+    "033": {
+      "string": "ルーンブレード",
+      "@@localazy:comment:string": "Rune Blade"
+    },
+    "034": {
+      "string": "ホーリーウィン",
+      "@@localazy:comment:string": "Holy Win"
+    },
+    "035": {
+      "string": "ハンドアックス",
+      "@@localazy:comment:string": "Hand Axe"
+    },
+    "036": {
+      "string": "バトルアックス",
+      "@@localazy:comment:string": "Battle Axe"
+    },
+    "037": {
+      "string": "フランキスカ",
+      "@@localazy:comment:string": "Francisca"
+    },
+    "038": {
+      "string": "タバルジン",
+      "@@localazy:comment:string": "Tabarzin"
+    },
+    "039": {
+      "string": "チャクマク",
+      "@@localazy:comment:string": "Chamkaq"
+    },
+    "040": {
+      "string": "タバール",
+      "@@localazy:comment:string": "Tabar"
+    },
+    "041": {
+      "string": "ブローバー",
+      "@@localazy:comment:string": "Bullova"
+    },
+    "042": {
+      "string": "クレセント",
+      "@@localazy:comment:string": "Crescent"
+    },
+    "043": {
+      "string": "ゴブリンクラブ",
+      "@@localazy:comment:string": "Goblin Club"
+    },
+    "044": {
+      "string": "スパイクドクラブ",
+      "@@localazy:comment:string": "Spiked Club"
+    },
+    "045": {
+      "string": "オニオンシェイプ",
+      "@@localazy:comment:string": "Ball Mace"
+    },
+    "046": {
+      "string": "スモールスパイク",
+      "@@localazy:comment:string": "Footmanʹs Mace"
+    },
+    "047": {
+      "string": "モーニングスター",
+      "@@localazy:comment:string": "Morning Star"
+    },
+    "048": {
+      "string": "ウォーハンマー",
+      "@@localazy:comment:string": "War Hammer"
+    },
+    "049": {
+      "string": "ビッグハンマー",
+      "@@localazy:comment:string": "Bec de Corbin"
+    },
+    "050": {
+      "string": "ブルメイス",
+      "@@localazy:comment:string": "War Maul"
+    },
+    "051": {
+      "string": "ギサルメアックス",
+      "@@localazy:comment:string": "Guisarme"
+    },
+    "052": {
+      "string": "ラージクレセント",
+      "@@localazy:comment:string": "Large Crescent"
+    },
+    "053": {
+      "string": "バンパーブレード",
+      "@@localazy:comment:string": "Sabre Halberd"
+    },
+    "054": {
+      "string": "バルブリガン",
+      "@@localazy:comment:string": "Balbriggan"
+    },
+    "055": {
+      "string": "ダブルブレード",
+      "@@localazy:comment:string": "Double Blade"
+    },
+    "056": {
+      "string": "ハルベルト",
+      "@@localazy:comment:string": "Halberd"
+    },
+    "057": {
+      "string": "ウィザードタイプ",
+      "@@localazy:comment:string": "Wizard Staff"
+    },
+    "058": {
+      "string": "クレリックタイプ",
+      "@@localazy:comment:string": "Clergy Rod"
+    },
+    "059": {
+      "string": "サモナータイプ",
+      "@@localazy:comment:string": "Summoner Baton"
+    },
+    "060": {
+      "string": "シャーマンタイプ",
+      "@@localazy:comment:string": "Shamanic Staff"
+    },
+    "061": {
+      "string": "ビショップタイプ",
+      "@@localazy:comment:string": "Bishopʹs Crosier"
+    },
+    "062": {
+      "string": "ワイズマンタイプ",
+      "@@localazy:comment:string": "Sageʹs Cane"
+    },
+    "063": {
+      "string": "ランデヴェバ",
+      "@@localazy:comment:string": "Langdebeve"
+    },
+    "064": {
+      "string": "カッツバルゲル",
+      "@@localazy:comment:string": "Sabre Mace"
+    },
+    "065": {
+      "string": "スパイクドモール",
+      "@@localazy:comment:string": "Footmanʹs Mace"
+    },
+    "066": {
+      "string": "グルームウイング",
+      "@@localazy:comment:string": "Gloomwing"
+    },
+    "067": {
+      "string": "ミョルニール",
+      "@@localazy:comment:string": "Mjolnir"
+    },
+    "068": {
+      "string": "ファランクス",
+      "@@localazy:comment:string": "Griever"
+    },
+    "069": {
+      "string": "デストロイヤー",
+      "@@localazy:comment:string": "Destroyer"
+    },
+    "070": {
+      "string": "ブラッディメイス",
+      "@@localazy:comment:string": "Hand of Light"
+    },
+    "071": {
+      "string": "ロングスピア",
+      "@@localazy:comment:string": "Spear"
+    },
+    "072": {
+      "string": "グレイブ",
+      "@@localazy:comment:string": "Glaive"
+    },
+    "073": {
+      "string": "スコーピオン",
+      "@@localazy:comment:string": "Scorpion"
+    },
+    "074": {
+      "string": "コルセスカ",
+      "@@localazy:comment:string": "Corcesca"
+    },
+    "075": {
+      "string": "トライデント",
+      "@@localazy:comment:string": "Trident"
+    },
+    "076": {
+      "string": "オウルパイク",
+      "@@localazy:comment:string": "Awl Pike"
+    },
+    "077": {
+      "string": "ボアスピア",
+      "@@localazy:comment:string": "Boar Spear"
+    },
+    "078": {
+      "string": "フォチャード",
+      "@@localazy:comment:string": "Fauchard"
+    },
+    "079": {
+      "string": "ヴォウジェ",
+      "@@localazy:comment:string": "Voulge"
+    },
+    "080": {
+      "string": "ポールアックス",
+      "@@localazy:comment:string": "Pole Axe"
+    },
+    "081": {
+      "string": "バルディッシュ",
+      "@@localazy:comment:string": "Bardysh"
+    },
+    "082": {
+      "string": "パルチザン",
+      "@@localazy:comment:string": "Brandestoc"
+    },
+    "083": {
+      "string": "ガストラルボウ",
+      "@@localazy:comment:string": "Gastraph Bow"
+    },
+    "084": {
+      "string": "ライトクロスボウ",
+      "@@localazy:comment:string": "Light Crossbow"
+    },
+    "085": {
+      "string": "ターゲットボウ",
+      "@@localazy:comment:string": "Target Bow"
+    },
+    "086": {
+      "string": "ウィンドラスボウ",
+      "@@localazy:comment:string": "Windlass"
+    },
+    "087": {
+      "string": "クレインクイン",
+      "@@localazy:comment:string": "Cranequin"
+    },
+    "088": {
+      "string": "ラッグクロスボウ",
+      "@@localazy:comment:string": "Lug Crossbow"
+    },
+    "089": {
+      "string": "ストーンバスター",
+      "@@localazy:comment:string": "Siege Bow"
+    },
+    "090": {
+      "string": "アルバレスト",
+      "@@localazy:comment:string": "Arbalest"
+    },
+    "091": {
+      "string": "充使吉剣1",
+      "@@localazy:comment:string": "untitled"
+    },
+    "092": {
+      "string": "充使吉剣2",
+      "@@localazy:comment:string": "untitled"
+    },
+    "093": {
+      "string": "充使吉剣3",
+      "@@localazy:comment:string": "untitled"
+    },
+    "094": {
+      "string": "充使吉剣4",
+      "@@localazy:comment:string": "untitled"
+    },
+    "095": {
+      "string": "充使吉剣5",
+      "@@localazy:comment:string": "untitled"
+    },
+    "096": {
+      "string": "ショートヒルト",
+      "@@localazy:comment:string": "Short Hilt"
+    },
+    "097": {
+      "string": "スウェプトヒルト",
+      "@@localazy:comment:string": "Swept Hilt"
+    },
+    "098": {
+      "string": "クロスガード",
+      "@@localazy:comment:string": "Cross Guard"
+    },
+    "099": {
+      "string": "ナックルガード",
+      "@@localazy:comment:string": "Knuckle Guard"
+    },
+    "100": {
+      "string": "カウンターガード",
+      "@@localazy:comment:string": "Counter Guard"
+    },
+    "101": {
+      "string": "サイドリング",
+      "@@localazy:comment:string": "Side Ring"
+    },
+    "102": {
+      "string": "パワーパーム",
+      "@@localazy:comment:string": "Power Palm"
+    },
+    "103": {
+      "string": "マーダーズヒルト",
+      "@@localazy:comment:string": "Murdererʹs Hilt"
+    },
+    "104": {
+      "string": "スパイラルヒルト",
+      "@@localazy:comment:string": "Spiral Hilt"
+    },
+    "105": {
+      "string": "ウッドングリップ",
+      "@@localazy:comment:string": "Wooden Grip"
+    },
+    "106": {
+      "string": "サンドフェイス",
+      "@@localazy:comment:string": "Sand Face"
+    },
+    "107": {
+      "string": "チェザカンタイプ",
+      "@@localazy:comment:string": "Czekan Type"
+    },
+    "108": {
+      "string": "サリッサグリップ",
+      "@@localazy:comment:string": "Sarissa Grip"
+    },
+    "109": {
+      "string": "ジェンダルメ",
+      "@@localazy:comment:string": "Gendarme"
+    },
+    "110": {
+      "string": "ヘヴィグリップ",
+      "@@localazy:comment:string": "Heavy Grip"
+    },
+    "111": {
+      "string": "ランカススタイル",
+      "@@localazy:comment:string": "Runkasyle"
+    },
+    "112": {
+      "string": "ブージタイプ",
+      "@@localazy:comment:string": "Bhuj Type"
+    },
+    "113": {
+      "string": "グリモアグリップ",
+      "@@localazy:comment:string": "Grimoire Grip"
+    },
+    "114": {
+      "string": "エレファント",
+      "@@localazy:comment:string": "Elephant"
+    },
+    "115": {
+      "string": "ウッドンポール",
+      "@@localazy:comment:string": "Wooden Pole"
+    },
+    "116": {
+      "string": "スピクルムポール",
+      "@@localazy:comment:string": "Spiculum Pole"
+    },
+    "117": {
+      "string": "ウイングドポール",
+      "@@localazy:comment:string": "Winged Pole"
+    },
+    "118": {
+      "string": "フラメアポール",
+      "@@localazy:comment:string": "Framea Pole"
+    },
+    "119": {
+      "string": "アルシェピース",
+      "@@localazy:comment:string": "Ahlspies"
+    },
+    "120": {
+      "string": "スパイラルポール",
+      "@@localazy:comment:string": "Spiral Pole"
+    },
+    "121": {
+      "string": "シンプルアロー",
+      "@@localazy:comment:string": "Simple Bolt"
+    },
+    "122": {
+      "string": "スティールアロー",
+      "@@localazy:comment:string": "Steel Bolt"
+    },
+    "123": {
+      "string": "ジャベリンボルト",
+      "@@localazy:comment:string": "Javelin Bolt"
+    },
+    "124": {
+      "string": "ファラリカボルト",
+      "@@localazy:comment:string": "Falarica Bolt"
+    },
+    "125": {
+      "string": "ストーンバレット",
+      "@@localazy:comment:string": "Stone Bullet"
+    },
+    "126": {
+      "string": "ソニックバレット",
+      "@@localazy:comment:string": "Sonic Bullet"
+    },
+    "127": {
+      "string": "バックラー",
+      "@@localazy:comment:string": "Buckler"
+    },
+    "128": {
+      "string": "ペルタシールド",
+      "@@localazy:comment:string": "Pelta Shield"
+    },
+    "129": {
+      "string": "タージェ",
+      "@@localazy:comment:string": "Targe"
+    },
+    "130": {
+      "string": "クワッドシールド",
+      "@@localazy:comment:string": "Quad Shield"
+    },
+    "131": {
+      "string": "サークルシールド",
+      "@@localazy:comment:string": "Circle Shield"
+    },
+    "132": {
+      "string": "タワーシールド",
+      "@@localazy:comment:string": "Tower Shield"
+    },
+    "133": {
+      "string": "スパイクシールド",
+      "@@localazy:comment:string": "Spiked Shield"
+    },
+    "134": {
+      "string": "ラウンドシールド",
+      "@@localazy:comment:string": "Round Shield"
+    },
+    "135": {
+      "string": "カイトシールド",
+      "@@localazy:comment:string": "Kite Shield"
+    },
+    "136": {
+      "string": "カセロルシールド",
+      "@@localazy:comment:string": "Casserole Shield"
+    },
+    "137": {
+      "string": "ヒーターシールド",
+      "@@localazy:comment:string": "Heater Shield"
+    },
+    "138": {
+      "string": "オーバルシールド",
+      "@@localazy:comment:string": "Oval Shield"
+    },
+    "139": {
+      "string": "ナイトシールド",
+      "@@localazy:comment:string": "Knight Shield"
+    },
+    "140": {
+      "string": "ホプロンシールド",
+      "@@localazy:comment:string": "Hoplite Shield"
+    },
+    "141": {
+      "string": "ロゼンジシールド",
+      "@@localazy:comment:string": "Jazeraint Shield"
+    },
+    "142": {
+      "string": "ドレッドシールド",
+      "@@localazy:comment:string": "Dread Shield"
+    },
+    "143": {
+      "string": "バンダナ",
+      "@@localazy:comment:string": "Bandana"
+    },
+    "144": {
+      "string": "ベアーマスク",
+      "@@localazy:comment:string": "Bear Mask"
+    },
+    "145": {
+      "string": "ウィザードハット",
+      "@@localazy:comment:string": "Wizard Hat"
+    },
+    "146": {
+      "string": "ボーンヘルム",
+      "@@localazy:comment:string": "Bone Helm"
+    },
+    "147": {
+      "string": "チェインコイフ",
+      "@@localazy:comment:string": "Chain Coif"
+    },
+    "148": {
+      "string": "スパンゲンヘルム",
+      "@@localazy:comment:string": "Spangenhelm"
+    },
+    "149": {
+      "string": "キャバセット",
+      "@@localazy:comment:string": "Cabasset"
+    },
+    "150": {
+      "string": "サーリット",
+      "@@localazy:comment:string": "Sallet"
+    },
+    "151": {
+      "string": "バルビューダ",
+      "@@localazy:comment:string": "Barbut"
+    },
+    "152": {
+      "string": "バシニット",
+      "@@localazy:comment:string": "Basinet"
+    },
+    "153": {
+      "string": "アーメット",
+      "@@localazy:comment:string": "Armet"
+    },
+    "154": {
+      "string": "クローズヘルム",
+      "@@localazy:comment:string": "Close Helm"
+    },
+    "155": {
+      "string": "バーゴネット",
+      "@@localazy:comment:string": "Burgonet"
+    },
+    "156": {
+      "string": "ホプロンヘルム",
+      "@@localazy:comment:string": "Hoplite Helm"
+    },
+    "157": {
+      "string": "ロゼンジヘルム",
+      "@@localazy:comment:string": "Jazeraint Helm"
+    },
+    "158": {
+      "string": "ドレッドヘルム",
+      "@@localazy:comment:string": "Dread Helm"
+    },
+    "159": {
+      "string": "ジャーキン",
+      "@@localazy:comment:string": "Jerkin"
+    },
+    "160": {
+      "string": "ロングコート",
+      "@@localazy:comment:string": "Hauberk"
+    },
+    "161": {
+      "string": "ウィザードコート",
+      "@@localazy:comment:string": "Wizard Robe"
+    },
+    "162": {
+      "string": "キュラッサ",
+      "@@localazy:comment:string": "Cuirass"
+    },
+    "163": {
+      "string": "バンデッドメイル",
+      "@@localazy:comment:string": "Banded Mail"
+    },
+    "164": {
+      "string": "リングメイル",
+      "@@localazy:comment:string": "Ring Mail"
+    },
+    "165": {
+      "string": "チェインメイル",
+      "@@localazy:comment:string": "Chain Mail"
+    },
+    "166": {
+      "string": "ブレストプレート",
+      "@@localazy:comment:string": "Breastplate"
+    },
+    "167": {
+      "string": "セグメンテータ",
+      "@@localazy:comment:string": "Segmentata"
+    },
+    "168": {
+      "string": "スケールアーマー",
+      "@@localazy:comment:string": "Scale Armor"
+    },
+    "169": {
+      "string": "ブリガンダイン",
+      "@@localazy:comment:string": "Brigandine"
+    },
+    "170": {
+      "string": "プレイトメイル",
+      "@@localazy:comment:string": "Plate Mail"
+    },
+    "171": {
+      "string": "フリュートメイル",
+      "@@localazy:comment:string": "Fluted Armor"
+    },
+    "172": {
+      "string": "ホプロンアーマー",
+      "@@localazy:comment:string": "Hoplite Armor"
+    },
+    "173": {
+      "string": "ロゼンジアーマー",
+      "@@localazy:comment:string": "Jazeraint Armor"
+    },
+    "174": {
+      "string": "ドレッドアーマー",
+      "@@localazy:comment:string": "Dread Armor"
+    },
+    "175": {
+      "string": "サンダル",
+      "@@localazy:comment:string": "Sandals"
+    },
+    "176": {
+      "string": "ブーツ",
+      "@@localazy:comment:string": "Boots"
+    },
+    "177": {
+      "string": "ロングブーツ",
+      "@@localazy:comment:string": "Long Boots"
+    },
+    "178": {
+      "string": "サイクゥイス",
+      "@@localazy:comment:string": "Cuisse"
+    },
+    "179": {
+      "string": "ライトグリーブ",
+      "@@localazy:comment:string": "Light Greave"
+    },
+    "180": {
+      "string": "リングレッグス",
+      "@@localazy:comment:string": "Ring Leggings"
+    },
+    "181": {
+      "string": "チェインレッグス",
+      "@@localazy:comment:string": "Chain Leggings"
+    },
+    "182": {
+      "string": "フースカンプ",
+      "@@localazy:comment:string": "Fusskampf"
+    },
+    "183": {
+      "string": "ポレインガード",
+      "@@localazy:comment:string": "Poleyn"
+    },
+    "184": {
+      "string": "ジャムボウタイプ",
+      "@@localazy:comment:string": "Jambeau"
+    },
+    "185": {
+      "string": "ミサグリアタイプ",
+      "@@localazy:comment:string": "Missaglia"
+    },
+    "186": {
+      "string": "プレイトレッグス",
+      "@@localazy:comment:string": "Plate Leggings"
+    },
+    "187": {
+      "string": "フリュートタイプ",
+      "@@localazy:comment:string": "Fluted Leggings"
+    },
+    "188": {
+      "string": "ホプロンレッグス",
+      "@@localazy:comment:string": "Hoplite Leggings"
+    },
+    "189": {
+      "string": "ロゼンジレッグス",
+      "@@localazy:comment:string": "Jazeraint Leggings"
+    },
+    "190": {
+      "string": "ドレッドレッグス",
+      "@@localazy:comment:string": "Dread Leggings"
+    },
+    "191": {
+      "string": "バンテージ",
+      "@@localazy:comment:string": "Bandage"
+    },
+    "192": {
+      "string": "レザーグローブ",
+      "@@localazy:comment:string": "Leather Glove"
+    },
+    "193": {
+      "string": "ジポングローブ",
+      "@@localazy:comment:string": "Reinforced Glove"
+    },
+    "194": {
+      "string": "キュイラッサー",
+      "@@localazy:comment:string": "Knuckles"
+    },
+    "195": {
+      "string": "リングスリーブ",
+      "@@localazy:comment:string": "Ring Sleeve"
+    },
+    "196": {
+      "string": "チェインスリーブ",
+      "@@localazy:comment:string": "Chain Sleeve"
+    },
+    "197": {
+      "string": "ガントレット",
+      "@@localazy:comment:string": "Gauntlet"
+    },
+    "198": {
+      "string": "カラビニエール",
+      "@@localazy:comment:string": "Vambrace"
+    },
+    "199": {
+      "string": "プレイトグローブ",
+      "@@localazy:comment:string": "Plate Glove"
+    },
+    "200": {
+      "string": "ロンダンス",
+      "@@localazy:comment:string": "Rondanche"
+    },
+    "201": {
+      "string": "チルトグローブ",
+      "@@localazy:comment:string": "Tilt Glove"
+    },
+    "202": {
+      "string": "フレイタニエル",
+      "@@localazy:comment:string": "Freiturnier"
+    },
+    "203": {
+      "string": "フリュートハンド",
+      "@@localazy:comment:string": "Fluted Glove"
+    },
+    "204": {
+      "string": "ホプロングローブ",
+      "@@localazy:comment:string": "Hoplite Glove"
+    },
+    "205": {
+      "string": "ロゼンジグローブ",
+      "@@localazy:comment:string": "Jazeraint Glove"
+    },
+    "206": {
+      "string": "ドレッドグローブ",
+      "@@localazy:comment:string": "Dread Glove"
+    },
+    "207": {
+      "string": "充使吉鎧1",
+      "@@localazy:comment:string": "untitled"
+    },
+    "208": {
+      "string": "充使吉鎧2",
+      "@@localazy:comment:string": "untitled"
+    },
+    "209": {
+      "string": "充使吉鎧3",
+      "@@localazy:comment:string": "untitled"
+    },
+    "210": {
+      "string": "充使吉鎧4",
+      "@@localazy:comment:string": "untitled"
+    },
+    "211": {
+      "string": "充使吉鎧5",
+      "@@localazy:comment:string": "untitled"
+    },
+    "212": {
+      "string": "充使吉鎧6",
+      "@@localazy:comment:string": "untitled"
+    },
+    "213": {
+      "string": "充使吉鎧7",
+      "@@localazy:comment:string": "untitled"
+    },
+    "214": {
+      "string": "充使吉鎧8",
+      "@@localazy:comment:string": "untitled"
+    },
+    "215": {
+      "string": "充使吉鎧9",
+      "@@localazy:comment:string": "untitled"
+    },
+    "216": {
+      "string": "充使吉鎧10",
+      "@@localazy:comment:string": "untitled"
+    },
+    "217": {
+      "string": "充使吉鎧11",
+      "@@localazy:comment:string": "untitled"
+    },
+    "218": {
+      "string": "充使吉鎧12",
+      "@@localazy:comment:string": "untitled"
+    },
+    "219": {
+      "string": "充使吉鎧13",
+      "@@localazy:comment:string": "untitled"
+    },
+    "220": {
+      "string": "充使吉鎧14",
+      "@@localazy:comment:string": "untitled"
+    },
+    "221": {
+      "string": "充使吉鎧15",
+      "@@localazy:comment:string": "untitled"
+    },
+    "222": {
+      "string": "充使吉鎧16",
+      "@@localazy:comment:string": "untitled"
+    },
+    "223": {
+      "string": "聖仙の首飾り",
+      "@@localazy:comment:string": "Rood Necklace"
+    },
+    "224": {
+      "string": "ルーンピアス",
+      "@@localazy:comment:string": "Rune Earrings"
+    },
+    "225": {
+      "string": "ライオンヘッド",
+      "@@localazy:comment:string": "Lionhead"
+    },
+    "226": {
+      "string": "ラスティネイル",
+      "@@localazy:comment:string": "Rusted Nails"
+    },
+    "227": {
+      "string": "疾風の指輪",
+      "@@localazy:comment:string": "Sylphid Ring"
+    },
+    "228": {
+      "string": "マルドゥークの鼻環",
+      "@@localazy:comment:string": "Marduk"
+    },
+    "229": {
+      "string": "火竜の指輪",
+      "@@localazy:comment:string": "Salamander Ring"
+    },
+    "230": {
+      "string": "タミュリスタング",
+      "@@localazy:comment:string": "Tamulis Tongue"
+    },
+    "231": {
+      "string": "泥土の腕輪",
+      "@@localazy:comment:string": "Gnome Bracelet"
+    },
+    "232": {
+      "string": "パロロコングの指輪",
+      "@@localazy:comment:string": "Paloloʹs Ring"
+    },
+    "233": {
+      "string": "紫水の腕輪",
+      "@@localazy:comment:string": "Undine Bracelet"
+    },
+    "234": {
+      "string": "タアロアの指輪",
+      "@@localazy:comment:string": "Talian Ring"
+    },
+    "235": {
+      "string": "ティンカーリップ",
+      "@@localazy:comment:string": "Agriasʹs Balm"
+    },
+    "236": {
+      "string": "カデシュリング",
+      "@@localazy:comment:string": "Kadesh Ring"
+    },
+    "237": {
+      "string": "アグリッパの首輪",
+      "@@localazy:comment:string": "Agrippaʹs Choker"
+    },
+    "238": {
+      "string": "ディアドラの耳飾り",
+      "@@localazy:comment:string": "Diadraʹs Earring"
+    },
+    "239": {
+      "string": "巨人の指輪",
+      "@@localazy:comment:string": "Titanʹs Ring"
+    },
+    "240": {
+      "string": "ラウフェイの腕輪",
+      "@@localazy:comment:string": "Lau Feiʹs Armlet"
+    },
+    "241": {
+      "string": "スワンソング",
+      "@@localazy:comment:string": "Swan Song"
+    },
+    "242": {
+      "string": "プシュパカピアス",
+      "@@localazy:comment:string": "Pushpaka"
+    },
+    "243": {
+      "string": "エドガーのピアス",
+      "@@localazy:comment:string": "Edgarʹs Earrings"
+    },
+    "244": {
+      "string": "クロスチョーカー",
+      "@@localazy:comment:string": "Cross Choker"
+    },
+    "245": {
+      "string": "ゴーストドッグ",
+      "@@localazy:comment:string": "Ghost Hound"
+    },
+    "246": {
+      "string": "メレンカンプの足環",
+      "@@localazy:comment:string": "Beaded Anklet"
+    },
+    "247": {
+      "string": "ドラゴンヘッド",
+      "@@localazy:comment:string": "Dragonhead"
+    },
+    "248": {
+      "string": "ファフニールの涙",
+      "@@localazy:comment:string": "Faufnirʹs Tear"
+    },
+    "249": {
+      "string": "アガレスの首輪",
+      "@@localazy:comment:string": "Agalesʹs Chain"
+    },
+    "250": {
+      "string": "バラムリング",
+      "@@localazy:comment:string": "Balam Ring"
+    },
+    "251": {
+      "string": "ニミュエの髮飾り",
+      "@@localazy:comment:string": "Nimje Coif"
+    },
+    "252": {
+      "string": "モルガンの幼け爪",
+      "@@localazy:comment:string": "Morganʹs Nails"
+    },
+    "253": {
+      "string": "マリーンの指輪",
+      "@@localazy:comment:string": "Marleneʹs Ring"
+    },
+    "254": {
+      "string": "ウッド",
+      "@@localazy:comment:string": "Wood"
+    },
+    "255": {
+      "string": "レザー",
+      "@@localazy:comment:string": "Leather"
+    },
+    "256": {
+      "string": "ブロンズ",
+      "@@localazy:comment:string": "Bronze"
+    },
+    "257": {
+      "string": "アイアン",
+      "@@localazy:comment:string": "Iron"
+    },
+    "258": {
+      "string": "ハガネ",
+      "@@localazy:comment:string": "Hagane"
+    },
+    "259": {
+      "string": "シルバー",
+      "@@localazy:comment:string": "Silver"
+    },
+    "260": {
+      "string": "ダマスクス",
+      "@@localazy:comment:string": "Damascus"
+    },
+    "261": {
+      "string": "タロスの長回",
+      "@@localazy:comment:string": "Talos Feldspar"
+    },
+    "262": {
+      "string": "タイタンの孔雀回",
+      "@@localazy:comment:string": "Titan Malachite"
+    },
+    "263": {
+      "string": "シルフの黄印",
+      "@@localazy:comment:string": "Sylphid Topaz"
+    },
+    "264": {
+      "string": "ジンの琥珀",
+      "@@localazy:comment:string": "Djinn Amber"
+    },
+    "265": {
+      "string": "サラマンダーの紅印",
+      "@@localazy:comment:string": "Salamander Ruby"
+    },
+    "266": {
+      "string": "イフリートの紅印髄",
+      "@@localazy:comment:string": "Ifrit Carnelian"
+    },
+    "267": {
+      "string": "ノームの翠印",
+      "@@localazy:comment:string": "Gnome Emerald"
+    },
+    "268": {
+      "string": "ダオの月長回",
+      "@@localazy:comment:string": "Dao Moonstone"
+    },
+    "269": {
+      "string": "ウンディーネの碧印",
+      "@@localazy:comment:string": "Undine Jasper"
+    },
+    "270": {
+      "string": "マリッドの藍印",
+      "@@localazy:comment:string": "Marid Aquamarine"
+    },
+    "271": {
+      "string": "エンジェルの真珠",
+      "@@localazy:comment:string": "Angel Pearl"
+    },
+    "272": {
+      "string": "セラフィムの金剛回",
+      "@@localazy:comment:string": "Seraphim Diamond"
+    },
+    "273": {
+      "string": "モーロックの黑印",
+      "@@localazy:comment:string": "Morlock Jet"
+    },
+    "274": {
+      "string": "ベリアルの黑真珠",
+      "@@localazy:comment:string": "Berial Blackpearl"
+    },
+    "275": {
+      "string": "梟雄回",
+      "@@localazy:comment:string": "Haeralis"
+    },
+    "276": {
+      "string": "雷神晶",
+      "@@localazy:comment:string": "Orlandu"
+    },
+    "277": {
+      "string": "獸王回",
+      "@@localazy:comment:string": "Orion"
+    },
+    "278": {
+      "string": "獸神晶",
+      "@@localazy:comment:string": "Ogmius"
+    },
+    "279": {
+      "string": "聖骸回",
+      "@@localazy:comment:string": "Iocus"
+    },
+    "280": {
+      "string": "天灰晶",
+      "@@localazy:comment:string": "Balvus"
+    },
+    "281": {
+      "string": "幻妖回",
+      "@@localazy:comment:string": "Trinity"
+    },
+    "282": {
+      "string": "散妖晶",
+      "@@localazy:comment:string": "Beowulf"
+    },
+    "283": {
+      "string": "輝竜回",
+      "@@localazy:comment:string": "Dragonite"
+    },
+    "284": {
+      "string": "竜殺晶",
+      "@@localazy:comment:string": "Sigguld"
+    },
+    "285": {
+      "string": "破魔回",
+      "@@localazy:comment:string": "Demonia"
+    },
+    "286": {
+      "string": "聖關晶",
+      "@@localazy:comment:string": "Altema"
+    },
+    "287": {
+      "string": "サー・ボールス",
+      "@@localazy:comment:string": "Polaris"
+    },
+    "288": {
+      "string": "サー・パーシヴァル",
+      "@@localazy:comment:string": "Basivalen"
+    },
+    "289": {
+      "string": "サー・ガラハド",
+      "@@localazy:comment:string": "Galerian"
+    },
+    "290": {
+      "string": "サー・ベディヴィア",
+      "@@localazy:comment:string": "Vedivier"
+    },
+    "291": {
+      "string": "サー・ベイリン",
+      "@@localazy:comment:string": "Berion"
+    },
+    "292": {
+      "string": "サー・ガウェイン",
+      "@@localazy:comment:string": "Gervin"
+    },
+    "293": {
+      "string": "サー・トリスタン",
+      "@@localazy:comment:string": "Tertia"
+    },
+    "294": {
+      "string": "サー・ランスロット",
+      "@@localazy:comment:string": "Lancer"
+    },
+    "295": {
+      "string": "キング・アーサー",
+      "@@localazy:comment:string": "Arturos"
+    },
+    "296": {
+      "string": "ブレイブハート",
+      "@@localazy:comment:string": "Braveheart"
+    },
+    "297": {
+      "string": "ヘルレイザー",
+      "@@localazy:comment:string": "Hellraiser"
+    },
+    "298": {
+      "string": "ナイトキラー",
+      "@@localazy:comment:string": "Nightkiller"
+    },
+    "299": {
+      "string": "マナブレイカー",
+      "@@localazy:comment:string": "Manabreaker"
+    },
+    "300": {
+      "string": "ローバストフィスト",
+      "@@localazy:comment:string": "Powerfist"
+    },
+    "301": {
+      "string": "ブレインシールド",
+      "@@localazy:comment:string": "Brainshield"
+    },
+    "302": {
+      "string": "スピードスター",
+      "@@localazy:comment:string": "Speedster"
+    },
+    "303": {
+      "string": "充使吉秘回",
+      "@@localazy:comment:string": "untitled"
+    },
+    "304": {
+      "string": "セイブザクイーン",
+      "@@localazy:comment:string": "Silent Queen"
+    },
+    "305": {
+      "string": "ブラッククイーン",
+      "@@localazy:comment:string": "Dark Queen"
+    },
+    "306": {
+      "string": "キラークイーン",
+      "@@localazy:comment:string": "Death Queen"
+    },
+    "307": {
+      "string": "ホワイトクイーン",
+      "@@localazy:comment:string": "White Queen"
+    },
+    "308": {
+      "string": "充使吉1",
+      "@@localazy:comment:string": "untitled"
+    },
+    "309": {
+      "string": "充使吉2",
+      "@@localazy:comment:string": "untitled"
+    },
+    "310": {
+      "string": "充使吉3",
+      "@@localazy:comment:string": "untitled"
+    },
+    "311": {
+      "string": "充使吉4",
+      "@@localazy:comment:string": "untitled"
+    },
+    "312": {
+      "string": "充使吉5",
+      "@@localazy:comment:string": "untitled"
+    },
+    "313": {
+      "string": "充使吉6",
+      "@@localazy:comment:string": "untitled"
+    },
+    "314": {
+      "string": "充使吉7",
+      "@@localazy:comment:string": "untitled"
+    },
+    "315": {
+      "string": "充使吉8",
+      "@@localazy:comment:string": "untitled"
+    },
+    "316": {
+      "string": "充使吉9",
+      "@@localazy:comment:string": "untitled"
+    },
+    "317": {
+      "string": "充使吉10",
+      "@@localazy:comment:string": "untitled"
+    },
+    "318": {
+      "string": "充使吉11",
+      "@@localazy:comment:string": "untitled"
+    },
+    "319": {
+      "string": "充使吉12",
+      "@@localazy:comment:string": "untitled"
+    },
+    "320": {
+      "string": "充使吉13",
+      "@@localazy:comment:string": "untitled"
+    },
+    "321": {
+      "string": "充使吉14",
+      "@@localazy:comment:string": "untitled"
+    },
+    "322": {
+      "string": "充使吉15",
+      "@@localazy:comment:string": "untitled"
+    },
+    "323": {
+      "string": "キュアルート",
+      "@@localazy:comment:string": "Cure Root"
+    },
+    "324": {
+      "string": "キュアバルブ",
+      "@@localazy:comment:string": "Cure Bulb"
+    },
+    "325": {
+      "string": "キュアリキッド",
+      "@@localazy:comment:string": "Cure Tonic"
+    },
+    "326": {
+      "string": "キュアノストラム",
+      "@@localazy:comment:string": "Cure Potion"
+    },
+    "327": {
+      "string": "マナルート",
+      "@@localazy:comment:string": "Mana Root"
+    },
+    "328": {
+      "string": "マナバルブ",
+      "@@localazy:comment:string": "Mana Bulb"
+    },
+    "329": {
+      "string": "マナリキッド",
+      "@@localazy:comment:string": "Mana Tonic"
+    },
+    "330": {
+      "string": "マナノストラム",
+      "@@localazy:comment:string": "Mana Potion"
+    },
+    "331": {
+      "string": "ヴェラルート",
+      "@@localazy:comment:string": "Vera Root"
+    },
+    "332": {
+      "string": "ヴェラバルブ",
+      "@@localazy:comment:string": "Vera Bulb"
+    },
+    "333": {
+      "string": "ヴェラリキッド",
+      "@@localazy:comment:string": "Vera Tonic"
+    },
+    "334": {
+      "string": "ヴェラノストラム",
+      "@@localazy:comment:string": "Vera Potion"
+    },
+    "335": {
+      "string": "修道僧の秘薬",
+      "@@localazy:comment:string": "Acolyteʹs Nostrum"
+    },
+    "336": {
+      "string": "聖者の秘薬",
+      "@@localazy:comment:string": "Saintʹs Nostrum"
+    },
+    "337": {
+      "string": "鍊金術士の試薬",
+      "@@localazy:comment:string": "Alchemistʹs Reagent"
+    },
+    "338": {
+      "string": "魔道士の試薬",
+      "@@localazy:comment:string": "Sorcererʹs Reagent"
+    },
+    "339": {
+      "string": "失界樹の涙",
+      "@@localazy:comment:string": "Yggdrasilʹs Tears"
+    },
+    "340": {
+      "string": "精霊の祈り",
+      "@@localazy:comment:string": "Faerie Chortle"
+    },
+    "341": {
+      "string": "聖霊の祝福",
+      "@@localazy:comment:string": "Spirit Orison"
+    },
+    "342": {
+      "string": "天使の微笑み",
+      "@@localazy:comment:string": "Angelic Paean"
+    },
+    "343": {
+      "string": "万能薬",
+      "@@localazy:comment:string": "Panacea"
+    },
+    "344": {
+      "string": "羽虫の薬酒",
+      "@@localazy:comment:string": "Snowfly Draught"
+    },
+    "345": {
+      "string": "妖精の羽",
+      "@@localazy:comment:string": "Faerie Wing"
+    },
+    "346": {
+      "string": "覇王の霊薬",
+      "@@localazy:comment:string": "Elixir of Kings"
+    },
+    "347": {
+      "string": "賢者の霊薬",
+      "@@localazy:comment:string": "Elixir of Sages"
+    },
+    "348": {
+      "string": "竜騎兵の霊薬",
+      "@@localazy:comment:string": "Elixir of Dragoons"
+    },
+    "349": {
+      "string": "聖母の霊薬",
+      "@@localazy:comment:string": "Elixir of Queens"
+    },
+    "350": {
+      "string": "魔導師の霊薬",
+      "@@localazy:comment:string": "Elixir of Mages"
+    },
+    "351": {
+      "string": "ウァレーンス",
+      "@@localazy:comment:string": "Valens"
+    },
+    "352": {
+      "string": "プルーデンス",
+      "@@localazy:comment:string": "Prudens"
+    },
+    "353": {
+      "string": "ウォラーレ",
+      "@@localazy:comment:string": "Volare"
+    },
+    "354": {
+      "string": "アウデンティア",
+      "@@localazy:comment:string": "Audentia"
+    },
+    "355": {
+      "string": "ウィルトゥール",
+      "@@localazy:comment:string": "Virtus"
+    },
+    "356": {
+      "string": "千里眼晶",
+      "@@localazy:comment:string": "Eye of Argon"
+    },
+    "357": {
+      "string": "充使吉59",
+      "@@localazy:comment:string": "untitled"
+    },
+    "358": {
+      "string": "自奴規制1",
+      "@@localazy:comment:string": "untitled"
+    },
+    "359": {
+      "string": "自奴規制2",
+      "@@localazy:comment:string": "untitled"
+    },
+    "360": {
+      "string": "自奴規制3",
+      "@@localazy:comment:string": "untitled"
+    },
+    "361": {
+      "string": "自奴規制4",
+      "@@localazy:comment:string": "untitled"
+    },
+    "362": {
+      "string": "自奴規制5",
+      "@@localazy:comment:string": "untitled"
+    },
+    "363": {
+      "string": "自奴規制6",
+      "@@localazy:comment:string": "untitled"
+    },
+    "364": {
+      "string": "自奴規制7",
+      "@@localazy:comment:string": "untitled"
+    },
+    "365": {
+      "string": "自奴規制8",
+      "@@localazy:comment:string": "untitled"
+    },
+    "366": {
+      "string": "自奴規制9",
+      "@@localazy:comment:string": "untitled"
+    },
+    "367": {
+      "string": "自奴規制10",
+      "@@localazy:comment:string": "untitled"
+    },
+    "368": {
+      "string": "自奴規制11",
+      "@@localazy:comment:string": "untitled"
+    },
+    "369": {
+      "string": "自奴規制12",
+      "@@localazy:comment:string": "untitled"
+    },
+    "370": {
+      "string": "自奴規制13",
+      "@@localazy:comment:string": "untitled"
+    },
+    "371": {
+      "string": "自奴規制14",
+      "@@localazy:comment:string": "untitled"
+    },
+    "372": {
+      "string": "自奴規制15",
+      "@@localazy:comment:string": "untitled"
+    },
+    "373": {
+      "string": "自奴規制16",
+      "@@localazy:comment:string": "untitled"
+    },
+    "374": {
+      "string": "自奴規制17",
+      "@@localazy:comment:string": "untitled"
+    },
+    "375": {
+      "string": "自奴規制18",
+      "@@localazy:comment:string": "untitled"
+    },
+    "376": {
+      "string": "自奴規制19",
+      "@@localazy:comment:string": "untitled"
+    },
+    "377": {
+      "string": "自奴規制20",
+      "@@localazy:comment:string": "untitled"
+    },
+    "378": {
+      "string": "自奴規制21",
+      "@@localazy:comment:string": "untitled"
+    },
+    "379": {
+      "string": "自奴規制22",
+      "@@localazy:comment:string": "untitled"
+    },
+    "380": {
+      "string": "自奴規制23",
+      "@@localazy:comment:string": "untitled"
+    },
+    "381": {
+      "string": "自奴規制24",
+      "@@localazy:comment:string": "untitled"
+    },
+    "382": {
+      "string": "自奴規制25",
+      "@@localazy:comment:string": "untitled"
+    },
+    "383": {
+      "string": "自奴規制26",
+      "@@localazy:comment:string": "untitled"
+    },
+    "384": {
+      "string": "自奴規制27",
+      "@@localazy:comment:string": "untitled"
+    },
+    "385": {
+      "string": "自奴規制28",
+      "@@localazy:comment:string": "untitled"
+    },
+    "386": {
+      "string": "烈波のグリモア",
+      "@@localazy:comment:string": "Grimoire Zephyr"
+    },
+    "387": {
+      "string": "雷因のグリモア",
+      "@@localazy:comment:string": "Grimoire Teslae"
+    },
+    "388": {
+      "string": "炎彈のグリモア",
+      "@@localazy:comment:string": "Grimoire Incendie"
+    },
+    "389": {
+      "string": "収竜のグリモア",
+      "@@localazy:comment:string": "Grimoire Terre"
+    },
+    "390": {
+      "string": "再刃のグリモア",
+      "@@localazy:comment:string": "Grimoire Glace"
+    },
+    "391": {
+      "string": "閃登のグリモア",
+      "@@localazy:comment:string": "Grimoire Lux"
+    },
+    "392": {
+      "string": "苦呪のグリモア",
+      "@@localazy:comment:string": "Grimoire Patir"
+    },
+    "393": {
+      "string": "除霊のグリモア",
+      "@@localazy:comment:string": "Grimoire Exsorcer"
+    },
+    "394": {
+      "string": "虛空のグリモア",
+      "@@localazy:comment:string": "Grimoire Banish"
+    },
+    "395": {
+      "string": "爆裂のグリモア",
+      "@@localazy:comment:string": "Grimoire Demolir"
+    },
+    "396": {
+      "string": "充使吉15",
+      "@@localazy:comment:string": "untitled"
+    },
+    "397": {
+      "string": "充使吉16",
+      "@@localazy:comment:string": "untitled"
+    },
+    "398": {
+      "string": "充使吉17",
+      "@@localazy:comment:string": "untitled"
+    },
+    "399": {
+      "string": "雷空のグリモア",
+      "@@localazy:comment:string": "Grimoire Foudre"
+    },
+    "400": {
+      "string": "充使吉18",
+      "@@localazy:comment:string": "untitled"
+    },
+    "401": {
+      "string": "充使吉19",
+      "@@localazy:comment:string": "untitled"
+    },
+    "402": {
+      "string": "充使吉20",
+      "@@localazy:comment:string": "untitled"
+    },
+    "403": {
+      "string": "炎鎖のグリモア",
+      "@@localazy:comment:string": "Grimoire Flamme"
+    },
+    "404": {
+      "string": "充使吉21",
+      "@@localazy:comment:string": "untitled"
+    },
+    "405": {
+      "string": "充使吉22",
+      "@@localazy:comment:string": "untitled"
+    },
+    "406": {
+      "string": "充使吉23",
+      "@@localazy:comment:string": "untitled"
+    },
+    "407": {
+      "string": "磁踊のグリモア",
+      "@@localazy:comment:string": "Grimoire Gaea"
+    },
+    "408": {
+      "string": "充使吉24",
+      "@@localazy:comment:string": "untitled"
+    },
+    "409": {
+      "string": "充使吉25",
+      "@@localazy:comment:string": "untitled"
+    },
+    "410": {
+      "string": "充使吉26",
+      "@@localazy:comment:string": "untitled"
+    },
+    "411": {
+      "string": "瀑階のグリモア",
+      "@@localazy:comment:string": "Grimoire Avalanche"
+    },
+    "412": {
+      "string": "充使吉27",
+      "@@localazy:comment:string": "untitled"
+    },
+    "413": {
+      "string": "充使吉28",
+      "@@localazy:comment:string": "untitled"
+    },
+    "414": {
+      "string": "充使吉29",
+      "@@localazy:comment:string": "untitled"
+    },
+    "415": {
+      "string": "舞登のグリモア",
+      "@@localazy:comment:string": "Grimoire Radius"
+    },
+    "416": {
+      "string": "充使吉30",
+      "@@localazy:comment:string": "untitled"
+    },
+    "417": {
+      "string": "充使吉31",
+      "@@localazy:comment:string": "untitled"
+    },
+    "418": {
+      "string": "充使吉32",
+      "@@localazy:comment:string": "untitled"
+    },
+    "419": {
+      "string": "天破のグリモア",
+      "@@localazy:comment:string": "Grimoire Meteore"
+    },
+    "420": {
+      "string": "充使吉33",
+      "@@localazy:comment:string": "untitled"
+    },
+    "421": {
+      "string": "充使吉34",
+      "@@localazy:comment:string": "untitled"
+    },
+    "422": {
+      "string": "充使吉35",
+      "@@localazy:comment:string": "untitled"
+    },
+    "423": {
+      "string": "令精のグリモア",
+      "@@localazy:comment:string": "Grimoire Egout"
+    },
+    "424": {
+      "string": "令魔のグリモア",
+      "@@localazy:comment:string": "Grimoire Demance"
+    },
+    "425": {
+      "string": "各命のグリモア",
+      "@@localazy:comment:string": "Grimoire Guerir"
+    },
+    "426": {
+      "string": "軟化のグリモア",
+      "@@localazy:comment:string": "Grimoire Mollesse"
+    },
+    "427": {
+      "string": "解毒のグリモア",
+      "@@localazy:comment:string": "Grimoire Antidote"
+    },
+    "428": {
+      "string": "祓呪のグリモア",
+      "@@localazy:comment:string": "Grimoire Benir"
+    },
+    "429": {
+      "string": "浄化のグリモア",
+      "@@localazy:comment:string": "Grimoire Purifier"
+    },
+    "430": {
+      "string": "命脈のグリモア",
+      "@@localazy:comment:string": "Grimoire Vie"
+    },
+    "431": {
+      "string": "強殼のグリモア",
+      "@@localazy:comment:string": "Grimoire Intensite"
+    },
+    "432": {
+      "string": "弱骸のグリモア",
+      "@@localazy:comment:string": "Grimoire Debile"
+    },
+    "433": {
+      "string": "冴理のグリモア",
+      "@@localazy:comment:string": "Grimoire Eclairer"
+    },
+    "434": {
+      "string": "惑乱のグリモア",
+      "@@localazy:comment:string": "Grimoire Nuageux"
+    },
+    "435": {
+      "string": "俊敏のグリモア",
+      "@@localazy:comment:string": "Grimoire Agilite"
+    },
+    "436": {
+      "string": "鈍化のグリモア",
+      "@@localazy:comment:string": "Grimoire Tardif"
+    },
+    "437": {
+      "string": "優銳のグリモア",
+      "@@localazy:comment:string": "Grimoire Ameliorer"
+    },
+    "438": {
+      "string": "鈍磨のグリモア",
+      "@@localazy:comment:string": "Grimoire Deteriorer"
+    },
+    "439": {
+      "string": "封呪のグリモア",
+      "@@localazy:comment:string": "Grimoire Muet"
+    },
+    "440": {
+      "string": "耐魔のグリモア",
+      "@@localazy:comment:string": "Grimoire Annuler"
+    },
+    "441": {
+      "string": "邪痺のグリモア",
+      "@@localazy:comment:string": "Grimoire Paralysie"
+    },
+    "442": {
+      "string": "邪毒のグリモア",
+      "@@localazy:comment:string": "Grimoire Venin"
+    },
+    "443": {
+      "string": "呪詛のグリモア",
+      "@@localazy:comment:string": "Grimoire Fleau"
+    },
+    "444": {
+      "string": "停空のグリモア",
+      "@@localazy:comment:string": "Grimoire Halte"
+    },
+    "445": {
+      "string": "解魔のグリモア",
+      "@@localazy:comment:string": "Grimoire Dissiper"
+    },
+    "446": {
+      "string": "解錠のグリモア",
+      "@@localazy:comment:string": "Grimoire Clef"
+    },
+    "447": {
+      "string": "刻仙のグリモア",
+      "@@localazy:comment:string": "Grimoire Visible"
+    },
+    "448": {
+      "string": "解析のグリモア",
+      "@@localazy:comment:string": "Grimoire Analyse"
+    },
+    "449": {
+      "string": "恵空のグリモア",
+      "@@localazy:comment:string": "Grimoire Sylphe"
+    },
+    "450": {
+      "string": "恵火のグリモア",
+      "@@localazy:comment:string": "Grimoire Salamandre"
+    },
+    "451": {
+      "string": "恵土のグリモア",
+      "@@localazy:comment:string": "Grimoire Gnome"
+    },
+    "452": {
+      "string": "恵水のグリモア",
+      "@@localazy:comment:string": "Grimoire Undine"
+    },
+    "453": {
+      "string": "耐風のグリモア",
+      "@@localazy:comment:string": "Grimoire Parebrise"
+    },
+    "454": {
+      "string": "耐炎のグリモア",
+      "@@localazy:comment:string": "Grimoire Ignifuge"
+    },
+    "455": {
+      "string": "耐収のグリモア",
+      "@@localazy:comment:string": "Grimoire Rempart"
+    },
+    "456": {
+      "string": "耐冷のグリモア",
+      "@@localazy:comment:string": "Grimoire Barrer"
+    },
+    "457": {
+      "string": "充使吉36",
+      "@@localazy:comment:string": "untitled"
+    },
+    "458": {
+      "string": "黄銅の鍵",
+      "@@localazy:comment:string": "Bronze Key"
+    },
+    "459": {
+      "string": "黑鉄の鍵",
+      "@@localazy:comment:string": "Iron Key"
+    },
+    "460": {
+      "string": "吐銀の鍵",
+      "@@localazy:comment:string": "Silver Key"
+    },
+    "461": {
+      "string": "黄金の鍵",
+      "@@localazy:comment:string": "Gold Key"
+    },
+    "462": {
+      "string": "吐鋼の鍵",
+      "@@localazy:comment:string": "Platinum Key"
+    },
+    "463": {
+      "string": "赤鉄の鍵",
+      "@@localazy:comment:string": "Steel Key"
+    },
+    "464": {
+      "string": "聖仙騎士占の鍵",
+      "@@localazy:comment:string": "Crimson Key"
+    },
+    "465": {
+      "string": "宝箱の鍵",
+      "@@localazy:comment:string": "Chest Key"
+    },
+    "466": {
+      "string": "ハマシオンの刻仙",
+      "@@localazy:comment:string": "Chamomile Sigil"
+    },
+    "467": {
+      "string": "リリーの刻仙",
+      "@@localazy:comment:string": "Lily Sigil"
+    },
+    "468": {
+      "string": "ピラカンサの刻仙",
+      "@@localazy:comment:string": "Tearose Sigil"
+    },
+    "469": {
+      "string": "クレマチスの刻仙",
+      "@@localazy:comment:string": "Clematis Sigil"
+    },
+    "470": {
+      "string": "ムスカリの刻仙",
+      "@@localazy:comment:string": "Hyacinth Sigil"
+    },
+    "471": {
+      "string": "シャガの刻仙",
+      "@@localazy:comment:string": "Fern Sigil"
+    },
+    "472": {
+      "string": "アスターの刻仙",
+      "@@localazy:comment:string": "Aster Sigil"
+    },
+    "473": {
+      "string": "キュラスの刻仙",
+      "@@localazy:comment:string": "Eulelia Sigil"
+    },
+    "474": {
+      "string": "メリッサの刻仙",
+      "@@localazy:comment:string": "Melissa Sigil"
+    },
+    "475": {
+      "string": "カラーの刻仙",
+      "@@localazy:comment:string": "Calla Sigil"
+    },
+    "476": {
+      "string": "コナラの刻仙",
+      "@@localazy:comment:string": "Laurel Sigil"
+    },
+    "477": {
+      "string": "アカシアの刻仙",
+      "@@localazy:comment:string": "Acacia Sigil"
+    },
+    "478": {
+      "string": "シュロの刻仙",
+      "@@localazy:comment:string": "Palm Sigil"
+    },
+    "479": {
+      "string": "カルミアの刻仙",
+      "@@localazy:comment:string": "Kalmia Sigil"
+    },
+    "480": {
+      "string": "クサギの刻仙",
+      "@@localazy:comment:string": "Colombine Sigil"
+    },
+    "481": {
+      "string": "アネモネの刻仙",
+      "@@localazy:comment:string": "Anemone Sigil"
+    },
+    "482": {
+      "string": "バーベナの刻仙",
+      "@@localazy:comment:string": "Verbena Sigil"
+    },
+    "483": {
+      "string": "シラーの刻仙",
+      "@@localazy:comment:string": "Schirra Sigil"
+    },
+    "484": {
+      "string": "マリルドの刻仙",
+      "@@localazy:comment:string": "Marigold Sigil"
+    },
+    "485": {
+      "string": "ガーベラの刻仙",
+      "@@localazy:comment:string": "Azalea Sigil"
+    },
+    "486": {
+      "string": "トラノオの刻仙",
+      "@@localazy:comment:string": "Tigertail Sigil"
+    },
+    "487": {
+      "string": "ストックの刻仙",
+      "@@localazy:comment:string": "Stock Sigil"
+    },
+    "488": {
+      "string": "カトレアの刻仙",
+      "@@localazy:comment:string": "Cattleya Sigil"
+    },
+    "489": {
+      "string": "ドラセナの刻仙",
+      "@@localazy:comment:string": "Mandrake Sigil"
+    },
+    "490": {
+      "string": "充使吉37",
+      "@@localazy:comment:string": "untitled"
+    },
+    "491": {
+      "string": "充使吉38",
+      "@@localazy:comment:string": "untitled"
+    },
+    "492": {
+      "string": "充使吉39",
+      "@@localazy:comment:string": "untitled"
+    },
+    "493": {
+      "string": "充使吉40",
+      "@@localazy:comment:string": "untitled"
+    },
+    "494": {
+      "string": "充使吉41",
+      "@@localazy:comment:string": "untitled"
+    },
+    "495": {
+      "string": "充使吉42",
+      "@@localazy:comment:string": "untitled"
+    },
+    "496": {
+      "string": "充使吉43",
+      "@@localazy:comment:string": "untitled"
+    },
+    "497": {
+      "string": "充使吉44",
+      "@@localazy:comment:string": "untitled"
+    },
+    "498": {
+      "string": "充使吉45",
+      "@@localazy:comment:string": "untitled"
+    },
+    "499": {
+      "string": "充使吉46",
+      "@@localazy:comment:string": "untitled"
+    },
+    "500": {
+      "string": "充使吉47",
+      "@@localazy:comment:string": "untitled"
+    },
+    "501": {
+      "string": "充使吉48",
+      "@@localazy:comment:string": "untitled"
+    },
+    "502": {
+      "string": "充使吉49",
+      "@@localazy:comment:string": "untitled"
+    },
+    "503": {
+      "string": "充使吉50",
+      "@@localazy:comment:string": "untitled"
+    },
+    "504": {
+      "string": "充使吉51",
+      "@@localazy:comment:string": "untitled"
+    },
+    "505": {
+      "string": "充使吉52",
+      "@@localazy:comment:string": "untitled"
+    },
+    "506": {
+      "string": "充使吉53",
+      "@@localazy:comment:string": "untitled"
+    },
+    "507": {
+      "string": "充使吉54",
+      "@@localazy:comment:string": "untitled"
+    },
+    "508": {
+      "string": "充使吉55",
+      "@@localazy:comment:string": "untitled"
+    },
+    "509": {
+      "string": "充使吉56",
+      "@@localazy:comment:string": "untitled"
+    },
+    "510": {
+      "string": "充使吉57",
+      "@@localazy:comment:string": "untitled"
+    },
+    "511": {
+      "string": "充使吉58",
+      "@@localazy:comment:string": "untitled"
+    }
+  }
+}

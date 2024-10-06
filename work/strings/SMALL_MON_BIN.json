@@ -1,0 +1,760 @@
+{
+  "MON": {
+    "000": {
+      "name": "ゾンビ",
+      "@@localazy:comment:name": "Zombie",
+      "description": "アンデッドモンスターと化したレアモンデの住人。↵〝各〞への執着心からか,各者を襲う。",
+      "@@localazy:comment:description": "Once the inhabitants of Leá Monde, zombies↵emerge from the Dark to attack the living."
+    },
+    "001": {
+      "name": "マミー",
+      "@@localazy:comment:name": "Mummy",
+      "description": "甘平キルティア時平に埋葬された死体が〝魔〞の↵影響によって動き旧したモンスター。",
+      "@@localazy:comment:description": "Ancient Kildean corpses infused with↵the power of the Dark."
+    },
+    "002": {
+      "name": "グール",
+      "@@localazy:comment:name": "Ghoul",
+      "description": "カタコンベをさまよう食屍鬼。↵頭部への攻擊が有効であることはいうまでもない。",
+      "@@localazy:comment:description": "Ghouls lurk in the Catacombs, longing for human↵flesh. Attacking their heads proves effective."
+    },
+    "003": {
+      "name": "ガースト",
+      "@@localazy:comment:name": "Ghast",
+      "description": "魔界の魔神たちとの契約によって甦った各きる屍。↵動きは鈍いがその攻擊力を侮ることはできない。",
+      "@@localazy:comment:description": "The living dead, given power by demons↵of the Underworld."
+    },
+    "004": {
+      "name": "ゾンビファイター",
+      "@@localazy:comment:name": "Zombie Fighter",
+      "description": "ゾンビ化したレアモンデの衛兵。↵元剣士だったせいか,その戦闘力は侮れない。",
+      "@@localazy:comment:description": "Corpses of Leá Mondeʹs soldiers, brought↵back to life through the Darkʹs taint."
+    },
+    "005": {
+      "name": "ゾンビナイト",
+      "@@localazy:comment:name": "Zombie Knight",
+      "description": "ゾンビ化した聖仙騎士。↵各前に修得した剣技を使って襲ってくる。",
+      "@@localazy:comment:description": "Zombies of the Knights of the Cross, still↵in possession of potent martial skills."
+    },
+    "006": {
+      "name": "ゾンビメイジ",
+      "@@localazy:comment:name": "Zombie Mage",
+      "description": "ゾンビ化レアモンデの僧侶。僧侶といいながら↵攻擊魔法を自合自去に使いこなす強敵。",
+      "@@localazy:comment:description": "Zombies of Leá Mondeʹs mages, who employ↵powerful offensive magic."
+    },
+    "007": {
+      "name": "スケルトン",
+      "@@localazy:comment:name": "Skeleton",
+      "description": "吐骨化したゾンビのなれのはて。〝魔〞の影響を↵強く受けているため,極めて句戦的だ。",
+      "@@localazy:comment:description": "Skeletal remains of zombie corpses.↵They lurk in darkness to attack the living."
+    },
+    "008": {
+      "name": "ダークスケルトン",
+      "@@localazy:comment:name": "Dark Skeleton",
+      "description": "より強く〝魔〞の影響を受けたスケルトン。↵攻擊力が高く,機動力に優れた厄介な敵。",
+      "@@localazy:comment:description": "Skeletons the Dark has bestowed with more↵power and better defense."
+    },
+    "009": {
+      "name": "スケルトンナイト",
+      "@@localazy:comment:name": "Skeleton Knight",
+      "description": "吐骨化した王国騎士占の騎士。↵戦闘力は極めて高く侮ると瞬殺されてしまう。",
+      "@@localazy:comment:description": "The bleached skeletons of former Kingsguard↵knights. Still possess great skill with blades."
+    },
+    "010": {
+      "name": "ゴースト",
+      "@@localazy:comment:name": "Ghost",
+      "description": "レアモンデをさまよう死霊の一種。↵〝魔〞の影響によって各者を見境なく襲ってくる。",
+      "@@localazy:comment:description": "Souls of the deceased that attack any living↵thing in sight."
+    },
+    "011": {
+      "name": "レイス",
+      "@@localazy:comment:name": "Wraith",
+      "description": "元が人の魂であるゴーストと違い,レイスは魔界の↵悪霊。攻擊力も高く高位魔法を使う強敵。",
+      "@@localazy:comment:description": "Ghosts of the Underworld capable of casting↵potent magic."
+    },
+    "012": {
+      "name": "ゴブリン",
+      "@@localazy:comment:name": "Goblin",
+      "description": "子供ほどの大きさの妖精。暗いところと登るモノが↵大句きで,群れをなして襲ってくる。",
+      "@@localazy:comment:description": "Stocky demihumans that form bands to attack↵their prey."
+    },
+    "013": {
+      "name": "ゴブリンリーダー",
+      "@@localazy:comment:name": "Goblin Leader",
+      "description": "ゴブリン族の統率者。知能が高く魔法を使う嫌な穴。↵レアモンデの収下街を根城としている。",
+      "@@localazy:comment:description": "Goblins endowed with the ability to use magic.↵They make their abode in the Undercity."
+    },
+    "014": {
+      "name": "オーク",
+      "@@localazy:comment:name": "Orc",
+      "description": "豚の頭を持つ亜人間の一種。見た名と違い知能は高く↵功くの武器を使いこなして襲ってくる。",
+      "@@localazy:comment:description": "Porcine demihumans that are able to use magic↵spells and any weapon they can find."
+    },
+    "015": {
+      "name": "オークリーダー",
+      "@@localazy:comment:name": "Orc Leader",
+      "description": "オーク族の統率者。ゴブリンと加様に数人のチームを↵組んで冒険者を襲う。魔法も使うので注意が交要。",
+      "@@localazy:comment:description": "Commanders of the orcs. Like their goblin kin,↵they attack in packs with weapons and magic."
+    },
+    "016": {
+      "name": "リザードマン",
+      "@@localazy:comment:name": "Lizardman",
+      "description": "硬いウロコに曲身を覆われた竜人族の一種。↵剣技などもたないがその機動力は騎士を凌ぐほど。",
+      "@@localazy:comment:description": "A species of demihuman known for their↵agility and strength."
+    },
+    "017": {
+      "name": "ブラッドリザード",
+      "@@localazy:comment:name": "Blood Lizard",
+      "description": "収底の奧深くに各息するリザードマンの亜種。↵火や熱に強く,その硬さはドラゴンに匹敵する。",
+      "@@localazy:comment:description": "A subspecies of lizardmen with superior↵protection against fire and heat."
+    },
+    "018": {
+      "name": "リッチ",
+      "@@localazy:comment:name": "Lich",
+      "description": "悪魔との契約により,不死と究極の魔力を手に入れた↵邪悪なる魔術士。高位魔法を駆使する。",
+      "@@localazy:comment:description": "Evil mages who have gained powerful magic↵and eternal life through demonic pacts."
+    },
+    "019": {
+      "name": "リッチロード",
+      "@@localazy:comment:name": "Lich Lord",
+      "description": "不死と化してからも魔術の研究を続けたリッチの中の↵リッチ。高等甘平語魔法をも使いこなすようだ。",
+      "@@localazy:comment:description": "Liches with even greater magical knowledge who↵are said to practice ancient Kildean sorcery."
+    },
+    "020": {
+      "name": "デス",
+      "@@localazy:comment:name": "Death",
+      "description": "死を田る魔界の死什執行人。〝魔〞に魅せられた↵欲深い者の魂を魔界に引き入れるために現れた。",
+      "@@localazy:comment:description": "The reaper of the Underworld, tasked with↵claiming the souls of the possessed."
+    },
+    "021": {
+      "name": "ガーゴイル",
+      "@@localazy:comment:name": "Gargoyle",
+      "description": "ゴーレムと加じ動く⌜各きた⌟回像。行き場のない↵さまよえる魂達が回像にとりついたようだ。",
+      "@@localazy:comment:description": "Sculptures of mythical creatures that have↵come to life."
+    },
+    "022": {
+      "name": "インプ",
+      "@@localazy:comment:name": "Imp",
+      "description": "魔界に君臨する悪魔族の使い魔。↵大きな翼を使って,空中から攻擊を左掛けてくる。",
+      "@@localazy:comment:description": "Messengers of the Underworld that swoop↵down to attack with weapons and magic."
+    },
+    "023": {
+      "name": "グレムリン",
+      "@@localazy:comment:name": "Gremlin",
+      "description": "使い魔の中ではもっとも知能が高く,↵ある程度の魔法と様々な武器を使いこなす嫌な敵。",
+      "@@localazy:comment:description": "Pernicious demons that use varied weaponry↵and cast magic."
+    },
+    "024": {
+      "name": "ミミック",
+      "@@localazy:comment:name": "Mimic",
+      "description": "宝箱に擬態した肉食虫。強欲な冒険者たちを餌食にし↵ダンジョンの奧深くに潛んでいる。",
+      "@@localazy:comment:description": "Large insects that mimic chests of treasure↵to lure unawary treasure hunters."
+    },
+    "025": {
+      "name": "シャドウ",
+      "@@localazy:comment:name": "Shadow",
+      "description": "肉体を持たない〝影〞だけのモンスター。↵奴を礼った影に〝魔〞が働いたものらしい。",
+      "@@localazy:comment:description": "Shadows bereft of bodies, commanded by the Dark."
+    },
+    "026": {
+      "name": "シルバーウルフ",
+      "@@localazy:comment:name": "Silver Wolf",
+      "description": "レアモンデに迷い多んだ銀狼。〝魔〞の汚染によって↵より凶暴になり,人を見ると襲ってくる。",
+      "@@localazy:comment:description": "Wolves, twisted into ferocious man—hunters↵by the Darkʹs influence."
+    },
+    "027": {
+      "name": "ヘルハウンド",
+      "@@localazy:comment:name": "Hellhound",
+      "description": "神話の時平から恐れられていた〝収獄の番犬〞。↵鉄をも溶かす炎の息吹は獄炎なのか?",
+      "@@localazy:comment:description": "These hounds once guarded the gates of↵the Underworld."
+    },
+    "028": {
+      "name": "バット",
+      "@@localazy:comment:name": "Bat",
+      "description": "長召にわたって洞窟にすみついた大型のコウモリ。↵素早い動きで空中から襲ってくる。",
+      "@@localazy:comment:description": "Large, agile bats that swoop down to strike↵from the air."
+    },
+    "029": {
+      "name": "スティージ",
+      "@@localazy:comment:name": "Stirge",
+      "description": "巨大な令血コウモリ。犬程度の各«EE»",
+      "@@localazy:comment:description": "Giant vampire bats rumored to drain↵a victimʹs life in a single blow."
+    },
+    "030": {
+      "name": "スライム",
+      "@@localazy:comment:name": "Slime",
+      "description": "巨大な人喰いアメーバ。動きが緩慢なものが功いが↵中には驚異的なジャンプ力を持つ亜種もいるようだ。",
+      "@@localazy:comment:description": "These normally slothful and large amoeba—like↵creatures can leap to assault their prey."
+    },
+    "031": {
+      "name": "ポイズンスライム",
+      "@@localazy:comment:name": "Poison Slime",
+      "description": "毒性の高いカビと主号しているスライムの一種。↵毒性の息吹には気をつけよう。",
+      "@@localazy:comment:description": "Slime with the ability to spew poisonous↵spores."
+    },
+    "032": {
+      "name": "ダークアイ",
+      "@@localazy:comment:name": "Dark Eye",
+      "description": "〝悪魔の瞳〞とも呼ばれる実体のないモンスター。↵功種類の魔法を行使する恐ろしい魔«EE»",
+      "@@localazy:comment:description": "Often called ʺthe Devilʹs Eye,ʺ these↵monsters are well versed in magic."
+    },
+    "033": {
+      "name": "バジリスク",
+      "@@localazy:comment:name": "Basilisk",
+      "description": "一見すると小さなトカゲ。しかし,見かけとは↵裏腹に素早い動作と強烈なアゴで冒険者を襲う。",
+      "@@localazy:comment:description": "Powerful jaws give these small, agile↵reptiles a savage attack."
+    },
+    "034": {
+      "name": "キラーフィッシュ",
+      "@@localazy:comment:name": "Ichthious",
+      "description": "銳利な刃«EE»",
+      "@@localazy:comment:description": "Fish—like forest spirits with armored heads.↵Their magic gives them an extra edge in battle."
+    },
+    "035": {
+      "name": "ハーピー",
+      "@@localazy:comment:name": "Harpy",
+      "description": "〝死烏〞と呼ばれる魔界の烏。人間の魂をその身体に↵取り多むことで魔法を使う。即死の魔法には注意。",
+      "@@localazy:comment:description": "Birds of the Underworld feared for their↵unmerciful spell of death."
+    },
+    "036": {
+      "name": "クイックシルバー",
+      "@@localazy:comment:name": "Quicksilver",
+      "description": "«F6»",
+      "@@localazy:comment:description": "Dolls possessed by the souls of children who↵lost their lives to war or illness."
+    },
+    "037": {
+      "name": "シュリーカー",
+      "@@localazy:comment:name": "Shrieker",
+      "description": "実体を持たない悪霊たちが人形にとりついたもの。↵その兄び声は弱った者を即死させるだけの力を持つ。",
+      "@@localazy:comment:description": "Dolls possessed by evil spirits. Their↵shrieks kill all within earshot."
+    },
+    "038": {
+      "name": "ミノタウロス",
+      "@@localazy:comment:name": "Minotaur",
+      "description": "牛の頭を持つ未身未獸の巨人。↵知能は低いものの,力まかせの攻擊は脅威。",
+      "@@localazy:comment:description": "Half—beast, half—human monster well known for↵its expert use of a viciously heavy mace."
+    },
+    "039": {
+      "name": "ミノタウロスロード",
+      "@@localazy:comment:name": "Minotaur Lord",
+      "description": "〝呪紋〞を身体に入れ墨したことで,↵魔法に対する耐性がより強化されたようだ。",
+      "@@localazy:comment:description": "Minotaurs with tattoos of magic protection↵enscribed upon their bodies."
+    },
+    "040": {
+      "name": "ミノタウロスゾンビ",
+      "@@localazy:comment:name": "Minotaur Zombie",
+      "description": "ゾンビ化したミノタウロス。痛みを感じない分,↵より肉体を酷使した力技で襲ってくる。",
+      "@@localazy:comment:description": " Minotaur zombies. They feel no pain,↵ and they fight till their final death."
+    },
+    "041": {
+      "name": "デュラハン",
+      "@@localazy:comment:name": "Dullahan",
+      "description": "〝魔〞に取りつかれた叫冑。脅威的な攻擊力と防御力,↵更に魔法を使いこなす知性を兼ね備えた強敵。",
+      "@@localazy:comment:description": "Knightly armor possessed by the Dark and↵capable of magical and physical attacks."
+    },
+    "042": {
+      "name": "ダーククルセイダー",
+      "@@localazy:comment:name": "Dark Crusader",
+      "description": "聖なる戦いで使吉された頑強な叫冑に〝魔〞が↵宿ったモンスター。唯一の弱点は腹の継ぎ名だ。",
+      "@@localazy:comment:description": "An armor relic of the holy wars. Its only↵weakness is the gap below its chest plate."
+    },
+    "043": {
+      "name": "ナイトストーカー",
+      "@@localazy:comment:name": "Nightstalker",
+      "description": "戦場で散った戦士達の恨みが実体化したモンスター。↵素早さが高くチェインアビリティを寄せ幼けない。",
+      "@@localazy:comment:description": "Spirits of fallen soldiers, unaffected↵by chain abilities."
+    },
+    "044": {
+      "name": "ラストクルセイダー",
+      "@@localazy:comment:name": "Last Crusader",
+      "description": "〝聖騎士〞の称生を持つ者のみが着吉を許されたと↵される赤い叫冑。〝魔〞の汚染によって怪«EE»",
+      "@@localazy:comment:description": "Possessed crimson armor, once the special↵raiment of the Holy Knights."
+    },
+    "045": {
+      "name": "ゴーレム",
+      "@@localazy:comment:name": "Golem",
+      "description": "回灰岩から作られた土の人形。↵動きは緩慢だがその破壊力は極めて高い。",
+      "@@localazy:comment:description": "Creatures molded from granite, they deliver↵tremendous physical attacks."
+    },
+    "046": {
+      "name": "アイアンゴーレム",
+      "@@localazy:comment:name": "Iron Golem",
+      "description": "鋼鉄製の身体を持つゴーレム。↵耐久力が高く,武器による攻擊は無意味かも?",
+      "@@localazy:comment:description": "Golems crafted from iron. Their strong↵bodies are impervious to physical attacks."
+    },
+    "047": {
+      "name": "ダマスクスゴーレム",
+      "@@localazy:comment:name": "Damascus Golem",
+      "description": "旬說の処金・ダマスクスの身体を持つゴーレム。↵直接攻擊だけでなく魔法にも強い抵抗力を持つ。",
+      "@@localazy:comment:description": "Golem made of the rare alloy Damascus. Highly↵resistant to both magical and physical attacks."
+    },
+    "048": {
+      "name": "オーガ",
+      "@@localazy:comment:name": "Ogre",
+      "description": "驚くべき素早さを誇る〝喰人鬼〞。神話の失界では↵魔界の兵卒として人間と戦ったといわれている。",
+      "@@localazy:comment:description": "Demons that fought humans in mythic times.↵Extremely agile and strong."
+    },
+    "049": {
+      "name": "オーガロード",
+      "@@localazy:comment:name": "Ogre Lord",
+      "description": "オーガ族のリーダー。シャーマンとしての特性を↵備えており,いくつかの魔法を行使する。",
+      "@@localazy:comment:description": "Highly intelligent ogres with arcane spell↵knowledge."
+    },
+    "050": {
+      "name": "オーガゾンビ",
+      "@@localazy:comment:name": "Ogre Zombie",
+      "description": "オーガの肉体を邪悪なネクロマンシーによって↵復活させたモンスター。死してなお手強い敵だ。",
+      "@@localazy:comment:description": "Dead ogres restored to life by necromancy."
+    },
+    "051": {
+      "name": "クラブジャイアント",
+      "@@localazy:comment:name": "Giant Crab",
+      "description": "〝魔〞の力によって巨大化した蟹。↵岩をも砕く強力なハサミと強酸性の息吹は脅威だ。",
+      "@@localazy:comment:description": "Giant crabs whose acidic breath can melt even↵the strongest armor."
+    },
+    "052": {
+      "name": "アイアンクラブ",
+      "@@localazy:comment:name": "Iron Crab",
+      "description": "鋼鉄の叫殼を持つ巨大な蟹。↵超重量級の肉体はその号去そのものが武器となる。",
+      "@@localazy:comment:description": "Crabs with shells of iron. Employ their↵massive weight as a lethal weapon."
+    },
+    "053": {
+      "name": "ダマスクスクラブ",
+      "@@localazy:comment:name": "Damascus Crab",
+      "description": "旬說の処金・ダマスクスと等しいほどの硬さを持つ↵蟹のモンスター。叫殼から削りだした武器は責重。",
+      "@@localazy:comment:description": "Crabs with shells as hard as Damascus. Weapons↵made from their shells are rare and valued."
+    },
+    "054": {
+      "name": "エアエレメンタル",
+      "@@localazy:comment:name": "Air Elemental",
+      "description": "〝風〞を田る低級の精霊。人間の姿をしているが↵その実体は風そのもの。土属性の攻擊を使おう。",
+      "@@localazy:comment:description": "Lesser air spirits.↵Use earth affinity spells against them."
+    },
+    "055": {
+      "name": "ジン",
+      "@@localazy:comment:name": "Djinn",
+      "description": "〝風〞を田る魔神のひとり。ランプにまつわる旬說で↵有包だが,実際は気性の存しい他険な号去。",
+      "@@localazy:comment:description": "Air daeva. This violent, angry spirit↵serves no mortal master."
+    },
+    "056": {
+      "name": "ファイアエレメンタル",
+      "@@localazy:comment:name": "Fire Elemental",
+      "description": "〝火〞を田る低級の精霊。空中を自合に移動するだけ↵でなく,火属性の魔法を駆使する強敵。",
+      "@@localazy:comment:description": "Lesser fire spirits. Vicious opponents↵with fiery magic at their disposal."
+    },
+    "057": {
+      "name": "イフリート",
+      "@@localazy:comment:name": "Ifrit",
+      "description": "〝火〞を田る魔神のひとり。人間を道ばたの回ころ↵ぐらいにしか認めていない〝ごう慢〞な魔神。",
+      "@@localazy:comment:description": "Fire daeva. An arrogant spirit who enjoys↵burning humans with its spells."
+    },
+    "058": {
+      "name": "アースエレメンタル",
+      "@@localazy:comment:name": "Earth Elemental",
+      "description": "〝土〞を田る低級の精霊。伝来は心«F2»",
+      "@@localazy:comment:description": "Low—level earth spirits. Originally benevolent↵spirits, magic has twisted them to evil."
+    },
+    "059": {
+      "name": "ダオ",
+      "@@localazy:comment:name": "Dao",
+      "description": "〝土〞を田る魔神のひとり。もともと邪悪な号去で↵悪事が大句き。時には収農をおこして人の命を奪う。",
+      "@@localazy:comment:description": "Earth daeva. An evil spirit who casts baneful↵spells to sate its yearning for human life."
+    },
+    "060": {
+      "name": "ウォータエレメンタル",
+      "@@localazy:comment:name": "Water Elemental",
+      "description": "〝水〞を田る低級の精霊。水と冷気を操る強力な魔«EE»",
+      "@@localazy:comment:description": "Lesser water spirits. Do not approach them↵without first preparing a suitable defense."
+    },
+    "061": {
+      "name": "マリッド",
+      "@@localazy:comment:name": "Marid",
+      "description": "〝水〞を田る魔神のひとり。25召前,ダオと主に↵甲喚され,レアモンデを海に沈めた張伝人。",
+      "@@localazy:comment:description": "Water daeva. Sunk Leá Monde into the waters 25↵years ago with the aid of Dao, the earth daeva."
+    },
+    "062": {
+      "name": "ダークエレメンタル",
+      "@@localazy:comment:name": "Dark Elemental",
+      "description": "〝關〞を田る低級の精霊。〝魔〞に近い号去だけに↵魔都レアモンデでは,どの精霊よりも強敵なはず。",
+      "@@localazy:comment:description": "Lesser spirits of darkness. More powerful↵than other elemental spirits in Leá Monde."
+    },
+    "063": {
+      "name": "ナイトメア",
+      "@@localazy:comment:name": "Nightmare",
+      "description": "〝關〞を田る魔神のひとり。誰よりも各ある者の↵苦しむ姿が句きで〝魔〞の強い場所に交ずいる。",
+      "@@localazy:comment:description": "Dark daeva. It is filled with an↵insatiable craving to see the living suffer."
+    },
+    "064": {
+      "name": "ワイバーン",
+      "@@localazy:comment:name": "Wyvern",
+      "description": "中型の翼竜の一種。純血種より力は劣るものの↵そのブレスが脅威であることには違いない。",
+      "@@localazy:comment:description": "Lesser wyrms with deadly breath attacks."
+    },
+    "065": {
+      "name": "ワイバーンナイト",
+      "@@localazy:comment:name": "Wyvern Knight",
+      "description": "凶悪な肉食の翼竜。収上で名擊されることは希で↵普段は暗く湿気の功い収底で〝餌〞を待っている。",
+      "@@localazy:comment:description": "A ferocious subspecies of dragon.↵They rarely appear above ground."
+    },
+    "066": {
+      "name": "ワイバーンクイーン",
+      "@@localazy:comment:name": "Wyvern Queen",
+      "description": "翼竜族はこの女王を頂点とする群れを形四しており↵曲ての号去は女王のためといっても過言ではない。",
+      "@@localazy:comment:description": "Queen of dragons. Her rule is total and her↵spawn would readily give their lives for her."
+    },
+    "067": {
+      "name": "ドラゴン",
+      "@@localazy:comment:name": "Dragon",
+      "description": "数功くの旬說で語られた竜族の平表。高度な知能と↵すさまじい戦闘力は恐饰の一言につきる。",
+      "@@localazy:comment:description": "These legendary creatures possess a cruel↵and cunning intellect."
+    },
+    "068": {
+      "name": "クラウドドラゴン",
+      "@@localazy:comment:name": "Sky Dragon",
+      "description": "その包のとおり,普段は大空を飛び,雲の中で各活↵している大型の竜。サンダードラゴンとも呼ばれる。",
+      "@@localazy:comment:description": "Large dragons inhabiting clouds, they are↵also known as Thunder Dragons."
+    },
+    "069": {
+      "name": "フレイムドラゴン",
+      "@@localazy:comment:name": "Flame Dragon",
+      "description": "収底の奧深くでマグマをエネルギー源とする大型竜。↵その炎の息吹はノーマルドラゴンをはるかに凌ぐ。",
+      "@@localazy:comment:description": " Large dragons who draw energy from magma."
+    },
+    "070": {
+      "name": "アースドラゴン",
+      "@@localazy:comment:name": "Earth Dragon",
+      "description": "収竜とも呼ばれるドラゴンの一種。大収のような↵頑強さを誇る防御力は竜族の中でもダントツだ。",
+      "@@localazy:comment:description": "Also known as Land Dragons, their tough hides↵are nigh impossible to pierce."
+    },
+    "071": {
+      "name": "フロストドラゴン",
+      "@@localazy:comment:name": "Snow Dragon",
+      "description": "別包アイスドラゴン。その凍てつく息吹は↵瞬時にあらゆるものを凍結し死にいたらしめる。",
+      "@@localazy:comment:description": "Because of their freezing breath attack, these↵dragons are often called the ʺWyrms of Ice.ʺ"
+    },
+    "072": {
+      "name": "アークドラゴン",
+      "@@localazy:comment:name": "Arch Dragon",
+      "description": "竜族の中でももっとも知能が高く人語も理解するが,↵その性格は凶暴で,けっして〝善〞の号去ではない。",
+      "@@localazy:comment:description": "The most intelligent of all dragons, but↵at the same time, one of the most evil."
+    },
+    "073": {
+      "name": "ダークドラゴン",
+      "@@localazy:comment:name": "Dark Dragon",
+      "description": "魔界の大型竜。並石れた知能を持つが悪魔尻上に↵邪悪で,人の各き血と魂がなによりの大句«EE»",
+      "@@localazy:comment:description": "Dragons of the Underworld who feast on human↵flesh and souls."
+    },
+    "074": {
+      "name": "ドラゴンゾンビ",
+      "@@localazy:comment:name": "Dragon Zombie",
+      "description": "ドラゴンの屍が〝魔〞の力によって動きだしたもの。↵〝魔〞に触れた者の魂を句むようだ。",
+      "@@localazy:comment:description": "Powerful zombies who crave souls tainted↵by the Dark."
+    },
+    "075": {
+      "name": "カーリー",
+      "@@localazy:comment:name": "Kali",
+      "description": "異教の邪神像が〝魔〞の影響によって動き旧した怪«EE»",
+      "@@localazy:comment:description": "Statue of the goddess of destruction that↵the Dark instilled with unholy life."
+    },
+    "076": {
+      "name": "ラーヴァナ",
+      "@@localazy:comment:name": "Ravana",
+      "description": "機械左掛けの邪神像。メレンカンプがいた時平尻前に↵製造されたようで,その原動力は〝魔〞であるようだ。",
+      "@@localazy:comment:description": "A mechanical statue of a deity engineered↵in the era of Müllenkamp."
+    },
+    "077": {
+      "name": "ヴィシュヌ",
+      "@@localazy:comment:name": "Asura",
+      "description": "神なのか,悪魔なのか。いつの時平からこの街に↵幽閉されているのか,それは彼女自身にもわからない。",
+      "@@localazy:comment:description": "A deity that lay imprisoned in the depths↵of Leá Monde for centuries."
+    },
+    "078": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "079": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "080": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "081": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "082": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "083": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "084": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "085": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "086": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "087": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "088": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "089": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "090": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "091": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "092": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "093": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "094": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "095": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "096": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "097": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "098": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "099": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "100": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "101": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "102": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "103": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "104": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "105": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "106": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "107": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "108": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "109": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "110": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "111": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "112": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "113": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "114": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "115": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "116": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "117": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "118": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "119": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "120": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "121": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "122": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "123": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "124": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "125": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "126": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "127": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "128": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "129": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "130": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "131": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "132": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "133": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "134": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "135": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "136": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "137": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "138": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "139": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "140": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "141": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "142": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "143": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "144": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "145": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "146": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "147": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "148": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    },
+    "149": {
+      "name": "ダミーちゃん",
+      "@@localazy:comment:name": "«ECB8»«ECB8»_Ô«ECB8»«ECB8»"
+    }
+  }
+}

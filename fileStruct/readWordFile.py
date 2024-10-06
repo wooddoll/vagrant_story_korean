@@ -70,8 +70,8 @@ def createWordStringClass(filename: str, wordPtr: int, wordSize: int, wordNum: i
 
         def __init__(self, input_path: str = '') -> None:
             self.words = ReadWords(self.WordBytes, self.WordNumber)
-            self.words_byte = self.words._byte
-            self.words_str = self.words._str
+            self.strings_byte = self.words._byte
+            self.strings_str = self.words._str
 
             if os.path.isfile(input_path):
                 self.unpackData(input_path)
@@ -84,19 +84,19 @@ def createWordStringClass(filename: str, wordPtr: int, wordSize: int, wordNum: i
             else:
                 logging.warning(f'{input_path} is not valid path.')
 
-        def cvtName2Byte(self, table: convert_by_TBL):
+        def cvtStr2Byte(self, table: convert_by_TBL):
             self.words.cvtStr2Byte(table)
-            self.words_byte = self.words._byte
+            self.strings_byte = self.words._byte
 
-        def cvtByte2Name(self, table: convert_by_TBL):
+        def cvtByte2Str(self, table: convert_by_TBL):
             self.words.cvtByte2Str(table)
-            self.words_str = self.words._str
+            self.strings_str = self.words._str
 
         def unpackData(self, input_path:str):
             with open(input_path, 'rb') as file:
                 buffer = bytearray(file.read())
                 self.words.unpackData(buffer[self.WordPtr : self.WordPtr + self.WordNumber*self.WordBytes])
-                self.words_byte = self.words._byte
+                self.strings_byte = self.words._byte
 
         def packData(self, output_path:str):
             byteData = self.words.packData()

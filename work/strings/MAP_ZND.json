@@ -1,0 +1,760 @@
+{
+  "MAP_ZND": {
+    "NPCs": {
+      "000": {
+        "Name": "ギルデンスターン",
+        "@@localazy:comment:Name": "Guildenstern"
+      },
+      "001": {
+        "Name": "メレンカンプ兵士",
+        "@@localazy:comment:Name": "Müllenkamp Soldier"
+      },
+      "002": {
+        "Name": "ワイバーン",
+        "@@localazy:comment:Name": "Wyvern"
+      },
+      "003": {
+        "Name": "聖仙騎士マンデル",
+        "@@localazy:comment:Name": "Mandel"
+      },
+      "004": {
+        "Name": "ゾンビファイター",
+        "@@localazy:comment:Name": "Zombie Fighter"
+      },
+      "005": {
+        "Name": "ゾンビ",
+        "@@localazy:comment:Name": "Zombie"
+      },
+      "006": {
+        "Name": "グール",
+        "@@localazy:comment:Name": "Ghoul"
+      },
+      "007": {
+        "Name": "シルバーウルフ",
+        "@@localazy:comment:Name": "Silver Wolf"
+      },
+      "008": {
+        "Name": "バット",
+        "@@localazy:comment:Name": "Bat"
+      },
+      "009": {
+        "Name": "聖仙騎士サックハイム",
+        "@@localazy:comment:Name": "Sackheim"
+      },
+      "010": {
+        "Name": "聖仙騎士グッドウィン",
+        "@@localazy:comment:Name": "Goodwin"
+      },
+      "011": {
+        "Name": "聖仙騎士",
+        "@@localazy:comment:Name": "Crimson Blade"
+      },
+      "012": {
+        "Name": "ゾンビナイト",
+        "@@localazy:comment:Name": "Zombie Knight"
+      },
+      "013": {
+        "Name": "練習吉ドール",
+        "@@localazy:comment:Name": "Dummy"
+      },
+      "014": {
+        "Name": "デュラハン",
+        "@@localazy:comment:Name": "Dullahan"
+      },
+      "015": {
+        "Name": "ヘルハウンド",
+        "@@localazy:comment:Name": "Hellhound"
+      },
+      "016": {
+        "Name": "ミノタウロス",
+        "@@localazy:comment:Name": "Minotaur"
+      },
+      "017": {
+        "Name": "ミノタウロスゾンビ",
+        "@@localazy:comment:Name": "Minotaur Zombie"
+      },
+      "018": {
+        "Name": "ゴースト",
+        "@@localazy:comment:Name": "Ghost"
+      },
+      "019": {
+        "Name": "スケルトン",
+        "@@localazy:comment:Name": "Skeleton"
+      },
+      "020": {
+        "Name": "スライム",
+        "@@localazy:comment:Name": "Slime"
+      },
+      "021": {
+        "Name": "マミー",
+        "@@localazy:comment:Name": "Mummy"
+      },
+      "022": {
+        "Name": "リザードマン",
+        "@@localazy:comment:Name": "Lizardman"
+      },
+      "023": {
+        "Name": "ポイズンスライム",
+        "@@localazy:comment:Name": "Poison Slime"
+      },
+      "024": {
+        "Name": "スケルトンナイト",
+        "@@localazy:comment:Name": "Skeleton Knight"
+      },
+      "025": {
+        "Name": "ゴーレム",
+        "@@localazy:comment:Name": "Golem"
+      },
+      "026": {
+        "Name": "ドラゴン",
+        "@@localazy:comment:Name": "Dragon"
+      },
+      "027": {
+        "Name": "アイアンクラブ",
+        "@@localazy:comment:Name": "Iron Crab"
+      },
+      "028": {
+        "Name": "イフリート",
+        "@@localazy:comment:Name": "Ifrit"
+      },
+      "029": {
+        "Name": "マリッド",
+        "@@localazy:comment:Name": "Marid"
+      },
+      "030": {
+        "Name": "ジン",
+        "@@localazy:comment:Name": "Djinn"
+      },
+      "031": {
+        "Name": "アークドラゴン",
+        "@@localazy:comment:Name": "Arch Dragon"
+      },
+      "032": {
+        "Name": "リッチロード",
+        "@@localazy:comment:Name": "Lich Lord"
+      },
+      "033": {
+        "Name": "フレイムドラゴン",
+        "@@localazy:comment:Name": "Flame Dragon"
+      },
+      "034": {
+        "Name": "ダオ",
+        "@@localazy:comment:Name": "Dao"
+      },
+      "035": {
+        "Name": "リッチ",
+        "@@localazy:comment:Name": "Lich"
+      },
+      "036": {
+        "Name": "ナイトメア",
+        "@@localazy:comment:Name": "Nightmare"
+      },
+      "037": {
+        "Name": "000000000000000000000000",
+        "@@localazy:comment:Name": "000000000000000000000000"
+      },
+      "038": {
+        "Name": "ダークスケルトン",
+        "@@localazy:comment:Name": "Dark Skeleton"
+      },
+      "039": {
+        "Name": "ゾンビメイジ",
+        "@@localazy:comment:Name": "Zombie Mage"
+      },
+      "040": {
+        "Name": "ガーゴイル",
+        "@@localazy:comment:Name": "Gargoyle"
+      },
+      "041": {
+        "Name": "ブラッドリザード",
+        "@@localazy:comment:Name": "Blood Lizard"
+      },
+      "042": {
+        "Name": "ダークエレメンタル",
+        "@@localazy:comment:Name": "Dark Elemental"
+      },
+      "043": {
+        "Name": "ローゼンクランツ",
+        "@@localazy:comment:Name": "Rosencrantz"
+      },
+      "044": {
+        "Name": "ミノタウロスロード",
+        "@@localazy:comment:Name": "Minotaur Lord"
+      },
+      "045": {
+        "Name": "ラストクルセイダー",
+        "@@localazy:comment:Name": "Last Crusader"
+      },
+      "046": {
+        "Name": "ナイトストーカー",
+        "@@localazy:comment:Name": "Nightstalker"
+      },
+      "047": {
+        "Name": "ウォータエレメンタル",
+        "@@localazy:comment:Name": "Water Elemental"
+      },
+      "048": {
+        "Name": "グレムリン",
+        "@@localazy:comment:Name": "Gremlin"
+      },
+      "049": {
+        "Name": "エアエレメンタル",
+        "@@localazy:comment:Name": "Air Elemental"
+      },
+      "050": {
+        "Name": "カーリー",
+        "@@localazy:comment:Name": "Kali"
+      },
+      "051": {
+        "Name": "デュエイン",
+        "@@localazy:comment:Name": "Duane"
+      },
+      "052": {
+        "Name": "聖仙騎士サージク",
+        "@@localazy:comment:Name": "Sarjik"
+      },
+      "053": {
+        "Name": "聖仙騎士ベジャール",
+        "@@localazy:comment:Name": "Bejart"
+      },
+      "054": {
+        "Name": "アースドラゴン",
+        "@@localazy:comment:Name": "Earth Dragon"
+      },
+      "055": {
+        "Name": "グリッソム",
+        "@@localazy:comment:Name": "Grissom"
+      },
+      "056": {
+        "Name": "ダーククルセイダー",
+        "@@localazy:comment:Name": "Dark Crusader"
+      },
+      "057": {
+        "Name": "シドニー",
+        "@@localazy:comment:Name": "Sydney"
+      },
+      "058": {
+        "Name": "ファイアエレメンタル",
+        "@@localazy:comment:Name": "Fire Elemental"
+      },
+      "059": {
+        "Name": "バジリスク",
+        "@@localazy:comment:Name": "Basilisk"
+      },
+      "060": {
+        "Name": "キラーフィッシュ",
+        "@@localazy:comment:Name": "Ichthious"
+      },
+      "061": {
+        "Name": "ダマスクスクラブ",
+        "@@localazy:comment:Name": "Damascus Crab"
+      },
+      "062": {
+        "Name": "クラブジャイアント",
+        "@@localazy:comment:Name": "Giant Crab"
+      },
+      "063": {
+        "Name": "ガースト",
+        "@@localazy:comment:Name": "Ghast"
+      },
+      "064": {
+        "Name": "ダークアイ",
+        "@@localazy:comment:Name": "Dark Eye"
+      },
+      "065": {
+        "Name": "デス",
+        "@@localazy:comment:Name": "Death"
+      },
+      "066": {
+        "Name": "ハーピー",
+        "@@localazy:comment:Name": "Harpy"
+      },
+      "067": {
+        "Name": "ニーチ",
+        "@@localazy:comment:Name": "Neesa"
+      },
+      "068": {
+        "Name": "ティーガー",
+        "@@localazy:comment:Name": "Tieger"
+      },
+      "069": {
+        "Name": "クイックシルバー",
+        "@@localazy:comment:Name": "Quicksilver"
+      },
+      "070": {
+        "Name": "スティージ",
+        "@@localazy:comment:Name": "Stirge"
+      },
+      "071": {
+        "Name": "オーガ",
+        "@@localazy:comment:Name": "Ogre"
+      },
+      "072": {
+        "Name": "ゴブリン",
+        "@@localazy:comment:Name": "Goblin"
+      },
+      "073": {
+        "Name": "ゴブリンリーダー",
+        "@@localazy:comment:Name": "Goblin Leader"
+      },
+      "074": {
+        "Name": "ミミック",
+        "@@localazy:comment:Name": "Mimic"
+      },
+      "075": {
+        "Name": "クラウドドラゴン",
+        "@@localazy:comment:Name": "Sky Dragon"
+      },
+      "076": {
+        "Name": "アースエレメンタル",
+        "@@localazy:comment:Name": "Earth Elemental"
+      },
+      "077": {
+        "Name": "オーク",
+        "@@localazy:comment:Name": "Orc"
+      },
+      "078": {
+        "Name": "オークリーダー",
+        "@@localazy:comment:Name": "Orc Leader"
+      },
+      "079": {
+        "Name": "インプ",
+        "@@localazy:comment:Name": "Imp"
+      },
+      "080": {
+        "Name": "オーガロード",
+        "@@localazy:comment:Name": "Ogre Lord"
+      },
+      "081": {
+        "Name": "フロストドラゴン",
+        "@@localazy:comment:Name": "Snow Dragon"
+      },
+      "082": {
+        "Name": "レイス",
+        "@@localazy:comment:Name": "Wraith"
+      },
+      "083": {
+        "Name": "ダマスクスゴーレム",
+        "@@localazy:comment:Name": "Damascus Golem"
+      },
+      "084": {
+        "Name": "アイアンゴーレム",
+        "@@localazy:comment:Name": "Iron Golem"
+      },
+      "085": {
+        "Name": "ワイバーンクイーン",
+        "@@localazy:comment:Name": "Wyvern Queen"
+      },
+      "086": {
+        "Name": "ワイバーンナイト",
+        "@@localazy:comment:Name": "Wyvern Knight"
+      },
+      "087": {
+        "Name": "シャドウ",
+        "@@localazy:comment:Name": "Shadow"
+      },
+      "088": {
+        "Name": "ヴィシュヌ",
+        "@@localazy:comment:Name": "Asura"
+      },
+      "089": {
+        "Name": "ラーヴァナ",
+        "@@localazy:comment:Name": "Ravana"
+      },
+      "090": {
+        "Name": "ダークドラゴン",
+        "@@localazy:comment:Name": "Dark Dragon"
+      },
+      "091": {
+        "Name": "オーガゾンビ",
+        "@@localazy:comment:Name": "Ogre Zombie"
+      },
+      "092": {
+        "Name": "ドラゴンゾンビ",
+        "@@localazy:comment:Name": "Dragon Zombie"
+      },
+      "093": {
+        "Name": "シュリーカー",
+        "@@localazy:comment:Name": "Shrieker"
+      },
+      "094": {
+        "Name": "ロイエ",
+        "@@localazy:comment:Name": "Laurence"
+      },
+      "095": {
+        "Name": "キャロ",
+        "@@localazy:comment:Name": "nothing"
+      },
+      "096": {
+        "Name": "ハーディン",
+        "@@localazy:comment:Name": "nothing"
+      },
+      "097": {
+        "Name": "ジョシュア",
+        "@@localazy:comment:Name": "Joshua"
+      },
+      "098": {
+        "Name": "アシュレイ",
+        "@@localazy:comment:Name": "nothing"
+      }
+    },
+    "WEAPONs": {
+      "000": {
+        "Weapon": "レイピア",
+        "@@localazy:comment:Weapon": "Rapier"
+      },
+      "001": {
+        "Weapon": "スパタ",
+        "@@localazy:comment:Weapon": "Spatha"
+      },
+      "002": {
+        "Weapon": "ハンドアックス",
+        "@@localazy:comment:Weapon": "Hand Axe"
+      },
+      "003": {
+        "Weapon": "グラディウス",
+        "@@localazy:comment:Weapon": "Scimitar"
+      },
+      "004": {
+        "Weapon": "ガストラルボウ",
+        "@@localazy:comment:Weapon": "Gastraph Bow"
+      },
+      "005": {
+        "Weapon": "バトルナイフ",
+        "@@localazy:comment:Weapon": "Battle Knife"
+      },
+      "006": {
+        "Weapon": "スクラマサクス",
+        "@@localazy:comment:Weapon": "Scramasax"
+      },
+      "007": {
+        "Weapon": "ゴブリンクラブ",
+        "@@localazy:comment:Weapon": "Goblin Club"
+      },
+      "008": {
+        "Weapon": "エンジェルティップ",
+        "@@localazy:comment:Weapon": "Angel Lance"
+      },
+      "009": {
+        "Weapon": "ロンパイア",
+        "@@localazy:comment:Weapon": "Rhomphaia"
+      },
+      "010": {
+        "Weapon": "ブラッディメイス",
+        "@@localazy:comment:Weapon": "Hand of Light"
+      },
+      "011": {
+        "Weapon": "バトルアックス",
+        "@@localazy:comment:Weapon": "Battle Axe"
+      },
+      "012": {
+        "Weapon": "ロングスピア",
+        "@@localazy:comment:Weapon": "Spear"
+      },
+      "013": {
+        "Weapon": "ブロードソード",
+        "@@localazy:comment:Weapon": "Broad Sword"
+      },
+      "014": {
+        "Weapon": "ランデヴェバ",
+        "@@localazy:comment:Weapon": "Langdebeve"
+      },
+      "015": {
+        "Weapon": "ダーク",
+        "@@localazy:comment:Weapon": "Dirk"
+      },
+      "016": {
+        "Weapon": "グレイブ",
+        "@@localazy:comment:Weapon": "Glaive"
+      },
+      "017": {
+        "Weapon": "フランキスカ",
+        "@@localazy:comment:Weapon": "Francisca"
+      },
+      "018": {
+        "Weapon": "ギサルメアックス",
+        "@@localazy:comment:Weapon": "Guisarme"
+      },
+      "019": {
+        "Weapon": "ショートソード",
+        "@@localazy:comment:Weapon": "Short Sword"
+      },
+      "020": {
+        "Weapon": "バイキングソード",
+        "@@localazy:comment:Weapon": "Norse Sword"
+      },
+      "021": {
+        "Weapon": "シャーマンタイプ",
+        "@@localazy:comment:Weapon": "Shamanic Staff"
+      },
+      "022": {
+        "Weapon": "ファルシオン",
+        "@@localazy:comment:Weapon": "Falchion"
+      },
+      "023": {
+        "Weapon": "ブローバー",
+        "@@localazy:comment:Weapon": "Bullova"
+      },
+      "024": {
+        "Weapon": "ホーリーウィン",
+        "@@localazy:comment:Weapon": "Holy Win"
+      },
+      "025": {
+        "Weapon": "シャムシール",
+        "@@localazy:comment:Weapon": "Shamshir"
+      },
+      "026": {
+        "Weapon": "スパイクドモール",
+        "@@localazy:comment:Weapon": "Footmanʹs Mace"
+      },
+      "027": {
+        "Weapon": "チンクエディア",
+        "@@localazy:comment:Weapon": "Cinquedea"
+      },
+      "028": {
+        "Weapon": "サモナータイプ",
+        "@@localazy:comment:Weapon": "Summoner Baton"
+      },
+      "029": {
+        "Weapon": "チャクマク",
+        "@@localazy:comment:Weapon": "Chamkaq"
+      },
+      "030": {
+        "Weapon": "コルセスカ",
+        "@@localazy:comment:Weapon": "Corcesca"
+      },
+      "031": {
+        "Weapon": "フィランギ",
+        "@@localazy:comment:Weapon": "Firangi"
+      },
+      "032": {
+        "Weapon": "カッツバルゲル",
+        "@@localazy:comment:Weapon": "Sabre Mace"
+      },
+      "033": {
+        "Weapon": "スコーピオン",
+        "@@localazy:comment:Weapon": "Scorpion"
+      },
+      "034": {
+        "Weapon": "クレイモアー",
+        "@@localazy:comment:Weapon": "Claymore"
+      },
+      "035": {
+        "Weapon": "ウォーハンマー",
+        "@@localazy:comment:Weapon": "War Hammer"
+      },
+      "036": {
+        "Weapon": "バルブリガン",
+        "@@localazy:comment:Weapon": "Balbriggan"
+      },
+      "037": {
+        "Weapon": "ヴォウジェ",
+        "@@localazy:comment:Weapon": "Voulge"
+      },
+      "038": {
+        "Weapon": "プッシーフット",
+        "@@localazy:comment:Weapon": "Pussyfoot"
+      },
+      "039": {
+        "Weapon": "フォルンエンジェル",
+        "@@localazy:comment:Weapon": "Fallen Angel"
+      },
+      "040": {
+        "Weapon": "ダブルブレード",
+        "@@localazy:comment:Weapon": "Double Blade"
+      },
+      "041": {
+        "Weapon": "コラ",
+        "@@localazy:comment:Weapon": "Khora"
+      },
+      "042": {
+        "Weapon": "ショテル",
+        "@@localazy:comment:Weapon": "Shotel"
+      },
+      "043": {
+        "Weapon": "タバール",
+        "@@localazy:comment:Weapon": "Tabar"
+      },
+      "044": {
+        "Weapon": "ラッグクロスボウ",
+        "@@localazy:comment:Weapon": "Lug Crossbow"
+      },
+      "045": {
+        "Weapon": "マグノリアフラウ",
+        "@@localazy:comment:Weapon": "Magnolia Frau"
+      },
+      "046": {
+        "Weapon": "スパイクドクラブ",
+        "@@localazy:comment:Weapon": "Spiked Club"
+      },
+      "047": {
+        "Weapon": "カタナ",
+        "@@localazy:comment:Weapon": "Katana"
+      },
+      "048": {
+        "Weapon": "タバルジン",
+        "@@localazy:comment:Weapon": "Tabarzin"
+      },
+      "049": {
+        "Weapon": "スモールスパイク",
+        "@@localazy:comment:Weapon": "Footmanʹs Mace"
+      },
+      "050": {
+        "Weapon": "ラージクレセント",
+        "@@localazy:comment:Weapon": "Large Crescent"
+      },
+      "051": {
+        "Weapon": "ターゲットボウ",
+        "@@localazy:comment:Weapon": "Target Bow"
+      },
+      "052": {
+        "Weapon": "スキアヴォーナ",
+        "@@localazy:comment:Weapon": "Schiavona"
+      },
+      "053": {
+        "Weapon": "バンパーブレード",
+        "@@localazy:comment:Weapon": "Sabre Halberd"
+      },
+      "054": {
+        "Weapon": "グルームウイング",
+        "@@localazy:comment:Weapon": "Gloomwing"
+      },
+      "055": {
+        "Weapon": "トライデント",
+        "@@localazy:comment:Weapon": "Trident"
+      },
+      "056": {
+        "Weapon": "クレインクイン",
+        "@@localazy:comment:Weapon": "Cranequin"
+      },
+      "057": {
+        "Weapon": "シャムロック",
+        "@@localazy:comment:Weapon": "Shillelagh"
+      },
+      "058": {
+        "Weapon": "エンジェルウイング",
+        "@@localazy:comment:Weapon": "Angel Wing"
+      },
+      "059": {
+        "Weapon": "ツァリーヌ",
+        "@@localazy:comment:Weapon": "Czarine"
+      },
+      "060": {
+        "Weapon": "クレリックタイプ",
+        "@@localazy:comment:Weapon": "Clergy Rod"
+      },
+      "061": {
+        "Weapon": "キドニーダガー",
+        "@@localazy:comment:Weapon": "Throwing Knife"
+      },
+      "062": {
+        "Weapon": "ペシュカド",
+        "@@localazy:comment:Weapon": "Kudi"
+      },
+      "063": {
+        "Weapon": "ウィンドラスボウ",
+        "@@localazy:comment:Weapon": "Windlass"
+      },
+      "064": {
+        "Weapon": "モーニングスター",
+        "@@localazy:comment:Weapon": "Morning Star"
+      },
+      "065": {
+        "Weapon": "ビショップタイプ",
+        "@@localazy:comment:Weapon": "Bishopʹs Crosier"
+      },
+      "066": {
+        "Weapon": "エンジェルキッス",
+        "@@localazy:comment:Weapon": "Angel Kiss"
+      },
+      "067": {
+        "Weapon": "ディキディキ",
+        "@@localazy:comment:Weapon": "Diki Diki"
+      },
+      "068": {
+        "Weapon": "ブラックソーン",
+        "@@localazy:comment:Weapon": "Blackthorn"
+      },
+      "069": {
+        "Weapon": "バゼラード",
+        "@@localazy:comment:Weapon": "Baselard"
+      },
+      "070": {
+        "Weapon": "ククリ",
+        "@@localazy:comment:Weapon": "Khukuri"
+      },
+      "071": {
+        "Weapon": "ハットチェット",
+        "@@localazy:comment:Weapon": "Hatchet"
+      },
+      "072": {
+        "Weapon": "ライトクロスボウ",
+        "@@localazy:comment:Weapon": "Light Crossbow"
+      },
+      "073": {
+        "Weapon": "ワルーンソード",
+        "@@localazy:comment:Weapon": "Executioner"
+      },
+      "074": {
+        "Weapon": "フォチャード",
+        "@@localazy:comment:Weapon": "Fauchard"
+      },
+      "075": {
+        "Weapon": "ミョルニール",
+        "@@localazy:comment:Weapon": "Mjolnir"
+      },
+      "076": {
+        "Weapon": "ボアスピア",
+        "@@localazy:comment:Weapon": "Boar Spear"
+      },
+      "077": {
+        "Weapon": "バスタードソード",
+        "@@localazy:comment:Weapon": "Bastard Sword"
+      },
+      "078": {
+        "Weapon": "クリス",
+        "@@localazy:comment:Weapon": "Kris"
+      },
+      "079": {
+        "Weapon": "ファランクス",
+        "@@localazy:comment:Weapon": "Griever"
+      },
+      "080": {
+        "Weapon": "トスカナーヴ",
+        "@@localazy:comment:Weapon": "Brionac"
+      },
+      "081": {
+        "Weapon": "セントフール",
+        "@@localazy:comment:Weapon": "Mjolnir"
+      },
+      "082": {
+        "Weapon": "カリバーン",
+        "@@localazy:comment:Weapon": "Pinaka"
+      },
+      "083": {
+        "Weapon": "バルナディア",
+        "@@localazy:comment:Weapon": "Sarnga"
+      },
+      "084": {
+        "Weapon": "ソードオブストーン",
+        "@@localazy:comment:Weapon": "Izanagi"
+      },
+      "085": {
+        "Weapon": "ガラティン",
+        "@@localazy:comment:Weapon": "Ascalon"
+      },
+      "086": {
+        "Weapon": "イゾルデ",
+        "@@localazy:comment:Weapon": "Isolde"
+      },
+      "087": {
+        "Weapon": "アロンダイト",
+        "@@localazy:comment:Weapon": "Dainslaif"
+      },
+      "088": {
+        "Weapon": "エクスカリバー",
+        "@@localazy:comment:Weapon": "Excalibur"
+      }
+    }
+  }
+}

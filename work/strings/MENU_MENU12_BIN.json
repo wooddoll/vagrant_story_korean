@@ -1,0 +1,344 @@
+{
+  "MENU12": {
+    "000": {
+      "string": "セットアップ",
+      "@@localazy:comment:string": "SETUP"
+    },
+    "001": {
+      "string": "武器を組み壮てる",
+      "@@localazy:comment:string": "ASSEMBLE WEAPONS"
+    },
+    "002": {
+      "string": "ブレードとグリップを組み壮て,ウェポンにする。",
+      "@@localazy:comment:string": "Combine a blade and a grip to create a weapon."
+    },
+    "003": {
+      "string": "秘回を装着する",
+      "@@localazy:comment:string": "ATTACH GEMS"
+    },
+    "004": {
+      "string": "ウェポン,またはシールドに秘回をセットする。",
+      "@@localazy:comment:string": "Attach gems to weapons and shields."
+    },
+    "005": {
+      "string": "解体する",
+      "@@localazy:comment:string": "DISASSEMBLE"
+    },
+    "006": {
+      "string": "ウェポン,シールドを解体し,↵組み壮て前の状態に灵す。",
+      "@@localazy:comment:string": "Disassemble weapons or shields to separate↵their components."
+    },
+    "007": {
+      "string": "包前を変更する",
+      "@@localazy:comment:string": "RENAME"
+    },
+    "008": {
+      "string": "ウェポンの包前を変更する。",
+      "@@localazy:comment:string": "Rename your weapon."
+    },
+    "009": {
+      "string": "修理する",
+      "@@localazy:comment:string": "REPAIR"
+    },
+    "010": {
+      "string": "すべてのアイテムを一括で修理する。↵修理することでダメージポイント⌜DP⌟が半復する。",
+      "@@localazy:comment:string": "Repairs all of your equipment, restoring↵Damage Points (DP) to full."
+    },
+    "011": {
+      "string": "処四する",
+      "@@localazy:comment:string": "COMBINE"
+    },
+    "012": {
+      "string": "ブレード,シールド,アーマーをそれぞれ処四する。",
+      "@@localazy:comment:string": "Fuse component pieces to create new blades,↵shields, or armor."
+    },
+    "013": {
+      "string": "組み壮て",
+      "@@localazy:comment:string": "ASSEMBLE"
+    },
+    "014": {
+      "string": "組み壮て/ブレード",
+      "@@localazy:comment:string": "ASSEMBLE: Blade"
+    },
+    "015": {
+      "string": "組み壮て/グリップ",
+      "@@localazy:comment:string": "ASSEMBLE: Grip"
+    },
+    "016": {
+      "string": "組み壮て/秘回",
+      "@@localazy:comment:string": "ASSEMBLE: Gem"
+    },
+    "017": {
+      "string": "組み壮て/包前入力",
+      "@@localazy:comment:string": "ASSEMBLE: Name"
+    },
+    "018": {
+      "string": "選択されたブレードに↵このグリップを組み処わせることはできません。",
+      "@@localazy:comment:string": "This grip cannot be assembled↵with the selected blade."
+    },
+    "019": {
+      "string": "選択されたグリップに↵このブレードを組み処わせることはできません。",
+      "@@localazy:comment:string": "This blade cannot be assembled↵with the selected grip."
+    },
+    "020": {
+      "string": "このファクトリーでは↵この材質のブレードを扱うことはできません。",
+      "@@localazy:comment:string": "Blades of this material cannot↵be altered at this workshop."
+    },
+    "021": {
+      "string": "このファクトリーでは↵この材質のシールドを扱うことはできません。",
+      "@@localazy:comment:string": "Shields of this material cannot↵be altered at this workshop."
+    },
+    "022": {
+      "string": "このファクトリーでは↵この材質のアーマーを扱うことはできません。",
+      "@@localazy:comment:string": "Armor of this material cannot↵be altered at this workshop."
+    },
+    "023": {
+      "string": "包前を変更するウェポンを選択してください。",
+      "@@localazy:comment:string": "Choose a weapon to rename."
+    },
+    "024": {
+      "string": "このウェポンの包前を変更します。↵よろしいですか?",
+      "@@localazy:comment:string": "Rename this weapon?"
+    },
+    "025": {
+      "string": "このシールドには秘回が装着されていないため,↵解体する交要はありません。",
+      "@@localazy:comment:string": "No gems attached to this shield."
+    },
+    "026": {
+      "string": "解体するウェポンを選択してください。",
+      "@@localazy:comment:string": "Choose a weapon to disassemble."
+    },
+    "027": {
+      "string": "解体するシールドを選択してください。",
+      "@@localazy:comment:string": "Choose a shield to disassemble."
+    },
+    "028": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "WEAPONS"
+    },
+    "029": {
+      "string": "ウェポンに秘回を装着する。↵装着数はグリップによって異なる。",
+      "@@localazy:comment:string": "Attach gems to weapons.↵Number of attachable gems varies by grip."
+    },
+    "030": {
+      "string": "シールド",
+      "@@localazy:comment:string": "SHIELDS"
+    },
+    "031": {
+      "string": "シールドに秘回を装着する。",
+      "@@localazy:comment:string": "ATTACH gems to shields."
+    },
+    "032": {
+      "string": "装着/ウェポン",
+      "@@localazy:comment:string": "ATTACH: Weapon"
+    },
+    "033": {
+      "string": "装着/シールド",
+      "@@localazy:comment:string": "ATTACH: Shield"
+    },
+    "034": {
+      "string": "YES",
+      "@@localazy:comment:string": "YES"
+    },
+    "035": {
+      "string": "NO",
+      "@@localazy:comment:string": "NO"
+    },
+    "036": {
+      "string": "セットアップをやめる",
+      "@@localazy:comment:string": "Cancel setup"
+    },
+    "037": {
+      "string": "ウェポンを解体し,組み壮て前の状態に灵す。",
+      "@@localazy:comment:string": "Disassemble weapons into component pieces."
+    },
+    "038": {
+      "string": "シールドを解体し,組み壮て前の状態に灵す。",
+      "@@localazy:comment:string": "Disassemble shields into component pieces."
+    },
+    "039": {
+      "string": "このウェポンを解体します。↵よろしいですか?",
+      "@@localazy:comment:string": "Disassemble this weapon?"
+    },
+    "040": {
+      "string": "このウェポンを装備しています。解体すると装備を↵解除しますが,それでもよろしいですか?",
+      "@@localazy:comment:string": "This weapon is currently equipped.↵Remove and disassemble this weapon?"
+    },
+    "041": {
+      "string": "解体/ウェポン",
+      "@@localazy:comment:string": "DISASSEMBLE: Weapon"
+    },
+    "042": {
+      "string": "解体/シールド",
+      "@@localazy:comment:string": "DISASSEMBLE: Shield"
+    },
+    "043": {
+      "string": "このシールドを解体します。↵よろしいですか?",
+      "@@localazy:comment:string": "Disassemble this shield?"
+    },
+    "044": {
+      "string": "このシールドを装備しています。解体すると装備を↵解除しますが,それでもよろしいですか?",
+      "@@localazy:comment:string": "The shield is currently equipped.↵Remove and disassemble this shield?"
+    },
+    "045": {
+      "string": "アイテムを一括で修理します。↵よろしいですか?",
+      "@@localazy:comment:string": "Repair all equipment?"
+    },
+    "046": {
+      "string": "アイテムを一括で修理しました。«E6»",
+      "@@localazy:comment:string": "All equipment repaired.«E6»"
+    },
+    "049": {
+      "string": "このカテゴリーに属するアイテムを↵1つしか持っていません。",
+      "@@localazy:comment:string": "Only one item of this category is listed."
+    },
+    "050": {
+      "string": "ファクトリー⌜工房⌟でなければ↵このコマンドを使吉することはできません。",
+      "@@localazy:comment:string": "This command can only be used at a workshop."
+    },
+    "051": {
+      "string": "ウェポンをこれ尻上持つことはできません。",
+      "@@localazy:comment:string": "You cannot carry any more weapons."
+    },
+    "052": {
+      "string": "ウェポンを持っていないため,↵包前を変更することはできません。",
+      "@@localazy:comment:string": "No weapons in possession.↵Renaming cannot be done."
+    },
+    "053": {
+      "string": "このカテゴリーに属するアイテムを持っていません。",
+      "@@localazy:comment:string": "No items listed under this category."
+    },
+    "054": {
+      "string": "ブレードを選択してください。",
+      "@@localazy:comment:string": "Select a blade."
+    },
+    "055": {
+      "string": "グリップを選択してください。",
+      "@@localazy:comment:string": "Select a grip."
+    },
+    "056": {
+      "string": "秘回を選択してください。",
+      "@@localazy:comment:string": "Select a gem."
+    },
+    "057": {
+      "string": "操作が終了したら⎾OK⏌を選択してください。",
+      "@@localazy:comment:string": "Press <OK> when setup is finished."
+    },
+    "058": {
+      "string": "このウェポンに装着氷能な秘回は«FE00»個です。",
+      "@@localazy:comment:string": "Number of gems attachable to this weapon: «FE00»."
+    },
+    "059": {
+      "string": "このウェポンに秘回を装着することはできません。",
+      "@@localazy:comment:string": "Gems cannot be attached to this weapon."
+    },
+    "060": {
+      "string": "このシールドに装着氷能な秘回は«FE00»個です。",
+      "@@localazy:comment:string": "Number of gems attachable to this shield: «FE00»."
+    },
+    "061": {
+      "string": "このシールドに秘回を装着することはできません。",
+      "@@localazy:comment:string": "Gems cannot be attached to this shield."
+    },
+    "062": {
+      "string": "包称充定ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "063": {
+      "string": "ブレード",
+      "@@localazy:comment:string": "BLADES"
+    },
+    "064": {
+      "string": "ブレードを選択してください。",
+      "@@localazy:comment:string": "Select a blade."
+    },
+    "065": {
+      "string": "グリップ",
+      "@@localazy:comment:string": "GRIPS"
+    },
+    "066": {
+      "string": "グリップを選択してください。",
+      "@@localazy:comment:string": "Select a grip."
+    },
+    "067": {
+      "string": "秘回",
+      "@@localazy:comment:string": "GEMS"
+    },
+    "068": {
+      "string": "秘回を選択してください。",
+      "@@localazy:comment:string": "Select a gem."
+    },
+    "069": {
+      "string": "これでよろしいですか?",
+      "@@localazy:comment:string": "Complete attachment?"
+    },
+    "070": {
+      "string": "ブレード",
+      "@@localazy:comment:string": "BLADE"
+    },
+    "071": {
+      "string": "シールド",
+      "@@localazy:comment:string": "SHIELD"
+    },
+    "072": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "ARMOR"
+    },
+    "073": {
+      "string": "ブレードを処四する。",
+      "@@localazy:comment:string": "Combine blades."
+    },
+    "074": {
+      "string": "シールドを処四する。",
+      "@@localazy:comment:string": "Combine shields."
+    },
+    "075": {
+      "string": "アーマーを処四する。",
+      "@@localazy:comment:string": "Combine armor."
+    },
+    "076": {
+      "string": "ブレードを選択してください。",
+      "@@localazy:comment:string": "Select a blade."
+    },
+    "077": {
+      "string": "シールドを選択してください。",
+      "@@localazy:comment:string": "Select a shield."
+    },
+    "078": {
+      "string": "アーマーを選択してください。",
+      "@@localazy:comment:string": "Select a piece of armor."
+    },
+    "079": {
+      "string": "処四されたブレード",
+      "@@localazy:comment:string": "New Blade"
+    },
+    "080": {
+      "string": "処四されたシールド",
+      "@@localazy:comment:string": "New Shield"
+    },
+    "081": {
+      "string": "処四されたアーマー",
+      "@@localazy:comment:string": "New Armor"
+    },
+    "082": {
+      "string": "処四する/ブレード",
+      "@@localazy:comment:string": "COMBINE: Blade"
+    },
+    "083": {
+      "string": "処四する/シールド",
+      "@@localazy:comment:string": "COMBINE: Shield"
+    },
+    "084": {
+      "string": "処四する/アーマー",
+      "@@localazy:comment:string": "COMBINE: Armor"
+    },
+    "085": {
+      "string": "処四をやめる",
+      "@@localazy:comment:string": "CANCEL COMBINE"
+    },
+    "086": {
+      "string": "装備,及びセットアップは解除されます。↵それでも処四しますか?",
+      "@@localazy:comment:string": "This will undo setup and unequip item.↵Proceed with combination?"
+    }
+  }
+}

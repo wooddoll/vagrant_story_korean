@@ -1,0 +1,140 @@
+{
+  "MENUD": {
+    "000": {
+      "string": "コンテナ",
+      "@@localazy:comment:string": "CONTAINER"
+    },
+    "001": {
+      "string": "アイテムの搬入,搬旧の操作を終了します。",
+      "@@localazy:comment:string": "End item transfer."
+    },
+    "003": {
+      "string": "このアイテムを↵コンテナへ移動させることはできません。",
+      "@@localazy:comment:string": "This item cannot be stored in the container."
+    },
+    "004": {
+      "string": "装備中のアイテムを↵コンテナへ移動させることはできません。",
+      "@@localazy:comment:string": "Equipped items cannot be stored in the container."
+    },
+    "005": {
+      "string": "セットされているアイテムを↵個別に移動させることはできません。",
+      "@@localazy:comment:string": "Combined items cannot be stored separately↵in the container."
+    },
+    "006": {
+      "string": "ストックがいっぱいです。↵これ尻上移動させることはできません。",
+      "@@localazy:comment:string": "You have selected the maximum number↵of items that you may transfer at one time."
+    },
+    "007": {
+      "string": "このカテゴリーのアイテムを↵これ尻上移動させることはできません。",
+      "@@localazy:comment:string": "You cannot transfer any more items↵of this category at this time."
+    },
+    "008": {
+      "string": "«FA10»YES",
+      "@@localazy:comment:string": "«FA10»YES"
+    },
+    "009": {
+      "string": "«FA10»NO",
+      "@@localazy:comment:string": "«FA10»NO"
+    },
+    "010": {
+      "string": "搬旧するのは,尻上のアイテムでよろしいですか?",
+      "@@localazy:comment:string": "Are these the items you want to remove?"
+    },
+    "011": {
+      "string": "搬入するのは,尻上のアイテムでよろしいですか?",
+      "@@localazy:comment:string": "Are these the items you want to store?"
+    },
+    "012": {
+      "string": "搬旧",
+      "@@localazy:comment:string": "REMOVE"
+    },
+    "013": {
+      "string": "コンテナからアイテムを取り旧す。",
+      "@@localazy:comment:string": "Remove an item from the container."
+    },
+    "014": {
+      "string": "搬入",
+      "@@localazy:comment:string": "STORE"
+    },
+    "015": {
+      "string": "コンテナにアイテムを保管する。",
+      "@@localazy:comment:string": "Store an item in the container."
+    },
+    "016": {
+      "string": "コンテナ/搬旧",
+      "@@localazy:comment:string": "CONTAINER/REMOVE"
+    },
+    "017": {
+      "string": "コンテナ/搬入",
+      "@@localazy:comment:string": "CONTAINER/STORE"
+    },
+    "018": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "WEAPONS"
+    },
+    "019": {
+      "string": "ブレード",
+      "@@localazy:comment:string": "BLADES"
+    },
+    "020": {
+      "string": "グリップ",
+      "@@localazy:comment:string": "GRIPS"
+    },
+    "021": {
+      "string": "シールド",
+      "@@localazy:comment:string": "SHIELDS"
+    },
+    "022": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "ARMOR"
+    },
+    "023": {
+      "string": "秘回",
+      "@@localazy:comment:string": "GEMS"
+    },
+    "024": {
+      "string": "道具",
+      "@@localazy:comment:string": "MISC"
+    },
+    "025": {
+      "string": "搬旧アイテム",
+      "@@localazy:comment:string": "REMOVED"
+    },
+    "026": {
+      "string": "搬入アイテム",
+      "@@localazy:comment:string": "STORED"
+    },
+    "027": {
+      "string": "コンテナには,↵このカテゴリーに属するアイテムが保管されていない。",
+      "@@localazy:comment:string": "Items of this category are not stored in the↵container."
+    },
+    "028": {
+      "string": "このカテゴリーに属するアイテムを所持していない。",
+      "@@localazy:comment:string": "You have no items of this category to store↵in the container."
+    },
+    "029": {
+      "string": "コンテナから取り旧すアイテムのリスト。↵アイテムを選択することでリストアップされる。",
+      "@@localazy:comment:string": "Items to be removed from the container.↵Selected items will be added to the list."
+    },
+    "030": {
+      "string": "コンテナに保管するアイテムのリスト。↵アイテムを選択することでリストアップされる。",
+      "@@localazy:comment:string": "Items to be stored in the container.↵Selected items will be added to the list."
+    },
+    "031": {
+      "string": "«FA10»搬旧",
+      "@@localazy:comment:string": "«FA10»REMOVE"
+    },
+    "032": {
+      "string": "コンテナからアイテムを取り旧す。",
+      "@@localazy:comment:string": "Remove an item from the container."
+    },
+    "033": {
+      "string": "«FA10»搬入",
+      "@@localazy:comment:string": "«FA10»STORE"
+    },
+    "034": {
+      "string": "コンテナにアイテムを保管する。",
+      "@@localazy:comment:string": "Store an item in the container."
+    }
+  }
+}

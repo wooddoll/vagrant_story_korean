@@ -1,0 +1,324 @@
+{
+  "MENU0": {
+    "000": {
+      "string": "ウォーロック«FA0A»⌜攻擊⌟",
+      "@@localazy:comment:string": "WARLOCK    (ATT)"
+    },
+    "001": {
+      "string": "ターゲットにダメージを与える攻擊魔法のリスト。",
+      "@@localazy:comment:string": "A list of spells that deal damage."
+    },
+    "002": {
+      "string": "ウォーロック⌜攻擊魔法⌟を覚えていない。",
+      "@@localazy:comment:string": "Ashley has yet to learn↵any Warlock (attack) spells."
+    },
+    "003": {
+      "string": "シーアルジー«FA04»⌜半復⌟",
+      "@@localazy:comment:string": "SHAMAN     (REC)"
+    },
+    "004": {
+      "string": "HPやステータス異常等を半復する半復魔法のリスト。",
+      "@@localazy:comment:string": "A list of spells that cure status↵abnormalities or restore HP."
+    },
+    "005": {
+      "string": "シーアルジー⌜半復魔法⌟を覚えていない。",
+      "@@localazy:comment:string": "Ashley has yet to learn↵any Shaman (recovery) spells."
+    },
+    "006": {
+      "string": "ソーサリー«FA11»⌜補助⌟",
+      "@@localazy:comment:string": "SORCERER   (AID)"
+    },
+    "007": {
+      "string": "ターゲットをステータス異常にする等の↵補助魔法のリスト。",
+      "@@localazy:comment:string": "A list of spells that cause status abnormalities↵in foes or otherwise aid Ashley in battle."
+    },
+    "008": {
+      "string": "ソーサリー⌜補助魔法⌟を覚えていない。",
+      "@@localazy:comment:string": "Ashley has yet to learn↵any Sorcerer (aid) spells."
+    },
+    "009": {
+      "string": "エンチャント«FA08»⌜属性⌟",
+      "@@localazy:comment:string": "ENCHANTER  (AFF)"
+    },
+    "010": {
+      "string": "ウェポンやシールドなどのエレメント⌜属性⌟を↵変化させる属性魔法のリスト。",
+      "@@localazy:comment:string": "A list of spells that change the elemental↵affinities of equipment."
+    },
+    "011": {
+      "string": "エンチャント⌜属性魔法⌟を覚えていない。",
+      "@@localazy:comment:string": "Ashley has yet to learn any↵Enchanter (affinity) spells."
+    },
+    "012": {
+      "string": "«EE»",
+      "@@localazy:comment:string": "Physical Attack; Conjuration; Single Target.↵Strikes enemies with an explosive shockwave."
+    },
+    "013": {
+      "string": "風属性攻擊魔法。投射型。リム単体。↵雷の因を放ちダメージを与える。",
+      "@@localazy:comment:string": "Air Affinity; Conjuration; Single Target.↵Shoots out arrows of lightning."
+    },
+    "014": {
+      "string": "火属性攻擊魔法。投射型。リム単体。↵灼熱の炎の彈を放ちダメージを与える。",
+      "@@localazy:comment:string": "Fire Affinity; Conjuration; Single Target.↵Pummels enemies with balls of fire."
+    },
+    "015": {
+      "string": "土属性攻擊魔法。投射型。リム単体。↵銳利な火山彈を放ちダメージを与える。",
+      "@@localazy:comment:string": "Earth Affinity; Conjuration; Single Target.↵Showers enemies with volcanic debris."
+    },
+    "016": {
+      "string": "水属性攻擊魔法。投射型。リム単体。↵強烈な冷気を超高速で放ちダメージを与える。",
+      "@@localazy:comment:string": "Water Affinity; Conjuration; Single Target.↵Engulfs enemies with freezing water blast."
+    },
+    "017": {
+      "string": "神聖属性攻擊魔法。投射型。リム単体。↵登の精霊を放ちダメージを与える。",
+      "@@localazy:comment:string": "Light Affinity; Conjuration; Single Target.↵Summons a spirit of light to attack enemies."
+    },
+    "018": {
+      "string": "暗黑属性攻擊魔法。投射型。リム単体。↵苦痛の呪いを放ちダメージを与える。",
+      "@@localazy:comment:string": "Dark Affinity; Conjuration; Single Target.↵Afflicts enemies with crippling pain."
+    },
+    "019": {
+      "string": "神聖属性攻擊魔法。放旧型。ユニット複数。アンデッド↵を除霊する。対象のHPが少ないほど四牙率が高い。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Multiple Targets.↵Exorcise undead foes."
+    },
+    "020": {
+      "string": "暗黑属性攻擊魔法。放旧型。ユニット複数。↵禁断の即死の魔法。ただし,アンデッドには効かない。",
+      "@@localazy:comment:string": "Dark Affinity; Evocation; Multiple Targets.↵Forbidden spell of instant death."
+    },
+    "021": {
+      "string": "«EE»",
+      "@@localazy:comment:string": "Physical Attack; Evocation; Multiple Targets.↵A highly focused, devastating blast."
+    },
+    "022": {
+      "string": "風属性攻擊魔法。放旧型。リム複数。↵対象の頭上に大量の雷を落としダメージを与える。",
+      "@@localazy:comment:string": "Air Affinity; Evocation; Multiple Targets.↵Calls down a great bolt from the heavens."
+    },
+    "023": {
+      "string": "火属性攻擊魔法。放旧型。リム複数。↵対象の空間に超高溫の炎を作りダメージを与える。",
+      "@@localazy:comment:string": "Fire Affinity; Evocation; Multiple Targets.↵Wreaths target in flames."
+    },
+    "024": {
+      "string": "土属性攻擊魔法。放旧型。リム複数。↵対象の空間の重力を急存に上げダメージを与える。",
+      "@@localazy:comment:string": "Earth Affinity; Evocation; Multiple Targets.↵Creates crushing gravity warp around target."
+    },
+    "025": {
+      "string": "水属性攻擊魔法。放旧型。リム複数。↵対象の空間を瞬時に絶対零度にしダメージを与える。",
+      "@@localazy:comment:string": "Water Affinity; Evocation; Multiple Targets.↵Super—freezes air around target."
+    },
+    "026": {
+      "string": "神聖属性攻擊魔法。放旧型。リム複数。↵神々の登の波動を集結させ,ダメージを与える。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Multiple Targets.↵Pierces enemies with focused rays of light."
+    },
+    "027": {
+      "string": "暗黑属性攻擊魔法。放旧型。リム複数。↵天空より隕回を呼び集め,ダメージを与える。",
+      "@@localazy:comment:string": "Dark Affinity; Evocation; Multiple Targets.↵Rains meteors down on the target."
+    },
+    "028": {
+      "string": "暗黑属性攻擊魔法。放旧型。リム単体。↵対象のHPを自分のものにする。",
+      "@@localazy:comment:string": "Dark Affinity; Evocation; Single Target.↵Steals HP from enemies."
+    },
+    "029": {
+      "string": "暗黑属性攻擊魔法。放旧型。ユニット単体。↵対象のMPを自分のものにする。",
+      "@@localazy:comment:string": "Dark Affinity; Evocation; Single Target.↵Steals MP from enemies."
+    },
+    "030": {
+      "string": "神聖属性半復魔法。放旧型。ユニット単体。↵対象の傷を癒すことでHPを半復する。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Restores targetʹs HP."
+    },
+    "031": {
+      "string": "神聖属性半復魔法。放旧型。ユニット単体。↵⎾マヒ⏌ステータス異常を半復する。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Cures ʺParalysis.ʺ"
+    },
+    "032": {
+      "string": "神聖属性半復魔法。放旧型。ユニット単体。↵⎾毒⏌ステータス異常を半復する。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Cures ʺPoison.ʺ"
+    },
+    "033": {
+      "string": "神聖属性半復魔法。放旧型。ユニット単体。↵⎾呪い⏌ステータス異常を半復する。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Cures ʺCurse.ʺ"
+    },
+    "034": {
+      "string": "神聖属性半復魔法。放旧型。ユニット単体。↵マヒ・毒・しびれを半復する。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Cures all status abnormalities."
+    },
+    "035": {
+      "string": "神聖属性半復魔法。放旧型。ユニット単体。↵徐々にHPが半復していく。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Recharges HP over a short period of time."
+    },
+    "036": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象のストレングス⌜力⌟を一定時間增札する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs strength."
+    },
+    "037": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象のストレングス⌜力⌟を一定時間減少する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs strength."
+    },
+    "038": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象のインテリジェンス⌜知力⌟を一定時間增札する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs intelligence."
+    },
+    "039": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象のインテリジェンス⌜知力⌟を一定時間減少する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs intelligence."
+    },
+    "040": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象のアジリティ⌜素早さ⌟を一定時間增札する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs agility."
+    },
+    "041": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象のアジリティ⌜素早さ⌟を一定時間減少する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs agility."
+    },
+    "042": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象の武器や防具の性能を一定時間增札する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily strengthens targetʹs equipment."
+    },
+    "043": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象の武器や防具の性能を一定時間減少する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily weakens targetʹs equipments."
+    },
+    "044": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象を一時的に魔法を使えないようにする。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily prevents target from casting spells."
+    },
+    "045": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象にかけられた魔法を一半だけ,確実に無効にする。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Nullifies the next spell cast on target."
+    },
+    "046": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象を⎾マヒ⏌ステータス異常にする。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Casts ʺParalysisʺ on target."
+    },
+    "047": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象を⎾毒⏌ステータス異常にする。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Casts ʺPoisonʺ on target."
+    },
+    "048": {
+      "string": "暗黑属性補助魔法。放旧型。ユニット単体。↵対象を⎾呪い⏌ステータス異常にする。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Casts ʺCurseʺ on target."
+    },
+    "049": {
+      "string": "補助魔法。放旧型。↵マップ中の移動ブロックを一定時間停止させる。",
+      "@@localazy:comment:string": "Support Magic; Evocation.↵Freezes the roomʹs Cloudstones in place."
+    },
+    "050": {
+      "string": "補助魔法。放旧型。ユニット単体。↵対象にかかっている魔法を無効化する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Nullifies any spell currently affecting target."
+    },
+    "051": {
+      "string": "補助魔法。放旧型。宝箱単体。魔法でロックされた↵宝箱の鍵を石す。RISKが高いほど四牙率が高い。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Treasure Chest.↵Opens treasure chests locked with magic."
+    },
+    "052": {
+      "string": "補助魔法。放旧型。トラップ複数。トラップを一時的に↵視認することができる。そのマップのみ有効。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Multiple Traps.↵Reveals all traps in the room."
+    },
+    "053": {
+      "string": "補助魔法。放旧型。ユニット単体。対象のパラメータを↵分析する。RISKが高いほど四牙率が高い。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Analyzes enemiesʹ parameters and stats."
+    },
+    "054": {
+      "string": "風属性属性魔法。放旧型。ユニット単体。↵武器の⎾風属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Air affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs air affinity."
+    },
+    "055": {
+      "string": "火属性属性魔法。放旧型。ユニット単体。↵武器の⎾火属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Fire affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs fire affinity."
+    },
+    "056": {
+      "string": "土属性属性魔法。放旧型。ユニット単体。↵武器の⎾土属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Earth affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs earth affinity."
+    },
+    "057": {
+      "string": "水属性属性魔法。放旧型。ユニット単体。↵武器の⎾水属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Water affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs water affinity."
+    },
+    "058": {
+      "string": "風属性属性魔法。放旧型。ユニット単体。↵防具の⎾風属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Air affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs air affinity."
+    },
+    "059": {
+      "string": "火属性属性魔法。放旧型。ユニット単体。↵防具の⎾火属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Fire affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs fire affinity."
+    },
+    "060": {
+      "string": "土属性属性魔法。放旧型。ユニット単体。↵防具の⎾土属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Earth affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs earth affinity."
+    },
+    "061": {
+      "string": "水属性属性魔法。放旧型。ユニット単体。↵防具の⎾水属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Water affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs water affinity."
+    },
+    "062": {
+      "string": "ソリッドショック",
+      "@@localazy:comment:string": "Solid Shock"
+    },
+    "063": {
+      "string": "ライトニングボウ",
+      "@@localazy:comment:string": "Lightning Bolt"
+    },
+    "064": {
+      "string": "ファイアボール",
+      "@@localazy:comment:string": "Fireball"
+    },
+    "065": {
+      "string": "ヴァルカンランス",
+      "@@localazy:comment:string": "Vulcan Lance"
+    },
+    "066": {
+      "string": "アクアブラスト",
+      "@@localazy:comment:string": "Aqua Blast"
+    },
+    "067": {
+      "string": "スピリットサージ",
+      "@@localazy:comment:string": "Spirit Surge"
+    },
+    "068": {
+      "string": "デスラプトペイン",
+      "@@localazy:comment:string": "Dark Chant"
+    },
+    "069": {
+      "string": "イクソシズム",
+      "@@localazy:comment:string": "Exorcism"
+    },
+    "070": {
+      "string": "バニッシュ",
+      "@@localazy:comment:string": "Banish"
+    },
+    "071": {
+      "string": "イクスプロジョン",
+      "@@localazy:comment:string": "Explosion"
+    },
+    "072": {
+      "string": "サンダーバースト",
+      "@@localazy:comment:string": "Thunderburst"
+    },
+    "073": {
+      "string": "フレイムスフィア",
+      "@@localazy:comment:string": "Flame Sphere"
+    },
+    "074": {
+      "string": "ガイアストライク",
+      "@@localazy:comment:string": "Gaea Strike"
+    },
+    "075": {
+      "string": "アヴァランチ",
+      "@@localazy:comment:string": "Avalanche"
+    },
+    "076": {
+      "string": "ラディウス",
+      "@@localazy:comment:string": "Radial Surge"
+    },
+    "077": {
+      "string": "メテオインパクト",
+      "@@localazy:comment:string": "Meteor"
+    },
+    "078": {
+      "string": "ドレインハート",
+      "@@localazy:comment:string": "Drain Heart"
+    },
+    "079": {
+      "string": "ドレインマインド",
+      "@@localazy:comment:string": "Drain Mind"
+    }
+  }
+}

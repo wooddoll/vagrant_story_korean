@@ -1,0 +1,398 @@
+{
+  "BATTLE_1": {
+    "001": {
+      "string": "頭",
+      "@@localazy:comment:string": "HEAD"
+    },
+    "002": {
+      "string": "由腕",
+      "@@localazy:comment:string": "R.ARM"
+    },
+    "003": {
+      "string": "込腕",
+      "@@localazy:comment:string": "L.ARM"
+    },
+    "004": {
+      "string": "脚",
+      "@@localazy:comment:string": "LEGS"
+    },
+    "005": {
+      "string": "尾",
+      "@@localazy:comment:string": "TAIL"
+    },
+    "006": {
+      "string": "胴",
+      "@@localazy:comment:string": "BODY"
+    },
+    "007": {
+      "string": "胸",
+      "@@localazy:comment:string": "CHEST"
+    },
+    "008": {
+      "string": "腹",
+      "@@localazy:comment:string": "ABDOMEN"
+    },
+    "009": {
+      "string": "由脚",
+      "@@localazy:comment:string": "R.LEG"
+    },
+    "010": {
+      "string": "込脚",
+      "@@localazy:comment:string": "L.LEG"
+    },
+    "011": {
+      "string": "口",
+      "@@localazy:comment:string": "MOUTH"
+    },
+    "012": {
+      "string": "首",
+      "@@localazy:comment:string": "NECK"
+    },
+    "013": {
+      "string": "翼",
+      "@@localazy:comment:string": "WINGS"
+    },
+    "014": {
+      "string": "由腕",
+      "@@localazy:comment:string": "R.ARM"
+    },
+    "015": {
+      "string": "込腕",
+      "@@localazy:comment:string": "L.ARM"
+    },
+    "018": {
+      "string": "充使吉",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»"
+    },
+    "019": {
+      "string": "宝箱",
+      "@@localazy:comment:string": "Treasure Chest"
+    },
+    "020": {
+      "string": "«F800»«FB04»«FF00»«FA0C»«FF01»↵«FB04»対象:«FF02»«FA0C»«FF03»«FF04»«FF05»",
+      "@@localazy:comment:string": "«F800»«FB04»«FF00» «FF01»↵«FB04»TARGET: «FF02» «FF03»«FF04»«FF05»"
+    },
+    "021": {
+      "string": "HP«FE00»/«FE01»%",
+      "@@localazy:comment:string": "HP «FE00»/«FE01»%"
+    },
+    "022": {
+      "string": "MP«FE00»/«FE01»%",
+      "@@localazy:comment:string": "MP «FE00»/«FE01»%"
+    },
+    "023": {
+      "string": "«FF06»«FE01»%",
+      "@@localazy:comment:string": "«FF06»«FE01»%"
+    },
+    "024": {
+      "string": "破壊氷能",
+      "@@localazy:comment:string": ""
+    },
+    "025": {
+      "string": "破壊不氷能",
+      "@@localazy:comment:string": "Indestructable"
+    },
+    "026": {
+      "string": "ユニット単体",
+      "@@localazy:comment:string": "Single"
+    },
+    "027": {
+      "string": "ユニット複数",
+      "@@localazy:comment:string": "Multiple"
+    },
+    "028": {
+      "string": "ユニット単体",
+      "@@localazy:comment:string": "Single"
+    },
+    "029": {
+      "string": "ユニット複数",
+      "@@localazy:comment:string": "Multiple"
+    },
+    "030": {
+      "string": "リム単体",
+      "@@localazy:comment:string": "Single"
+    },
+    "031": {
+      "string": "リム複数",
+      "@@localazy:comment:string": "Multiple"
+    },
+    "032": {
+      "string": "リム単体",
+      "@@localazy:comment:string": "Single"
+    },
+    "033": {
+      "string": "リム複数",
+      "@@localazy:comment:string": "Multiple"
+    },
+    "034": {
+      "string": "移動パネル",
+      "@@localazy:comment:string": "Cloudstone"
+    },
+    "035": {
+      "string": "宝箱",
+      "@@localazy:comment:string": "Treasure Chest"
+    },
+    "036": {
+      "string": "リム複数",
+      "@@localazy:comment:string": "Multiple"
+    },
+    "037": {
+      "string": "リム複数",
+      "@@localazy:comment:string": "Multiple"
+    },
+    "038": {
+      "string": "トラップ",
+      "@@localazy:comment:string": "Trap"
+    },
+    "039": {
+      "string": "リム単体・キューブ",
+      "@@localazy:comment:string": "Single"
+    },
+    "041": {
+      "string": "仮擊/",
+      "@@localazy:comment:string": "BLN/"
+    },
+    "042": {
+      "string": "切断/",
+      "@@localazy:comment:string": "EGD/"
+    },
+    "043": {
+      "string": "貫通/",
+      "@@localazy:comment:string": "PRC/"
+    },
+    "044": {
+      "string": "«EE»",
+      "@@localazy:comment:string": "PHY"
+    },
+    "045": {
+      "string": "風",
+      "@@localazy:comment:string": "AIR"
+    },
+    "046": {
+      "string": "火",
+      "@@localazy:comment:string": "FIR"
+    },
+    "047": {
+      "string": "土",
+      "@@localazy:comment:string": "ERT"
+    },
+    "048": {
+      "string": "水",
+      "@@localazy:comment:string": "WAT"
+    },
+    "049": {
+      "string": "神聖",
+      "@@localazy:comment:string": "LIT"
+    },
+    "050": {
+      "string": "暗黑",
+      "@@localazy:comment:string": "DRK"
+    },
+    "051": {
+      "string": "/ヒューマン",
+      "@@localazy:comment:string": "/Human"
+    },
+    "052": {
+      "string": "/ビースト",
+      "@@localazy:comment:string": "/Beast"
+    },
+    "053": {
+      "string": "/アンデッド",
+      "@@localazy:comment:string": "/Undead"
+    },
+    "054": {
+      "string": "/ファントム",
+      "@@localazy:comment:string": "/Phantom"
+    },
+    "055": {
+      "string": "/ドラゴン",
+      "@@localazy:comment:string": "/Dragon"
+    },
+    "056": {
+      "string": "/イービル",
+      "@@localazy:comment:string": "/Evil"
+    },
+    "057": {
+      "string": "STRダウン/",
+      "@@localazy:comment:string": "STR—down/"
+    },
+    "058": {
+      "string": "STRアップ/",
+      "@@localazy:comment:string": "STR—up/"
+    },
+    "059": {
+      "string": "INTダウン/",
+      "@@localazy:comment:string": "INT—down/"
+    },
+    "060": {
+      "string": "INTアップ/",
+      "@@localazy:comment:string": "INT—up/"
+    },
+    "061": {
+      "string": "AGLダウン/",
+      "@@localazy:comment:string": "AGL—down/"
+    },
+    "062": {
+      "string": "AGLアップ/",
+      "@@localazy:comment:string": "AGL—up/"
+    },
+    "063": {
+      "string": "クイック/",
+      "@@localazy:comment:string": "Quicken/"
+    },
+    "064": {
+      "string": "サイレント/",
+      "@@localazy:comment:string": "Silent/"
+    },
+    "065": {
+      "string": "マヒ/",
+      "@@localazy:comment:string": "Paralysis/"
+    },
+    "066": {
+      "string": "毒/",
+      "@@localazy:comment:string": "Poison/"
+    },
+    "067": {
+      "string": "しびれ/",
+      "@@localazy:comment:string": "Numbness/"
+    },
+    "068": {
+      "string": "呪い/",
+      "@@localazy:comment:string": "Curse/"
+    },
+    "069": {
+      "string": "リジェネ/",
+      "@@localazy:comment:string": "Regenerate/"
+    },
+    "070": {
+      "string": "魔法無効/",
+      "@@localazy:comment:string": "Magic Ward/"
+    },
+    "071": {
+      "string": "アイテムダウン/",
+      "@@localazy:comment:string": "Equip—down/"
+    },
+    "072": {
+      "string": "アイテムアップ/",
+      "@@localazy:comment:string": "Equip—up/"
+    },
+    "073": {
+      "string": "アタッチエア/",
+      "@@localazy:comment:string": "+ Air/"
+    },
+    "074": {
+      "string": "アタッチファイア/",
+      "@@localazy:comment:string": "+ Fire/"
+    },
+    "075": {
+      "string": "アタッチアース/",
+      "@@localazy:comment:string": "+ Earth/"
+    },
+    "076": {
+      "string": "アタッチウォーター/",
+      "@@localazy:comment:string": "+ Water/"
+    },
+    "077": {
+      "string": "レジストエア/",
+      "@@localazy:comment:string": "Resist Air/"
+    },
+    "078": {
+      "string": "レジストファイア/",
+      "@@localazy:comment:string": "Resist Fire/"
+    },
+    "079": {
+      "string": "レジストアース/",
+      "@@localazy:comment:string": "Resist Earth/"
+    },
+    "080": {
+      "string": "レジストウォーター/",
+      "@@localazy:comment:string": "Resist Water/"
+    }
+  },
+  "BATTLE_2": {
+    "000": {
+      "string": "«FB04»扉には何らかの鍵がかかっている。",
+      "@@localazy:comment:string": "Bronze Key"
+    },
+    "001": {
+      "string": "黄銅の鍵",
+      "@@localazy:comment:string": "Iron Key"
+    },
+    "002": {
+      "string": "黑鉄の鍵",
+      "@@localazy:comment:string": "Silver Key"
+    },
+    "003": {
+      "string": "吐銀の鍵",
+      "@@localazy:comment:string": "Gold Key"
+    },
+    "004": {
+      "string": "黄金の鍵",
+      "@@localazy:comment:string": "Platinum Key"
+    },
+    "005": {
+      "string": "吐鋼の鍵",
+      "@@localazy:comment:string": "Steel Key"
+    },
+    "006": {
+      "string": "赤鉄の鍵",
+      "@@localazy:comment:string": "Crimson Key"
+    },
+    "007": {
+      "string": "聖仙騎士占の鍵",
+      "@@localazy:comment:string": "Chest Key"
+    },
+    "008": {
+      "string": "宝箱の鍵",
+      "@@localazy:comment:string": "Chamomile Sigil"
+    },
+    "009": {
+      "string": "ハマシオンの刻仙",
+      "@@localazy:comment:string": "Lily Sigil"
+    },
+    "010": {
+      "string": "リリーの刻仙",
+      "@@localazy:comment:string": "Tearose Sigil"
+    },
+    "011": {
+      "string": "ピラカンサの刻仙",
+      "@@localazy:comment:string": "Clematis Sigil"
+    },
+    "012": {
+      "string": "クレマチスの刻仙",
+      "@@localazy:comment:string": "Hyacinth Sigil"
+    },
+    "013": {
+      "string": "ムスカリの刻仙",
+      "@@localazy:comment:string": "Fern Sigil"
+    },
+    "014": {
+      "string": "シャガの刻仙",
+      "@@localazy:comment:string": "Aster Sigil"
+    },
+    "015": {
+      "string": "アスターの刻仙",
+      "@@localazy:comment:string": "Eulelia Sigil"
+    },
+    "016": {
+      "string": "キュラスの刻仙",
+      "@@localazy:comment:string": "Melissa Sigil"
+    },
+    "017": {
+      "string": "メリッサの刻仙",
+      "@@localazy:comment:string": "Calla Sigil"
+    },
+    "018": {
+      "string": "カラーの刻仙",
+      "@@localazy:comment:string": "Laurel Sigil"
+    },
+    "019": {
+      "string": "コナラの刻仙",
+      "@@localazy:comment:string": "Acacia Sigil"
+    },
+    "020": {
+      "string": "アカシアの刻仙",
+      "@@localazy:comment:string": "Palm Sigil"
+    }
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "MENU9_1": {
+    "000": {
+      "string": "«F800»Ѩ16«FA0C»グランド・マスター・ブレイカー",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ16 Grand Master Breaker"
+    },
+    "001": {
+      "string": "«F800»Ѩ15«FA0C»グランド・パラディン",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ15 Grand Paladin"
+    },
+    "002": {
+      "string": "«F800»Ѩ14«FA0C»レディアント・ナイト",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ14 Radiant Knight"
+    },
+    "003": {
+      "string": "«F800»Ѩ13«FA0C»レイジング・ベルゼルカー",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ13 Raging Berserker"
+    },
+    "004": {
+      "string": "«F800»Ѩ12«FA0C»ドラゴン・スレイヤー",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ12 Dragon Slayer"
+    },
+    "005": {
+      "string": "«F800»Ѩ11«FA0C»クレイジャス・アドベンチャラー",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ11 Courageous Adventurer"
+    },
+    "006": {
+      "string": "«F800»Ѩ10«FA0C»マスター・グラディエーター",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ10 Master Gladiator"
+    },
+    "007": {
+      "string": "«F800»Ѩ9«FA0C»ブレイド・マスター",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ8 Blade Master"
+    },
+    "008": {
+      "string": "«F800»Ѩ8«FA0C»ミスティック・ワンダラー",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ9 Mystic Wanderer"
+    },
+    "009": {
+      "string": "«F800»Ѩ7«FA0C»パラディン",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ7 Paladin"
+    },
+    "010": {
+      "string": "«F800»Ѩ6«FA0C»スペクトルベイン",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ6 Spectrebane"
+    },
+    "011": {
+      "string": "«F800»Ѩ5«FA0C»デストロイヤー",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ5 Destroyer"
+    },
+    "012": {
+      "string": "«F800»Ѩ4«FA0C»ベルゼルカー",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ4 Berserker"
+    },
+    "013": {
+      "string": "«F800»Ѩ3«FA0C»デアデビル",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ3 Daredevil"
+    },
+    "014": {
+      "string": "«F800»Ѩ2«FA0C»グラディエーター",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ2 Gladiator"
+    },
+    "015": {
+      "string": "«F800»Ѩ1«FA0C»ノーマル・エージェント",
+      "@@localazy:comment:string": "«FB06»«F800»Ѩ1 Normal Agent"
+    }
+  },
+  "MENU9_2": {
+    "000": {
+      "string": "«FA0C»真実を知る者"
+    },
+    "001": {
+      "string": "«FA0C»魔都の支配者"
+    },
+    "002": {
+      "string": "«FA0C»遺宝の継承者"
+    },
+    "003": {
+      "string": "«FA0C»關の探求者"
+    },
+    "004": {
+      "string": "«FA0C»岩割りの破壊神"
+    },
+    "005": {
+      "string": "«FA0C»雪原の狩人"
+    },
+    "006": {
+      "string": "«FA0C»森林の加盟者"
+    },
+    "007": {
+      "string": "«FA0C»竜殺しの戦士"
+    },
+    "008": {
+      "string": "«FA0C»死の克服者"
+    },
+    "009": {
+      "string": "«FA0C»神殺しの戦士"
+    },
+    "010": {
+      "string": "«FA0C»時の征服者"
+    },
+    "011": {
+      "string": "«FA0C»閃登の戦士"
+    },
+    "012": {
+      "string": "«FA0C»新失界を手にした者"
+    },
+    "013": {
+      "string": "«FA0C»財宝の発見者"
+    },
+    "014": {
+      "string": "«FA0C»力を統べる者"
+    },
+    "015": {
+      "string": "«FA0C»技を統べる者"
+    },
+    "016": {
+      "string": "«FA0C»天運の探索者"
+    },
+    "017": {
+      "string": "«FA0C»至高の冒険者"
+    },
+    "018": {
+      "string": "«FA0C»孤高の武者"
+    },
+    "019": {
+      "string": "«FA0C»誇り高き騎士"
+    },
+    "020": {
+      "string": "«FA0C»血に飢えた討伐者"
+    },
+    "021": {
+      "string": "«FA0C»武術の尊厳者"
+    },
+    "022": {
+      "string": "«FA0C»静かなる暗殺者"
+    },
+    "023": {
+      "string": "«FA0C»偉大なる剣聖"
+    },
+    "024": {
+      "string": "«FA0C»万斬りの剣豪"
+    },
+    "025": {
+      "string": "«FA0C»百戦鍊磨の重戦士"
+    },
+    "026": {
+      "string": "«FA0C»大収を摇るがす者"
+    },
+    "027": {
+      "string": "«FA0C»魔を会う導師"
+    },
+    "028": {
+      "string": "«FA0C»鉄塊を奮う神官"
+    },
+    "029": {
+      "string": "«FA0C»疾風の槍使い"
+    },
+    "030": {
+      "string": "«FA0C»天を左留める狩人"
+    },
+    "031": {
+      "string": "«FA0C»豪腕の格闘家"
+    }
+  }
+}

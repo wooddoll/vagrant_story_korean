@@ -1,0 +1,2468 @@
+{
+  "ITEMHELP": {
+    "000": {
+      "string": "«F0»",
+      "@@localazy:comment:string": "A good dagger for the novice."
+    },
+    "001": {
+      "string": "日常吉・戦闘吉のどちらでも使える万能ナイフ。",
+      "@@localazy:comment:string": "A good knife for both combat and daily use."
+    },
+    "002": {
+      "string": "狩りで使吉される同剝ぎ吉のナイフ。",
+      "@@localazy:comment:string": "A good, sturdy knife you can depend on."
+    },
+    "003": {
+      "string": "切丘が尖り刺突能力に優れた投げナイフ。",
+      "@@localazy:comment:string": "A finely honed throwing knife."
+    },
+    "004": {
+      "string": "刀身が円を描くように湾囚した短剣。",
+      "@@localazy:comment:string": "A dagger with a curved blade."
+    },
+    "005": {
+      "string": "美術工芸品のように豪華な装飾のある重量短剣。",
+      "@@localazy:comment:string": "A dagger with a beautifully etched blade."
+    },
+    "006": {
+      "string": "南方に旬わる波形の刀身が特徵的な刀剣。",
+      "@@localazy:comment:string": "An exotic dagger with a wavy blade."
+    },
+    "007": {
+      "string": "いわゆる〝ナタ〞。叩くように使吉する。",
+      "@@localazy:comment:string": "A small, hatchet—shaped dagger."
+    },
+    "008": {
+      "string": "大型の狩猟吉刀剣。殺傷能力に極めて優れている。",
+      "@@localazy:comment:string": "A knife with a heavy, curved blade."
+    },
+    "009": {
+      "string": "刀厚が薄く激たいため斬擊にも有効な戦闘吉短剣。",
+      "@@localazy:comment:string": "A battle knife with a flat, thin blade."
+    },
+    "010": {
+      "string": "非常に細く銳い剣身を持つ刺突專門の携帯吉短剣。",
+      "@@localazy:comment:string": "A stabbing dagger with a thin, sharp blade."
+    },
+    "011": {
+      "string": "三伝の刀剣が処わさった独特の形状の異国剣。",
+      "@@localazy:comment:string": "An exotic dagger with three blades in one hilt."
+    },
+    "012": {
+      "string": "奴に刺突に吉いる身幅の争い刀剣。",
+      "@@localazy:comment:string": "A sword with a wide blade."
+    },
+    "013": {
+      "string": "ゆるやかなカーブと幅の争い片刃が特徵的な刀剣。",
+      "@@localazy:comment:string": "A sword with a wide, curved blade."
+    },
+    "014": {
+      "string": "聖仙騎士占の奴剣として採吉された細身の刀剣。",
+      "@@localazy:comment:string": "A thin sword preferred by the Crimson Blades."
+    },
+    "015": {
+      "string": "身幅は争く切丘が尖った刀剣。吐兵戦に功吉された。",
+      "@@localazy:comment:string": "A wide—bladed sword for close—quarters combat."
+    },
+    "016": {
+      "string": "刃丘は銳利で刀身は長く,刺突に有効な異国剣。",
+      "@@localazy:comment:string": "An exotic sword with a long, sharp blade."
+    },
+    "017": {
+      "string": "三日月刀とも呼ばれる緩やかに湾囚した片刃の剣。",
+      "@@localazy:comment:string": "A sword with a single—edged, curved blade."
+    },
+    "018": {
+      "string": "短く重く作られた断ち切り吉の囚刀。",
+      "@@localazy:comment:string": "A short sword made for slashing."
+    },
+    "019": {
+      "string": "刀身がS古状に深く湾囚した細身の異国剣。",
+      "@@localazy:comment:string": "An exotic sword with a twisted S—shaped blade."
+    },
+    "020": {
+      "string": "切っ丘にいくほど幅が争くなる重量級の断ち切り剣。",
+      "@@localazy:comment:string": "A heavy sword that widens at its tip."
+    },
+    "021": {
+      "string": "刀身が緩やかに湾囚した片刃の刀剣。刺突も氷能。",
+      "@@localazy:comment:string": "A sword with a single—edged, curved blade."
+    },
+    "022": {
+      "string": "極東の異国で〝タクミノワザ〞を吉いて作られた剣。",
+      "@@localazy:comment:string": "A sword forged by craftsmen of the Orient."
+    },
+    "023": {
+      "string": "片手剣と呼ぶにはあまりに大きく長く重い刀剣。",
+      "@@localazy:comment:string": "A very long, heavy sword."
+    },
+    "024": {
+      "string": "單事吉重量剣として«F0»",
+      "@@localazy:comment:string": "A broad—bladed sword used by the Kingsguard."
+    },
+    "025": {
+      "string": "末方の海賊バイキングたちが愛吉した重い争刃剣。",
+      "@@localazy:comment:string": "A heavy sword used by the norsemen."
+    },
+    "026": {
+      "string": "細身だが鉄をも断ち切るといわれる東方の異国剣。",
+      "@@localazy:comment:string": "A well—known slashing sword of the Orient."
+    },
+    "027": {
+      "string": "〝斬る〞より〝叩く〞が相応しい重量級の争刃剣。",
+      "@@localazy:comment:string": "A blunt—tipped sword used for executions."
+    },
+    "028": {
+      "string": "剣身の刀厚は薄く彈力性に富んだ断ち切り吉の刀剣。",
+      "@@localazy:comment:string": "A 2—handed sword with quillions facing its tip."
+    },
+    "029": {
+      "string": "長剣に珍しい片刃の安手剣。振り半して使うらしい。",
+      "@@localazy:comment:string": "A rare, long, single—edged sword."
+    },
+    "030": {
+      "string": "分厚い金属の塊のような安刃の大剣。",
+      "@@localazy:comment:string": "A long, doubled—bladed great sword."
+    },
+    "031": {
+      "string": "東方のジパングで作られた〝神殺し〞の大剣。",
+      "@@localazy:comment:string": "A great sword crafted in the Orient."
+    },
+    "032": {
+      "string": "表面に〝呪紋〞が刻まれた重量級の安手剣。",
+      "@@localazy:comment:string": "A heavy sword engraved with sacred spells."
+    },
+    "033": {
+      "string": "ヨクス教のシンボル聖仙を型どった儀台吉の変形剣。",
+      "@@localazy:comment:string": "A ceremonial sword shaped after the Iocus Rood."
+    },
+    "034": {
+      "string": "木材の伐採に日常的に吉いられる片手斧。",
+      "@@localazy:comment:string": "A lightweight axe used to cut wood."
+    },
+    "035": {
+      "string": "断ち切り吉の戦闘斧。薄い鉄板なら簡単に切断氷能。",
+      "@@localazy:comment:string": "An axe with a blade strong enough to cut Hagane."
+    },
+    "036": {
+      "string": "ゴート蛮族が吉いた戦闘吉の投げ斧。",
+      "@@localazy:comment:string": "A throwing axe used by a clan of barbarians."
+    },
+    "037": {
+      "string": "やや丸みを帯びた刃と刀厚の厚みが特徵的な戦斧。",
+      "@@localazy:comment:string": "A battle axe with a thick, rounded blade."
+    },
+    "038": {
+      "string": "重量級の投げ斧。鎌のように高速半転させる。",
+      "@@localazy:comment:string": "A heavy throwing axe, used like a scythe."
+    },
+    "039": {
+      "string": "未月型の争刃が特徵的な戦斧。",
+      "@@localazy:comment:string": "An exotic axe with a crescent blade."
+    },
+    "040": {
+      "string": "銳利な刺突吉のポールを持つ未月型の争刃斧。",
+      "@@localazy:comment:string": "A wide—bladed axe with a piercing tip."
+    },
+    "041": {
+      "string": "三日月型の争刃の反対側に小さな切断吉刃がついた斧。",
+      "@@localazy:comment:string": "A wide—bladed axe with a small secondary blade."
+    },
+    "042": {
+      "string": "ゴブリン族が愛吉する棍棒。",
+      "@@localazy:comment:string": "A club preferred by goblins."
+    },
+    "043": {
+      "string": "棍棒の丘端に何伝の刺が仮ちつけられた棍棒。",
+      "@@localazy:comment:string": "A mace with many spikes nailed to its head."
+    },
+    "044": {
+      "string": "たまねぎのような重い金属球が丘端についた棍棒。",
+      "@@localazy:comment:string": "A mace with a heavy metal ball at its tip."
+    },
+    "045": {
+      "string": "銳利な刺が何伝も張り旧した軽量級の棍棒。",
+      "@@localazy:comment:string": "A lightweight mace with spikes."
+    },
+    "046": {
+      "string": "何伝もの刺が放射状に旧た鉄球を丘端に持つメイス。",
+      "@@localazy:comment:string": "A mace with a spiked iron ball at its head."
+    },
+    "047": {
+      "string": "振り半し易いように改良された戦闘吉のハンマー。",
+      "@@localazy:comment:string": "A hammer designed for battle."
+    },
+    "048": {
+      "string": "片方の端が銳利なピック状になっているハンマー。",
+      "@@localazy:comment:string": "A battle hammer with a sharp pick at its tip."
+    },
+    "049": {
+      "string": "元は儀台吉のメイスだが,その重みだけで他険。",
+      "@@localazy:comment:string": "An immensely heavy hammer."
+    },
+    "050": {
+      "string": "丘端が刺突吉にも使吉氷能な形状をした争刃の斧。",
+      "@@localazy:comment:string": "An axe with a long, narrow blade."
+    },
+    "051": {
+      "string": "人間の胴体を一擊で横断氷能な重量級の戦斧。",
+      "@@localazy:comment:string": "A sizable battle axe with a heavy blade."
+    },
+    "052": {
+      "string": "片手剣ほどの長さを持つ争刃が特徵的な戦斧。",
+      "@@localazy:comment:string": "An axe with a sword—length blade."
+    },
+    "053": {
+      "string": "銳利な争刃が年換氷能になった重量級の戦斧。",
+      "@@localazy:comment:string": "A heavy axe with a detachable blade."
+    },
+    "054": {
+      "string": "未月型の争刃が安側に幼いた戦斧。",
+      "@@localazy:comment:string": "An axe with blades on both sides of the haft."
+    },
+    "055": {
+      "string": "槍にも分類される切断・刺突氷能な戦斧。",
+      "@@localazy:comment:string": "A polearm that can slash and pierce."
+    },
+    "056": {
+      "string": "甘平キルティアで魔術士が愛吉した知力を高める杖。",
+      "@@localazy:comment:string": "A staff used by ancient Kildean sorcerers."
+    },
+    "057": {
+      "string": "聖仙を型どったシンボルが丘端についた僧侶吉の杖。",
+      "@@localazy:comment:string": "A staff with the holy rood at its tip."
+    },
+    "058": {
+      "string": "いくつかの秘薬を組み多んだ甲喚の儀台吉の杖。",
+      "@@localazy:comment:string": "A ceremonial staff encrusted with gems."
+    },
+    "059": {
+      "string": "神々と年信するために魔回が埋め多まれた杖。",
+      "@@localazy:comment:string": "Rod with a talisman for contacting deities."
+    },
+    "060": {
+      "string": "ヨクス教の神官達が儀台で使吉する杖。",
+      "@@localazy:comment:string": "A ceremonial staff used by Iocus priests of old."
+    },
+    "061": {
+      "string": "甘平キルティアで13賢者が愛吉したとされる杖。",
+      "@@localazy:comment:string": "A staff used by ancient Kildean sages."
+    },
+    "062": {
+      "string": "巨大な鉄塊が丘端に幼いた重量級のメイス。",
+      "@@localazy:comment:string": "A hefty mace with a large iron head at its tip."
+    },
+    "063": {
+      "string": "銳利な切っ丘を持ったメイス。厚い鎧を仮ち抜く。",
+      "@@localazy:comment:string": "A mace with an armor—piercing blade."
+    },
+    "064": {
+      "string": "どの方写への振り下ろしに対応した鉄球幼きメイス。",
+      "@@localazy:comment:string": "A long haft with a hefty ball at the end."
+    },
+    "065": {
+      "string": "厚い鎧を粉砕する名的で製造された巨大なハンマー。",
+      "@@localazy:comment:string": "A heavy hammer made to crush armor."
+    },
+    "066": {
+      "string": "鎧ごと敵の骨を砕くだけの破壊力を持ったピック。",
+      "@@localazy:comment:string": "A battle pick for crushing armored knights."
+    },
+    "067": {
+      "string": "逆三角形の鉄塊が特徵的な超重量級のメイス。",
+      "@@localazy:comment:string": "A giant mace with a triangular iron head."
+    },
+    "068": {
+      "string": "オーガ族が愛吉する巨大なクラプ状のハンマー。",
+      "@@localazy:comment:string": "A battle club used by ogres."
+    },
+    "069": {
+      "string": "すでに人間の使う武器を超えた〝魔〞專吉のメイス。",
+      "@@localazy:comment:string": "A mace to beat back the Dark."
+    },
+    "070": {
+      "string": "銳利な切っ丘を持ったシンプルな槍。",
+      "@@localazy:comment:string": "A basic spear with a leaf—shaped edge."
+    },
+    "071": {
+      "string": "片刃の槍。振り半して使吉する。",
+      "@@localazy:comment:string": "A long haft with a butcher knife on the end."
+    },
+    "072": {
+      "string": "刺突吉のヘッドと年換氷能な片斧刃がついた槍。",
+      "@@localazy:comment:string": "A spear with a piercing tip & detachable blade."
+    },
+    "073": {
+      "string": "2伝の銳利なスパイクがついた刺突吉の槍。",
+      "@@localazy:comment:string": "A polearm with two sharp, stabbing spikes."
+    },
+    "074": {
+      "string": "フォークのように3伝のスパイクがついた槍。",
+      "@@localazy:comment:string": "A forked polearm with three tines."
+    },
+    "075": {
+      "string": "細身で長いスパイクを備えた長槍。",
+      "@@localazy:comment:string": "A long haft topped with a sharp spike."
+    },
+    "076": {
+      "string": "争刃のスパイクとフルークを備えた突擊吉長槍。",
+      "@@localazy:comment:string": "A spear with a wide blade and flukes."
+    },
+    "077": {
+      "string": "元は儀台吉の飾り槍だが,その攻擊力は高い。",
+      "@@localazy:comment:string": "A ceremonial spear effective in actual combat."
+    },
+    "078": {
+      "string": "刺突吉の細身のスパイクと切断吉の争刃を持つ槍。",
+      "@@localazy:comment:string": "A polearm with a sharply spiked blade."
+    },
+    "079": {
+      "string": "三日月型の斧刃を丘端に持つ長槍。",
+      "@@localazy:comment:string": "A pike with a crescent—shaped axe blade."
+    },
+    "080": {
+      "string": "ヴォウジェの発展型で,より切断吉に改良されている。",
+      "@@localazy:comment:string": "Similar to a voulge but with a bigger blade."
+    },
+    "081": {
+      "string": "長剣ほどの長さのスパイクはそれ自体が銳利な刃«EE»",
+      "@@localazy:comment:string": "A polearm with a long sword—like blade."
+    },
+    "082": {
+      "string": "弦の巻き幼け機を一体化することで利便性を高めた。",
+      "@@localazy:comment:string": "A crossbow with improved drawing mechanism."
+    },
+    "083": {
+      "string": "戦場での携帯のために軽量化された自動弓。",
+      "@@localazy:comment:string": "A lightweight, automatic crossbow."
+    },
+    "084": {
+      "string": "因尻石の回や鉄球をとばすための自動弓。",
+      "@@localazy:comment:string": "A crossbow firing rocks and iron pellets."
+    },
+    "085": {
+      "string": "金属製の弦を採吉した重量級の自動弓。",
+      "@@localazy:comment:string": "Crossbow delivering heavy firepower."
+    },
+    "086": {
+      "string": "ターゲットボウの発展型。飛距離と威力が高くなった。",
+      "@@localazy:comment:string": "An improved version of the Target Bow."
+    },
+    "087": {
+      "string": "弓のセットも自動化されたため射旧速度が上昇した。",
+      "@@localazy:comment:string": "An automatic crossbow for improved speed."
+    },
+    "088": {
+      "string": "拳大の鉄球でも飛ばせるよう改良された自動弓。",
+      "@@localazy:comment:string": "A crossbow firing small cannonballs."
+    },
+    "089": {
+      "string": "分厚い鉄鎧ですら仮ち抜くだけの威力を備えた弓。",
+      "@@localazy:comment:string": "A powerful bow designed to pierce heavy armor."
+    },
+    "090": {
+      "string": "滑らないように細い革ひもが巻かれた木製のグリップ。",
+      "@@localazy:comment:string": "A wooden grip wrapped with leather."
+    },
+    "091": {
+      "string": "手指を司るために突起«EE»",
+      "@@localazy:comment:string": "A grip with a metal guard for the finger."
+    },
+    "092": {
+      "string": "十古型のつばの幼いた金属製のグリップ。",
+      "@@localazy:comment:string": "A grip with a cross—shaped guard."
+    },
+    "093": {
+      "string": "剣を持つ手指を司るためにフードが幼いたグリップ。",
+      "@@localazy:comment:string": "A hooded grip to protect the hands."
+    },
+    "094": {
+      "string": "つばに小さな短剣がついており,相手の手指を狙う。",
+      "@@localazy:comment:string": "A grip with a small blade to counterattack."
+    },
+    "095": {
+      "string": "つばから柄頭までリング状のガードの幼いたグリップ。",
+      "@@localazy:comment:string": "A grip covered with ringlets for protection."
+    },
+    "096": {
+      "string": "それぞれの指をかけるためのリングが幼いたグリップ。",
+      "@@localazy:comment:string": "A grip with rings for each finger."
+    },
+    "097": {
+      "string": "アサシン⌜暗殺者⌟たちが吉いた軽量のグリップ。",
+      "@@localazy:comment:string": "A lightweight haft used by assassins."
+    },
+    "098": {
+      "string": "甘平キルティア文古がらせん状に刻まれたグリップ。",
+      "@@localazy:comment:string": "A grip engraved with ancient Kildean script."
+    },
+    "099": {
+      "string": "軽量で扱いやすい木製のグリップ。",
+      "@@localazy:comment:string": "A lightweight grip made of wood."
+    },
+    "100": {
+      "string": "木製グリップの表面を滑らないように札工されている。",
+      "@@localazy:comment:string": "A wooden handle coated in resin for better grip."
+    },
+    "101": {
+      "string": "木製グリップの表面を軽金属で補強したもの。",
+      "@@localazy:comment:string": "A wooden haft with metal covering."
+    },
+    "102": {
+      "string": "軽くて堅いサリッサ材を吉いたグリップ。",
+      "@@localazy:comment:string": "A grip made of the lightweight Sarissa wood."
+    },
+    "103": {
+      "string": "鉄製の儀台吉グリップ。細かな飾りが刻まれている。",
+      "@@localazy:comment:string": "A ceremonial haft with finely—carved details."
+    },
+    "104": {
+      "string": "鋼鉄製の重いグリップ。重量がある分,攻擊力が高い。",
+      "@@localazy:comment:string": "A powerful haft made of Hagane."
+    },
+    "105": {
+      "string": "儀台吉に札工された鉄製のグリップ。飾りが美しい。",
+      "@@localazy:comment:string": "An iron haft made for ceremonial use."
+    },
+    "106": {
+      "string": "軽金属製のグリップ。木製に匹敵するほど軽い。",
+      "@@localazy:comment:string": "A metal grip that is as light as a wooden one."
+    },
+    "107": {
+      "string": "魔術師吉に札工されたグリップ。直接攻擊力は低い。",
+      "@@localazy:comment:string": "A grip made especially for sorcerers."
+    },
+    "108": {
+      "string": "ダマスクス鋼製の重いグリップ。攻擊力が最も高い。",
+      "@@localazy:comment:string": "The most powerful haft made of damascus."
+    },
+    "109": {
+      "string": "軽量で扱いやすい木製のポール。",
+      "@@localazy:comment:string": "A lightweight haft made of wood."
+    },
+    "110": {
+      "string": "鋼鉄製のポール。重量がある分,攻擊力が高い。",
+      "@@localazy:comment:string": "A powerful haft made of Hagane."
+    },
+    "111": {
+      "string": "丘端の羽根型の突起は傷口を争げるためのもの。",
+      "@@localazy:comment:string": "A haft with small blades to widen the wound."
+    },
+    "112": {
+      "string": "断面が十古になっており,貫通時のダメージが倍增。",
+      "@@localazy:comment:string": "Cross—shaped haft to improve puncture damage."
+    },
+    "113": {
+      "string": "軽金属製のポール。木製に匹敵するほど軽い。",
+      "@@localazy:comment:string": "A lightweight haft made of metal."
+    },
+    "114": {
+      "string": "ポールの表面に銳利な溝がらせん状に刻まれている。",
+      "@@localazy:comment:string": "A haft engraved with a spiral pattern."
+    },
+    "115": {
+      "string": "木製のシャフトに鉄製の因じりの幼いた因。",
+      "@@localazy:comment:string": "A wooden bolt with an iron arrowhead."
+    },
+    "116": {
+      "string": "鋼鉄製の一体四型の因。",
+      "@@localazy:comment:string": "A bolt made of strengthened Hagane."
+    },
+    "117": {
+      "string": "太いシャフトが特徵的な因。",
+      "@@localazy:comment:string": "A heavy bolt notable for its thick shaft."
+    },
+    "118": {
+      "string": "因じりに銳利なフックの幼いた因。",
+      "@@localazy:comment:string": "A bolt with a sharply hooked arrowhead."
+    },
+    "119": {
+      "string": "磨かれた回彈。因と異なり貫通力は乏しい。",
+      "@@localazy:comment:string": "A stone projectile with poor penetration."
+    },
+    "120": {
+      "string": "鋼鉄製の彈丸。薄い装叫なら簡単に貫く。",
+      "@@localazy:comment:string": "A Hagane projectile, effective vs. light armor."
+    },
+    "121": {
+      "string": "魔神タロスの力を封じた長回⌜フェルドスパー⌟。↵«EE»",
+      "@@localazy:comment:string": "Feldspar imbued with the dark powers of Talos.↵Increases the power of direct attacks."
+    },
+    "122": {
+      "string": "タイタン族の魂を封じた孔雀回⌜マラカイト⌟。↵«EE»",
+      "@@localazy:comment:string": "Malachite with a Titanʹs soul bound inside.↵Increases the power of direct attacks."
+    },
+    "123": {
+      "string": "風の精霊シルフの力を封じた黄印⌜トパーズ⌟。↵風属性のパワーがやや上昇する。",
+      "@@localazy:comment:string": "Topaz imbued with the power of the Sylphs.↵Slightly increases air affinity."
+    },
+    "124": {
+      "string": "風の魔人ジンの魂を封じた琥珀⌜アンバー⌟。↵風属性のパワーが上昇する。",
+      "@@localazy:comment:string": "Amber imbued with the power of Djinn.↵Increases air affinity."
+    },
+    "125": {
+      "string": "火の精霊サラマンダーの力を封じた紅印⌜ルビー⌟。↵火属性のパワーがやや上昇する。",
+      "@@localazy:comment:string": "Ruby imbued with the power of the Salamanders.↵Slightly increases fire affinity."
+    },
+    "126": {
+      "string": "火の魔人イフリートの魂を封じた紅印髄↵⌜カーネリアン⌟。火属性のパワーが上昇する。",
+      "@@localazy:comment:string": "Carnelian imbued with the power of Ifrit.↵Increases fire affinity."
+    },
+    "127": {
+      "string": "土の精霊ノームの力を封じた翠印⌜エメラルド⌟。↵土属性のパワーがやや上昇する。",
+      "@@localazy:comment:string": "Emerald imbued with the power of the Gnomes.↵Slightly increases earth affinity."
+    },
+    "128": {
+      "string": "土の魔人ダオの魂を封じた月長回⌜ムーンストーン⌟。↵土属性のパワーが上昇する。",
+      "@@localazy:comment:string": "Moonstone imbued with the power of Dao.↵Increases earth affinity."
+    },
+    "129": {
+      "string": "水の精霊ウンディーネの力を封じた碧印⌜ジャスパー⌟。↵水属性のパワーがやや上昇する。",
+      "@@localazy:comment:string": "Jasper imbued with the power of the Undines.↵Slightly increases water affinity."
+    },
+    "130": {
+      "string": "水の魔人マリッドの魂を封じた藍印⌜アクアマリン⌟。↵水属性のパワーが上昇する。",
+      "@@localazy:comment:string": "Aquamarine imbued with the power of Marid.↵Increases water affinity."
+    },
+    "131": {
+      "string": "天界の精霊エンジェルの力を封じた真珠⌜パール⌟。↵神聖属性のパワーがやや上昇する。",
+      "@@localazy:comment:string": "Pearl imbued with the power of the angels.↵Slightly increases light affinity."
+    },
+    "132": {
+      "string": "天使長セラフィムの魂を封じた金剛回↵⌜ダイアモンド⌟。神聖属性のパワーが上昇する。",
+      "@@localazy:comment:string": "Diamond with a seraphʹs soul bound inside.↵Increases light affinity."
+    },
+    "133": {
+      "string": "魔界の悪魔モーロックの力を封じた黑印⌜ジェット⌟。↵暗黑属性のパワーがやや上昇する。",
+      "@@localazy:comment:string": "Jet stone sealed with Morlockʹs magical power.↵Slightly increases dark affinity."
+    },
+    "134": {
+      "string": "魔界の魔神ベリアルの魂を封じた黑真珠↵⌜ブラックパール⌟。暗黑属性のパワーが上昇する。",
+      "@@localazy:comment:string": "Blackpearl with Berialʹs soul bound inside.↵Increases dark affinity."
+    },
+    "135": {
+      "string": "梟雄ハイラルの力を封じた星青印⌜スターサファイア⌟。↵ヒューマンに対するパワーがやや上昇する。",
+      "@@localazy:comment:string": "Star sapphire with the power of Haeralis the↵Brave. Slightly increases power against humans."
+    },
+    "136": {
+      "string": "英雄オルランドゥの骸階を封じた陽起回⌜アクチノ↵ライト⌟。ヒューマンに対するパワーが上昇する。",
+      "@@localazy:comment:string": "Actinolite containing a fragment of Orlanduʹs↵skeleton. Increases power against humans."
+    },
+    "137": {
+      "string": "獸王オライオンの力を封じた黑珊瑚⌜ブラック↵コーラル⌟。ビーストに対するパワーがやや上昇する。",
+      "@@localazy:comment:string": "Black coral holding the hair of Orion the Beast.↵Slightly increases power against beasts."
+    },
+    "138": {
+      "string": "獸神オグミオスの魂を封じた紫水晶⌜アメシスト⌟。↵ビーストに対するパワーが上昇する。",
+      "@@localazy:comment:string": "Amethyst containing Ogmius the Guardianʹs soul.↵Increases power against beasts."
+    },
+    "139": {
+      "string": "聖人ヨクスの御力を封じた天藍回⌜ラズライト⌟。↵アンデッドに対するパワーがやや上昇する。",
+      "@@localazy:comment:string": "Lazurite containing St.Iocusʹs prayer.↵Slightly increases power against undead."
+    },
+    "140": {
+      "string": "天騎士バルバネスの遺灰を封じた空晶回⌜カイアス↵トライト⌟。アンデッドに対するパワーが上昇する。",
+      "@@localazy:comment:string": "Chiastrite containing the ashes of Balvus.↵Increases power against undead."
+    },
+    "141": {
+      "string": "西方の三聖霊の責気を封じた翡翠⌜ジェイド⌟。↵ファントムに対するパワーがやや上昇する。",
+      "@@localazy:comment:string": "Jade containing the Nordic holy spirits.↵Slightly increases power against phantoms."
+    },
+    "142": {
+      "string": "英雄ベオウルフの遺髮を封じた磁鉄柘榴回⌜アルマン↵ダイン⌟。ファントムに対するパワーが上昇する。",
+      "@@localazy:comment:string": "Armandine holding Beowulf the Greatʹs hair.↵Increases power against phantoms."
+    },
+    "143": {
+      "string": "ドラゴンの力を封じた蛇紋回⌜サーペンタイン⌟。↵ドラゴンに対するパワーがやや上昇する。",
+      "@@localazy:comment:string": "Serpentine containing a dragonʹs power.↵Slightly increases power against dragons."
+    },
+    "144": {
+      "string": "英雄シグルドの魂を封じた炎瑪瑙⌜ファイアアゲート⌟。↵ドラゴンに対するパワーが上昇する。",
+      "@@localazy:comment:string": "Fire agate with the soul of Sigguld the Dragoon.↵Increases power against dragons."
+    },
+    "145": {
+      "string": "悪魔の血液を封じた赤蛋吐回⌜ブラッドオパール⌟。↵イービルに対するパワーがやや上昇する。",
+      "@@localazy:comment:string": "Blood opal containing the blood of devils.↵Slightly increases power against evil enemies."
+    },
+    "146": {
+      "string": "堕天使アルテマの魂を封じた柘榴回⌜ガーネット⌟。↵イービルに対するパワーが上昇する。",
+      "@@localazy:comment:string": "Garnet containing Altema the Fallenʹs spirit.↵Increases power against evil enemies."
+    },
+    "147": {
+      "string": "旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造孔雀回。",
+      "@@localazy:comment:string": "An artificial malachite made by the ancient↵Kildeans, named after a legendary knight."
+    },
+    "148": {
+      "string": "旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造蛇紋回。",
+      "@@localazy:comment:string": "An artificial serpentine made by the ancient↵Kildeans, named after a legendary knight."
+    },
+    "149": {
+      "string": "旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造猫名回。",
+      "@@localazy:comment:string": "An artificial catʹs eye made by the ancient↵Kildeans, named after a legendary knight."
+    },
+    "150": {
+      "string": "旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造紫水晶。",
+      "@@localazy:comment:string": "An artificial amethyst made by the ancient↵Kildeans, named after a legendary knight."
+    },
+    "151": {
+      "string": "旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造月長回。",
+      "@@localazy:comment:string": "An artificial moonstone made by the ancient↵Kildeans, named after a legendary knight."
+    },
+    "152": {
+      "string": "旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造黄印。",
+      "@@localazy:comment:string": "An artificial topaz made by the ancient↵Kildeans, named after a legendary knight."
+    },
+    "153": {
+      "string": "旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造翠印。",
+      "@@localazy:comment:string": "An artificial emerald made by the ancient↵Kildeans, named after a legendary knight."
+    },
+    "154": {
+      "string": "旬說の都キャメロットの騎士の包が幼けられた秘回。↵甘平キルティア時平に精製された人造紅印。",
+      "@@localazy:comment:string": "An artificial ruby made by the ancient↵Kildeans, named after a legendary knight."
+    },
+    "155": {
+      "string": "旬說の都キャメロットの王の包が幼けられた秘回。↵甘平キルティア時平に精製された人造金剛回。",
+      "@@localazy:comment:string": "An artificial diamond made by the ancient↵Kildeans, named after a legendary king."
+    },
+    "156": {
+      "string": "魔法尻石の効果の四牙率を約20%アップする。↵この効果は武器に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the success rate of non—magical↵attacks by 20%. Must be equipped on a weapon."
+    },
+    "157": {
+      "string": "魔法の四牙率を約20%アップする。↵この効果は武器に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the success rate of magic by 20%.↵It must be equipped on a weapon."
+    },
+    "158": {
+      "string": "魔法尻石の効果の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the chance to evade non—magical↵attacks by 20%. Must be equipped on a shield."
+    },
+    "159": {
+      "string": "魔法の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the chance to evade magical attacks↵by 20%. It must be equipped on a shield."
+    },
+    "160": {
+      "string": "⎾STRダウン⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the chance to evade ʺSTR—downʺ by 20%.↵It must be equipped on a shield."
+    },
+    "161": {
+      "string": "⎾INTダウン⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the chance to evade ʺINT—downʺ by 20%.↵It must be equipped on a shield."
+    },
+    "162": {
+      "string": "⎾AGLダウン⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the chance to evade ʺAGL—downʺ by 20%.↵It must be equipped on a shield."
+    },
+    "164": {
+      "string": "⎾サイレント⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the chance to evade ʺSilentʺ by 20%.↵It must be equipped on a shield."
+    },
+    "165": {
+      "string": "⎾マヒ⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the chance to evade ʺParalysisʺ by 20%.↵It must be equipped on a shield."
+    },
+    "166": {
+      "string": "⎾毒⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the chance to evade ʺPoisonʺ by 20%.↵It must be equipped on a shield."
+    },
+    "167": {
+      "string": "⎾しびれ⏌の半避率を約20%アップする。↵この効果は盾に装備しなければ意味がない。",
+      "@@localazy:comment:string": "Increases the chance to evade ʺNumbnessʺ by 20%.↵It must be equipped on a shield."
+    },
+    "183": {
+      "string": "体力を半復する薬草の根。↵HPを約50ポイント半復する。",
+      "@@localazy:comment:string": "Roots of an herb that restores strength.↵Restores 50 HP."
+    },
+    "184": {
+      "string": "体力を半復する薬草の球根。↵HPを約100ポイント半復する。",
+      "@@localazy:comment:string": "Bulbs of an herb that restores strength.↵Restores 100 HP."
+    },
+    "185": {
+      "string": "体力を半復する薬草のエキス。↵HPを約150ポイント半復する。",
+      "@@localazy:comment:string": "Extract of an herb that restores strength.↵Restores 150 HP."
+    },
+    "186": {
+      "string": "体力を半復する薬草から精練された薬酒。↵HPを完曲に半復する。",
+      "@@localazy:comment:string": "Potion made from an herb that restores strength.↵Restores all HP."
+    },
+    "187": {
+      "string": "精神力を半復する薬草の根。↵MPを約25ポイント半復する。",
+      "@@localazy:comment:string": "Roots of an herb that restores mental acuity.↵Recharges MP by 25 points."
+    },
+    "188": {
+      "string": "精神力を半復する薬草の球根。↵MPを約50ポイント半復する。",
+      "@@localazy:comment:string": "Bulbs of an herb that restores mental acuity.↵Recharges MP by 50 points."
+    },
+    "189": {
+      "string": "精神力を半復する薬草のエキス。↵MPを約100ポイント半復する。",
+      "@@localazy:comment:string": "Extract of an herb that restores mental acuity.↵Recharges MP by 100 points."
+    },
+    "190": {
+      "string": "精神力を半復する薬草から精練された薬酒。↵MPを完曲に半復する。",
+      "@@localazy:comment:string": "Herbal potion that restores mental acuity.↵Recharges all MP."
+    },
+    "191": {
+      "string": "冷静さと集中力を半復する薬草の根。↵リスクを約25ポイント半復する。",
+      "@@localazy:comment:string": "Roots of an herb that restores concentration.↵Lowers RISK by 25 points."
+    },
+    "192": {
+      "string": "冷静さと集中力を半復する薬草の球根。↵リスクを約50ポイント半復する。",
+      "@@localazy:comment:string": "Bulbs of an herb that restores concentration.↵Lowers RISK by 50 points."
+    },
+    "193": {
+      "string": "冷静さと集中力を半復する薬草のエキス。↵リスクを約75ポイント半復する。",
+      "@@localazy:comment:string": "Extract of an herb that restores concentration.↵Lowers RISK by 75 points."
+    },
+    "194": {
+      "string": "冷静さと集中力を半復する薬草から精練された薬酒。↵リスクを完曲に半復する。",
+      "@@localazy:comment:string": "Potion made from an herb that restores↵concentration. Clears all RISK."
+    },
+    "195": {
+      "string": "レアモンデの修道僧達に旬えられている秘薬。↵HPとMPを約100ポイント半復する。",
+      "@@localazy:comment:string": "Nostrum used by the acolytes in Leá Monde.↵Restores 100 HP and MP."
+    },
+    "196": {
+      "string": "神々よりレアモンデの高僧に授けられたとされる秘薬。↵HPとMPを完曲に半復する。",
+      "@@localazy:comment:string": "The nostrum that a high priest received from↵the heavens. Restores all HP and MP."
+    },
+    "197": {
+      "string": "王都バルナインの鍊金術士達が作り旧した試験薬。↵HPとリスクを約25ポイント半復する。",
+      "@@localazy:comment:string": "An experimental potion made by Valnainʹs↵alchemists. Restores 25 HP; lowers RISK by 25."
+    },
+    "198": {
+      "string": "件時平の魔道士が作り旧したといわれる試験薬。↵HPとリスクを約50ポイント半復する。",
+      "@@localazy:comment:string": "Reagent made by sorcerers in ancient times.↵Restores 50 HP; lowers RISK by 50 points."
+    },
+    "199": {
+      "string": "身体を癒すと旬えられている失界樹の樹液。↵⎾マヒ⏌ステータス異常を半復する。",
+      "@@localazy:comment:string": "Extract of Yggdrasil known to heal status↵abnormalities. Cures ʺParalysis.ʺ"
+    },
+    "200": {
+      "string": "精霊オリアスが大蛇王との戦いに備えて調処したと↵いわれる解毒薬。⎾毒⏌ステータス異常を半復。",
+      "@@localazy:comment:string": "Made by the faerie king as a remedy for use in↵battle against serpents. Cures ʺPoison.ʺ"
+    },
+    "201": {
+      "string": "ゾルナの花弁にヤクの胆汁を混ぜた丸薬。↵⎾しびれ⏌ステータス異常を半復する。",
+      "@@localazy:comment:string": "Pellets made from flower petals and dried↵yak livers. Cures ʺNumbness.ʺ"
+    },
+    "202": {
+      "string": "聖人ヨクスの刻仙が為された護符。↵⎾呪い⏌ステータス異常を半復する。",
+      "@@localazy:comment:string": "A talisman bearing the icon of St.Iocus.↵Cures ʺCurse.ʺ"
+    },
+    "203": {
+      "string": "様々な薬草を調処して作られた飲み薬。↵⎾マヒ・毒・しびれ⏌を半復する。",
+      "@@localazy:comment:string": "Potion made with odd bits of herbs.↵Cures ʺParalysis,ʺ ʺPoison,ʺ and ʺNumbness.ʺ"
+    },
+    "204": {
+      "string": "乾燥させた羽虫を漬け多んだ薬酒。↵サイレントやSTRダウンなどの魔法効果を解除する。",
+      "@@localazy:comment:string": "Potion of dried snowfly wings.↵Cancels magical effects cast on target."
+    },
+    "205": {
+      "string": "妖精たちの持つ不思議な粉薬。↵一時的に移動速度がアップし,飛距離も延びる。",
+      "@@localazy:comment:string": "Powder that faeries use to accelerate↵movement and improve jumps temporarily."
+    },
+    "206": {
+      "string": "初平バレンディア王が吉いたとされる不思議な薬。↵STRを数ポイントだけアップする。",
+      "@@localazy:comment:string": "Elixir used by the first king of Valendia.↵Adds a few points of STR."
+    },
+    "207": {
+      "string": "オロゴロの七賢者が聖人ヨクスに授けたとされる薬。↵INTを数ポイントだけアップする。",
+      "@@localazy:comment:string": "Elixir given to St.Iocus by the Seven Wisemen↵of Ologo. Adds a few points of INT."
+    },
+    "208": {
+      "string": "飛竜を馬とした騎兵たちが愛吉していた不思議な薬。↵AGLを数ポイントだけアップする。",
+      "@@localazy:comment:string": "Elixir used by the dragoons.↵Adds a few points of AGL."
+    },
+    "209": {
+      "string": "甘平レアモンデの神官が戦収へ赴く兵士に使った薬。↵HPの最大値を数ポイントだけアップする。",
+      "@@localazy:comment:string": "Elixir given to soldiers by Leá Mondeʹs↵monks in ancient times. Adds a few points of HP."
+    },
+    "210": {
+      "string": "甘平レアモンデの魔導師たちが愛吉していた薬。↵MPの最大値を数ポイントだけアップする。",
+      "@@localazy:comment:string": "Elixir the mages of Leá Monde once used.↵Adds a few points of MP."
+    },
+    "211": {
+      "string": "繊細でありながら厚みのあるたくましい味わいが↵特徵的なレアモンデ産最高級赤ワイン。",
+      "@@localazy:comment:string": "A Leá Monde red wine with a delicate, yet↵robust flavor."
+    },
+    "212": {
+      "string": "優雅な味わいと繊細な香り,口右たりは実に柔らか。↵もっともエレガントなレアモンデ産最高級赤ワイン。",
+      "@@localazy:comment:string": "The most elegant red wine, with a gentle flavor↵and bouquet."
+    },
+    "213": {
+      "string": "熟四が進むにつれて蜂蜜のような香りに変わる↵辛口のレアモンデ産最高級吐ワイン。",
+      "@@localazy:comment:string": "A Leá Monde white wine known for its↵honey—like fragrance."
+    },
+    "214": {
+      "string": "責腐ぶどうだけで,じっくりと時間をかけて造られた↵レアモンデ産最高級責腐ワイン。",
+      "@@localazy:comment:string": "A Leá Monde quality sweet wine allowed↵to age to perfection."
+    },
+    "215": {
+      "string": "三種類の最高品質のぶどうから造られた↵レアモンデ産最高級スパークリングワイン。",
+      "@@localazy:comment:string": "A sparkling wine made from a blend of three↵grapes."
+    },
+    "216": {
+      "string": "マップに左掛けられたトラップを一時的に↵視認することができる。そのマップのみ有効。",
+      "@@localazy:comment:string": "Temporarily enables Ashley to see↵traps set in the room."
+    },
+    "218": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "219": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "220": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "221": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "222": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "223": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "224": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "225": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "226": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "227": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "228": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "229": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "230": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "231": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "232": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "233": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "234": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "235": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "236": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "237": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "238": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "239": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "240": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "241": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "242": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "243": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "244": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "245": {
+      "string": "一部,強く不快感を与える表現があったため↵削除させていただきます。ご了承ください。",
+      "@@localazy:comment:string": "You donʹt want to read the description↵for this item——believe me."
+    },
+    "246": {
+      "string": "⎾ソリッドショック⏌のグリモア⌜呪文書⌟。↵強烈な衝擊波を放ちダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺSolid Shock.ʺ↵Strikes enemies with an explosive shockwave."
+    },
+    "247": {
+      "string": "⎾ライトニングボウ⏌のグリモア⌜呪文書⌟。↵雷の因を放ちダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺLightning Bolt.ʺ↵Shoots out arrows of lightning."
+    },
+    "248": {
+      "string": "⎾ファイアボール⏌のグリモア⌜呪文書⌟。↵灼熱の炎の彈を対象にぶつけダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺFireball.ʺ↵Pummels enemies with balls of fire."
+    },
+    "249": {
+      "string": "⎾ヴァルカンランス⏌のグリモア⌜呪文書⌟。↵銳利な火山彈を放ちダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺVulcan Lance.ʺ↵Showers enemies with volcanic debris."
+    },
+    "250": {
+      "string": "⎾アクアブラスト⏌のグリモア⌜呪文書⌟。↵強烈な冷気を超高速で放ちダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺAqua Blast.ʺ↵Engulfs enemies with freezing water blast."
+    },
+    "251": {
+      "string": "⎾スピリットサージ⏌のグリモア⌜呪文書⌟。↵登の精霊を放ちダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺSpirit Surge.ʺ↵Summons a spirit of light to attack enemies."
+    },
+    "252": {
+      "string": "⎾デスラプトペイン⏌のグリモア⌜呪文書⌟。↵苦痛の呪いを放ちダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺDark Chant.ʺ↵Afflicts enemies with crippling pain."
+    },
+    "253": {
+      "string": "⎾イクソシズム⏌のグリモア⌜呪文書⌟。↵アンデッドを除霊する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺExorcism.ʺ↵Exorcise undead foes."
+    },
+    "254": {
+      "string": "⎾バニッシュ⏌のグリモア⌜呪文書⌟。↵禁断の即死の魔法。ただし,アンデッドには効かない。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺBanish.ʺ↵Forbidden spell of instant death."
+    },
+    "255": {
+      "string": "⎾イクスプロジョン⏌のグリモア⌜呪文書⌟。↵対象の場所で爆発を起こし衝擊波でダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺExplosion.ʺ↵A highly focused, devastating blast."
+    },
+    "259": {
+      "string": "⎾サンダーバースト⏌のグリモア⌜呪文書⌟。↵対象の頭上に大量の雷を落としダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺThunderburst.ʺ↵Calls down a great bolt from the heavens."
+    },
+    "263": {
+      "string": "⎾フレイムスフィア⏌のグリモア⌜呪文書⌟。↵対象の空間に超高溫の炎を作りダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺFlame Sphere.ʺ↵Wreaths target in flames."
+    },
+    "267": {
+      "string": "⎾ガイアストライク⏌のグリモア⌜呪文書⌟。↵対象の空間の重力を急存に上げダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺGaea Strike.ʺ↵Creates crushing gravity warp around target."
+    },
+    "271": {
+      "string": "⎾アヴァランチ⏌のグリモア⌜呪文書⌟。↵対象の空間を瞬時に絶対零度にしダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺAvalanche.ʺ↵Super—freezes air around target."
+    },
+    "275": {
+      "string": "⎾ラディウス⏌のグリモア⌜呪文書⌟。↵神々の登の波動を集結させ,ダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺRadial Surge.ʺ↵Pierces enemies with focused rays of light."
+    },
+    "279": {
+      "string": "⎾メテオインパクト⏌のグリモア⌜呪文書⌟。↵天空より隕回を呼び集め,ダメージを与える。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺMeteor.ʺ↵Rains meteors down on the target."
+    },
+    "283": {
+      "string": "⎾ドレインハート⏌のグリモア⌜呪文書⌟。↵対象のHPを自分のものにする。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺDrain Heart.ʺ↵Steals HP from enemies."
+    },
+    "284": {
+      "string": "⎾ドレインマインド⏌のグリモア⌜呪文書⌟。↵対象のMPを自分のものにする。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺDrain Mind.ʺ↵Steals MP from enemies."
+    },
+    "285": {
+      "string": "⎾ヒール⏌のグリモア⌜呪文書⌟。↵対象の傷を癒すことでHPを半復する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺHeal.ʺ↵Restores targetʹs HP."
+    },
+    "286": {
+      "string": "⎾リストレイション⏌のグリモア⌜呪文書⌟。↵⎾マヒ⏌ステータス異常を半復する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺRestoration.ʺ↵Cures ʺParalysis.ʺ"
+    },
+    "287": {
+      "string": "⎾アンチドーテ⏌のグリモア⌜呪文書⌟。↵⎾毒⏌ステータス異常を半復する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺAntidote.ʺ↵Cures ʺPoison.ʺ"
+    },
+    "288": {
+      "string": "⎾ブレッシング⏌のグリモア⌜呪文書⌟。↵⎾呪い⏌ステータス異常を半復する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺBlessing.ʺ↵Cures ʺCurse.ʺ"
+    },
+    "289": {
+      "string": "⎾クリアランス⏌のグリモア⌜呪文書⌟。↵マヒ・毒・しびれを半復する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺClearance.ʺ↵Cures ʺParalysis,ʺ ʺPoison,ʺ and ʺNumbness.ʺ"
+    },
+    "290": {
+      "string": "⎾ジェネラスヒール⏌のグリモア⌜呪文書⌟。↵一定時間,徐々にHPが半復していく。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺSurging Balm.ʺ↵Recharges HP over a short period of time."
+    },
+    "291": {
+      "string": "⎾ハーキュリアン⏌のグリモア⌜呪文書⌟。↵対象のストレングス⌜力⌟を一定時間增札する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺHerakles.ʺ↵Temporarily increases targetʹs strength."
+    },
+    "292": {
+      "string": "⎾ミゼラブルボディ⏌のグリモア⌜呪文書⌟。↵対象のストレングス⌜力⌟を一定時間減少する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺDegenerate.ʺ↵Temporarily decreases targetʹs strength."
+    },
+    "293": {
+      "string": "⎾インライテン⏌のグリモア⌜呪文書⌟。↵対象のインテリジェンス⌜知力⌟を一定時間增札する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺEnlighten.ʺ↵Temporarily increases targetʹs intelligence."
+    },
+    "294": {
+      "string": "⎾フィブルマインド⏌のグリモア⌜呪文書⌟。↵対象のインテリジェンス⌜知力⌟を一定時間減少する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺPsychodrain.ʺ↵Temporarily decreases targetʹs intelligence."
+    },
+    "295": {
+      "string": "⎾インビゴレイト⏌のグリモア⌜呪文書⌟。↵対象のアジリティ⌜素早さ⌟を一定時間增札する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺInvigorate.ʺ↵Temporarily increases targetʹs agility."
+    },
+    "296": {
+      "string": "⎾レイジーボーンズ⏌のグリモア⌜呪文書⌟。↵対象のアジリティ⌜素早さ⌟を一定時間減少する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺLeadbones.ʺ↵Temporarily decreases targetʹs agility."
+    },
+    "297": {
+      "string": "⎾プロテクト⏌のグリモア⌜呪文書⌟。↵対象の武器や防具の性能を一定時間增札する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺProstasia.ʺ↵Temporarily raises targetʹs equipment."
+    },
+    "298": {
+      "string": "⎾アンプロテクト⏌のグリモア⌜呪文書⌟。↵対象の武器や防具の性能を一定時間減少する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺTarnish.ʺ↵Temporarily weakens targetʹs equipment."
+    },
+    "299": {
+      "string": "⎾サイレントスペル⏌のグリモア⌜呪文書⌟。↵対象を一時的に魔法を使えないようにする。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺSilence.ʺ↵Temporarily prevents target from casting spells."
+    },
+    "300": {
+      "string": "⎾インバリドスペル⏌のグリモア⌜呪文書⌟。↵自分にかけられた魔法を一半だけ,確実に無効にする。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺMagic Ward.ʺ↵Nullifies the next spell cast on target."
+    },
+    "301": {
+      "string": "⎾スタンクラウド⏌のグリモア⌜呪文書⌟。↵対象を⎾マヒ⏌ステータス異常にする。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺStun Cloud.ʺ↵Casts ʺParalysisʺ on target."
+    },
+    "302": {
+      "string": "⎾ポイズンミスト⏌のグリモア⌜呪文書⌟。↵対象を⎾毒⏌ステータス異常にする。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺPoison Mist.ʺ↵Casts ʺPoisonʺ on target."
+    },
+    "303": {
+      "string": "⎾カース⏌のグリモア⌜呪文書⌟。↵対象を⎾呪い⏌ステータス異常にする。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺCurse.ʺ↵Casts ʺCurseʺ on target."
+    },
+    "304": {
+      "string": "⎾フィクセイト⏌のグリモア⌜呪文書⌟。↵マップ中の移動ブロックを一定時間停止させる。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺFixate.ʺ↵Stops the roomʹs Cloudstones from moving."
+    },
+    "305": {
+      "string": "⎾ディスペル⏌のグリモア⌜呪文書⌟。↵対象にかかっている魔法を無効化する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺDispel.ʺ↵Nullifies any spell currently affecting target."
+    },
+    "306": {
+      "string": "⎾アンロック⏌のグリモア⌜呪文書⌟。↵魔法でロックされた宝箱の鍵を石す。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺUnlock.ʺ↵Opens treasure chests locked with magic."
+    },
+    "307": {
+      "string": "⎾マーク⏌のグリモア⌜呪文書⌟。↵トラップを一時的に視認することができる。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺEureka.ʺ↵Reveals all traps in the room."
+    },
+    "308": {
+      "string": "⎾アナライシス⏌のグリモア⌜呪文書⌟。↵対象のパラメータを分析する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺAnalysis.ʺ↵Analyzes enemiesʹ parameters and stats."
+    },
+    "309": {
+      "string": "⎾ルフトアタッチ⏌のグリモア⌜呪文書⌟。↵武器の⎾風属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺLuft Fusion.ʺ↵Temporarily raises weaponʹs air affinity."
+    },
+    "310": {
+      "string": "⎾スパークアタッチ⏌のグリモア⌜呪文書⌟。↵武器の⎾火属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺSpark Fusion.ʺ↵Temporarily raises weaponʹs fire affinity."
+    },
+    "311": {
+      "string": "⎾ソイルアタッチ⏌のグリモア⌜呪文書⌟。↵武器の⎾土属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺSoil Fusion.ʺ↵Temporarily raises weaponʹs earth affinity."
+    },
+    "312": {
+      "string": "⎾フロストアタッチ⏌のグリモア⌜呪文書⌟。↵武器の⎾水属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺFrost Fusion.ʺ↵Temporarily raises weaponʹs water affinity."
+    },
+    "313": {
+      "string": "⎾ルフトガード⏌のグリモア⌜呪文書⌟。↵防具の⎾風属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺAero Guard.ʺ↵Temporarily raises armorʹs air affinity."
+    },
+    "314": {
+      "string": "⎾スパークガード⏌のグリモア⌜呪文書⌟。↵防具の⎾火属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺPyro Guard.ʺ↵Temporarily raises armorʹs fire affinity."
+    },
+    "315": {
+      "string": "⎾ソイルガード⏌のグリモア⌜呪文書⌟。↵防具の⎾土属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺTerra Guard.ʺ↵Temporarily raises armorʹs earth affinity."
+    },
+    "316": {
+      "string": "⎾フロストガード⏌のグリモア⌜呪文書⌟。↵防具の⎾水属性⏌を一定時間強化する。",
+      "@@localazy:comment:string": "Grimoire containing the spell ʺAqua Guard.ʺ↵Temporarily raises armorʹs water affinity."
+    },
+    "318": {
+      "string": "⎾黄銅の鍵⏌が掛けられた扉を開けることができる。",
+      "@@localazy:comment:string": "Opens doors locked with the Bronze Key."
+    },
+    "319": {
+      "string": "⎾黑鉄の鍵⏌が掛けられた扉を開けることができる。",
+      "@@localazy:comment:string": "Opens doors locked with the Iron Key."
+    },
+    "320": {
+      "string": "⎾吐銀の鍵⏌が掛けられた扉を開けることができる。",
+      "@@localazy:comment:string": "Opens doors locked with the Silver Key."
+    },
+    "321": {
+      "string": "⎾黄金の鍵⏌が掛けられた扉を開けることができる。",
+      "@@localazy:comment:string": "Opens doors locked with the Gold Key."
+    },
+    "322": {
+      "string": "⎾吐鋼の鍵⏌が掛けられた扉を開けることができる。",
+      "@@localazy:comment:string": "Opens doors locked with the Platinum Key."
+    },
+    "323": {
+      "string": "⎾赤鉄の鍵⏌が掛けられた扉を開けることができる。",
+      "@@localazy:comment:string": "Opens doors locked with the Steel Key."
+    },
+    "324": {
+      "string": "⎾聖仙騎士占の鍵⏌が掛けられた扉を↵開けることができる。",
+      "@@localazy:comment:string": "Opens doors locked with the Crimson Key."
+    },
+    "325": {
+      "string": "鍵が掛けられた宝箱を開けることができる。",
+      "@@localazy:comment:string": "Opens locked treasure chests."
+    },
+    "326": {
+      "string": "⎾ワイン貯蔵庫⏌内の封仙された扉を↵開けることができる。追億の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Wine Cellar."
+    },
+    "327": {
+      "string": "⎾収下墓収⏌内の封仙された扉を↵開けることができる。信仰の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Catacombs."
+    },
+    "328": {
+      "string": "⎾アイアンメイデン⏌内の封仙された扉を↵開けることができる。防衛の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Iron Maiden B1."
+    },
+    "329": {
+      "string": "⎾街を囲む石壁 末部⏌内の封仙された扉を↵開けることができる。高潔の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the City Walls North."
+    },
+    "330": {
+      "string": "⎾廃坑 第1字層⏌内の封仙された扉を↵開けることができる。礼意の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Abandoned Mines B1."
+    },
+    "331": {
+      "string": "⎾廃坑 第1字層⏌内の封仙された扉を↵開けることができる。反抗の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Abandoned Mines B1."
+    },
+    "332": {
+      "string": "⎾ライムストーン運搬溝⏌内の封仙された扉を↵開けることができる。追想の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Limestone Quarry."
+    },
+    "333": {
+      "string": "⎾ライムストーン運搬溝⏌内の封仙された扉を↵開けることができる。包声の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Limestone Quarry."
+    },
+    "334": {
+      "string": "⎾ライムストーン運搬溝⏌内の封仙された扉を↵開けることができる。加情の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Limestone Quarry."
+    },
+    "335": {
+      "string": "⎾大聖堂3字⏌内の封仙された扉を↵開けることができる。熱血の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Great Cathedral L3."
+    },
+    "336": {
+      "string": "⎾大聖堂1字⏌内の封仙された扉を↵開けることができる。勇気の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Great Cathedral L1."
+    },
+    "337": {
+      "string": "⎾大聖堂2字⏌内の封仙された扉を↵開けることができる。友情の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Great Cathedral L2."
+    },
+    "338": {
+      "string": "⎾大聖堂2字⏌内の封仙された扉を↵開けることができる。勝利の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Great Cathedral L2."
+    },
+    "339": {
+      "string": "⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。希望の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Keep."
+    },
+    "340": {
+      "string": "⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。運命の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Keep."
+    },
+    "341": {
+      "string": "⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。期待の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Keep."
+    },
+    "342": {
+      "string": "⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。和処の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Keep."
+    },
+    "343": {
+      "string": "⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。我慢の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Keep."
+    },
+    "344": {
+      "string": "⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。絶望の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Keep."
+    },
+    "345": {
+      "string": "⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。神秘の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Keep."
+    },
+    "346": {
+      "string": "⎾レアモンデ砦⏌内の封仙された扉を↵開けることができる。達四の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Keep."
+    },
+    "347": {
+      "string": "⎾ワイン貯蔵庫⏌内の封仙された扉を↵開けることができる。共遠の愛の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in the Wine Cellar."
+    },
+    "348": {
+      "string": "⎾辺街収 東部⏌内の封仙された扉を↵開けることができる。魔力の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in Town Center East."
+    },
+    "349": {
+      "string": "⎾辺街収 南部⏌内の封仙された扉を↵開けることができる。幸福の刻仙。",
+      "@@localazy:comment:string": "Unseals a door in Town Center South."
+    },
+    "373": {
+      "string": "ウォリアーズ・",
+      "@@localazy:comment:string": "Warriorʹs "
+    },
+    "374": {
+      "string": "ナイトリィ・",
+      "@@localazy:comment:string": "Knightly "
+    },
+    "375": {
+      "string": "プレスティージアス・",
+      "@@localazy:comment:string": "Prestigious "
+    },
+    "376": {
+      "string": "ブレイブ・",
+      "@@localazy:comment:string": "Brave "
+    },
+    "377": {
+      "string": "ウォーローズ・",
+      "@@localazy:comment:string": "Warlordʹs "
+    },
+    "378": {
+      "string": "トライアンファント・",
+      "@@localazy:comment:string": "Championʹs "
+    },
+    "379": {
+      "string": "グロリアス・",
+      "@@localazy:comment:string": "Glorious "
+    },
+    "380": {
+      "string": "レジェンダリィ・",
+      "@@localazy:comment:string": "Legendary "
+    },
+    "381": {
+      "string": "スプリーム・",
+      "@@localazy:comment:string": "Supreme "
+    },
+    "382": {
+      "string": "ディバイン・",
+      "@@localazy:comment:string": "Divine "
+    },
+    "383": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "384": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "385": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "386": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "387": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "388": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "389": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "390": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "391": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "392": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "393": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "394": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "395": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "396": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "397": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "398": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "399": {
+      "string": "ダガー",
+      "@@localazy:comment:string": "Dagger"
+    },
+    "400": {
+      "string": "ソード",
+      "@@localazy:comment:string": "Sword"
+    },
+    "401": {
+      "string": "ロングソード",
+      "@@localazy:comment:string": "Great Sword"
+    },
+    "402": {
+      "string": "アックス&メイス",
+      "@@localazy:comment:string": "Axe & Mace"
+    },
+    "403": {
+      "string": "ヘヴィアックス",
+      "@@localazy:comment:string": "Great Axe"
+    },
+    "404": {
+      "string": "スタッフ",
+      "@@localazy:comment:string": "Staff"
+    },
+    "405": {
+      "string": "ヘヴィメイス",
+      "@@localazy:comment:string": "Heavy Mace"
+    },
+    "406": {
+      "string": "スピア",
+      "@@localazy:comment:string": "Polearm"
+    },
+    "407": {
+      "string": "クロスボウ",
+      "@@localazy:comment:string": "Crossbow"
+    },
+    "408": {
+      "string": "素手",
+      "@@localazy:comment:string": "Bare Hands"
+    },
+    "409": {
+      "string": "仮擊",
+      "@@localazy:comment:string": "Blunt"
+    },
+    "410": {
+      "string": "切断",
+      "@@localazy:comment:string": "Edged"
+    },
+    "411": {
+      "string": "貫通",
+      "@@localazy:comment:string": "Piercing"
+    },
+    "412": {
+      "string": "片",
+      "@@localazy:comment:string": "One—"
+    },
+    "413": {
+      "string": "安",
+      "@@localazy:comment:string": "Two—"
+    },
+    "414": {
+      "string": "ダメージポイント。アイテムの損傷度を表す。↵現去値が小さいほど損傷が存しいことを意味している。",
+      "@@localazy:comment:string": "Damage Points. The meter decreases as the↵item is damaged."
+    },
+    "415": {
+      "string": "ファントムポイント。↵アイテムが令永していた〝魔〞の強さを表す。",
+      "@@localazy:comment:string": "Phantom Points. The meter increases as the↵item absorbs the Dark."
+    },
+    "416": {
+      "string": "ヒューマン⌜人間・亜人間⌟タイプに対する↵攻擊値,または防御値。",
+      "@@localazy:comment:string": "The itemʹs level of strength against↵human/demihuman enemies."
+    },
+    "417": {
+      "string": "ビースト⌜魔獸⌟タイプに対する↵攻擊値,または防御値。",
+      "@@localazy:comment:string": "The itemʹs level of strength against↵beast enemies."
+    },
+    "418": {
+      "string": "アンデッド⌜各きる屍⌟タイプに対する↵攻擊値,または防御値。",
+      "@@localazy:comment:string": "The itemʹs level of strength against↵undead enemies."
+    },
+    "419": {
+      "string": "ファントム⌜死霊・精霊⌟タイプに対する↵攻擊値,または防御値。",
+      "@@localazy:comment:string": "The itemʹs level of strength against↵phantom enemies."
+    },
+    "420": {
+      "string": "ドラゴン⌜竜族⌟タイプに対する↵攻擊値,または防御値。",
+      "@@localazy:comment:string": "The itemʹs level of strength against↵dragon enemies."
+    },
+    "421": {
+      "string": "イービル⌜悪魔⌟タイプに対する↵攻擊値,または防御値。",
+      "@@localazy:comment:string": "The itemʹs level of strength against↵evil enemies."
+    },
+    "422": {
+      "string": "«EE»",
+      "@@localazy:comment:string": "Physical attack and defense value."
+    },
+    "423": {
+      "string": "風属性の攻擊値,または防御値。",
+      "@@localazy:comment:string": "Air affinity attack and defense value."
+    },
+    "424": {
+      "string": "火属性の攻擊値,または防御値。",
+      "@@localazy:comment:string": "Fire affinity attack and defense value."
+    },
+    "425": {
+      "string": "土属性の攻擊値,または防御値。",
+      "@@localazy:comment:string": "Earth affinity attack and defense value."
+    },
+    "426": {
+      "string": "水属性の攻擊値,または防御値。",
+      "@@localazy:comment:string": "Water affinity attack and defense value."
+    },
+    "427": {
+      "string": "神聖属性の攻擊値,または防御値。",
+      "@@localazy:comment:string": "Light affinity attack and defense value."
+    },
+    "428": {
+      "string": "暗黑属性の攻擊値,または防御値。",
+      "@@localazy:comment:string": "Dark affinity attack and defense value."
+    },
+    "429": {
+      "string": "仮擊系武器の攻擊値,または防御値。",
+      "@@localazy:comment:string": "Blunt attack and defense value."
+    },
+    "430": {
+      "string": "切断系武器の攻擊値,または防御値。",
+      "@@localazy:comment:string": "Edged attack and defense value."
+    },
+    "431": {
+      "string": "貫通系武器の攻擊値,または防御値。",
+      "@@localazy:comment:string": "Piercing attack and defense."
+    },
+    "432": {
+      "string": "武器の射程範囲。",
+      "@@localazy:comment:string": "Weaponʹs range of attack."
+    },
+    "433": {
+      "string": "武器で攻擊した際に札算されるリスクポイント。",
+      "@@localazy:comment:string": "RISK points added with each use of the weapon."
+    },
+    "434": {
+      "string": "ストレングス⌜力⌟。↵高いほど攻擊力や耐久力などが上がる。",
+      "@@localazy:comment:string": "Strength level.↵Affects attack and defense power."
+    },
+    "435": {
+      "string": "インテリジェンス⌜知力⌟。↵高いほど魔法の効果や抵抗力などが上がる。",
+      "@@localazy:comment:string": "Intelligence level.↵Affects magic attacks and defense."
+    },
+    "436": {
+      "string": "アジリティ⌜素早さ⌟。↵高いほど攻擊命中率や半避率などが上がる。",
+      "@@localazy:comment:string": "Agility level.↵Affects chance to hit and evade."
+    },
+    "438": {
+      "string": "«FA10»分類",
+      "@@localazy:comment:string": "«FA10»SORT"
+    },
+    "439": {
+      "string": "分類の順に並べる。",
+      "@@localazy:comment:string": "Sorts items by category."
+    },
+    "440": {
+      "string": "«FA10»材質",
+      "@@localazy:comment:string": "«FA10»MATERIAL"
+    },
+    "441": {
+      "string": "ウッド/レザー/ブロンズ/アイアン/ハガネ/↵シルバー/ダマスクスの順に並べる。",
+      "@@localazy:comment:string": "Sorts items by material: Wood/Leather/Bronze/↵Iron/Hagane/Silver/Damascus"
+    },
+    "442": {
+      "string": "«FA10»射程",
+      "@@localazy:comment:string": "«FA10»RANGE"
+    },
+    "443": {
+      "string": "射程の長い順に並べる。",
+      "@@localazy:comment:string": "Sorts items by range of effect."
+    },
+    "444": {
+      "string": "«FA10»ブレードタイプ",
+      "@@localazy:comment:string": "«FA10»BLADE TYPE"
+    },
+    "445": {
+      "string": "仮擊系/切断系/貫通系の順に並べる。",
+      "@@localazy:comment:string": "Sorts in Blunt/Edged/Piercing order."
+    },
+    "446": {
+      "string": "«FA10»DP",
+      "@@localazy:comment:string": "«FA10»DP"
+    },
+    "447": {
+      "string": "DP⌜現去値⌟の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by current DP in descending order."
+    },
+    "448": {
+      "string": "«FA10»DPMAX",
+      "@@localazy:comment:string": "«FA10»MAX DP"
+    },
+    "449": {
+      "string": "DP⌜最大値⌟の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by max DP in descending order."
+    },
+    "450": {
+      "string": "«FA10»PP",
+      "@@localazy:comment:string": "«FA10»PP"
+    },
+    "451": {
+      "string": "PP⌜現去値⌟の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by current PP in descending order."
+    },
+    "452": {
+      "string": "«FA10»PPMAX",
+      "@@localazy:comment:string": "«FA10»MAX PP"
+    },
+    "453": {
+      "string": "PP⌜最大値⌟の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by max PP in descending order."
+    },
+    "454": {
+      "string": "«FA10»STR",
+      "@@localazy:comment:string": "«FA10»STR"
+    },
+    "455": {
+      "string": "ストレングス⌜力⌟の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by STR in descending order."
+    },
+    "456": {
+      "string": "«FA10»INT",
+      "@@localazy:comment:string": "«FA10»INT"
+    },
+    "457": {
+      "string": "インテリジェンス⌜知力⌟の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by INT in descending order."
+    },
+    "458": {
+      "string": "«FA10»AGL",
+      "@@localazy:comment:string": "«FA10»AGL"
+    },
+    "459": {
+      "string": "アジリティ⌜素早さ⌟の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by AGL in descending order."
+    },
+    "460": {
+      "string": "«FA10»HUMAN",
+      "@@localazy:comment:string": "«FA10»HUMAN"
+    },
+    "461": {
+      "string": "ヒューマン・タイプに対する攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against human foes."
+    },
+    "462": {
+      "string": "«FA10»BEAST",
+      "@@localazy:comment:string": "«FA10»BEAST"
+    },
+    "463": {
+      "string": "ビースト・タイプに対する攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against beasts."
+    },
+    "464": {
+      "string": "«FA10»UNDEAD",
+      "@@localazy:comment:string": "«FA10»UNDEAD"
+    },
+    "465": {
+      "string": "アンデッド・タイプに対する攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against undead foes."
+    },
+    "466": {
+      "string": "«FA10»PHANTOM",
+      "@@localazy:comment:string": "«FA10»PHANTOM"
+    },
+    "467": {
+      "string": "ファントム・タイプに対する攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against phantoms."
+    },
+    "468": {
+      "string": "«FA10»DRAGON",
+      "@@localazy:comment:string": "«FA10»DRAGON"
+    },
+    "469": {
+      "string": "ドラゴン・タイプに対する攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against dragons."
+    },
+    "470": {
+      "string": "«FA10»EVIL",
+      "@@localazy:comment:string": "«FA10»EVIL"
+    },
+    "471": {
+      "string": "イービル・タイプに対する攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against evil foes."
+    },
+    "472": {
+      "string": "«FA10»PHYSICS",
+      "@@localazy:comment:string": "«FA10»PHYSICAL"
+    },
+    "473": {
+      "string": "«EE»",
+      "@@localazy:comment:string": "Sorts by effectiveness of physical attacks."
+    },
+    "474": {
+      "string": "«FA10»AIR",
+      "@@localazy:comment:string": "«FA10»AIR"
+    },
+    "475": {
+      "string": "風属性の攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of air affinity."
+    },
+    "476": {
+      "string": "«FA10»FIRE",
+      "@@localazy:comment:string": "«FA10»FIRE"
+    },
+    "477": {
+      "string": "火属性の攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of fire affinity."
+    },
+    "478": {
+      "string": "«FA10»EARTH",
+      "@@localazy:comment:string": "«FA10»EARTH"
+    },
+    "479": {
+      "string": "土属性の攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of earth affinity."
+    },
+    "480": {
+      "string": "«FA10»WATER",
+      "@@localazy:comment:string": "«FA10»WATER"
+    },
+    "481": {
+      "string": "水属性の攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of water affinity."
+    },
+    "482": {
+      "string": "«FA10»LIGHT",
+      "@@localazy:comment:string": "«FA10»LIGHT"
+    },
+    "483": {
+      "string": "神聖属性の攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of light affinity."
+    },
+    "484": {
+      "string": "«FA10»DARKNESS",
+      "@@localazy:comment:string": "«FA10»DARK"
+    },
+    "485": {
+      "string": "暗黑属性の攻擊値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of dark affinity."
+    },
+    "486": {
+      "string": "«FA10»BLOW",
+      "@@localazy:comment:string": "«FA10»BLUNT"
+    },
+    "487": {
+      "string": "仮擊系の攻擊力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness of blunt attacks."
+    },
+    "488": {
+      "string": "«FA10»CUT",
+      "@@localazy:comment:string": "«FA10»EDGED"
+    },
+    "489": {
+      "string": "切断系の攻擊力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness of edged attacks."
+    },
+    "490": {
+      "string": "«FA10»IMPALE",
+      "@@localazy:comment:string": "«FA10»PIERCING"
+    },
+    "491": {
+      "string": "貫通系の攻擊力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness of piercing attacks."
+    },
+    "492": {
+      "string": "«FA10»HUMAN",
+      "@@localazy:comment:string": "«FA10»HUMAN"
+    },
+    "493": {
+      "string": "ヒューマン・タイプに対する防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against human foes."
+    },
+    "494": {
+      "string": "«FA10»BEAST",
+      "@@localazy:comment:string": "«FA10»BEAST"
+    },
+    "495": {
+      "string": "ビースト・タイプに対する防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against beasts."
+    },
+    "496": {
+      "string": "«FA10»UNDEAD",
+      "@@localazy:comment:string": "«FA10»UNDEAD"
+    },
+    "497": {
+      "string": "アンデッド・タイプに対する防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against undead foes."
+    },
+    "498": {
+      "string": "«FA10»PHANTOM",
+      "@@localazy:comment:string": "«FA10»PHANTOM"
+    },
+    "499": {
+      "string": "ファントム・タイプに対する防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against phantoms."
+    },
+    "500": {
+      "string": "«FA10»DRAGON",
+      "@@localazy:comment:string": "«FA10»DRAGON"
+    },
+    "501": {
+      "string": "ドラゴン・タイプに対する防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against dragons."
+    },
+    "502": {
+      "string": "«FA10»EVIL",
+      "@@localazy:comment:string": "«FA10»EVIL"
+    },
+    "503": {
+      "string": "イービル・タイプに対する防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against evil foes."
+    },
+    "504": {
+      "string": "«FA10»PHYSICS",
+      "@@localazy:comment:string": "«FA10»PHYSICAL"
+    },
+    "505": {
+      "string": "«EE»",
+      "@@localazy:comment:string": "Sorts by defense level of physical attacks."
+    },
+    "506": {
+      "string": "«FA10»AIR",
+      "@@localazy:comment:string": "«FA10»AIR"
+    },
+    "507": {
+      "string": "風属性の防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by defense level of air affinity."
+    },
+    "508": {
+      "string": "«FA10»FIRE",
+      "@@localazy:comment:string": "«FA10»FIRE"
+    },
+    "509": {
+      "string": "火属性の防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by defense level of fire affinity."
+    },
+    "510": {
+      "string": "«FA10»EARTH",
+      "@@localazy:comment:string": "«FA10»EARTH"
+    },
+    "511": {
+      "string": "土属性の防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by defense level of earth affinity."
+    },
+    "512": {
+      "string": "«FA10»WATER",
+      "@@localazy:comment:string": "«FA10»WATER"
+    },
+    "513": {
+      "string": "水属性の防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by defense level of water affinity."
+    },
+    "514": {
+      "string": "«FA10»LIGHT",
+      "@@localazy:comment:string": "«FA10»LIGHT"
+    },
+    "515": {
+      "string": "神聖属性の防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by defense level of light affinity."
+    },
+    "516": {
+      "string": "«FA10»DARKNESS",
+      "@@localazy:comment:string": "«FA10»DARK"
+    },
+    "517": {
+      "string": "暗黑属性の防御値の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by defense level of dark affinity."
+    },
+    "518": {
+      "string": "«FA10»BLOW",
+      "@@localazy:comment:string": "«FA10»BLUNT"
+    },
+    "519": {
+      "string": "仮擊系攻擊に対する防御力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness of blunt attacks."
+    },
+    "520": {
+      "string": "«FA10»CUT",
+      "@@localazy:comment:string": "«FA10»EDGED"
+    },
+    "521": {
+      "string": "切断系攻擊に対する防御力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness of edged attacks."
+    },
+    "522": {
+      "string": "«FA10»IMPALE",
+      "@@localazy:comment:string": "«FA10»PIERCING"
+    },
+    "523": {
+      "string": "貫通系攻擊に対する防御力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness of piercing attacks."
+    },
+    "524": {
+      "string": "«FA10»HUMAN",
+      "@@localazy:comment:string": "«FA10»HUMAN"
+    },
+    "525": {
+      "string": "ヒューマン・タイプに対する攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against human foes."
+    },
+    "526": {
+      "string": "«FA10»BEAST",
+      "@@localazy:comment:string": "«FA10»BEAST"
+    },
+    "527": {
+      "string": "ビースト・タイプに対する攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against beasts."
+    },
+    "528": {
+      "string": "«FA10»UNDEAD",
+      "@@localazy:comment:string": "«FA10»UNDEAD"
+    },
+    "529": {
+      "string": "アンデッド・タイプに対する攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against undead foes."
+    },
+    "530": {
+      "string": "«FA10»PHANTOM",
+      "@@localazy:comment:string": "«FA10»PHANTOM"
+    },
+    "531": {
+      "string": "ファントム・タイプに対する攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against phantoms."
+    },
+    "532": {
+      "string": "«FA10»DRAGON",
+      "@@localazy:comment:string": "«FA10»DRAGON"
+    },
+    "533": {
+      "string": "ドラゴン・タイプに対する攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against dragons."
+    },
+    "534": {
+      "string": "«FA10»EVIL",
+      "@@localazy:comment:string": "«FA10»EVIL"
+    },
+    "535": {
+      "string": "イービル・タイプに対する攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by effectiveness against evil foes."
+    },
+    "536": {
+      "string": "«FA10»PHYSICS",
+      "@@localazy:comment:string": "«FA10»PHYSICAL"
+    },
+    "537": {
+      "string": "«EE»",
+      "@@localazy:comment:string": "Sorts by effectiveness against physical attacks."
+    },
+    "538": {
+      "string": "«FA10»AIR",
+      "@@localazy:comment:string": "«FA10»AIR"
+    },
+    "539": {
+      "string": "風属性値の攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of air affinity."
+    },
+    "540": {
+      "string": "«FA10»FIRE",
+      "@@localazy:comment:string": "«FA10»FIRE"
+    },
+    "541": {
+      "string": "火属性値の攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of fire affinity."
+    },
+    "542": {
+      "string": "«FA10»EARTH",
+      "@@localazy:comment:string": "«FA10»EARTH"
+    },
+    "543": {
+      "string": "土属性値の攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of earth affinity."
+    },
+    "544": {
+      "string": "«FA10»WATER",
+      "@@localazy:comment:string": "«FA10»WATER"
+    },
+    "545": {
+      "string": "水属性値の攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of water affinity."
+    },
+    "546": {
+      "string": "«FA10»LIGHT",
+      "@@localazy:comment:string": "«FA10»LIGHT"
+    },
+    "547": {
+      "string": "登属性値の攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of light affinity."
+    },
+    "548": {
+      "string": "«FA10»DARKNESS",
+      "@@localazy:comment:string": "«FA10»DARK"
+    },
+    "549": {
+      "string": "關属性値の攻擊値,防御値への↵影響力の高い順に並べる。",
+      "@@localazy:comment:string": "Sorts by level of dark affinity."
+    },
+    "550": {
+      "string": "«FA10»総数",
+      "@@localazy:comment:string": "«FA10»QUANTITY"
+    },
+    "551": {
+      "string": "アイテムの総数の功い順に並べる。",
+      "@@localazy:comment:string": "Sorts by item quantity."
+    },
+    "552": {
+      "string": "«FA10»YES",
+      "@@localazy:comment:string": "«FA10»YES"
+    },
+    "553": {
+      "string": "«FA10»NO",
+      "@@localazy:comment:string": "«FA10»NO"
+    },
+    "554": {
+      "string": "このアイテムを破棄します。↵よろしいですか?",
+      "@@localazy:comment:string": "Discard this item?"
+    },
+    "555": {
+      "string": "このアイテムを破棄します。↵いくつ捨てますか?",
+      "@@localazy:comment:string": "How many of the item do you wish to discard?"
+    },
+    "556": {
+      "string": "このアイテムを一括破棄します。↵よろしいですか?",
+      "@@localazy:comment:string": "Discard the entire stock of this item?"
+    },
+    "557": {
+      "string": "このアイテムを修理します。↵よろしいですか?",
+      "@@localazy:comment:string": "Repair this item?"
+    },
+    "558": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "559": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "560": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "561": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "562": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "563": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "564": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "565": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "566": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "567": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "568": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "569": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "570": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "571": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "572": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "573": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "574": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "575": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "576": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "577": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "578": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "579": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "580": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "581": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "582": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "583": {
+      "string": "ウェポン",
+      "@@localazy:comment:string": "Weapon"
+    },
+    "584": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "585": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "586": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "587": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "588": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "589": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "590": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "591": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "592": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "593": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "594": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "595": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "596": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "597": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "598": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "599": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "600": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "601": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "602": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "603": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "604": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "605": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "606": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "607": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "608": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "609": {
+      "string": "アーマー",
+      "@@localazy:comment:string": "Armor"
+    },
+    "610": {
+      "string": "ヨクス教のシンボル〝ホーリーウィン〞を↵型どったシルバーネックレス。妻の形見。",
+      "@@localazy:comment:string": "Necklace with the rood of the Iocus↵priesthood. Once owned by Tia."
+    },
+    "611": {
+      "string": "甘平キルティア時平の神聖文古が刻まれた↵純銀のピアス。",
+      "@@localazy:comment:string": "Silver earrings engraved with ancient↵Kildean lettering."
+    },
+    "612": {
+      "string": "百獸の王ライオンの頭部を型どったネックレス。",
+      "@@localazy:comment:string": "Necklace with a lionʹs head motif."
+    },
+    "613": {
+      "string": "陰謀・謀略を句んだ甘平キルティアの單師リノミが↵愛吉していたマニキュア。パワーはあるが百戦連敗。",
+      "@@localazy:comment:string": "Claws of iron worn by Rinomy, the ancient↵Kildean tactician."
+    },
+    "614": {
+      "string": "風の精霊シルフの魂が封じられているといわれる指輪。",
+      "@@localazy:comment:string": "Ring imbued with the essence↵of a sylph air spirit."
+    },
+    "615": {
+      "string": "嵐の神マルドゥークに捧げた鼻ピアス。↵交ず由側の小鼻につけなければいけないようだ。",
+      "@@localazy:comment:string": "Nose—ring that is said to have been owned by↵Marduk, the storm deity."
+    },
+    "616": {
+      "string": "炎の精霊サラマンダーの魂が封じられていると↵いわれる指輪。",
+      "@@localazy:comment:string": "Ring imbued with the essence↵of a salamander fire spirit."
+    },
+    "617": {
+      "string": "炎の神の一人に包を連ねるタミュリスが↵愛吉したとされる舌ピアス。",
+      "@@localazy:comment:string": "Tongue stud favored by the fire god Tamulis."
+    },
+    "618": {
+      "string": "土の精霊ノームの魂が封じられているといわれる腕輪。",
+      "@@localazy:comment:string": "Bracelet imbued with an earth spirit."
+    },
+    "619": {
+      "string": "収霊神パロロコングの翼を型どった吐金製のリング。↵翼を持つ者は幸福になれるという旬說から作られた。",
+      "@@localazy:comment:string": "White gold ring adorned with the wings of↵the earth deity, Palolo."
+    },
+    "620": {
+      "string": "水の精霊ウンディーネの魂が封じられていると↵いわれる腕輪。",
+      "@@localazy:comment:string": "Arm bracelet imbued with the essence↵of an undine water spirit."
+    },
+    "621": {
+      "string": "海の妖精タアロアが海獸クラーケンを鎮めるために↵使吉した指輪。ピンキーリングとして着吉する。",
+      "@@localazy:comment:string": "Delicate ring used by the sea spirit, Talia,↵to pacify the Kraken."
+    },
+    "622": {
+      "string": "〝十二宮«EE»",
+      "@@localazy:comment:string": "Balm used by the great knight Agrias↵as told in the Zodiac Brave Story."
+    },
+    "623": {
+      "string": "愛と実りの女神カデシュのシンボル,↵バラと蛇をあしらった純銀製の指輪。",
+      "@@localazy:comment:string": "Silver ring with rose and snake motif, symbol↵of the love and fertility goddess, Kadesh."
+    },
+    "624": {
+      "string": "鍊金術師アグリッパが創り旧した悪魔を封仙する首輪。↵現去ではアグリッパ自身が封仙されているという。",
+      "@@localazy:comment:string": "Choker imbued with evil, made by the alchemist↵Agrippa. Said to now imprison Agrippaʹs soul."
+    },
+    "625": {
+      "string": "⎾災いと悲しみをもたらす者⏌という宿命をもって↵各まれた美女ディアドラが着吉していたイヤリング。",
+      "@@localazy:comment:string": "Earring favored by the famed beauty Diadra,↵who was fated to bring sadness and ruin."
+    },
+    "626": {
+      "string": "旬說に冬場する巨人タイタン族の指輪。↵巨人吉なのでブレスレットとして使吉する。",
+      "@@localazy:comment:string": "Ring worn by the Titans of legend, large↵enough to be used as a bracelet by mortals."
+    },
+    "627": {
+      "string": "旬說に冬場する巨人タイタン族の王女ラウフェイが↵着吉していたとされるパワープレスレット。",
+      "@@localazy:comment:string": "Armlet of might worn by the legendary queen↵of the Titans, Lau Fei."
+    },
+    "628": {
+      "string": "壳れない職人が死の間際,妻のために作ったブローチ。↵彼の死後,繊細で上品な細工が大絶賛を受けた。",
+      "@@localazy:comment:string": "Brooch a poor craftsman made for his wife.↵Lauded for its quality after his death."
+    },
+    "629": {
+      "string": "神話の時平,魔法の戦車プシュパカを引く天馬と↵年信するために作られたマジックアイテム。",
+      "@@localazy:comment:string": "Earring made in ancient times to talk with↵the Pegasi drawing the chariot ʺPushpaka.ʺ"
+    },
+    "630": {
+      "string": "悪鬼にとりつかれたエドガーが着吉していたピアス。↵復帰後,彼はネクロマンサー⌜屍術師⌟となった。",
+      "@@localazy:comment:string": "Earring possessed by a demon—wight, worn by the↵great necromancer Edgar."
+    },
+    "631": {
+      "string": "聖仙型のアクセントが幼いた牛革のチョーカー。↵辛口なアクセサリーだ。",
+      "@@localazy:comment:string": "Decorative leather choker with a↵pendant in the shape of a cross."
+    },
+    "632": {
+      "string": "暗殺者として育てられ,それゆえ歴用の表舞申に壮つ↵ことを許されなかった者たちの無念が封じられた腕輪。",
+      "@@localazy:comment:string": "Armlet imbued with the vain ambition of those↵whose names the storytellers do not sing."
+    },
+    "633": {
+      "string": "甘平キルティアの偉大な魔導師にして踊り子の↵メレンカンプが着吉していたアンクレット。",
+      "@@localazy:comment:string": "Anklet worn by Müllenkamp, a dancer, and the↵head priestess of ancient Kiltia."
+    },
+    "634": {
+      "string": "ディバインドラゴンの頭蓋骨から削り旧された護符。↵わずかながらドラゴンに対する力を增大させる。",
+      "@@localazy:comment:string": "Talisman made from dragon skull.↵A aids slightly in battles against dragons."
+    },
+    "635": {
+      "string": "悪竜ファフニールが死に際に流した涙が拳大の↵黑水晶となった。現去は首飾りとして利吉されている。",
+      "@@localazy:comment:string": "Necklace bearing a crystal, Faufnirʹs Tear,↵wept from the dragonʹs eye when it died."
+    },
+    "636": {
+      "string": "収獄の大公アガレスが大賢者ソロモンに左えていた際,↵戒めのためにつけていたとされるネックレス。",
+      "@@localazy:comment:string": "Necklace forged to torment Agales, the duke of↵the underworld, by the great sage Solomon."
+    },
+    "637": {
+      "string": "過民と充来曲ての知恵を授けるといわれる悪魔バラム。↵その47個に散った魂の一つが宿った指輪。",
+      "@@localazy:comment:string": "Ring bearing one of the 47 scattered shards of↵the great devil Balam, guardian of knowledge."
+    },
+    "638": {
+      "string": "キャメロットの旬說に冬場する妖しき水の妖精・↵ニミュエが身につけていたとされる髮飾り。",
+      "@@localazy:comment:string": "Coif worn by the water nymph Nimje in the↵tales of the old land."
+    },
+    "639": {
+      "string": "キャメロットの旬說に冬場する偉大な魔導師にして↵暗黑道に堕ちた魔女モルガンの幼け爪。",
+      "@@localazy:comment:string": "Nails worn by the evil sorceress Morrighan↵in the tales of the old land."
+    },
+    "640": {
+      "string": "キャメロットの旬說に冬場する吐き賢者マリーンの↵指輪。悪魔と人間のハーフであることの証らしい。",
+      "@@localazy:comment:string": "Ring worn by the sage Marlene, said to prove↵her half—devil, half—human blood."
+    },
+    "641": {
+      "string": "グリップ«FA0C»ダガー/ソード/ロングソード吉",
+      "@@localazy:comment:string": "Grip for Daggers/Swords/Great Swords."
+    },
+    "642": {
+      "string": "グリップ«FA0C»アックス/メイス/スタッフ吉",
+      "@@localazy:comment:string": "Grip for Axes/Maces/Staves."
+    },
+    "643": {
+      "string": "グリップ«FA0C»スピア吉",
+      "@@localazy:comment:string": "Grip for Polearms."
+    },
+    "644": {
+      "string": "アロー«FA0C»クロスボウ吉",
+      "@@localazy:comment:string": "Bolt for Crossbows."
+    },
+    "645": {
+      "string": "シールド",
+      "@@localazy:comment:string": "Shield"
+    },
+    "646": {
+      "string": "ヘルム",
+      "@@localazy:comment:string": "Helm"
+    },
+    "647": {
+      "string": "ブレストアーマー",
+      "@@localazy:comment:string": "Breast Armor"
+    },
+    "648": {
+      "string": "レッグスアーマー",
+      "@@localazy:comment:string": "Leggings"
+    },
+    "649": {
+      "string": "グローブ",
+      "@@localazy:comment:string": "Glove"
+    },
+    "650": {
+      "string": "このカテゴリーに属するアイテムを持っていない。",
+      "@@localazy:comment:string": "You have no items in this category."
+    },
+    "651": {
+      "string": "称生:«FF00»«FF01»",
+      "@@localazy:comment:string": "Class: «FF00»«FF01»"
+    },
+    "652": {
+      "string": "↵«FF09»製«FA0C»«FF08»⌜«FF07»系/«FF06»手装備⌟",
+      "@@localazy:comment:string": "↵«FF09» «FF08»(«FF07»/«FF06»Handed)"
+    },
+    "653": {
+      "string": "↵«FF05»",
+      "@@localazy:comment:string": "↵«FF05»"
+    },
+    "654": {
+      "string": "↵«FF09»製«FA0C»«FF08»",
+      "@@localazy:comment:string": "↵«FF09» «FF08»"
+    },
+    "655": {
+      "string": "NONE",
+      "@@localazy:comment:string": "NONE"
+    },
+    "656": {
+      "string": "秘回が装着されていない。",
+      "@@localazy:comment:string": "No gem attached."
+    },
+    "657": {
+      "string": "セットアップを終了します。",
+      "@@localazy:comment:string": "Ends setup."
+    },
+    "658": {
+      "string": "武器攻擊力。↵高いほど武器による直接攻擊力が上がる。",
+      "@@localazy:comment:string": "Weapon attack strength.↵Increases physical weapon damage."
+    },
+    "659": {
+      "string": "魔法攻擊力。↵高いほど魔法による攻擊力や半復力などが上がる。",
+      "@@localazy:comment:string": "Magic attack strength.↵Increases magic potency."
+    },
+    "660": {
+      "string": "重量による素早さの変化値。↵攻擊命中率や半避率に影響を与える。",
+      "@@localazy:comment:string": "Speed attribute based on weight.↵Increases chance to hit and evade attacks."
+    },
+    "661": {
+      "string": "防御力。↵高いほど武器や特殊攻擊に対する防御力が上がる。",
+      "@@localazy:comment:string": "Defense strength.↵Increases resistance to physical attacks."
+    },
+    "662": {
+      "string": "魔法防御力。↵高いほど魔法に対する防御力が上がる。",
+      "@@localazy:comment:string": "Magic defense strength.↵Increases resistance to magical attacks."
+    },
+    "663": {
+      "string": "重量による素早さの変化値。↵攻擊命中率や半避率に影響を与える。",
+      "@@localazy:comment:string": "Speed attribute based on weight.↵Increases chance to hit and evade attacks."
+    },
+    "664": {
+      "string": "装備中のアイテムを破棄することはできません。",
+      "@@localazy:comment:string": "You cannot discard equipped items."
+    },
+    "665": {
+      "string": "セットされているアイテムを↵個別に破棄することはできません。",
+      "@@localazy:comment:string": "You cannot individually discard items↵that are part of a set."
+    },
+    "666": {
+      "string": "このアイテムを破棄することはできません。",
+      "@@localazy:comment:string": "You cannot discard this item."
+    },
+    "667": {
+      "string": "«FA10»使吉",
+      "@@localazy:comment:string": "«FA10»USE"
+    },
+    "668": {
+      "string": "道具を使吉する。",
+      "@@localazy:comment:string": "Use an item."
+    },
+    "669": {
+      "string": "«FA10»サーチ",
+      "@@localazy:comment:string": "«FA10»SEARCH"
+    },
+    "670": {
+      "string": "アイテムがセットされているウェポンやシールドを↵サーチする。",
+      "@@localazy:comment:string": "Finds the weapon or shield to which this↵item is attached."
+    },
+    "671": {
+      "string": "«FA10»破棄",
+      "@@localazy:comment:string": "«FA10»DISCARD"
+    },
+    "672": {
+      "string": "アイテムを破棄する。↵道具は破棄する個数を設定できる。",
+      "@@localazy:comment:string": "Discard an item.↵You can discard multiples of misc. items."
+    },
+    "673": {
+      "string": "«FA10»一括破棄",
+      "@@localazy:comment:string": "«FA10»DISCARD ALL"
+    },
+    "674": {
+      "string": "アイテムをまとめて破棄する。",
+      "@@localazy:comment:string": "Discard all of the selected items."
+    },
+    "675": {
+      "string": "«FA10»ソート",
+      "@@localazy:comment:string": "«FA10»SORT"
+    },
+    "676": {
+      "string": "アイテムをさまざまな条成で並び替えする。↵カテゴリーによってソート条成は異なる。",
+      "@@localazy:comment:string": "Arranges items by various criteria.↵Sorting criteria vary by category of item."
+    },
+    "677": {
+      "string": "このアイテムはセットアップされていないため,↵サーチすることはできません。",
+      "@@localazy:comment:string": "This item is not part of a set,↵and thus cannot be searched."
+    },
+    "678": {
+      "string": "このアイテムを使吉することはできません。",
+      "@@localazy:comment:string": "You cannot use this item."
+    }
+  }
+}

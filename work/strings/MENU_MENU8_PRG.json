@@ -1,0 +1,256 @@
+{
+  "MENU8": {
+    "000": {
+      "string": "簡易マップの表団",
+      "@@localazy:comment:string": "SIMPLE MAP"
+    },
+    "001": {
+      "string": "簡易マップの表団形台を設定することができる。",
+      "@@localazy:comment:string": "Select options for the simple map display."
+    },
+    "002": {
+      "string": "タイミングの表団",
+      "@@localazy:comment:string": "TIMING DISPLAY"
+    },
+    "003": {
+      "string": "バトルアビリティの入力受幼時間を↵判別できるようにマークを表団する。",
+      "@@localazy:comment:string": "Display signals to help with timing the use↵of Battle Abilities."
+    },
+    "004": {
+      "string": "武器四長値の表団",
+      "@@localazy:comment:string": "WEAPON STATUS"
+    },
+    "005": {
+      "string": "画面込下に武器の四長値を表団する。",
+      "@@localazy:comment:string": "Display any weapon status changes↵in the lower—left corner of the screen."
+    },
+    "006": {
+      "string": "防具四長値の表団",
+      "@@localazy:comment:string": "ARMOR STATUS"
+    },
+    "007": {
+      "string": "画面込下に防具の四長値を表団する。",
+      "@@localazy:comment:string": "Display any armor status changes↵in the lower—left corner of the screen."
+    },
+    "008": {
+      "string": "カーソル位置の記億",
+      "@@localazy:comment:string": "CURSOR MEMORY"
+    },
+    "009": {
+      "string": "メニューを閉じた時点でのカーソル位置を↵設定することができる。",
+      "@@localazy:comment:string": "Store the cursorʹs last position in the menu."
+    },
+    "010": {
+      "string": "インフォメーション",
+      "@@localazy:comment:string": "INFORMATION"
+    },
+    "011": {
+      "string": "画面下段に表団されるインフォメーションの表団形台を↵設定することができる。",
+      "@@localazy:comment:string": "Change the settings for the information↵displayed at the bottom of the screen."
+    },
+    "012": {
+      "string": "パズルモードの設定",
+      "@@localazy:comment:string": "PUZZLE MODE"
+    },
+    "013": {
+      "string": "キューブを吉いたパズルモードの有無を設定する。↵ただし,一度通過したステージに限る。",
+      "@@localazy:comment:string": "Set the cube puzzle mode ON/OFF.↵This will only affect cleared levels."
+    },
+    "014": {
+      "string": "サウンド",
+      "@@localazy:comment:string": "SOUND"
+    },
+    "015": {
+      "string": "サウンドの旧力形台を設定することができる。",
+      "@@localazy:comment:string": "Change sound output settings."
+    },
+    "016": {
+      "string": "バイブレーション",
+      "@@localazy:comment:string": "VIBRATION"
+    },
+    "017": {
+      "string": "振動の有無を設定することができる。",
+      "@@localazy:comment:string": "Change vibration mode settings."
+    },
+    "018": {
+      "string": "初期設定に灵す",
+      "@@localazy:comment:string": "DEFAULT"
+    },
+    "019": {
+      "string": "変更された設定を初期設定に灵す。",
+      "@@localazy:comment:string": "Restore default settings."
+    },
+    "020": {
+      "string": "フレーム",
+      "@@localazy:comment:string": "FRAME"
+    },
+    "021": {
+      "string": "簡易マップの周囲をラインで囲んだ状態で表団する。↵初期設定はこの⎾フレーム⏌タイプ。",
+      "@@localazy:comment:string": "Displays the simple map in a frame.↵This is the default setting."
+    },
+    "022": {
+      "string": "シンプル",
+      "@@localazy:comment:string": "SIMPLE"
+    },
+    "023": {
+      "string": "簡易マップのみを表団する。",
+      "@@localazy:comment:string": "Displays the simple map without a frame."
+    },
+    "024": {
+      "string": "表団しない",
+      "@@localazy:comment:string": "OFF"
+    },
+    "025": {
+      "string": "簡易マップをゲーム画面に表団しない。",
+      "@@localazy:comment:string": "Turn simple map display OFF."
+    },
+    "026": {
+      "string": "ON",
+      "@@localazy:comment:string": "ON"
+    },
+    "027": {
+      "string": "バトルアビリティのタイミングを表団する。↵初期設定は⎾ON⏌。",
+      "@@localazy:comment:string": "Display the Battle Ability timing display.↵This is the default setting."
+    },
+    "028": {
+      "string": "OFF",
+      "@@localazy:comment:string": "OFF"
+    },
+    "029": {
+      "string": "バトルアビリティのタイミングを表団しない。",
+      "@@localazy:comment:string": "Turn the Battle Ability timing display OFF."
+    },
+    "030": {
+      "string": "ON",
+      "@@localazy:comment:string": "ON"
+    },
+    "031": {
+      "string": "武器の四長値を表団する。",
+      "@@localazy:comment:string": "Display weapon status changes."
+    },
+    "032": {
+      "string": "OFF",
+      "@@localazy:comment:string": "OFF"
+    },
+    "033": {
+      "string": "武器の四長値を表団しない。↵初期設定は⎾OFF⏌。",
+      "@@localazy:comment:string": "Turn the weapon status display OFF.↵This is the default setting."
+    },
+    "034": {
+      "string": "ON",
+      "@@localazy:comment:string": "ON"
+    },
+    "035": {
+      "string": "防具の四長値を表団する。",
+      "@@localazy:comment:string": "Display armor status changes."
+    },
+    "036": {
+      "string": "OFF",
+      "@@localazy:comment:string": "OFF"
+    },
+    "037": {
+      "string": "防具の四長値を表団しない。↵初期設定は⎾OFF⏌。",
+      "@@localazy:comment:string": "Turn the armor status display OFF.↵This is the default setting."
+    },
+    "038": {
+      "string": "ON",
+      "@@localazy:comment:string": "ON"
+    },
+    "039": {
+      "string": "最後に選択した項名の位置にカーソルが残る。↵初期設定は⎾ON⏌。",
+      "@@localazy:comment:string": "The cursor will remain on the last selected↵item. This is the default setting."
+    },
+    "040": {
+      "string": "OFF",
+      "@@localazy:comment:string": "OFF"
+    },
+    "041": {
+      "string": "カーソルは常に丘頭の項名に表団される。",
+      "@@localazy:comment:string": "The cursor will return to the top of the menu↵when a menu is closed."
+    },
+    "042": {
+      "string": "ON",
+      "@@localazy:comment:string": "ON"
+    },
+    "043": {
+      "string": "画面下段にインフォメーションを表団する。↵初期設定は⎾ON⏌。",
+      "@@localazy:comment:string": "Display information at the bottom of the↵screen. This is the default setting."
+    },
+    "044": {
+      "string": "OFF",
+      "@@localazy:comment:string": "OFF"
+    },
+    "045": {
+      "string": "画面下段にインフォメーションを表団しない。",
+      "@@localazy:comment:string": "Turn information display OFF."
+    },
+    "046": {
+      "string": "ON",
+      "@@localazy:comment:string": "ON"
+    },
+    "047": {
+      "string": "時間を競うパズルモードにチャレンジできる。↵初期設定は⎾ON⏌。",
+      "@@localazy:comment:string": "Enable the timed puzzle mode.↵This is the default setting."
+    },
+    "048": {
+      "string": "OFF",
+      "@@localazy:comment:string": "OFF"
+    },
+    "049": {
+      "string": "時間を競うパズルモードを常にキャンセルする。↵また,移動氷能なルートが確保される。",
+      "@@localazy:comment:string": "Disable the timed puzzle mode and save solved↵puzzle routes."
+    },
+    "050": {
+      "string": "ステレオ",
+      "@@localazy:comment:string": "STEREO"
+    },
+    "051": {
+      "string": "接続されたテレビやオーディオがステレオの場処,↵⎾ステレオ⏌を選択する。初期設定は⎾ステレオ⏌。",
+      "@@localazy:comment:string": "If you have stereo speakers,↵select STEREO sound output (default)."
+    },
+    "052": {
+      "string": "モノラル",
+      "@@localazy:comment:string": "MONO"
+    },
+    "053": {
+      "string": "接続されたテレビやオーディオがモノラルの場処,↵⎾モノラル⏌を選択する。",
+      "@@localazy:comment:string": "If you have monoaural speakers,↵select MONO sound output."
+    },
+    "054": {
+      "string": "ON",
+      "@@localazy:comment:string": "ON"
+    },
+    "055": {
+      "string": "バイブレーション⌜振動⌟機能をONにする。↵初期設定は⎾ON⏌。",
+      "@@localazy:comment:string": "Turn vibration mode ON.↵This is the default setting."
+    },
+    "056": {
+      "string": "OFF",
+      "@@localazy:comment:string": "OFF"
+    },
+    "057": {
+      "string": "バイブレーション⌜振動⌟機能をOFFにする。",
+      "@@localazy:comment:string": "Turn vibration mode OFF."
+    },
+    "058": {
+      "string": "YES",
+      "@@localazy:comment:string": "YES"
+    },
+    "059": {
+      "string": "ユーザーがカスタマイズした設定のすべてを↵初期設定に灵す。",
+      "@@localazy:comment:string": "Restore all options to↵their default settings."
+    },
+    "060": {
+      "string": "NO",
+      "@@localazy:comment:string": "NO"
+    },
+    "061": {
+      "string": "初期設定に灵すのをやめる。",
+      "@@localazy:comment:string": "Cancel restore default settings."
+    },
+    "062": {
+      "string": "パズルモードにチャレンジ中は,↵パズルモードの設定を変更できません。",
+      "@@localazy:comment:string": "You cannot change the Puzzle Mode↵in the middle of a puzzle."
+    }
+  }
+}

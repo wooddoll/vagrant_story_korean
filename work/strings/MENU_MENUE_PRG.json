@@ -1,0 +1,116 @@
+{
+  "MENUE": {
+    "000": {
+      "string": "基伝操作",
+      "@@localazy:comment:string": "BASIC CONTROLS"
+    },
+    "001": {
+      "string": "バトルモードの違い",
+      "@@localazy:comment:string": "GAME MODES"
+    },
+    "002": {
+      "string": "ステータス異常",
+      "@@localazy:comment:string": "STATUS"
+    },
+    "003": {
+      "string": "部位ダメージの影響",
+      "@@localazy:comment:string": "DAMAGE EFFECTS"
+    },
+    "004": {
+      "string": "リスクの影響",
+      "@@localazy:comment:string": "RISK EFFECTS"
+    },
+    "005": {
+      "string": "魔法の修得方法",
+      "@@localazy:comment:string": "LEARNING MAGIC"
+    },
+    "006": {
+      "string": "チェインアビリティ",
+      "@@localazy:comment:string": "CHAIN ABILITIES"
+    },
+    "007": {
+      "string": "ディフェンスアビリティ",
+      "@@localazy:comment:string": "DEFENSE ABILITIES"
+    },
+    "008": {
+      "string": "ブレイクアーツ",
+      "@@localazy:comment:string": "BREAK ARTS"
+    },
+    "009": {
+      "string": "キューブについて",
+      "@@localazy:comment:string": "PUZZLE CUBES"
+    },
+    "010": {
+      "string": "武器と防具について",
+      "@@localazy:comment:string": "ARMS AND ARMOR"
+    },
+    "011": {
+      "string": "簡易マップの見方",
+      "@@localazy:comment:string": "SIMPLE MAP"
+    },
+    "012": {
+      "string": "曲体マップの見方",
+      "@@localazy:comment:string": "AREA MAP"
+    },
+    "013": {
+      "string": "これだけは読んで!",
+      "@@localazy:comment:string": "READ ME!"
+    },
+    "014": {
+      "string": "コントローラの基伝操作を解說する。",
+      "@@localazy:comment:string": "Explains basic Controller use."
+    },
+    "015": {
+      "string": "バトルモードとリラックスモード⌜非バトルモード⌟の↵違いを解說する。",
+      "@@localazy:comment:string": "Explains the difference between Normal Mode↵and Battle Mode."
+    },
+    "016": {
+      "string": "毒やマヒなどのステータス異常を解說する。",
+      "@@localazy:comment:string": "Explains status abnormalities such as Poison↵and Paralysis."
+    },
+    "017": {
+      "string": "手足などの部位の能力ダウンによるペナルティを↵解說する。",
+      "@@localazy:comment:string": "Explains the effects of hit location damage on↵Ashley."
+    },
+    "018": {
+      "string": "リスクはバトルにどのような影響を与えるかを↵解說する。",
+      "@@localazy:comment:string": "Explains how RISK affects Ashleyʹs battles."
+    },
+    "019": {
+      "string": "攻略に重要な魔法の修得方法を解說する。",
+      "@@localazy:comment:string": "Explains how to use magic to help Ashley↵in battle."
+    },
+    "020": {
+      "string": "チェインアビリティの使い方と修得方法を解說する。",
+      "@@localazy:comment:string": "Explains how to gain and master Chain↵Abilities."
+    },
+    "021": {
+      "string": "ディフェンスアビリティの使い方と修得方法を↵解說する。",
+      "@@localazy:comment:string": "Explains how to gain and master Defense↵Abilities."
+    },
+    "022": {
+      "string": "攻略に重要なブレイクアーツの使い方と入手方法を↵解說する。",
+      "@@localazy:comment:string": "Explains how to gain and use Break Arts for↵tactical advantage in battle."
+    },
+    "023": {
+      "string": "様々なキューブの特徵について解說する。",
+      "@@localazy:comment:string": "Explains the many different types of cubes in↵the game."
+    },
+    "024": {
+      "string": "ウェポンやシールドの構四・四長について↵解說する。",
+      "@@localazy:comment:string": "Explains the composition and parameters of↵weapons and armor."
+    },
+    "025": {
+      "string": "画面由下に表団される簡易マップの内容を↵解說する。",
+      "@@localazy:comment:string": "Explains the features of the room maps."
+    },
+    "026": {
+      "string": "⎾マップ⏌コマンドで表団される曲体マップの内容を↵解說する。",
+      "@@localazy:comment:string": "Explains how to use the area maps."
+    },
+    "027": {
+      "string": "代項名で說明されている内容も含めて,攻略に重要と↵思われる内容を要点だけかいつまんで解說する。",
+      "@@localazy:comment:string": "A summary of the most important facts and↵information."
+    }
+  }
+}

@@ -1,0 +1,476 @@
+{
+  "SL_Main": {
+    "000": {
+      "string": "",
+      "@@localazy:comment:string": "untitled"
+    },
+    "001": {
+      "string": "通常攻擊",
+      "@@localazy:comment:string": "Normal"
+    },
+    "002": {
+      "string": "ハサミ攻擊",
+      "@@localazy:comment:string": "Pincer"
+    },
+    "003": {
+      "string": "噛みつく",
+      "@@localazy:comment:string": "Bite"
+    },
+    "004": {
+      "string": "噛みつく",
+      "@@localazy:comment:string": "Bite"
+    },
+    "005": {
+      "string": "噛みつく",
+      "@@localazy:comment:string": "Bite"
+    },
+    "006": {
+      "string": "デスヴェイパー",
+      "@@localazy:comment:string": "Death Vapor"
+    },
+    "007": {
+      "string": "イラプション",
+      "@@localazy:comment:string": "Eruption"
+    },
+    "008": {
+      "string": "フリーズ",
+      "@@localazy:comment:string": "Freeze"
+    },
+    "009": {
+      "string": "ガスト",
+      "@@localazy:comment:string": "Gust"
+    },
+    "010": {
+      "string": "テラスラスト",
+      "@@localazy:comment:string": "Terra Thrust"
+    },
+    "011": {
+      "string": "サンクチュエリ",
+      "@@localazy:comment:string": "Holy Light"
+    },
+    "012": {
+      "string": "ディアボロス",
+      "@@localazy:comment:string": "Diabolos"
+    },
+    "013": {
+      "string": "ポイズンパネル",
+      "@@localazy:comment:string": "Poison Panel"
+    },
+    "014": {
+      "string": "パラライズパネル",
+      "@@localazy:comment:string": "Paralysis Panel"
+    },
+    "015": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "016": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "017": {
+      "string": "カースパネル",
+      "@@localazy:comment:string": "Curse Panel"
+    },
+    "018": {
+      "string": "ヒールパネル",
+      "@@localazy:comment:string": "Heal Panel"
+    },
+    "019": {
+      "string": "キュアパネル",
+      "@@localazy:comment:string": "Cure Panel"
+    },
+    "020": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "021": {
+      "string": "トラップクリア",
+      "@@localazy:comment:string": "Trap Clear"
+    },
+    "022": {
+      "string": "ヘヴィショット",
+      "@@localazy:comment:string": "Heavy Shot"
+    },
+    "023": {
+      "string": "ゲインライフ",
+      "@@localazy:comment:string": "Gain Life"
+    },
+    "024": {
+      "string": "マインドアサルト",
+      "@@localazy:comment:string": "Mind Assault"
+    },
+    "025": {
+      "string": "ゲインマジック",
+      "@@localazy:comment:string": "Gain Magic"
+    },
+    "026": {
+      "string": "レイジングエイク",
+      "@@localazy:comment:string": "Raging Ache"
+    },
+    "027": {
+      "string": "インセインエイク",
+      "@@localazy:comment:string": "Mind Ache"
+    },
+    "028": {
+      "string": "ゲインダメージ",
+      "@@localazy:comment:string": "Temper"
+    },
+    "029": {
+      "string": "クリムゾンレイド",
+      "@@localazy:comment:string": "Crimson Pain"
+    },
+    "030": {
+      "string": "ゲインファントム",
+      "@@localazy:comment:string": "Instill"
+    },
+    "031": {
+      "string": "ファントムペイン",
+      "@@localazy:comment:string": "Phantom Pain"
+    },
+    "032": {
+      "string": "パラライズパルス",
+      "@@localazy:comment:string": "Paralysis Pulse"
+    },
+    "033": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "034": {
+      "string": "ナミングクロウ",
+      "@@localazy:comment:string": "Numbing Claw"
+    },
+    "035": {
+      "string": "ダルネスバインド",
+      "@@localazy:comment:string": "Dulling Impact"
+    },
+    "036": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "037": {
+      "string": "スネークヴェノム",
+      "@@localazy:comment:string": "Snake Venom"
+    },
+    "038": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "039": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "040": {
+      "string": "セルフリカバリー",
+      "@@localazy:comment:string": "Ward"
+    },
+    "041": {
+      "string": "マジックスナッチ",
+      "@@localazy:comment:string": "Siphon Soul"
+    },
+    "042": {
+      "string": "マジックリフレク",
+      "@@localazy:comment:string": "Reflect Magic"
+    },
+    "043": {
+      "string": "ダメージリフレク",
+      "@@localazy:comment:string": "Reflect Damage"
+    },
+    "044": {
+      "string": "レジストマジック",
+      "@@localazy:comment:string": "Absorb Magic"
+    },
+    "045": {
+      "string": "レジストダメージ",
+      "@@localazy:comment:string": "Absorb Damage"
+    },
+    "046": {
+      "string": "インパクトガード",
+      "@@localazy:comment:string": "Impact Guard"
+    },
+    "047": {
+      "string": "エアブレイク",
+      "@@localazy:comment:string": "Windbreak"
+    },
+    "048": {
+      "string": "ファイアプルーフ",
+      "@@localazy:comment:string": "Fireproof"
+    },
+    "049": {
+      "string": "アースコンソル",
+      "@@localazy:comment:string": "Terra Ward"
+    },
+    "050": {
+      "string": "アクアウォード",
+      "@@localazy:comment:string": "Aqua Ward"
+    },
+    "051": {
+      "string": "フィーンドガード",
+      "@@localazy:comment:string": "Shadow Guard"
+    },
+    "052": {
+      "string": "デモンスケイル",
+      "@@localazy:comment:string": "Demonscale"
+    },
+    "053": {
+      "string": "ファントムシェル",
+      "@@localazy:comment:string": "Phantom Shield"
+    },
+    "054": {
+      "string": "ミゼラブルボディ",
+      "@@localazy:comment:string": "Degenerate"
+    },
+    "055": {
+      "string": "フィブルマインド",
+      "@@localazy:comment:string": "Psychodrain"
+    },
+    "056": {
+      "string": "レイジーボーンズ",
+      "@@localazy:comment:string": "Leadbones"
+    },
+    "057": {
+      "string": "アンプロテクト",
+      "@@localazy:comment:string": "Tarnish"
+    },
+    "058": {
+      "string": "アナライシス",
+      "@@localazy:comment:string": "Analyze"
+    },
+    "059": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "060": {
+      "string": "ハーキュリアン",
+      "@@localazy:comment:string": "Herakles"
+    },
+    "061": {
+      "string": "インライテン",
+      "@@localazy:comment:string": "Enlighten"
+    },
+    "062": {
+      "string": "インビゴレイト",
+      "@@localazy:comment:string": "Invigorate"
+    },
+    "063": {
+      "string": "プロテクト",
+      "@@localazy:comment:string": "Prostasia"
+    },
+    "064": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "065": {
+      "string": "ヒール",
+      "@@localazy:comment:string": "Heal"
+    },
+    "066": {
+      "string": "ルフトアタッチ",
+      "@@localazy:comment:string": "Luft Fusion"
+    },
+    "067": {
+      "string": "スパークアタッチ",
+      "@@localazy:comment:string": "Spark Fusion"
+    },
+    "068": {
+      "string": "ソイルアタッチ",
+      "@@localazy:comment:string": "Soil Fusion"
+    },
+    "069": {
+      "string": "フロストアタッチ",
+      "@@localazy:comment:string": "Frost Fusion"
+    },
+    "070": {
+      "string": "ルフトガード",
+      "@@localazy:comment:string": "Aero Guard"
+    },
+    "071": {
+      "string": "スパークガード",
+      "@@localazy:comment:string": "Pyro Guard"
+    },
+    "072": {
+      "string": "ソイルガード",
+      "@@localazy:comment:string": "Terra Guard"
+    },
+    "073": {
+      "string": "フロストガード",
+      "@@localazy:comment:string": "Aqua Guard"
+    },
+    "074": {
+      "string": "デスラプトペイン",
+      "@@localazy:comment:string": "Dark Chant"
+    },
+    "075": {
+      "string": "サイレントスペル",
+      "@@localazy:comment:string": "Silence"
+    },
+    "076": {
+      "string": "インバリドスペル",
+      "@@localazy:comment:string": "Magic Ward"
+    },
+    "077": {
+      "string": "ジェネラスヒール",
+      "@@localazy:comment:string": "Surging Balm"
+    },
+    "078": {
+      "string": "ライトニングボウ",
+      "@@localazy:comment:string": "Lightning Bolt"
+    },
+    "079": {
+      "string": "フィクセイト",
+      "@@localazy:comment:string": "Fixate"
+    },
+    "080": {
+      "string": "ディスペル",
+      "@@localazy:comment:string": "Dispel"
+    },
+    "081": {
+      "string": "ファイアボール",
+      "@@localazy:comment:string": "Fireball"
+    },
+    "082": {
+      "string": "スタンクラウド",
+      "@@localazy:comment:string": "Stun Cloud"
+    },
+    "083": {
+      "string": "ポイズンミスト",
+      "@@localazy:comment:string": "Poison Mist"
+    },
+    "084": {
+      "string": "ヴァルカンランス",
+      "@@localazy:comment:string": "Vulcan Lance"
+    },
+    "085": {
+      "string": "カース",
+      "@@localazy:comment:string": "Curse"
+    },
+    "086": {
+      "string": "アクアブラスト",
+      "@@localazy:comment:string": "Aqua Blast"
+    },
+    "087": {
+      "string": "リストレイション",
+      "@@localazy:comment:string": "Restoration"
+    },
+    "088": {
+      "string": "アンチドーテ",
+      "@@localazy:comment:string": "Antidote"
+    },
+    "089": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "090": {
+      "string": "ブレッシング",
+      "@@localazy:comment:string": "Blessing"
+    },
+    "091": {
+      "string": "クリアランス",
+      "@@localazy:comment:string": "Clearance"
+    },
+    "092": {
+      "string": "アンロック",
+      "@@localazy:comment:string": "Unlock"
+    },
+    "093": {
+      "string": "マーク",
+      "@@localazy:comment:string": "Eureka"
+    },
+    "094": {
+      "string": "ドレインハート",
+      "@@localazy:comment:string": "Drain Heart"
+    },
+    "095": {
+      "string": "ドレインマインド",
+      "@@localazy:comment:string": "Drain Mind"
+    },
+    "096": {
+      "string": "ヒール",
+      "@@localazy:comment:string": "Heal"
+    },
+    "097": {
+      "string": "ソリッドショック",
+      "@@localazy:comment:string": "Solid Shock"
+    },
+    "098": {
+      "string": "ライトニングボウ",
+      "@@localazy:comment:string": "Lightning Bolt"
+    },
+    "099": {
+      "string": "ファイアボール",
+      "@@localazy:comment:string": "Fireball"
+    },
+    "100": {
+      "string": "ヴァルカンランス",
+      "@@localazy:comment:string": "Vulcan Lance"
+    },
+    "101": {
+      "string": "アクアブラスト",
+      "@@localazy:comment:string": "Aqua Blast"
+    },
+    "102": {
+      "string": "スピリットサージ",
+      "@@localazy:comment:string": "Spirit Surge"
+    },
+    "103": {
+      "string": "デスラプトペイン",
+      "@@localazy:comment:string": "Dark Chant"
+    },
+    "104": {
+      "string": "イクソシズム",
+      "@@localazy:comment:string": "Exorcism"
+    },
+    "105": {
+      "string": "バニッシュ",
+      "@@localazy:comment:string": "Banish"
+    },
+    "106": {
+      "string": "イクスプロジョンѨ1",
+      "@@localazy:comment:string": "Explosion Ѩ1"
+    },
+    "107": {
+      "string": "イクスプロジョンѨ2",
+      "@@localazy:comment:string": "Explosion Ѩ2"
+    },
+    "108": {
+      "string": "イクスプロジョンѨ3",
+      "@@localazy:comment:string": "Explosion Ѩ3"
+    },
+    "109": {
+      "string": "イクスプロジョンѨ4",
+      "@@localazy:comment:string": "Explosion Ѩ4"
+    },
+    "110": {
+      "string": "サンダーバーストѨ1",
+      "@@localazy:comment:string": "Thunderburst Ѩ1"
+    },
+    "111": {
+      "string": "サンダーバーストѨ2",
+      "@@localazy:comment:string": "Thunderburst Ѩ2"
+    },
+    "112": {
+      "string": "サンダーバーストѨ3",
+      "@@localazy:comment:string": "Thunderburst Ѩ3"
+    },
+    "113": {
+      "string": "サンダーバーストѨ4",
+      "@@localazy:comment:string": "Thunderburst Ѩ4"
+    },
+    "114": {
+      "string": "フレイムスフィアѨ1",
+      "@@localazy:comment:string": "Flame Sphere Ѩ1"
+    },
+    "115": {
+      "string": "フレイムスフィアѨ2",
+      "@@localazy:comment:string": "Flame Sphere Ѩ2"
+    },
+    "116": {
+      "string": "フレイムスフィアѨ3",
+      "@@localazy:comment:string": "Flame Sphere Ѩ3"
+    },
+    "117": {
+      "string": "フレイムスフィアѨ4",
+      "@@localazy:comment:string": "Flame Sphere Ѩ4"
+    }
+  }
+}
