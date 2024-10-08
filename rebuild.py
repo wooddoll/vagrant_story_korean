@@ -2,6 +2,13 @@ import json
 import os
 from utils import *
 from tqdm import tqdm
+from pathlib import Path
+from font.fontMaker import HistoKorLetters, font14slots, jpnTableslots
+from PIL import Image, ImageDraw, ImageFont
+import math
+from font import dialog
+from copy import deepcopy
+
 
 def downlaod_localazy():
     BATTLE_localazy_json = { "readKey": "a7205313787754947305-fad6c10d4b491ecfc62c4a76a2cecbe93b629a62717ab14832253776186f82e0", "download": { "includeSourceLang": False, "files": "work/kor/BATTLE_BATTLE_PRG_ko.json" }, }
@@ -32,6 +39,7 @@ def downlaod_localazy():
                          MENU7_localazy_json, MENU8_localazy_json, MENU9_localazy_json, MENU12_localazy_json, MENUB_localazy_json, MENUD_localazy_json, MENUE_localazy_json,
                          MENUE_localazy_json, SLPS_localazy_json, ARM_localazy_json, MON_localazy_json]
     
+    os.makedirs("work/kor", exist_ok=True)
     for target in tqdm(localazy_downlist, desc="Processing"):
         with open('localazy.json', 'w') as f:
             json.dump(target, f)
@@ -40,4 +48,171 @@ def downlaod_localazy():
     
     os.remove('localazy.json')
     
-downlaod_localazy()
+#downlaod_localazy()
+
+
+def mergeKorString():
+    kor_strings = {}
+    
+    json_list = list(Path('work/kor').glob('*.json'))
+    for filepath in tqdm(json_list, desc="Processing"):
+        with open(filepath, 'r') as json_file:
+            json_data = json.load(json_file)
+            kor_strings.update(json_data)
+    
+    return kor_strings
+
+
+def collectKorLetters(kor_strings: dict):
+    PrimeKeys = ['BATTLE_1', 'BATTLE_2', 'MENU0', 'MENU1', 'MENU2', 'MENU3', 'MENU4', 'MENU5', 'MENU7', 'MENU8', 'MENU9_1', 'MENU9_2', 'MENUB', 'MENUD', 'MENUE', 'SL_Main']
+    histoKor = HistoKorLetters()
+    for k0, v0 in kor_strings.items():
+        isPrime = False
+        if k0 in PrimeKeys:
+            isPrime = True
+        if isinstance(v0, str):
+            histoKor.tasteString(v0, isPrime)
+        elif isinstance(v0, dict):
+            for k1, v1 in v0.items():
+                if k1 in PrimeKeys:
+                    isPrime = True
+                if isinstance(v1, str):
+                    histoKor.tasteString(v1, isPrime)
+                elif isinstance(v1, dict):
+                    for k2, v2 in v1.items():
+                        if k2 in PrimeKeys:
+                            isPrime = True
+                        if isinstance(v2, str):
+                            histoKor.tasteString(v2, isPrime)
+                        elif isinstance(v2, dict):
+                            for k3, v3 in v2.items():
+                                if k3 in PrimeKeys:
+                                    isPrime = True
+                                if isinstance(v3, str):
+                                    histoKor.tasteString(v3, isPrime)
+                                else:
+                                    print('why l3?')
+                        else:
+                            print('why l2?')
+                else:
+                    print('why l1?')
+        else:
+            print('why l0?')
+
+    
+    histoKor.sort()
+    
+    countPrime = 0
+    countAll = 0
+    for k, v in histoKor.histo.items():
+        if v['count'] > 1000:
+            countPrime += 1
+        elif v['count'] > 0:
+            countAll += 1
+
+    print(f"countAll {countAll}, countPrime {countPrime}")
+    
+    return histoKor.histo
+
+def posInTable_ja(index: int):
+    row = index//18
+    col = index%18
+    y = 14*row
+    x = 14*col
+    
+    return x, y
+
+def posInTable_ko(index: int):
+    row = index//18
+    col = index%18
+    y = row*(14 + 4) + 3
+    x = col*(14 + 4) + 3
+    
+    return x, y
+    
+
+jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+def collectJpLetters():
+    def calpos(row: int, col: int):
+        return row*18 + col
+    # 3E - E4
+    jpnList = []
+    jpnList.extend(list(range(calpos(3, 8), calpos(7, 17))))
+    jpnList.extend(list(range(calpos(8, 0), calpos(12, 13))))
+    
+    return jpnList
+    
+def test1():
+    jpnIndexes, jpnLetters = jpnTableslots(jpnTBL)
+    jpnKeys = list(jpnTBL.fwd_tbl.keys())
+    jpnValues = list(jpnTBL.fwd_tbl.values())
+    
+    korTBL = deepcopy(jpnTBL)
+    korKeys = list(korTBL.fwd_tbl.keys())
+    korValues = list(korTBL.fwd_tbl.values())
+    
+    slots = font14slots()
+    slotPos = 0
+    kor_strings = mergeKorString()
+    korHisto = collectKorLetters(kor_strings)
+    
+    ji = 0
+    for k, v in korHisto.items():
+        if v['count'] <= 0:
+            break
+        korValues[jpnIndexes[ji]] = k
+        ji += 1
+    
+    imgJp = Image.open('font/font14_2b_256.png')
+    imgKr = Image.open('font/Noto_Sans_4b.png')
+    
+    for k, v in korHisto.items():
+        if v['count'] <= 0:
+            break
+        kpos = v['pos']
+        kx, ky = posInTable_ko(kpos)
+        
+        jpos = slots[slotPos]
+        slotPos += 1
+
+        jx, jy = posInTable_ja(jpos)
+        
+        kLetterImg = imgKr.crop((kx, ky, kx + 14, ky + 14))
+        kLetterImg.save('work/test.png')
+        imgJp.paste(kLetterImg, (jx, jy, jx + 14, jy + 14))
+    
+    Ma = 18*63 + 11
+    jpos = slots[slotPos]
+    slotPos += 1
+    korValues[jpnIndexes[ji]] = '魔'
+    ji += 1
+    
+    lll = len(slots) - slotPos
+    jp_strings = collectJpLetters()
+    len_jp_strings = len(jp_strings)
+    lll = min(lll, len_jp_strings)
+    for idx in range(lll):
+        jpos = slots[slotPos]
+        slotPos += 1
+        
+        korValues[jpnIndexes[ji]] = jpnValues[jp_strings[idx]]
+        ji += 1
+    
+    imgJp.save('work/kor_font_test.png')
+
+    korTable = {}
+    for k, v in zip(korKeys, korValues):
+        korTable[k] = v
+    with open('font/kor.tbl', 'wt', encoding='utf8') as f:
+        for k, v in korTable.items():
+            f.write(f"{k}={v}\n")
+
+
+test1()
+
+#xx, yy = jpnTableslots(jpnTBL)
+
+
+
+
+    

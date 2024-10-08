@@ -123,6 +123,8 @@ class convert_by_TBL():
                 ret = self.inv_tbl.get(letter)
                 if ret is not None:
                     byteText.extend(ret)
+                else:
+                    logging.critical(f"'{letter}' is invalid.")
         
         byteText.append(0xE7)
         if align2B and len(byteText) % 2:

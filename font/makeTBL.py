@@ -1,5 +1,3 @@
-# © 2024, wooddoll <fly4moon@hotmail.com>
-
 from PIL import Image
 import os
 from typing import Dict, Union, List

@@ -29,6 +29,26 @@ ttf_fonts.append([fontpath, 'NotoSansKR-Regular', 14])   #10
 fontpath = "D:/Users/moonhyun.lee/Downloads/Fonts/Noto_Sans_KR/static/NotoSansKR-Bold.ttf"
 ttf_fonts.append([fontpath, 'NotoSansKR-Bold', 14])   #11
 
+
+fontGroup_NotoSans = {
+    'fontThin' : "work/Noto_Sans_KR/NotoSansKR-Thin.ttf",
+    'fontRegular' : "work/Noto_Sans_KR/NotoSansKR-Regular.ttf",
+    'fontBold' : "work/Noto_Sans_KR/NotoSansKR-Bold.ttf",
+}
+
+fontGroup_PF = {
+    'fontThin' : "work/PFStardust/PF Stardust 3.0.ttf",
+    'fontRegular' : "work/PFStardust/PF Stardust 3.0 Bold.ttf",
+    'fontBold' : "work/PFStardust/PF Stardust 3.0 ExtraBold.ttf",
+}
+
+fontGroup_PFS = {
+    'fontThin' : "work/PFStardust/PF Stardust 3.0 S.ttf",
+    'fontRegular' : "work/PFStardust/PF Stardust 3.0 S Bold.ttf",
+    'fontBold' : "work/PFStardust/PF Stardust 3.0 S ExtraBold.ttf",
+}
+
+
 ttf_font = ttf_fonts[11]
 
 fontpath = ttf_font[0]
@@ -37,48 +57,48 @@ fontsize = ttf_font[2]
 
 
 class Make4bFont():
-    def __init__(self) -> None:
+    def __init__(self, fontGroup = fontGroup_NotoSans) -> None:
         self.fontSize = 14
         self.bgcolor = 0
         self.fontcolor = 255
         self.outlinecolor = 127
 
-        thinfontpath = "work/Noto_Sans_KR/NotoSansKR-Thin.ttf"
+        thinfontpath = fontGroup['fontThin']
         self.fontThin = ImageFont.truetype(thinfontpath, self.fontSize, encoding="utf-8")
-        regularfontpath = "work/Noto_Sans_KR/NotoSansKR-Regular.ttf"
+        regularfontpath = fontGroup['fontRegular']
         self.fontRegular = ImageFont.truetype(regularfontpath, self.fontSize, encoding="utf-8")
-        boldfontpath = "work/Noto_Sans_KR/NotoSansKR-Bold.ttf"
+        boldfontpath = fontGroup['fontBold']
         self.fontBold = ImageFont.truetype(boldfontpath, self.fontSize, encoding="utf-8")
 
-    def make1bMap(self, font, text:str = '', column = 16, mode = 'a'):
+    def make1bMap(self, font, text:str = '', columns = 18, mode = 'a'):
         len_text = len(text)
-        rows = math.ceil(len_text / column)
+        rows = math.ceil(len_text / columns)
 
-        imageWidth = column * self.fontSize
-        imageHeight = rows * self.fontSize
+        imageWidth = columns * (self.fontSize + 4)
+        imageHeight = rows * (self.fontSize + 4)
 
         img = Image.new("L", (imageWidth, imageHeight), color=self.bgcolor)
         draw = ImageDraw.Draw(img)
         if mode == 'n':
             draw.fontmode = "1"
 
-        for idx, c in enumerate(text):
-            y_c = idx // column
-            x_c = idx % column
-            ypos = y_c*self.fontSize
-            xpos = x_c*self.fontSize
+        for idx, letter in enumerate(text):
+            y_c = idx // columns
+            x_c = idx % columns
+            ypos = y_c*(self.fontSize + 4) + 2 + 7
+            xpos = x_c*(self.fontSize + 4) + 2 + 7
             draw.text(
                 xy=(xpos, ypos),
-                text=c,
+                text=letter,
                 fill=self.fontcolor,
                 font=font,
-                anchor="la",
+                anchor="mm",
                 stroke_width=0,
                 stroke_fill=self.outlinecolor
             )
         return img
     
-    def make4bMap(self, text:str = '', column = 16):
+    def make4bMap(self, text:str = '', column = 18):
         thin = self.make1bMap(self.fontThin, text, column, 'n')
         regular = self.make1bMap(self.fontRegular, text, column, 'n')
         bold = self.make1bMap(self.fontBold, text, column)
@@ -86,7 +106,8 @@ class Make4bFont():
         width = regular.width
         height = regular.height
         fontMap4b = Image.new("RGBA", (width, height), (200, 200, 200, 255))
-
+        #self.drawGrid(fontMap4b)
+        
         for y in range(height):
             for x in range(width):
                 tv = thin.getpixel((x, y))
@@ -101,10 +122,34 @@ class Make4bFont():
                 if tv > 0:
                     pixel = (0, 0, 0, 255)
 
+                #if pixel == (0, 0, 0, 0): continue
                 fontMap4b.putpixel((x,y), pixel)
 
         return fontMap4b
 
-fonttest = Make4bFont()
+    def drawGrid(self, img):
+        draw = ImageDraw.Draw(img)
+        len_text = len(text)
+        columns = 18
+        rows = math.ceil(len_text / 18)
+        for idx in range(len_text):
+            y_c = idx // columns
+            x_c = idx % columns
+            y = y_c*(self.fontSize + 4) + 3
+            x = x_c*(self.fontSize + 4) + 3
+            draw.rectangle((x, y, x + 13, y + 13), outline=(255, 0, 255, 128), width = 1)
+        
+        return img
+        
+fonttest = Make4bFont(fontGroup_NotoSans)
 img = fonttest.make4bMap(text)
 img.save(f"work/Noto_Sans_4b.png")
+exit()
+
+fonttest = Make4bFont(fontGroup_PF)
+img = fonttest.make4bMap(text)
+img.save(f"work/PF_Stardust_4b.png")
+
+fonttest = Make4bFont(fontGroup_PFS)
+img = fonttest.make4bMap(text)
+img.save(f"work/PF_Stardust_S_4b.png")

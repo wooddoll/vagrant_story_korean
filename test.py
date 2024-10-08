@@ -214,7 +214,7 @@ def extract_ZND_jp_en():
 
     dialogLists = {}
     dialogLists['MAP_ZND'] = { 'NPCs' : names, 'WEAPONs' : weapons } 
-    with open(f'work/strings/MAP_ZND.json', 'w', encoding='utf-8') as f:
+    with open(f'work/strings/MAP_ZND_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
     
     return    
@@ -301,7 +301,7 @@ def extract_ARM_jp_en():
 
     dialogLists = {}
     dialogLists['SMALL_ARM'] = arm_names
-    with open(f'work/strings/SMALL_ARM.json', 'w', encoding='utf-8') as f:
+    with open(f'work/strings/SMALL_ARM_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
     
     return
@@ -470,7 +470,7 @@ def extract_SL_Main_jp_en():
 
     dialogLists = {}
     dialogLists['SL_Main'] = texts
-    with open(f'work/strings/SLPS_main.json', 'w', encoding='utf-8') as f:
+    with open(f'work/strings/SLPS_main_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
         
     return
@@ -672,7 +672,7 @@ def extract_SMALL_MON_BIN():
     
     dialogLists = {}
     dialogLists['MON'] = texts
-    with open(f'work/strings/SMALL_MON_BIN.json', 'w', encoding='utf-8') as f:
+    with open(f'work/strings/SMALL_MON_BIN_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
 
 def extract_MENU_PRG_jp_en(name: str, suffix: str = 'PRG', useEN = True):
@@ -736,7 +736,7 @@ def extract_MENU_PRG_jp_en(name: str, suffix: str = 'PRG', useEN = True):
 
     dialogLists = {}
     dialogLists[name] = texts
-    with open(f'work/strings/MENU_{name}_{suffix}.json', 'w', encoding='utf-8') as f:
+    with open(f'work/strings/MENU_{name}_{suffix}_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
     
     #df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
@@ -783,7 +783,7 @@ def extract_BATTLE_jp_en():
     dialogLists = {}
     dialogLists['BATTLE_1'] = texts1
     dialogLists['BATTLE_2'] = texts2
-    with open(f'work/strings/BATTLE_BATTLE_PRG.json', 'w', encoding='utf-8') as f:
+    with open(f'work/strings/BATTLE_BATTLE_PRG_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
         
     return
@@ -828,7 +828,7 @@ def extract_MENU9_jp_en():
     dialogLists = {}
     dialogLists['MENU9_1'] = texts1
     dialogLists['MENU9_2'] = texts2
-    with open(f'work/strings/MENU_MENU9_PRG.json', 'w', encoding='utf-8') as f:
+    with open(f'work/strings/MENU_MENU9_PRG_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
     
     return
@@ -1064,7 +1064,7 @@ def extract_MPD_jp_en():
         else:
             print(f'why? {k} {len(jp)}!={len(en)}')
 
-    with open('work/strings/MAP_MPD.json', 'w', encoding='utf-8') as f:
+    with open('work/strings/MAP_MPD_ja.json', 'w', encoding='utf-8') as f:
         json.dump(mpd_jp, f, indent=2, ensure_ascii=False)
         
 def extractAll():
@@ -1093,7 +1093,8 @@ def extractAll():
     extract_MENU_PRG_jp_en('ITEMNAME', 'BIN')
     extract_MENU_PRG_jp_en('ITEMHELP', 'BIN')
 #  
-extractAll()
+#extractAll()
+
 exit()
 
 
@@ -1102,28 +1103,4 @@ while True:
     cvtBytes()
     cvtBytes2()
     
-
-
-'''
-BATTLE.PRG
-$82068 - $A2 - $823AA
-$831DC - 31 - $833B6
-$835DC - $0B - 
-
-TITLE.PRG   / really use?
-$C42C - 
-
-MENU0.PRG detected
-MENU1.PRG
-MENU2.PRG
-MENU3.PRG
-MENU4.PRG
-MENU5.PRG
-MENU7.PRG
-MENU8.PRG
-MENU9.PRG
-MENUB.PRG
-MENUD.PRG
-MENUE.PRG
-'''
 
