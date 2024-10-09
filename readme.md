@@ -37,7 +37,7 @@
    - 참고 <https://datacrystal.tcrf.net/wiki/Vagrant_Story/MPD_files>
    - 보물상자에 있는 무기의 이름도 있음 - 몇개만 확인해봤는데, 전부 빈칸이다. 나중에 다시 확인
    - 대부분의 파일 크기가 LBA경계 보다 작아서 대사길이가 좀 늘어도 여유가 있음
-- 2024-9-19: 일본어 폰트 추출; MENU/FONT14.BIN
+- 2024-9-19: 일본어 폰트 추출; ~~MENU/FONT14.BIN~~ BATTLE/SYSTEM.DAT
    - 참고 <https://github.com/HilltopWorks/VagrantStory-Font/tree/main>
    - 영문폰트는 4b texture, 일문폰트는 2b임
 ## 
