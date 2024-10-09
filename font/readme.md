@@ -1,5 +1,13 @@
 ### font 수정
 
+/Vagrant Story (J)/BATTLE/SYSTEM.DAT
+- 한 픽셀당 2bit인 가로 256크기의 이미지 파일, 
+- 폰트 크기는 가로12x세로11
+- font1; 0x1AA70부터 0x6E00
+- font2; 0x2AA70부터 0x6E00
+- font3; 0x28A70부터 0x3700
+- 
+
 /Vagrant Story (J)/MENU/FONT14.BIN
 - 한 픽셀당 2bit인 가로 256크기의 이미지 파일, 
 - 폰트 크기는 14x14
