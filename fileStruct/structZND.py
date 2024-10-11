@@ -66,7 +66,7 @@ class ZND_Enemy():
         if buffer is not None:
             self.unpackData(buffer)
 
-    def convertName(self, table: convert_by_TBL):
+    def cvtByte2Str(self, table: convert_by_TBL):
         self.name_str.clear()
         for text in self.name_byte:
             self.name_str.append(table.cvtBytes_str(text))
@@ -74,6 +74,15 @@ class ZND_Enemy():
         self.weapon_str.clear()
         for text in self.weapon_byte:
             self.weapon_str.append(table.cvtBytes_str(text))
+    
+    def cvtStr2Byte(self, table: convert_by_TBL):
+        self.name_byte.clear()
+        for text in self.name_str:
+            self.name_byte.append(table.cvtStr_Bytes(text))
+        
+        self.weapon_byte.clear()
+        for text in self.weapon_str:
+            self.weapon_byte.append(table.cvtStr_Bytes(text))
 
     def unpackData(self, buffer: bytes):
         if buffer is None:

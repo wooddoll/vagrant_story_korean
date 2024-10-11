@@ -39,10 +39,15 @@ class ARMstruct():
                 self.names_byte.append(byte_stream.read(0x20))
                 byte_stream.seek(4, os.SEEK_CUR)
 
-    def convertName(self, table: convert_by_TBL):
+    def cvtByte2Str(self, table: convert_by_TBL):
         self.names_str.clear()
         for text in self.names_byte:
             self.names_str.append(table.cvtBytes_str(text))
+    
+    def cvtStr2Byte(self, table: convert_by_TBL):
+        self.names_byte.clear()
+        for text in self.names_str:
+            self.names_byte.append(table.cvtStr_Bytes(text))
             
     def packData(self, output_path:str):
         if self.buffer is None:
