@@ -91,45 +91,44 @@ class DialogText():
         self.strings_byte = self.strings._byte
     
     def __len__(self):
-        return len(self.strings.buffer) if self.strings.buffer is not None else 0
+        return len(self.strings)
     
     def packData(self):
-        if self.strings.buffer is None:
+        if 0 >= len(self.strings):
             return None
         
-        preSize = len(self.strings.buffer) - 2*self.strings.itemNums
+        preSize = len(self.strings) - 2*self.strings.itemNums
         sumBytes = 0
         for text in self.strings_byte:
             sumBytes += len(text)
         if preSize < sumBytes:
             logging.warning(f"check the dialogs length, size overflowed; privious({preSize}) < current({sumBytes})")
-        
-        self.strings.buffer = self.strings.packData()
-        return self.strings.buffer
-    
-class ScriptSection(SectionBase):
-    def __init__(self, buffer: Union[bytes, None] = None) -> None:
-        self.buffer = bytearray(buffer) if buffer is not None else None
 
-        self.scriptOpcodes      = SectionBase()
-        self.dialogText         = DialogText()
-        self.unknownSection1    = SectionBase()
-        self.unknownSection2    = SectionBase()
+        return self.strings.packData()
+    
+class ScriptSection():
+    def __init__(self, buffer: Union[bytes, None] = None) -> None:
+        self.header = []
+        self.scriptOpcodes   = SectionBase()
+        self.dialogText      = DialogText()
+        self.unknownSection1 = SectionBase()
+        self.unknownSection2 = SectionBase()
 
         if buffer is not None:
             self.unpackData(buffer)
 
+    def __len__(self):
+        return self.header[0] if self.header else 0
+    
     def unpackData(self, buffer: bytes):
-        if buffer is not None:
-            self.buffer = bytearray(buffer)
-        else:
+        if buffer is None:
             return
         
-        byte_stream = io.BytesIO(self.buffer)
-        header = readHeader(byte_stream, 8, 2)
+        byte_stream = io.BytesIO(buffer)
+        self.header = readHeader(byte_stream, 8, 2)
         
-        poses = [16, header[1], header[2], header[3]]
-        sizes = [poses[1]-poses[0], poses[2]-poses[1], poses[3]-poses[2], header[0]-poses[3]]
+        poses = [16, self.header[1], self.header[2], self.header[3]]
+        sizes = [poses[1]-poses[0], poses[2]-poses[1], poses[3]-poses[2], self.header[0]-poses[3]]
 
         sections = [self.scriptOpcodes, self.dialogText, self.unknownSection1, self.unknownSection2]
         for idx in range(4):
@@ -138,11 +137,9 @@ class ScriptSection(SectionBase):
             sections[idx].unpackData(byte_stream.read(sizes[idx]))
 
     def packData(self):
-        if self.buffer is None:
+        if not self.header:
             return None
 
-        byte_stream = io.BytesIO(self.buffer)
-        header = readHeader(byte_stream, 8, 2)
         poses = [16]
         sizes = []
         sections = [self.scriptOpcodes, self.dialogText, self.unknownSection1, self.unknownSection2]
@@ -155,30 +152,29 @@ class ScriptSection(SectionBase):
                 poses.append(poses[idx-1] + sizes[idx-1])
         sumSizes = sum(sizes) + 16
 
-        if sumSizes > header[0]:
-            logging.warning(f"check the ScriptSection size, size overflowed({sumSizes} > {header[0]})")
+        if sumSizes > self.header[0]:
+            logging.warning(f"check the ScriptSection size, size overflowed({self.header[0]} < {sumSizes})")
 
-        byte_stream.seek(0)
-        byte_stream.write(bytes2(sumSizes))
-        byte_stream.write(bytes2(poses[1]))
-        byte_stream.write(bytes2(poses[2]))
-        byte_stream.write(bytes2(poses[3]))
-        byte_stream.write(bytes2(header[4]))
-        byte_stream.write(bytes2(header[5]))
-        byte_stream.write(bytes2(header[6]))
-        byte_stream.write(bytes2(header[7]))
-
+        self.header[0] = sumSizes
+        self.header[1] = poses[1]
+        self.header[2] = poses[2]
+        self.header[3] = poses[3]
+        
+        byte_stream = io.BytesIO()
+        for header in self.header:
+            byte_stream.write(bytes2(header))
+            
         for idx in range(4):
             data = dialogText if idx == 1 else sections[idx].packData()
             if data is not None:
                 byte_stream.seek(poses[idx])
                 byte_stream.write(data)
 
-        return byte_stream.getbuffer()
+        return byte_stream.getvalue()
 
 class MPDstruct():
     def __init__(self, input_path:str = '') -> None:
-        self.buffer = None
+        self.header = []
         self.roomSection        = SectionBase()
         self.clearedSection     = SectionBase()
         self.scriptSection      = ScriptSection()
@@ -189,21 +185,31 @@ class MPDstruct():
         if input_path:
             self.unpackData(input_path)
 
+    def __len__(self):
+        if not self.header:
+            return 0
+        
+        bufferSize = 0
+        for idx in range(1, 12, 2):
+            bufferSize += self.header[idx]
+            
+        return bufferSize
+    
     def unpackData(self, input_path:str):
         with open(input_path, 'rb') as file:
-            self.buffer = bytearray(file.read())
+            buffer = bytearray(file.read())
             
-            filesize = len(self.buffer)
+            filesize = len(buffer)
             lbaSize = (filesize//2048)*2048
             if filesize > lbaSize:
                 lbaSize += 2048
             
             logging.info(f"{Path(input_path).stem}: The free space in LBA is {lbaSize - filesize} bytes.")
-            byte_stream = io.BytesIO(self.buffer)
+            byte_stream = io.BytesIO(buffer)
 
-            header = readHeader(byte_stream, 12, 4)
-            poses = [header[0], header[2], header[4], header[6], header[8], header[10]]
-            sizes = [header[1], header[3], header[5], header[7], header[9], header[11]]
+            self.header = readHeader(byte_stream, 12, 4)
+            poses = [self.header[0], self.header[2], self.header[4], self.header[6], self.header[8], self.header[10]]
+            sizes = [self.header[1], self.header[3], self.header[5], self.header[7], self.header[9], self.header[11]]
 
             sections = [self.roomSection, self.clearedSection, self.scriptSection, self.doorSection, self.enemySection, self.treasureSection]
 
@@ -213,14 +219,11 @@ class MPDstruct():
                 sections[idx].unpackData(byte_stream.read(sizes[idx]))
 
     def packData(self, output_path:str):
-        if self.buffer is None:
+        if not self.header:
             return
         
-        fileSize = len(self.buffer)
-        byte_stream = io.BytesIO(self.buffer)
-
-        header = readHeader(byte_stream, 12, 4)
-        poses = [header[0]]
+        fileSize = len(self)
+        poses = [self.header[0]]
         sizes = []
         
         scriptSection = self.scriptSection.packData()
@@ -233,23 +236,26 @@ class MPDstruct():
                 poses.append(poses[idx-1] + sizes[idx-1])
         sumSizes = sum(sizes)
         
-        maxScriptSectionSize = header[6] - header[4]
+        prevScriptSectionSize = self.header[6] - self.header[4]
         writeSize = len(scriptSection) if scriptSection is not None else 0
-        if writeSize > maxScriptSectionSize:
-            logging.warning(f"check the section size, size overflowed({writeSize} > {maxScriptSectionSize})")
+        if prevScriptSectionSize < writeSize:
+            logging.warning(f"check the section size, size overflowed({prevScriptSectionSize} < {writeSize})")
 
+        for idx in range(0, 12, 2):
+            self.header[idx]   = poses[idx//2]
+            self.header[idx+1] = sizes[idx//2]
+            
         if sumSizes > fileSize:
             prev = math.ceil(fileSize / 2048) * 2048
             curr = math.ceil(sumSizes / 2048) * 2048
             if curr > prev:
-                logging.critical(f"check the file size, LBA overflowed({sumSizes} > {fileSize})")
+                logging.critical(f"check the file size, LBA overflowed({fileSize} < {sumSizes})")
             else:
-                logging.warning(f"check the file size, size overflowed({sumSizes} > {fileSize})")
+                logging.warning(f"check the file size, size overflowed({fileSize} < {sumSizes})")
 
         with open(output_path, 'wb') as file:
-            for idx in range(6):
-                file.write(bytes4(poses[idx]))
-                file.write(bytes4(sizes[idx]))
+            for value in self.header:
+                file.write(bytes4(value))
 
             for idx in range(6):
                 data = scriptSection if idx == 2 else sections[idx].packData()

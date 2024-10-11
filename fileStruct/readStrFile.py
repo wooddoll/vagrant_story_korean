@@ -9,7 +9,6 @@ from utils import *
 
 class ReadStrings(): 
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
-        self.buffer = buffer
         self.itemNums = -1
         self._byte = []
         self._str = []
@@ -52,14 +51,12 @@ class ReadStrings():
         if len_buffer%2:
             len_buffer += 1
         self.len_buffer = len_buffer + ptrs[-2]
-        
-        self.buffer = buffer[:len_buffer]
 
     def __len__(self):
-        return self.len_buffer if self.buffer is not None else 0
+        return self.len_buffer if 0 < self.itemNums else 0
 
     def packData(self):
-        if self.buffer is None:
+        if 0 >= self.itemNums:
             return None
         
         if self.itemNums != len(self._byte):
@@ -69,7 +66,7 @@ class ReadStrings():
         for idx in range(self.itemNums):
             ptrs.append(ptrs[-1] + len(self._byte[idx])//2)
 
-        byte_stream = io.BytesIO(self.buffer)
+        byte_stream = io.BytesIO()
         for idx in range(self.itemNums):
             byte_stream.write(bytes2(ptrs[idx]))
             
@@ -80,7 +77,9 @@ class ReadStrings():
         currPos = byte_stream.tell()
         if self.len_buffer < currPos:
             logging.critical(f"check the length of strings, size overflowed; {self.len_buffer} < current({currPos})")
-            
+        
+        self.len_buffer = currPos
+        
         return byte_stream.getvalue()
 
 def createStringClass(filename: str, stringPtr: int):
