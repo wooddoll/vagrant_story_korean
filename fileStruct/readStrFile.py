@@ -76,7 +76,7 @@ class ReadStrings():
         
         currPos = byte_stream.tell()
         if self.len_buffer < currPos:
-            logging.critical(f"check the length of strings, size overflowed; {self.len_buffer} < current({currPos})")
+            logging.warning(f"check the length of strings, size overflowed; {self.len_buffer} < current({currPos})")
         
         self.len_buffer = currPos
         
@@ -88,10 +88,12 @@ def createStringClass(filename: str, stringPtr: int):
         StringPtr = stringPtr
 
         def __init__(self, input_path: str = '') -> None:
+            self.buffer = bytearray()
             self.strings = ReadStrings()
             self.strings_byte = self.strings._byte
             self.strings_str = self.strings._str
-
+            self.len_buffer = -1
+            
             if os.path.isfile(input_path):
                 self.unpackData(input_path)
             elif os.path.isdir(input_path):
@@ -113,14 +115,28 @@ def createStringClass(filename: str, stringPtr: int):
 
         def unpackData(self, input_path: str):
             with open(input_path, 'rb') as file:
-                buffer = bytearray(file.read())
-                self.strings.unpackData(buffer[self.StringPtr:])
+                self.buffer = bytearray(file.read())
+                self.strings.unpackData(self.buffer[self.StringPtr:])
                 self.strings_byte = self.strings._byte
-
+                
+                if self.StringPtr == 0x0:
+                    fileSize = os.path.getsize(input_path)
+                    self.len_buffer = ((fileSize + 2047)//2048)*2048
+                else:
+                    self.len_buffer = len(self.strings)
+            
         def packData(self, output_path: str):
             byteData = self.strings.packData()
+            
+            new_len_buffer = len(self.strings)
+            if self.len_buffer < new_len_buffer:
+                logging.critical(f"check the length of strings, size overflowed; {self.len_buffer} < current({new_len_buffer})")
+                    
+            self.len_buffer = new_len_buffer
+
             if byteData is not None:
                 with open(output_path, 'wb') as file:
+                    file.write(self.buffer)
                     file.seek(self.StringPtr)
                     file.write(byteData)
     

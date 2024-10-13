@@ -31,23 +31,28 @@ ttf_fonts.append([fontpath, 'NotoSansKR-Bold', 14])   #11
 
 
 fontGroup_NotoSans = {
-    'fontThin' : "work/Noto_Sans_KR/NotoSansKR-Thin.ttf",
-    'fontRegular' : "work/Noto_Sans_KR/NotoSansKR-Regular.ttf",
-    'fontBold' : "work/Noto_Sans_KR/NotoSansKR-Bold.ttf",
+    'Thin' : "work/Noto_Sans_KR/NotoSansKR-Thin.ttf",
+    'Regular' : "work/Noto_Sans_KR/NotoSansKR-Regular.ttf",
+    'Bold' : "work/Noto_Sans_KR/NotoSansKR-Bold.ttf",
 }
 
 fontGroup_PF = {
-    'fontThin' : "work/PFStardust/PF Stardust 3.0.ttf",
-    'fontRegular' : "work/PFStardust/PF Stardust 3.0 Bold.ttf",
-    'fontBold' : "work/PFStardust/PF Stardust 3.0 ExtraBold.ttf",
+    'Thin' : "work/PFStardust/PF Stardust 3.0.ttf",
+    'Regular' : "work/PFStardust/PF Stardust 3.0 Bold.ttf",
+    'Bold' : "work/PFStardust/PF Stardust 3.0 ExtraBold.ttf",
 }
 
 fontGroup_PFS = {
-    'fontThin' : "work/PFStardust/PF Stardust 3.0 S.ttf",
-    'fontRegular' : "work/PFStardust/PF Stardust 3.0 S Bold.ttf",
-    'fontBold' : "work/PFStardust/PF Stardust 3.0 S ExtraBold.ttf",
+    'Thin' : "work/PFStardust/PF Stardust 3.0 S.ttf",
+    'Regular' : "work/PFStardust/PF Stardust 3.0 S Bold.ttf",
+    'Bold' : "work/PFStardust/PF Stardust 3.0 S ExtraBold.ttf",
 }
 
+fontGroup_Galmuri = {
+    'Thin' : "work/Galmuri/Galmuri11.ttf",
+    'Mono' : "work/Galmuri/GalmuriMono11.ttf",
+    'Bold' : "work/Galmuri/Galmuri11-Bold.ttf",
+}
 
 ttf_font = ttf_fonts[11]
 
@@ -58,19 +63,19 @@ fontsize = ttf_font[2]
 
 class Make4bFont():
     def __init__(self, fontGroup = fontGroup_NotoSans) -> None:
-        self.fontSize = 14
+        self.fontSize = 12
         self.bgcolor = 0
         self.fontcolor = 255
         self.outlinecolor = 127
 
-        thinfontpath = fontGroup['fontThin']
+        thinfontpath = fontGroup['Thin']
         self.fontThin = ImageFont.truetype(thinfontpath, self.fontSize, encoding="utf-8")
-        regularfontpath = fontGroup['fontRegular']
+        regularfontpath = fontGroup['Mono']
         self.fontRegular = ImageFont.truetype(regularfontpath, self.fontSize, encoding="utf-8")
-        boldfontpath = fontGroup['fontBold']
+        boldfontpath = fontGroup['Bold']
         self.fontBold = ImageFont.truetype(boldfontpath, self.fontSize, encoding="utf-8")
 
-    def make1bMap(self, font, text:str = '', columns = 18, mode = 'a'):
+    def make1bMap(self, font, text:str = '', columns = 21, mode = 'a'):
         len_text = len(text)
         rows = math.ceil(len_text / columns)
 
@@ -85,71 +90,113 @@ class Make4bFont():
         for idx, letter in enumerate(text):
             y_c = idx // columns
             x_c = idx % columns
-            ypos = y_c*(self.fontSize + 4) + 2 + 7
-            xpos = x_c*(self.fontSize + 4) + 2 + 7
+            ypos = y_c*(self.fontSize + 4) + 1
+            xpos = x_c*(self.fontSize + 4) + 2
             draw.text(
                 xy=(xpos, ypos),
                 text=letter,
                 fill=self.fontcolor,
                 font=font,
-                anchor="mm",
+                anchor="la",
                 stroke_width=0,
                 stroke_fill=self.outlinecolor
             )
         return img
     
-    def make4bMap(self, text:str = '', column = 18):
+    def make4bMap(self, text:str = '', column = 21):
         thin = self.make1bMap(self.fontThin, text, column, 'n')
         regular = self.make1bMap(self.fontRegular, text, column, 'n')
-        bold = self.make1bMap(self.fontBold, text, column)
+        bold = self.make1bMap(self.fontBold, text, column, 'n')
 
-        width = regular.width
-        height = regular.height
-        fontMap4b = Image.new("RGBA", (width, height), (200, 200, 200, 255))
+        width = thin.width-1
+        height = thin.height-1
+        fontMap4b = Image.new("RGBA", (width, height), (0, 0, 0, 0))
         #self.drawGrid(fontMap4b)
         
-        for y in range(height):
-            for x in range(width):
+        for y in range(1, height+1):
+            for x in range(1, width+1):
                 tv = thin.getpixel((x, y))
-                rv = regular.getpixel((x, y))
+                rv = regular.getpixel((x-1, y-1))
                 bv = bold.getpixel((x, y))
 
                 pixel = (0, 0, 0, 0)
-                if bv > 0:
+                if 128 < bv:
                     pixel = (255, 255, 255, 255)
-                if rv > 0:
+                if 128 < rv:
                     pixel = (128, 128, 128, 255)
-                if tv > 0:
-                    pixel = (0, 0, 0, 255)
+                if 128 < tv:
+                    pixel = (1, 1, 1, 255)
 
-                #if pixel == (0, 0, 0, 0): continue
+                if pixel == (0, 0, 0, 0): continue
                 fontMap4b.putpixel((x,y), pixel)
-
         return fontMap4b
 
     def drawGrid(self, img):
         draw = ImageDraw.Draw(img)
         len_text = len(text)
-        columns = 18
-        rows = math.ceil(len_text / 18)
+        columns = 21
+        rows = math.ceil(len_text / columns)
         for idx in range(len_text):
             y_c = idx // columns
             x_c = idx % columns
-            y = y_c*(self.fontSize + 4) + 3
-            x = x_c*(self.fontSize + 4) + 3
-            draw.rectangle((x, y, x + 13, y + 13), outline=(255, 0, 255, 128), width = 1)
+            y = y_c*(self.fontSize + 4) + 2
+            x = x_c*(self.fontSize + 4) + 2
+            draw.rectangle((x, y, x + 11, y + 10), outline=(255, 0, 255, 128), width = 1)
         
         return img
+ 
+def cvtGalmuriFont():
+    len_korFont = len(text)
+    imgKr = Image.open('work/Galmuri/galmuri_b.png')
+    
+    width = 12*21
+    height = 11*((len_korFont+20)//21)
+    fontMap4b = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    
+    for idx in range(len_korFont):
+        y = idx // 21
+        x = idx % 21
         
-fonttest = Make4bFont(fontGroup_NotoSans)
-img = fonttest.make4bMap(text)
-img.save(f"work/Noto_Sans_4b.png")
-exit()
+        kx = (11 + 2)*x + 1
+        ky = (11 + 2)*y + 1
+        kLetterImg = imgKr.crop((kx, ky, kx + 12, ky + 11))
+        
+        jx = 12*x
+        jy = 11*y
+        fontMap4b.paste(kLetterImg, (jx, jy, jx + 12, jy + 11))
+    
+    for y in range(height):
+        for x in range(width):
+            px = fontMap4b.getpixel((x,y))
+            
+            pxx = (0, 0, 0, 0)
+            if 192 < px[0]:
+                pxx = (0, 0, 0, 255)
+            elif 64 < px[0]:
+                pxx = (255, 255, 255, 255)
+            
+            fontMap4b.putpixel((x, y), pxx)
+            
+            
+    krfontImage = 'font/Galmuri11.png'
+    fontMap4b.save(krfontImage)
 
-fonttest = Make4bFont(fontGroup_PF)
-img = fonttest.make4bMap(text)
-img.save(f"work/PF_Stardust_4b.png")
+#cvtGalmuriFont()
+#exit()
 
-fonttest = Make4bFont(fontGroup_PFS)
-img = fonttest.make4bMap(text)
-img.save(f"work/PF_Stardust_S_4b.png")
+#fonttest = Make4bFont(fontGroup_NotoSans)
+#img = fonttest.make4bMap(text)
+#img.save(f"work/Noto_Sans_4b.png")
+
+#fonttest = Make4bFont(fontGroup_PF)
+#img = fonttest.make4bMap(text)
+#img.save(f"work/PF_Stardust_4b.png")
+
+#fonttest = Make4bFont(fontGroup_PFS)
+#img = fonttest.make4bMap(text)
+#img.save(f"work/PF_Stardust_S_4b.png")
+
+#fonttest = Make4bFont(fontGroup_Galmuri)
+#img = fonttest.make4bMap(text)
+#img.save(f"font/Galmuri11.png")
+

@@ -9,6 +9,8 @@ from tqdm import tqdm
 from font.makeTBL import readTBL
 from utils import *
 
+ITALIC_CHARICTERS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!?/,:+-"
+
 class convert_by_TBLdummy():
     def __init__(self) -> None:
         pass
@@ -50,14 +52,23 @@ class convert_by_TBL():
         else:
             logging.critical('table is not path or dict')
 
+        self.duplicated = {}
         self.inv_tbl = {}
         for k, v in self.fwd_tbl.items():
             if len(v) != 1:
                 continue
             
             if self.inv_tbl.get(v) is not None:
-                #logging.critical(f'duplicated, {self.inv_tbl[v]} <= {k}')
-                continue
+                #logging.critical(f'duplicated {v},  {self.inv_tbl[v]} <= {k}')
+                tmp = []
+                if k < 0xE5:
+                    tmp = [k]
+                else:
+                    v1 = (k >> 8) & 0xFF
+                    v2 = k & 0xFF
+                    tmp = [v1, v2]
+                self.duplicated[v] = [ self.inv_tbl[v], tmp ]
+                #continue
                     
             if k < 0xE5:
                 self.inv_tbl[v] = [k]
@@ -85,7 +96,10 @@ class convert_by_TBL():
                 if pos < length:
                     tmp = (tmp << 8) | bytesText[pos]
                     pos += 1
-                letter = self.fwd_tbl.get(tmp)
+                if 0xF750 <= tmp and tmp <= 0xF773:
+                    letter = f"[{self.fwd_tbl.get(tmp)}]"
+                else:
+                    letter = self.fwd_tbl.get(tmp)
             else:
                 letter = self.fwd_tbl.get(tmp)
 
@@ -94,12 +108,14 @@ class convert_by_TBL():
             else:
                 strText += letter
 
+        strText.replace('][', '')
         return strText
 
     def cvtStr_Bytes(self, strText: str, align2B = False) -> bytearray:
         length = len(strText)
         pos = 0
         byteText = bytearray()
+        italic = False
         while pos < length:
             tmp = ''
             letter = strText[pos]
@@ -112,19 +128,31 @@ class convert_by_TBL():
                     if letter == '»': break
                     tmp += letter
                 
-                byteText.append(int(tmp[:2], 16))
-                if len(tmp) == 4:
-                    byteText.append(int(tmp[2:], 16))
+                len_tmp = len(tmp)
+                for i in range(0, len_tmp, 2):
+                    byteText.append(int(tmp[i:i+2], 16))
                 continue
             elif letter == '↵':
                 byteText.append(0xE8)
                 continue
+            elif letter == '[':
+                italic = True
+                continue
+            elif letter == ']':
+                italic = False
+                continue
             else:
                 ret = self.inv_tbl.get(letter)
+                dub = self.duplicated.get(letter)
+                if dub is not None:
+                    ret = dub[1] if italic else dub[0]
+
                 if ret is not None:
                     byteText.extend(ret)
                 else:
-                    logging.critical(f"'{letter}' is invalid.")
+                    #logging.critical(f"'{letter}' is invalid.")
+                    byteText.append(0xF7)
+                    byteText.append(0x07)
         
         byteText.append(0xE7)
         if align2B and len(byteText) % 2:
@@ -321,9 +349,61 @@ class Find_Word():
             if detected:
                 wordinfiles.append([str(relative_path), detected])
 
-        with open(outPath, 'w') as file:
+        with open(outPath, 'w', encoding='utf-8') as file:
             yaml.dump(wordinfiles, file, encoding='utf-8')
 
+class Find_Word2():
+    def __init__(self) -> None:
+        self.jpbtbl = convert_by_TBL("font/font12jp.tbl")
+        self.wordTable = [['クイックマニュアル', bytes()] ]
+        
+        for word in self.wordTable:
+            word[1] = self.jpbtbl.cvtStr_Bytes(word[0])
+        
+
+    def findWord_in_Bytes(self, data: bytes, word: bytes):
+        search_len = len(word)
+        results = []
+        for i in range(len(data) - search_len + 1):
+            if data[i:i + search_len] == word:
+                results.append(i)
+    
+        return results
+    
+    def find_Word_in_File(self, path: str):
+        fileBuffer = None
+        with open(path, 'rb') as file:
+            fileBuffer = file.read()
+
+        wordinfile = []
+        for item in self.wordTable:
+            poses = self.findWord_in_Bytes(fileBuffer, item[1])
+
+            if poses:
+                wordinfile.append([item[0], poses])
+        
+        return wordinfile
+    
+    def find_in_folder(self, input_path: str, outPath: str):
+        folder_path = Path(input_path)
+        file_list = [file for file in folder_path.rglob('*') if file.is_file()]
+
+        wordinfiles = []
+        for filepath in tqdm(file_list, desc="Processing"):
+            if str(filepath.suffix) in ['.MPD', '.ARM', '.ZND', '.ZUD', '.SHP', '.SEQ', '.WEP', '.WAV', '.TIM', '.XA']:
+                continue
+            
+            relative_path = filepath.relative_to(folder_path)
+            if str(relative_path.parent) in [ "SOUND" ]: 
+                continue
+            
+            detected = self.find_Word_in_File(str(filepath))
+
+            if detected:
+                wordinfiles.append([str(relative_path), detected])
+
+        with open(outPath, 'w', encoding='utf-8') as file:
+            yaml.dump(wordinfiles, file, encoding='utf-8')
 
 
 def readExelDialog(csv_path:str):

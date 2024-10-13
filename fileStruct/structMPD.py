@@ -53,10 +53,10 @@ class TreasureSection():
         data = byte_stream.read(0x18)
         self.name_byte = trimTextBytes(data)
 
-    def cvtByte2Name(self, table: convert_by_TBL):
+    def cvtByte2Str(self, table: convert_by_TBL):
         self.name_str = table.cvtBytes_str(self.name_byte)
         
-    def cvtName2Byte(self, table: convert_by_TBL):
+    def cvtStr2Byte(self, table: convert_by_TBL):
         self.name_byte = table.cvtStr_Bytes(self.name_str, True)
             
     def packData(self):
@@ -64,8 +64,11 @@ class TreasureSection():
             return
 
         byte_stream = io.BytesIO(self.buffer)
-        byte_stream.seek(self.name_byte)
-        byte_stream.write(0x18)
+        byte_stream.seek(self.ptrWeaponName)
+        if 0x18 < len(self.name_byte):
+            logging.critical(f"WeaponName: {self.name_str} is too long. max (24byte.)")
+            self.name_byte = self.name_byte[:0x18]
+        byte_stream.write(self.name_byte)
         
         return self.buffer
 
@@ -200,9 +203,7 @@ class MPDstruct():
             buffer = bytearray(file.read())
             
             filesize = len(buffer)
-            lbaSize = (filesize//2048)*2048
-            if filesize > lbaSize:
-                lbaSize += 2048
+            lbaSize = ((filesize + 2047)//2048)*2048
             
             logging.info(f"{Path(input_path).stem}: The free space in LBA is {lbaSize - filesize} bytes.")
             byte_stream = io.BytesIO(buffer)

@@ -10,6 +10,8 @@ def makeTable(font14_table: str, outpath: str = "", LINE_COLS = 18):
 
         index = 0
         for line in lines:
+            if line[0] == '#': continue
+            
             ll = len(line) - 1
             if ll > LINE_COLS:
                 ll = LINE_COLS
@@ -102,6 +104,89 @@ def makeTable(font14_table: str, outpath: str = "", LINE_COLS = 18):
 
     return table
 
+
+def makeTableJp12(font12_table: str, outpath: str = ""):
+    LINE_COLS = 21
+    table = {}
+    with open(font12_table, 'rt', encoding='utf8') as f:
+        lines = f.readlines()
+
+        index = 0
+        for line in lines:
+            if line[0] == '#': continue
+            
+            ll = len(line) - 1
+            if ll > LINE_COLS:
+                ll = LINE_COLS
+            
+            cidx = index*LINE_COLS
+            for i in range(ll):
+                if cidx < 256:
+                    strHex = "0x%0.2X" % cidx
+                else:
+                    strHex = "0x%0.4X" % cidx
+
+                if table.get(strHex) is not None:
+                    logging.critical(f'duplicated {strHex}={str(line[i])}')
+                table[strHex] = str(line[i])
+
+                cidx += 1
+            
+            index += 1
+
+    t_table = [ [0]*LINE_COLS for _ in range(126)]
+    
+    for k, v in table.items():
+        idx = int(k, 16)
+        rows = idx // LINE_COLS
+        cols = idx % LINE_COLS
+
+        if v == '☒':
+            v = 0
+        t_table[rows][cols] = v
+    
+    #       Ca1   0  Ca2  1  Cb  2   Da  3   Db  4   Ea   5   Eb   6   F
+    tblSection = (229,   420,   840,    1260,   1680,    1890,   2100)
+    tblAddress =   (0xEC00, 0xEC5C, 0xECB8, 0xED14, 0xEDEE,  0xEF1C,  0xEF1C)
+    table.clear()
+    for r, line in enumerate(t_table):
+        for c, letter in enumerate(line):
+            if letter == 0: continue
+
+            index = LINE_COLS*r + c
+            if index < tblSection[0]:
+                strHex = "%0.2X" % index
+            elif tblSection[0] <= index and index < tblSection[1]:
+                strHex = "%0.4X" % (index + tblAddress[0])
+            elif tblSection[1] <= index and index < tblSection[2]:
+                strHex = "%0.4X" % (index + tblAddress[1])
+            elif tblSection[2] <= index and index < tblSection[3]:
+                strHex = "%0.4X" % (index + tblAddress[2])
+            elif tblSection[3] <= index and index < tblSection[4]:
+                strHex = "%0.4X" % (index + tblAddress[3])
+            elif tblSection[4] <= index and index < tblSection[5]:
+                strHex = "%0.4X" % (index + tblAddress[4])
+            elif tblSection[5] <= index and index < tblSection[6]:
+                strHex = "%0.4X" % (index + tblAddress[5])
+            elif tblSection[6] <= index:
+                strHex = "%0.4X" % (index + tblAddress[6])
+            #else:
+            #    logging.critical("out of font tbl")
+
+            table[strHex] = letter
+
+    table['FA06'] = ' '
+
+    if outpath:
+        with open(outpath, 'wt', encoding='utf8') as f:
+            for k, v in table.items():
+                f.write(f"{k}={v}\n")
+                
+    return table
+
+makeTableJp12('font/font12jp_table.txt', 'font/font12jp.tbl')
+
+
 def readTBL(path: str) -> Dict[int, str]:
     lines = []
     with open(path, 'rt', encoding='utf-8') as file:
@@ -113,7 +198,7 @@ def readTBL(path: str) -> Dict[int, str]:
         if pos == -1: continue
         txts = line.split('=')
         
-        tbl[int(txts[0], 16)] = txts[1][:-1]
+        tbl[int(txts[0], 16)] = txts[1][0]
     
     return tbl
 

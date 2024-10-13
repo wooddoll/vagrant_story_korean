@@ -37,7 +37,7 @@ def readHeader(byte_stream: io.BytesIO, num: int, byteSize: int):
 
 def run_cmd(cmd, path, log=False):
     if log:
-        log = open(os.path.join(path, 'log.txt'), 'wt')
+        log = open(os.path.join(path, 'log.txt'), 'wt', encoding='utf-8')
     else:
         log = PIPE
 
@@ -58,7 +58,7 @@ def run_cmd(cmd, path, log=False):
 
 def readLBAinfoLog(path: str):
     LBAinfo = []
-    with open(path, 'rt') as f:
+    with open(path, 'rt', encoding='utf-8') as f:
         lines = f.readlines()
         for idx in range(2,len(lines)):
             lba = lines[idx].split(' ')

@@ -1,3 +1,10 @@
+import logging
+from rich.logging import RichHandler
+logging.basicConfig(
+        level=logging.WARNING, 
+        format="[%(filename)s:%(lineno)s] >> %(message)s",
+        handlers=[RichHandler(rich_tracebacks=True)]
+    )
 
 from font import makeTBL, cvtFontBin
 
@@ -13,25 +20,21 @@ from fileStruct.readStrFile import *
 from fileStruct.readWordFile import *
 
 from fileStruct.read_SL_Main import SL_Main
-from fileStruct.read_TITLE_PRG import TITLE_PRG
+from fileStruct.read_TITLE_PRG import TITLE_PRG_en, TITLE_PRG_jp
 from fileStruct.read_BATTLE_PRG import *
 from fileStruct.read_MENU9_PRG import *
 
-from font import dialog
+from font import dialog, cvtFontBin
 import utils
 from VS_pathes import *
 import pandas as pd
 import io
 from pathlib import Path
-import logging
 from tqdm import tqdm
 import yaml
 import json
 
-logging.basicConfig(
-    level=logging.WARNING, 
-    format="[%(filename)s:%(lineno)s] >> %(message)s"
-)
+
 
 
 
@@ -41,8 +44,8 @@ PATH_testZND = "MAP/ZONE009.ZND"
 #dummyTBL = dialog.convert_by_TBLdummy()
 
 #jpnTBL = makeTBL.makeTable("font/font14_table.txt", "font/jpn.tbl")
-jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
-
+_jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+jpnTBL = dialog.convert_by_TBL("font/font12jp.tbl")
 #udaTBL = makeTBL.makeTable("font/font12_table.txt", "font/usa.tbl", 21)
 usaTBL = dialog.convert_by_TBL("font/usa.tbl")
 
@@ -50,19 +53,31 @@ usaTBL = dialog.convert_by_TBL("font/usa.tbl")
 
 def test1():
     mpd = MPDstruct()
-    mpd_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(PATH_testMPD)
+    mpd_path = Path(PATH_JPN_VARGRANTSTORY) / Path(PATH_testMPD)
     mpd.unpackData(str(mpd_path))
+    
     mpd.scriptSection.dialogText.cvtByte2Str(jpnTBL)
+    
+    # «»   »«   ↵
+    #mpd.scriptSection.dialogText.strings_str[0] = '«F800»貿↵易↵都↵市↵グ↵レ↵イ↵ラ↵ン↵ド'
+    #mpd.scriptSection.dialogText.strings_str[1] = '«F800»バ↵ル↵ド↵ル↵バ↵公↵爵↵萄'
+    #                                                                        _     <-     8     I    i?     X
+    mpd.scriptSection.dialogText.strings_str[2] = "«FB98»«FB04»«F47E»«8F»«F54F»«FA06»«F67E»«F74F»«F750»«F7A1»"
+    #mpd.scriptSection.dialogText.strings_str[3] = '«FB68»«FB04»まだです。'
+    #mpd.scriptSection.dialogText.strings_str[4] = '«FB30»«FA18»⋯火を消せ。↵«FA18»これでは館曲体が燃えてしまうぞ。↵«FA18»それでは意味がない。'
+    #mpd.scriptSection.dialogText.strings_str[5] = '«FB30»«FA18»騎士占を二手に分け,一方を↵«FA18»反逆者どものせん滅に,↵«FA18»もう一方を消火にあたらせるんだ。'
+    #mpd.scriptSection.dialogText.strings_str[6] = '«FB68»«FB04»ハッ,ただちに。'
+    #mpd.scriptSection.dialogText.strings_str[7] = '«FBB8»«FB04»⋯⋯⋯シドニーめ«F80A»,«F801»どこにいる?'
     mpd.scriptSection.dialogText.cvtStr2Byte(jpnTBL)
-    mpd.packData(f'work/test/{PATH_testMPD}')
+    
+    mpd_out = f'work/test/{PATH_testMPD}'
+    mpd.packData(mpd_out)
 
-    dialogLists = fileStruct.structMPD.exportTextFromMPD(mpd, jpnTBL)
-    df = pd.DataFrame(dialogLists, columns=['Index', 'rows', 'cols', 'Original'])
-    #out_path = os.path.join(PATH_TEMP, f'{Path(PATH_testMPD).stem}.csv')
-    outpath = Path(PATH_TEMP) / Path(f'Test/{Path(PATH_testMPD).stem}.csv')
-    df.to_csv(outpath, index=False, encoding='utf-8')
-
+    mpd_out = str(Path(os.getcwd()) / Path(mpd_out))
+    cmd = f'{PATH_psxinject} "{PATH_TEMP_VARGRANTSTORY_IMAGE}" {PATH_testMPD} "{str(mpd_out)}"'
+    utils.run_cmd(cmd, PATH_TEMP)
 #test1()
+
 
 
 def readExelDialog(csv_path:str):
@@ -83,7 +98,7 @@ def readExelDialog(csv_path:str):
 
 def test2():
     mpd = MPDstruct()
-    mpd_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(PATH_testMPD)
+    mpd_path = Path(PATH_JPN_VARGRANTSTORY) / Path(PATH_testMPD)
     mpd.unpackData(str(mpd_path))
     
     out_path = Path(PATH_TEMP) / Path(f'{Path(PATH_testMPD).stem}.csv')
@@ -108,10 +123,10 @@ def test3():
 
 
 def test4():
-    znd_path = f'{PATH_TEMP_VARGRANTSTORY}/{PATH_testZND}'
+    znd_path = f'{PATH_JPN_VARGRANTSTORY}/{PATH_testZND}'
     znd = ZNDstruct(znd_path)
 
-    znd.Enemy.convertName(jpnTBL)
+    znd.Enemy.cvtByte2Str(jpnTBL)
 
     outpath = Path(PATH_TEMP) / Path('Test') / Path(PATH_testZND)
     znd.packData(str(outpath))
@@ -121,28 +136,18 @@ def extract_ZND_jp_en():
     namesInfiles = {}
     weaponesInfiles = {}
 
-    folder_path = Path(PATH_TEMP_VARGRANTSTORY) / Path('MAP')
+    folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('MAP')
     file_list = [file for file in folder_path.rglob('*.ZND') if file.is_file()]
     file_list = sorted(file_list)
     for filepath in tqdm(file_list, desc="Processing"):
         relative_path = filepath.relative_to(folder_path)
 
         znd = ZNDstruct(str(filepath))
-        znd.Enemy.convertName(jpnTBL)
+        znd.Enemy.cvtByte2Str(jpnTBL)
 
         namesInfiles[relative_path.stem] = znd.Enemy.name_str
         weaponesInfiles[relative_path.stem] = znd.Enemy.weapon_str
-    
-        continue
-        outpath = f'work/text/{relative_path.stem}_NPC.txt'
-        with open(outpath, 'wt', encoding='utf-8') as f:
-            for string in znd.Enemy.name_str:
-                f.write(string + '\n')
-        outpath = f'work/text/{relative_path.stem}_Weapon.txt'
-        with open(outpath, 'wt', encoding='utf-8') as f:
-            for string in znd.Enemy.weapon_str:
-                f.write(string + '\n')
-    ###
+
     _namesInfiles = {}
     _weaponesInfiles = {}
 
@@ -153,7 +158,7 @@ def extract_ZND_jp_en():
         relative_path = filepath.relative_to(folder_path)
 
         znd = ZNDstruct(str(filepath))
-        znd.Enemy.convertName(usaTBL)
+        znd.Enemy.cvtByte2Str(usaTBL)
 
         _namesInfiles[relative_path.stem] = znd.Enemy.name_str
         _weaponesInfiles[relative_path.stem] = znd.Enemy.weapon_str
@@ -217,39 +222,8 @@ def extract_ZND_jp_en():
     with open(f'work/strings/MAP_ZND_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
     
-    return    
-    #for i in range(len(namesInfiles)):
-    #    namesInfiles[i] = f"{namesInfiles[i]}={_namesInfiles[i]}"
-    #    weaponesInfiles[i] = f"{weaponesInfiles[i]}={_weaponesInfiles[i]}"
-#
-    #words = set()
-    #for name in namesInfiles:
-    #    if name:
-    #        words.add(name)
-    #namesInfiles = sorted(list(words))
-#
-    #words = set()
-    #for name in weaponesInfiles:
-    #    if name:
-    #        words.add(name)
-    #weaponesInfiles = sorted(list(words))
-
-    for i in range(len(namesInfiles)):
-        namesInfiles[i] = [ namesInfiles[i], _namesInfiles[i] ]
-        weaponesInfiles[i] = [ weaponesInfiles[i], _weaponesInfiles[i] ]
-    
-    df_name = pd.DataFrame(namesInfiles, columns=['jp-ja', 'en-us'])
-    outpath = 'work/strings/MAP_ZND_names.csv'
-    df_name.to_csv(outpath, index=False, encoding='utf-8')
-
-    df_weapon = pd.DataFrame(weaponesInfiles, columns=['jp-ja', 'en-us'])
-    outpath = 'work/strings/MAP_ZND_weapon.csv'
-    df_weapon.to_csv(outpath, index=False, encoding='utf-8')
-
-#extractZNDnames()            
-    
 def extract_ARM_jp_en():
-    folder_path = Path(PATH_TEMP_VARGRANTSTORY) / Path('SMALL')
+    folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('SMALL')
     file_list = [file for file in folder_path.rglob('*.ARM') if file.is_file()]
     file_list = sorted(file_list)
     
@@ -258,7 +232,7 @@ def extract_ARM_jp_en():
         relative_path = filepath.relative_to(folder_path)
 
         arm = ARMstruct(str(filepath))
-        arm.convertName(jpnTBL)
+        arm.cvtByte2Str(jpnTBL)
 
         namesInfiles[relative_path.stem] = arm.names_str
 
@@ -272,7 +246,7 @@ def extract_ARM_jp_en():
         relative_path = filepath.relative_to(folder_path)
 
         arm = ARMstruct(str(filepath))
-        arm.convertName(usaTBL)
+        arm.cvtByte2Str(usaTBL)
 
         engInfiles[relative_path.stem] = arm.names_str
     ###
@@ -303,28 +277,6 @@ def extract_ARM_jp_en():
     dialogLists['SMALL_ARM'] = arm_names
     with open(f'work/strings/SMALL_ARM_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
-    
-    return
- 
-    wordInfiles = []
-    for i in range(len_jpn):
-        jpn = namesInfiles[i]
-        eng = engInfiles[i]
-        wordInfiles.append([jpn, eng])
-
-    df = pd.DataFrame(wordInfiles, columns=['jp-ja', 'en-us'])
-    outpath = 'work/strings/SMALL_ARM_names.csv'
-    df.to_csv(outpath, index=False, encoding='utf-8')
-    
-    #outpath = Path('work/ARMnames.csv')
-    #with open(outpath, 'wt', encoding='utf-8') as file:
-    #    file.write(f"#Area Names\n")
-    #    for name in wordInfiles:
-    #        file.write(name + '\n')
-
-#extractARMnames()
-
-#makeTBL.makeTable("font/font12_table.txt", "font/usa.tbl", 21)
 
 def check1():
     mpd = MPDstruct()
@@ -335,9 +287,9 @@ def check1():
 #check1()
 
 
-#findword = dialog.Find_Word()
-#findword.find_in_folder(PATH_TEMP_VARGRANTSTORY, "work/find_in_folder.yaml")
-
+#findword = dialog.Find_Word2()
+#findword.find_in_folder(PATH_JPN_VARGRANTSTORY, "work/find_in_folder.yaml")
+#exit()
 
 
 def makeMPDtexts(folder_path: str, fontTable: dialog.convert_by_TBL, out_path: str):
@@ -435,7 +387,7 @@ def cvtBytes2():
 
 
 def extract_SL_Main_jp_en():
-    mainpath = Path(PATH_TEMP_VARGRANTSTORY) / Path('SLPS_023.77')
+    mainpath = Path(PATH_JPN_VARGRANTSTORY) / Path('SLPS_023.77')
     namesInfiles = []
     skill_jpn = SL_Main(str(mainpath))
     skill_jpn.cvtByte2Str(jpnTBL)
@@ -486,16 +438,16 @@ def extract_SL_Main_jp_en():
 
 
 def extract_TITLE_PRG_jp_en():
-    mainpath = Path(PATH_TEMP_VARGRANTSTORY) / Path('TITLE/TITLE.PRG')
+    mainpath = Path(PATH_JPN_VARGRANTSTORY) / Path('TITLE/TITLE.PRG')
     namesInfiles = []
-    skill_jpn = TITLE_PRG(str(mainpath))
+    skill_jpn = TITLE_PRG_jp(str(mainpath))
     skill_jpn.cvtByte2Str(jpnTBL)
     namesInfiles.extend(skill_jpn.names_str)
 
     ####
     mainpath = Path(PATH_USA_VARGRANTSTORY) / Path('TITLE/TITLE.PRG')
     engInfiles = []
-    skill_usa = TITLE_PRG(str(mainpath))
+    skill_usa = TITLE_PRG_en(str(mainpath))
     skill_usa.cvtByte2Str(usaTBL)
     engInfiles.extend(skill_usa.names_str)
 
@@ -506,6 +458,25 @@ def extract_TITLE_PRG_jp_en():
     if len_jpn != len_usa:
         logging.critical("!!!")
     
+    texts = {}
+    for idx in range(len_jpn):
+        jp = namesInfiles[idx]
+        en = engInfiles[idx]
+    
+        if not jp and not en:
+            continue
+        
+        singleRow = {}
+        singleRow['string'] = jp
+        singleRow['@@localazy:comment:string'] = en
+        texts[f'{idx:03}'] = singleRow
+
+    dialogLists = {}
+    dialogLists['TITLE'] = texts
+    with open(f'work/strings/TITLE_TITLE_PRG_ja.json', 'w', encoding='utf-8') as f:
+        json.dump(dialogLists, f, indent=2, ensure_ascii=False)
+    return
+
     wordInfiles = []
     for i in range(len_jpn):
         jpn = namesInfiles[i]
@@ -523,7 +494,7 @@ def extract_TITLE_PRG_jp_en():
 #findword.find_in_folder(PATH_USA_VARGRANTSTORY, "work/find_in_USA.yaml")
 
 def extract_MCMAN_jp_en():
-    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/MCMAN.BIN")
+    inp_path = Path(PATH_JPN_VARGRANTSTORY) / Path("MENU/MCMAN.BIN")
     help_jp = MCMAN_BIN(str(inp_path))
     help_jp.cvtByte2Str(jpnTBL)
 
@@ -573,7 +544,7 @@ def test9():
 def extract_ITEMNAME_jp_en():
     names_en = ITEMNAME_BIN(str(Path(PATH_USA_VARGRANTSTORY) / Path('MENU/ITEMNAME.BIN')))
     names_en.cvtByte2Str(usaTBL)
-    names_jp = ITEMNAME_BIN(str(Path(PATH_TEMP_VARGRANTSTORY) / Path('MENU/ITEMNAME.BIN')))
+    names_jp = ITEMNAME_BIN(str(Path(PATH_JPN_VARGRANTSTORY) / Path('MENU/ITEMNAME.BIN')))
     names_jp.cvtByte2Str(jpnTBL)
     
     texts = []
@@ -586,7 +557,7 @@ def extract_ITEMNAME_jp_en():
     df.to_csv(outpath, index=False, encoding='utf-8')
 
 def extract_ITEMHELP_jp_en():
-    help_jp = ITEMHELP_BIN(str(Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")))
+    help_jp = ITEMHELP_BIN(str(Path(PATH_JPN_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")))
     help_jp.cvtByte2Str(jpnTBL)
     help_en = ITEMHELP_BIN(str(Path(PATH_USA_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")))
     help_en.cvtByte2Str(usaTBL)
@@ -635,7 +606,7 @@ def read_SMALL_MON_BIN_en():
     df_en.to_csv(outpath, index=False, encoding='utf-8')
 
 def read_SMALL_MON_BIN_jp():
-    mon = MON_BIN(PATH_TEMP_VARGRANTSTORY)
+    mon = MON_BIN(PATH_JPN_VARGRANTSTORY)
     mon.cvtByte2Str(jpnTBL)
     texts_jp = []
     for idx in range(mon.ItemNumber):
@@ -701,7 +672,7 @@ def extract_MENU_PRG_jp_en(name: str, suffix: str = 'PRG', useEN = True):
     help_en = class_en(str(inp_path))
     help_en.cvtByte2Str(usaTBL)
 
-    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path(f"MENU/{name}.{suffix}")
+    inp_path = Path(PATH_JPN_VARGRANTSTORY) / Path(f"MENU/{name}.{suffix}")
     help_jp = class_jp(str(inp_path))
     help_jp.cvtByte2Str(jpnTBL)
     
@@ -746,7 +717,7 @@ def extract_MENU_PRG_jp_en(name: str, suffix: str = 'PRG', useEN = True):
 #extract_MENU_PRG_jp_en('MENU0')
 
 def extract_BATTLE_jp_en():
-    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("BATTLE/BATTLE.PRG")
+    inp_path = Path(PATH_JPN_VARGRANTSTORY) / Path("BATTLE/BATTLE.PRG")
     help_jp = BATTLE_PRG_jp(str(inp_path))
     help_jp.cvtByte2Str(jpnTBL)
 
@@ -779,21 +750,33 @@ def extract_BATTLE_jp_en():
         singleRow['string'] = jp
         singleRow['@@localazy:comment:string'] = en
         texts2[f'{idx:03}'] = singleRow
-   
+    
+    texts3 = {}
+    for idx in range(len(help_jp.strings2_str)):
+        jp = help_jp.strings2_str[idx]
+        en = help_en.strings2_str[idx]
+    
+        if not jp and not en:
+            continue
+        
+        singleRow = {}
+        singleRow['string'] = jp
+        singleRow['@@localazy:comment:string'] = en
+        texts3[f'{idx:03}'] = singleRow
+        
+        
     dialogLists = {}
     dialogLists['BATTLE_1'] = texts1
     dialogLists['BATTLE_2'] = texts2
+    dialogLists['BATTLE_3'] = texts3
     with open(f'work/strings/BATTLE_BATTLE_PRG_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
-        
-    return
-    df = pd.DataFrame(texts, columns=['jp-ja', 'en-us'])
-    outpath = 'work/strings/BATTLE_BATTLE_PRG.csv'
-    df.to_csv(outpath, index=False, encoding='utf-8')
 
+#extract_BATTLE_jp_en()
+#exit()
 
 def extract_MENU9_jp_en():
-    inp_path = Path(PATH_TEMP_VARGRANTSTORY) / Path("MENU/MENU9.PRG")
+    inp_path = Path(PATH_JPN_VARGRANTSTORY) / Path("MENU/MENU9.PRG")
     help_jp = MENU9_PRG_jp(str(inp_path))
     help_jp.cvtByte2Str(jpnTBL)
 
@@ -1028,7 +1011,7 @@ def find_word_in_File(filePath: str):
 
 
 def findStrings():
-    folder_path = Path(PATH_TEMP_VARGRANTSTORY)
+    folder_path = Path(PATH_JPN_VARGRANTSTORY)
     file_list = [file for file in folder_path.rglob('*.PRG') if file.is_file()]
     wordinfiles = []
     for filepath in tqdm(file_list, desc="Processing"):
@@ -1047,13 +1030,13 @@ def findStrings():
         if detected:
             wordinfiles.append([str(relative_path), detected])
 
-    with open('work/test/findStrings.yaml', 'wt') as file:
+    with open('work/test/findStrings.yaml', 'wt', encoding='utf-8') as file:
         yaml.dump(wordinfiles, file, encoding='utf-8')
 
 #findStrings()
 
 def extract_MPD_jp_en():
-    mpd_jp = fileStruct.structMPD.makeMPDtexts(PATH_TEMP_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.json')
+    mpd_jp = fileStruct.structMPD.makeMPDtexts(PATH_JPN_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.json')
     mpd_en = fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.json')
     for k, en in mpd_en.items():
         jp = mpd_jp[k]
@@ -1063,16 +1046,24 @@ def extract_MPD_jp_en():
                 jp[idx]['@@localazy:comment:string'] = en[idx]['string']
         else:
             print(f'why? {k} {len(jp)}!={len(en)}')
+        
+        texts = {}
+        idx = 0
+        for i in range(len(jp)):
+            texts[f"{i:03}"] = jp[idx]
+            idx += 1
+        
+        mpd_jp[k] = texts
 
     with open('work/strings/MAP_MPD_ja.json', 'w', encoding='utf-8') as f:
         json.dump(mpd_jp, f, indent=2, ensure_ascii=False)
         
 def extractAll():
     extract_ARM_jp_en()
-    extract_ZND_jp_en()    
-    extract_MPD_jp_en()    
-    
+    extract_ZND_jp_en()
+    extract_MPD_jp_en()
     extract_SL_Main_jp_en()
+    extract_TITLE_PRG_jp_en()
     extract_BATTLE_jp_en()
     extract_MENU_PRG_jp_en('MENU0')
     extract_MENU_PRG_jp_en('MENU1')
@@ -1088,14 +1079,23 @@ def extractAll():
     extract_MENU_PRG_jp_en('MENUE')
     extract_MENU_PRG_jp_en('MENU12', 'BIN')
     extract_MENU_PRG_jp_en('MCMAN', 'BIN')
-    
     extract_SMALL_MON_BIN()
     extract_MENU_PRG_jp_en('ITEMNAME', 'BIN')
     extract_MENU_PRG_jp_en('ITEMHELP', 'BIN')
 #  
 #extractAll()
 
-exit()
+def test12():
+    system_dat = cvtFontBin.SYSTEM_DAT(f'{PATH_KOR_VARGRANTSTORY}')
+
+    img = system_dat.fontData.getImage()
+    img.save('work/font12test.png')
+    
+    system_dat.fontData.setImage(img)
+    
+    system_dat.packData('work/system.dat')
+
+#exit()
 
 
 

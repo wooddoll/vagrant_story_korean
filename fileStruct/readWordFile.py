@@ -7,10 +7,11 @@ from font.dialog import convert_by_TBL
 from utils import *
 
 class ReadWords():
-    def __init__(self, wordBytes: int, wordNums: int, buffer: Union[bytes, None] = None) -> None:
+    def __init__(self, wordBytes: int, wordNums: int, buffer: Union[bytes, None] = None, stride: int = -1) -> None:
         self.buffer = buffer
         self.wordNums = wordNums
         self.wordBytes = wordBytes
+        self.stride = stride if 0 < stride else wordBytes
         self._byte = []
         self._str = []
         
@@ -31,11 +32,13 @@ class ReadWords():
             self._str.append(table.cvtBytes_str(data))
             
     def unpackData(self, buffer: bytes):
-        self.buffer = buffer[:self.wordBytes*self.wordNums]
+        self.buffer = buffer[:self.wordBytes*self.stride]
         byte_stream = io.BytesIO(buffer)
         
         self._byte.clear()
-        for _ in range(self.wordNums):
+        for idx in range(self.wordNums):
+            ptr = idx * self.stride
+            byte_stream.seek(ptr)
             bytename = byte_stream.read(self.wordBytes)
             self._byte.append(trimTextBytes(bytename)) 
 
@@ -55,21 +58,23 @@ class ReadWords():
                 logging.critical(f"check the word length, size overflowed; allocated({self.wordBytes}) < current({len_bytes})")
             else:
                 bytename = self._byte[idx]
-                
-            byte_stream.seek(idx * self.wordBytes)
+            
+            ptr = idx * self.stride
+            byte_stream.seek(ptr)
             byte_stream.write(bytename)
 
 
 
-def createWordStringClass(filename: str, wordPtr: int, wordSize: int, wordNum: int):
+def createWordStringClass(filename: str, wordPtr: int, wordSize: int, wordNum: int, stride: int = -1):
     class Class_Word():
         FileName = filename
         WordPtr = wordPtr
         WordBytes = wordSize
         WordNumber = wordNum
+        Stride = stride
 
         def __init__(self, input_path: str = '') -> None:
-            self.words = ReadWords(self.WordBytes, self.WordNumber)
+            self.words = ReadWords(self.WordBytes, self.WordNumber, None, self.Stride)
             self.strings_byte = self.words._byte
             self.strings_str = self.words._str
 
@@ -92,13 +97,13 @@ def createWordStringClass(filename: str, wordPtr: int, wordSize: int, wordNum: i
             self.words.cvtByte2Str(table)
             self.strings_str = self.words._str
 
-        def unpackData(self, input_path:str):
+        def unpackData(self, input_path: str):
             with open(input_path, 'rb') as file:
                 buffer = bytearray(file.read())
                 self.words.unpackData(buffer[self.WordPtr : self.WordPtr + self.WordNumber*self.WordBytes])
                 self.strings_byte = self.words._byte
 
-        def packData(self, output_path:str):
+        def packData(self, output_path: str):
             byteData = self.words.packData()
             if byteData is not None:
                 with open(output_path, 'wb') as file:
