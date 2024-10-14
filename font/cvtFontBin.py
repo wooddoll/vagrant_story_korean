@@ -243,7 +243,7 @@ def unpackSYSTEM_DAT(input_path: str, output_path: str = ''):
     #if output_path:
     #    im.save(output_path)
     return im
-unpackSYSTEM_DAT('C:/TEMP/Vagrant Story (USA)/BATTLE/SYSTEM.DAT', 'work/system_dat_unpack.png')
+#unpackSYSTEM_DAT('C:/TEMP/Vagrant Story (USA)/BATTLE/SYSTEM.DAT', 'work/system_dat_unpack.png')
 
 def unpackTITLE_PRG(input_path: str):
     image_file = open(input_path, "rb")
