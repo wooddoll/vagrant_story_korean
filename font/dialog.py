@@ -132,7 +132,7 @@ class convert_by_TBL():
                 for i in range(0, len_tmp, 2):
                     byteText.append(int(tmp[i:i+2], 16))
                 continue
-            elif letter == '↵':
+            elif letter in ['↵', '\n']:
                 byteText.append(0xE8)
                 continue
             elif letter == '[':
@@ -175,7 +175,7 @@ def checkSize(text: str):
                 letter = text[pos]
                 pos += 1
             continue
-        elif letter == '↵':
+        elif letter in ['↵', '\n']:
             rows += 1
             _cols = 0
         else:
@@ -199,8 +199,9 @@ def vertical2flat(text: str):
                 pos += 1
             flatText += tmp
             continue
-        elif letter == '↵':
-            continue
+        elif letter in ['↵', '\n']:
+            if text[pos-1] in ['↵', '\n']:
+                flatText += ' '
         else:
             flatText += letter
 
@@ -225,7 +226,8 @@ def flat2vertical(text: str):
         elif letter == '↵':
             verticalText += '↵'
         else:
-            verticalText += letter
+            if letter != ' ':
+                verticalText += letter
             verticalText += '↵'
 
     if verticalText[-1] == '↵':

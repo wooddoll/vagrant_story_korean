@@ -55,8 +55,8 @@ def downlaod_localazy():
             shutil.copy(f"work/kor/_{k}_/{v['download']['files']}", 'work/kor')
             shutil.rmtree(f'work/kor/_{k}_')
 
-downlaod_localazy()        
-exit()
+#downlaod_localazy()        
+#exit()
     
 def mergeKorString():
     kor_strings = {}
@@ -226,11 +226,15 @@ def update_BATTLE(kor_strings: dict):
     battle.cvtStr2Byte(korTBL)
     battle.packData(f"{PATH_KOR_VARGRANTSTORY}/BATTLE/BATTLE.PRG")
 
+def fixMPD(idx: int, mpd: MPDstruct):
+    if idx == 1:
+        mpd.scriptSection.scriptOpcodes.opcodes[51].pos(y=66, h=12)
+
 def update_MPD(index: int, kor_strings: dict):
     Name = f"MAP{index:03}"
     filepath = f"{PATH_JPN_VARGRANTSTORY}/MAP/{Name}.MPD"
     mpd = MPDstruct(str(filepath))
-    mpd.scriptSection.dialogText.cvtByte2Str(jpnTBL)
+    mpd.cvtByte2Str(jpnTBL)
 
     dictTexts = kor_strings[Name]
     len_dict = len(dictTexts)
@@ -245,8 +249,11 @@ def update_MPD(index: int, kor_strings: dict):
         if cols == 1:
             mpd.scriptSection.dialogText.strings_str[idx] = dialog.flat2vertical( mpd.scriptSection.dialogText.strings_str[idx] )
     
-    mpd.scriptSection.dialogText.cvtStr2Byte(korTBL)
+    mpd.scriptSection.updateOpcode()
+    mpd.cvtStr2Byte(korTBL)
 
+    fixMPD(index, mpd)
+    
     return mpd
 
 def updateMAP_MDP(kor_strings: dict):
@@ -271,8 +278,8 @@ def read_MENU_PRG_jp(name: str, suffix: str = 'PRG'):
         if f'{name}_{suffix}_jp' in globals():
             class_jp = globals()[f'{name}_{suffix}_jp']
         if class_jp is None:    
-            logging.warning(f'wrong function name {name}')
-            return
+            logging.critical(f'wrong function name {name}')
+            return None
     
     inp_path = Path(PATH_USA_VARGRANTSTORY) / Path(f"MENU/{name}.{suffix}")
     inp_path = Path(PATH_JPN_VARGRANTSTORY) / Path(f"MENU/{name}.{suffix}")
@@ -321,12 +328,25 @@ def rebuildKor():
     updateMAP_MDP(kor_strings)
 
 #cvtKorFontImage()
-downlaod_localazy()
-makeKorFont()
-rebuildKor()
+#downlaod_localazy()
+#makeKorFont()
+#rebuildKor()
 
 def test1():
     system_dat = cvtFontBin.SYSTEM_DAT(f'{PATH_JPN_VARGRANTSTORY}')
     imgUI = Image.open('work/texture/system_dat_pack_1.png')
     system_dat.texture_ui.setImage(imgUI)
     system_dat.packData(f'{PATH_KOR_VARGRANTSTORY}/BATTLE/SYSTEM.DAT')
+
+
+PATH_testMPD = "MAP/MAP001.MPD"
+PATH_testZND = "MAP/ZONE009.ZND"
+def test2():
+    kor_strings = mergeKorString()
+    mpd = update_MPD(1, kor_strings)
+    
+    print(mpd.scriptSection.scriptOpcodes)
+    mpd.packData('work/test/MAP001.MPD')
+    exit()
+
+test2()

@@ -1,7 +1,7 @@
 import logging
 from rich.logging import RichHandler
 logging.basicConfig(
-        level=logging.WARNING, 
+        level=logging.DEBUG, 
         format="[%(filename)s:%(lineno)s] >> %(message)s",
         handlers=[RichHandler(rich_tracebacks=True)]
     )
@@ -56,8 +56,12 @@ def test1():
     mpd_path = Path(PATH_JPN_VARGRANTSTORY) / Path(PATH_testMPD)
     mpd.unpackData(str(mpd_path))
     
-    mpd.scriptSection.dialogText.cvtByte2Str(jpnTBL)
+    mpd.cvtByte2Str(jpnTBL)
+    print(mpd.scriptSection.scriptOpcodes)
     
+    mpd.cvtStr2Byte(jpnTBL)
+    mpd.packData('work/test/MAP001.MPD')
+    exit()
     # «»   »«   ↵
     #mpd.scriptSection.dialogText.strings_str[0] = '«F800»貿↵易↵都↵市↵グ↵レ↵イ↵ラ↵ン↵ド'
     #mpd.scriptSection.dialogText.strings_str[1] = '«F800»バ↵ル↵ド↵ル↵バ↵公↵爵↵萄'
@@ -76,7 +80,7 @@ def test1():
     mpd_out = str(Path(os.getcwd()) / Path(mpd_out))
     cmd = f'{PATH_psxinject} "{PATH_TEMP_VARGRANTSTORY_IMAGE}" {PATH_testMPD} "{str(mpd_out)}"'
     utils.run_cmd(cmd, PATH_TEMP)
-#test1()
+test1()
 
 
 

@@ -8,11 +8,11 @@ from font.dialog import convert_by_TBL
 from utils import *
 from tqdm import tqdm
 from font import dialog
-import pandas as pd
 import json
 from fileStruct.readStrFile import ReadStrings
+from fileStruct.scriptOPcodes import ScriptOpcodes
 
-class SectionBase():
+class SectionBase:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.buffer = None
 
@@ -20,7 +20,10 @@ class SectionBase():
             self.unpackData(buffer)
 
     def __len__(self):
-        return len(self.buffer) if self.buffer is not None else 0
+        if self.buffer is None:
+            return 0
+
+        return len(self.buffer)
     
     def unpackData(self, buffer: bytes):
         self.buffer = bytearray(buffer) if buffer is not None else None
@@ -28,13 +31,13 @@ class SectionBase():
     def packData(self):
         return self.buffer
 
-class TreasureSection():
+class TreasureSection:
     ptrWeaponName = 0x94
     
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.buffer = None
         self.name_str = ''
-        self.name_byte = None
+        self.name_byte = bytes()
 
         if buffer is not None:
             self.unpackData(buffer)
@@ -57,7 +60,7 @@ class TreasureSection():
         self.name_str = table.cvtBytes_str(self.name_byte)
         
     def cvtStr2Byte(self, table: convert_by_TBL):
-        self.name_byte = table.cvtStr_Bytes(self.name_str, True)
+        self.name_byte = table.cvtStr_Bytes(self.name_str)
             
     def packData(self):
         if self.buffer is None:
@@ -72,11 +75,12 @@ class TreasureSection():
         
         return self.buffer
 
-class DialogText():
+class DialogText:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.strings = ReadStrings()
         self.strings_byte = self.strings._byte
         self.strings_str = self.strings._str
+        self.sectionSize = 0
         
         if buffer is not None:
             self.unpackData(buffer)
@@ -90,29 +94,38 @@ class DialogText():
         self.strings_str = self.strings._str
     
     def unpackData(self, buffer: bytes):
+        self.sectionSize = len(buffer)
+        
         self.strings.unpackData(buffer)
         self.strings_byte = self.strings._byte
     
     def __len__(self):
-        return len(self.strings)
+        return self.sectionSize
     
     def packData(self):
         if 0 >= len(self.strings):
             return None
-        
-        preSize = len(self.strings) - 2*self.strings.itemNums
-        sumBytes = 0
+
+        sumBytes = 2*self.strings.itemNums
         for text in self.strings_byte:
             sumBytes += len(text)
-        if preSize < sumBytes:
-            logging.warning(f"check the dialogs length, size overflowed; privious({preSize}) < current({sumBytes})")
+        sumBytes_pad = ((sumBytes+3)//4)*4
+        padding = sumBytes_pad - sumBytes
+        
+        if self.sectionSize < sumBytes_pad:
+            logging.warning(f"check the dialogs length, size overflowed; privious({self.sectionSize}) < current({sumBytes_pad})")
+        self.sectionSize = sumBytes_pad
+        
+        if sumBytes_pad == 0:
+            return bytes()
+        
+        data = self.strings.packData()
+        return data + b'\x00'*padding
 
-        return self.strings.packData()
-    
-class ScriptSection():
+class ScriptSection:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.header = []
-        self.scriptOpcodes   = SectionBase()
+        self.scriptOpcodes   = ScriptOpcodes()
         self.dialogText      = DialogText()
         self.unknownSection1 = SectionBase()
         self.unknownSection2 = SectionBase()
@@ -122,7 +135,31 @@ class ScriptSection():
 
     def __len__(self):
         return self.header[0] if self.header else 0
-    
+
+    def cvtStr2Byte(self, table: convert_by_TBL):
+        self.dialogText.cvtStr2Byte(table)
+
+    def updateOpcode(self):
+        for idx, code in enumerate(self.scriptOpcodes.opcodes):
+            if code.Op == 0x11:
+                text = self.dialogText.strings_str[ code.Args[1] ]
+                code.Note = text
+                
+                rows, cols = dialog.checkSize(text)
+                
+                for _idx in reversed(range(idx)):
+                    _code = self.scriptOpcodes.opcodes[_idx]
+                    if _code.Op == 0x10:
+                        w = _code.Args[5]
+                        h = _code.Args[6]
+                        if w < cols or h < rows:
+                            logging.warning(f'dialog text is too long. box_w({w})<text_w({cols}), box_h({h})<text_h({rows})')
+                        break
+                    
+    def cvtByte2Str(self, table: convert_by_TBL):
+        self.dialogText.cvtByte2Str(table)
+        self.updateOpcode()    
+                
     def unpackData(self, buffer: bytes):
         if buffer is None:
             return
@@ -132,7 +169,8 @@ class ScriptSection():
         
         poses = [16, self.header[1], self.header[2], self.header[3]]
         sizes = [poses[1]-poses[0], poses[2]-poses[1], poses[3]-poses[2], self.header[0]-poses[3]]
-
+        logging.debug(f"Script / opcode:{sizes[0]}, dialog:{sizes[1]}, unknown1:{sizes[2]}, unknown2:{sizes[3]}")
+        
         sections = [self.scriptOpcodes, self.dialogText, self.unknownSection1, self.unknownSection2]
         for idx in range(4):
             if sizes[idx] == 0: continue
@@ -154,7 +192,8 @@ class ScriptSection():
             if idx > 0:
                 poses.append(poses[idx-1] + sizes[idx-1])
         sumSizes = sum(sizes) + 16
-
+        logging.debug(f"Script / opcode:{sizes[0]}, dialog:{sizes[1]}, unknown1:{sizes[2]}, unknown2:{sizes[3]}")
+        
         if sumSizes > self.header[0]:
             logging.warning(f"check the ScriptSection size, size overflowed({self.header[0]} < {sumSizes})")
 
@@ -175,7 +214,7 @@ class ScriptSection():
 
         return byte_stream.getvalue()
 
-class MPDstruct():
+class MPDstruct:
     def __init__(self, input_path:str = '') -> None:
         self.header = []
         self.roomSection        = SectionBase()
@@ -198,6 +237,14 @@ class MPDstruct():
             
         return bufferSize
     
+    def cvtStr2Byte(self, table: convert_by_TBL):
+        self.scriptSection.cvtStr2Byte(table)
+        self.treasureSection.cvtStr2Byte(table)
+
+    def cvtByte2Str(self, table: convert_by_TBL):
+        self.scriptSection.cvtByte2Str(table)
+        self.treasureSection.cvtByte2Str(table)
+        
     def unpackData(self, input_path:str):
         with open(input_path, 'rb') as file:
             buffer = bytearray(file.read())
@@ -211,7 +258,7 @@ class MPDstruct():
             self.header = readHeader(byte_stream, 12, 4)
             poses = [self.header[0], self.header[2], self.header[4], self.header[6], self.header[8], self.header[10]]
             sizes = [self.header[1], self.header[3], self.header[5], self.header[7], self.header[9], self.header[11]]
-
+            logging.debug(f"MDP / room:{self.header[1]}, cleared:{self.header[3]}, script:{self.header[5]}, door:{self.header[7]}, enemy:{self.header[9]}, treasure:{self.header[1]}")
             sections = [self.roomSection, self.clearedSection, self.scriptSection, self.doorSection, self.enemySection, self.treasureSection]
 
             for idx in range(6):
@@ -236,6 +283,7 @@ class MPDstruct():
             if idx > 0:
                 poses.append(poses[idx-1] + sizes[idx-1])
         sumSizes = sum(sizes)
+        logging.debug(f"MDP / room:{self.header[1]}, cleared:{self.header[3]}, script:{self.header[5]}, door:{self.header[7]}, enemy:{self.header[9]}, treasure:{self.header[1]}")
         
         prevScriptSectionSize = self.header[6] - self.header[4]
         writeSize = len(scriptSection) if scriptSection is not None else 0
