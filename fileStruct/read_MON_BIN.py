@@ -37,7 +37,7 @@ class MON_BIN():
         for text in self.name_str:
             self.name_byte.append(table.cvtStr_Bytes(text))
         
-        self.strings.cvtStr2Byte(table)
+        self.strings.cvtStr2Byte(table, False)
         self.strings_byte = self.strings._byte
 
     def cvtByte2Str(self, table: convert_by_TBL):
@@ -79,11 +79,13 @@ class MON_BIN():
                 len_bytes = len(self.name_byte[idx])
                 if len_bytes > len_byteName:
                     bytename = self.name_byte[idx][:len_byteName]
+                    logging.critical(f"check the Monster Name size, size overflowed({len_byteName} < {len_bytes})")
                 else:
                     bytename = self.name_byte[idx]
 
                 file.write(bytename)
 
-            byteData = self.strings.packData()
+            byteData = self.strings.packData()            
             if byteData is not None:
+                file.seek(self.StringPtr)
                 file.write(byteData)

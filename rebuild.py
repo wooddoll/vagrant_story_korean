@@ -349,4 +349,28 @@ def test2():
     mpd.packData('work/test/MAP001.MPD')
     exit()
 
-test2()
+def updateMON(kor_strings: dict):
+    filepath = f"{PATH_JPN_VARGRANTSTORY}/SMALL/MON.BIN"
+    mon = MON_BIN(str(filepath))
+    mon.cvtByte2Str(jpnTBL)
+
+    dictTexts = kor_strings['MON']
+    len_dict = len(dictTexts)
+    if len_dict > 2*mon.ItemNumber:
+        logging.critical(f"why? {'MON'} string number differnt! {len_dict} > 2*{mon.ItemNumber}")
+    
+    #for k, v in dictTexts.items():
+    #    idx = int(k)
+    #    mon.name_str[idx] = v['name']
+    #    mon.strings_str[idx] = v['description']
+    #mon.cvtStr2Byte(korTBL)
+    
+    mon.cvtStr2Byte(jpnTBL)
+
+    return mon
+
+def test3():
+    kor_strings = mergeKorString()
+    mon = updateMON(kor_strings)
+    mon.packData('work/test/MON.BIN')
+test3()

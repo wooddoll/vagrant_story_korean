@@ -17,10 +17,10 @@ class ReadStrings():
         if buffer is not None:
             self.unpackData(buffer)
 
-    def cvtStr2Byte(self, table: convert_by_TBL):
+    def cvtStr2Byte(self, table: convert_by_TBL, align2B = True):
         self._byte.clear()
         for data in self._str:
-            self._byte.append(table.cvtStr_Bytes(data, True))
+            self._byte.append(table.cvtStr_Bytes(data, align2B))
     
     def cvtByte2Str(self, table: convert_by_TBL):
         self._str.clear()
