@@ -69,20 +69,20 @@ class ZND_Enemy():
     def cvtByte2Str(self, table: convert_by_TBL):
         self.name_str.clear()
         for text in self.name_byte:
-            self.name_str.append(table.cvtBytes_str(text))
+            self.name_str.append(table.cvtByte2Str(text))
         
         self.weapon_str.clear()
         for text in self.weapon_byte:
-            self.weapon_str.append(table.cvtBytes_str(text))
+            self.weapon_str.append(table.cvtByte2Str(text))
     
     def cvtStr2Byte(self, table: convert_by_TBL):
         self.name_byte.clear()
         for text in self.name_str:
-            self.name_byte.append(table.cvtStr_Bytes(text))
+            self.name_byte.append(table.cvtStr2Byte(text))
         
         self.weapon_byte.clear()
         for text in self.weapon_str:
-            self.weapon_byte.append(table.cvtStr_Bytes(text))
+            self.weapon_byte.append(table.cvtStr2Byte(text))
 
     def unpackData(self, buffer: bytes):
         if buffer is None:
@@ -158,6 +158,12 @@ class ZNDstruct():
         if input_path:
             self.unpackData(input_path)
 
+    def cvtByte2Str(self, table: convert_by_TBL):
+        self.Enemy.cvtByte2Str(table)
+    
+    def cvtStr2Byte(self, table: convert_by_TBL):
+        self.Enemy.cvtStr2Byte(table)
+    
     def unpackData(self, input_path:str):
         with open(input_path, 'rb') as file:
             self.buffer = bytearray(file.read())

@@ -14,7 +14,7 @@ ITALIC_CHARICTERS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!?/,:+-"
 class convert_by_TBLdummy():
     def __init__(self) -> None:
         pass
-    def cvtBytes_str(self, bytesText: bytes) -> str:
+    def cvtByte2Str(self, bytesText: bytes) -> str:
         pos = 0
         length = len(bytesText)
 
@@ -58,17 +58,12 @@ class convert_by_TBL():
             if len(v) != 1:
                 continue
             
-            if self.inv_tbl.get(v) is not None:
-                #logging.critical(f'duplicated {v},  {self.inv_tbl[v]} <= {k}')
-                tmp = []
-                if k < 0xE5:
-                    tmp = [k]
-                else:
-                    v1 = (k >> 8) & 0xFF
-                    v2 = k & 0xFF
-                    tmp = [v1, v2]
-                self.duplicated[v] = [ self.inv_tbl[v], tmp ]
-                #continue
+            pre = self.inv_tbl.get(v)
+            if pre is not None:
+                preV = pre[0]
+                if len(pre) == 2:
+                    preV = (preV << 8) | pre[1]
+                self.duplicated[v] = [ preV, k ]
                     
             if k < 0xE5:
                 self.inv_tbl[v] = [k]
@@ -77,7 +72,7 @@ class convert_by_TBL():
                 v2 = k & 0xFF
                 self.inv_tbl[v] = [v1, v2]
 
-    def cvtBytes_str(self, bytesText: bytes) -> str:
+    def cvtByte2Str(self, bytesText: bytes) -> str:
         pos = 0
         length = len(bytesText)
 
@@ -96,10 +91,10 @@ class convert_by_TBL():
                 if pos < length:
                     tmp = (tmp << 8) | bytesText[pos]
                     pos += 1
-                if 0xF750 <= tmp and tmp <= 0xF773:
-                    letter = f"[{self.fwd_tbl.get(tmp)}]"
-                else:
-                    letter = self.fwd_tbl.get(tmp)
+                letter = self.fwd_tbl.get(tmp)
+                dub = self.duplicated.get(letter)
+                if dub is not None and tmp == dub[1]:
+                    letter = f'[{letter}]'
             else:
                 letter = self.fwd_tbl.get(tmp)
 
@@ -111,7 +106,7 @@ class convert_by_TBL():
         strText.replace('][', '')
         return strText
 
-    def cvtStr_Bytes(self, strText: str) -> bytearray:
+    def cvtStr2Byte(self, strText: str) -> bytearray:
         length = len(strText)
         pos = 0
         byteText = bytearray()
@@ -145,7 +140,11 @@ class convert_by_TBL():
                 ret = self.inv_tbl.get(letter)
                 dub = self.duplicated.get(letter)
                 if dub is not None:
-                    ret = dub[1] if italic else dub[0]
+                    dubV = dub[1] if italic else dub[0]
+                    if dubV < 0xE5:
+                        ret = [dubV]
+                    else:
+                        ret = [ dubV>>8, dubV&0xFF ]
 
                 if ret is not None:
                     byteText.extend(ret)
@@ -154,7 +153,8 @@ class convert_by_TBL():
                     byteText.append(0xF7)
                     byteText.append(0x07)
         
-        byteText.append(0xE7)
+        if byteText and byteText[-1] != 0xE7:
+            byteText.append(0xE7)
         return byteText
 
 def checkSize(text: str):
@@ -258,9 +258,9 @@ class ReplaceKeyword():
     def expandBytes(self, leftTable: convert_by_TBL, rightTable: convert_by_TBL):
         for idx in range(len(self.table)):
             left = self.table[idx][0]
-            self.table[idx].append(leftTable.cvtStr_Bytes(left))
+            self.table[idx].append(leftTable.cvtStr2Byte(left))
             right = self.table[idx][1]
-            self.table[idx].append(rightTable.cvtStr_Bytes(right))
+            self.table[idx].append(rightTable.cvtStr2Byte(right))
     
     def replace(self, text:str):
         outText = deepcopy(text)
@@ -287,9 +287,9 @@ class FindKeyword():
     def expandBytes(self, leftTable: convert_by_TBL, rightTable: convert_by_TBL):
         for idx in range(len(self.table)):
             left = self.table[idx][0]
-            self.table[idx].append(leftTable.cvtStr_Bytes(left))
+            self.table[idx].append(leftTable.cvtStr2Byte(left))
             right = self.table[idx][1]
-            self.table[idx].append(rightTable.cvtStr_Bytes(right))
+            self.table[idx].append(rightTable.cvtStr2Byte(right))
     
     def replace(self, text:str):
         outText = deepcopy(text)
@@ -357,7 +357,7 @@ class Find_Word2():
         self.wordTable = [['クイックマニュアル', bytes()] ]
         
         for word in self.wordTable:
-            word[1] = self.jpbtbl.cvtStr_Bytes(word[0])
+            word[1] = self.jpbtbl.cvtStr2Byte(word[0])
         
 
     def findWord_in_Bytes(self, data: bytes, word: bytes):

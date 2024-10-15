@@ -20,12 +20,12 @@ class ReadStrings():
     def cvtStr2Byte(self, table: convert_by_TBL):
         self._byte.clear()
         for data in self._str:
-            self._byte.append(table.cvtStr_Bytes(data))
+            self._byte.append(table.cvtStr2Byte(data))
     
     def cvtByte2Str(self, table: convert_by_TBL):
         self._str.clear()
         for data in self._byte:
-            self._str.append(table.cvtBytes_str(data))
+            self._str.append(table.cvtByte2Str(data))
     
     def unpackData(self, buffer: bytes):
         len_buffer = len(buffer)
@@ -45,7 +45,8 @@ class ReadStrings():
             pos = ptrs[idx]
             nextpos = ptrs[idx+1]
             data = buffer[pos:nextpos]
-            self._byte.append(trimTextBytes(data))
+            trimed = trimTextBytes(data)
+            self._byte.append(bytearray(trimed))
 
         len_buffer = len(self._byte[-1]) + 1
         if len_buffer%2:
@@ -88,13 +89,10 @@ class ReadStrings():
         
         return byte_stream.getvalue()
 
-def createStringClass(filename: str, stringPtr: int):
+def createStringClass(FileName: str, StringPtr: int):
     class Class_String: 
-        FileName = filename
-        StringPtr = stringPtr
-
         def __init__(self, input_path: str = '') -> None:
-            self.buffer = bytearray()
+            self.buffer = bytes()
             self.strings = ReadStrings()
             self.strings_byte = self.strings._byte
             self.strings_str = self.strings._str
@@ -103,7 +101,7 @@ def createStringClass(filename: str, stringPtr: int):
             if os.path.isfile(input_path):
                 self.unpackData(input_path)
             elif os.path.isdir(input_path):
-                filepath = Path(input_path) / Path(self.FileName)
+                filepath = Path(input_path) / Path(FileName)
                 if os.path.isfile(str(filepath)):
                     self.unpackData(str(filepath))
                 else:
@@ -121,11 +119,12 @@ def createStringClass(filename: str, stringPtr: int):
 
         def unpackData(self, input_path: str):
             with open(input_path, 'rb') as file:
-                self.buffer = bytearray(file.read())
-                self.strings.unpackData(self.buffer[self.StringPtr:])
+                self.buffer = file.read()
+
+                self.strings.unpackData(self.buffer[StringPtr:])
                 self.strings_byte = self.strings._byte
                 
-                if self.StringPtr == 0x0:
+                if StringPtr == 0x0:
                     fileSize = os.path.getsize(input_path)
                     self.len_buffer = ((fileSize + 2047)//2048)*2048
                 else:
@@ -143,7 +142,7 @@ def createStringClass(filename: str, stringPtr: int):
             if byteData is not None:
                 with open(output_path, 'wb') as file:
                     file.write(self.buffer)
-                    file.seek(self.StringPtr)
+                    file.seek(StringPtr)
                     file.write(byteData)
     
     return Class_String

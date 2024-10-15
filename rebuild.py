@@ -22,10 +22,8 @@ from fileStruct.structARM import ARMstruct
 from fileStruct.structZND import ZNDstruct
 from fileStruct.structMPD import MPDstruct
 from fileStruct.read_MON_BIN import MON_BIN
-from fileStruct.read_SL_Main import SL_Main
-from fileStruct.read_TITLE_PRG import TITLE_PRG_jp, TITLE_PRG_en
-from fileStruct.read_BATTLE_PRG import *
-from fileStruct.read_MENU9_PRG import *
+from fileStruct.read_BATTLE_PRG import BATTLE_PRG_en, BATTLE_PRG_jp
+from fileStruct.read_MENU9_PRG import MENU9_PRG_jp, MENU9_PRG_en
 from fileStruct.readStrFile import *
 from fileStruct.readWordFile import *
 import subprocess
@@ -205,12 +203,10 @@ def makeKorFont():
     system_dat.texture_ui.image.save('work/texture/test_2.png')
     system_dat.packData(f'{PATH_KOR_VARGRANTSTORY}/BATTLE/SYSTEM.DAT')
 
-
-
 def update_BATTLE(kor_strings: dict):
     battle = BATTLE_PRG_jp(PATH_JPN_VARGRANTSTORY)
     battle.cvtByte2Str(jpnTBL)
-    
+
     textKeys = { 'BATTLE_1': 'strings_str', 'BATTLE_2': 'words_str', 'BATTLE_3': 'strings2_str' }
     for key, attr in textKeys.items():
         dictTexts = kor_strings[key]
@@ -225,6 +221,8 @@ def update_BATTLE(kor_strings: dict):
 
     battle.cvtStr2Byte(korTBL)
     battle.packData(f"{PATH_KOR_VARGRANTSTORY}/BATTLE/BATTLE.PRG")
+    
+    return battle
 
 def fixMPD(idx: int, mpd: MPDstruct):
     if idx == 1:
@@ -253,20 +251,94 @@ def update_MPD(index: int, kor_strings: dict):
     mpd.cvtStr2Byte(korTBL)
 
     fixMPD(index, mpd)
+    mpd.packData(f"{PATH_KOR_VARGRANTSTORY}/MAP/MAP{index:03}.MPD")
     
     return mpd
-
+    
 def updateMAP_MDP(kor_strings: dict):
-    for k, v in kor_strings.items():
-        if str(k)[:3] == 'MAP' and str(k) != 'MAP_ZND':
-            idx = int(str(k)[3:])
+    for key in kor_strings.keys():
+        if str(key)[:3] == 'MAP' and str(key) != 'MAP_ZND':
+            idx = int(str(key)[3:])
             
             if idx > 10:   # for test
                 break
             
             print(f"=== MAP{idx:03}.MPD packing ===")
-            mpd = update_MPD(idx, kor_strings)
-            mpd.packData(f"{PATH_KOR_VARGRANTSTORY}/MAP/MAP{idx:03}.MPD")
+            update_MPD(idx, kor_strings)
+
+def update_ARM(Name: str, dictTexts: dict):
+    filepath = f"{PATH_JPN_VARGRANTSTORY}/SMALL/{Name}.ARM"
+    arm = ARMstruct(str(filepath))
+    arm.cvtByte2Str(jpnTBL)
+
+    len_dict = len(dictTexts)
+    len_string = len(arm.names_str)
+    if len_dict > len_string:
+        logging.critical(f"why? {Name} string number differnt! {len_dict} != {len_string}")
+    
+    for k, v in dictTexts.items():
+        idx = int(k)
+        arm.names_str[idx] = v['string']
+   
+    arm.cvtStr2Byte(korTBL)
+    arm.packData(f"{PATH_KOR_VARGRANTSTORY}/SMALL/{Name}.ARM")
+    
+    return arm
+
+def update_SMALL_ARM(kor_strings: dict):
+    dictTexts = kor_strings['SMALL_ARM']
+    for k, v in dictTexts.items():
+        Name = str(k)
+        print(f"=== {Name}.ARM packing ===")
+        update_ARM(Name, v)
+
+def update_ZND(filepath: Path, NPCs: dict, WEAPONs: dict):
+    znd = ZNDstruct(str(filepath))
+    znd.cvtByte2Str(jpnTBL)
+
+    for idx, jpName in enumerate(znd.Enemy.name_str):
+        korName = NPCs.get(jpName)
+        if korName is None:
+            logging.critical(f"why? {jpName} is not key?")
+        znd.Enemy.name_str[idx] = korName
+        
+    for idx, jpName in enumerate(znd.Enemy.weapon_str):
+        korName = WEAPONs.get(jpName)
+        if korName is None:
+            logging.critical(f"why? {jpName} is not key?")
+        znd.Enemy.weapon_str[idx] = korName
+    
+    znd.cvtStr2Byte(jpnTBL)
+    znd.packData(f"work/test/SMALL/{filepath.stem}.ARM")
+    return
+    znd.cvtStr2Byte(korTBL)
+    znd.packData(f"{PATH_KOR_VARGRANTSTORY}/SMALL/{filepath.stem}.ARM")
+    
+    return znd
+
+def update_MAP_ZND(kor_strings: dict):
+    dictTexts = kor_strings['MAP_ZND']
+    
+    with open('work/strings/MAP_ZND_ja.json', 'r', encoding='utf-8') as json_file:
+        dictTexts_jp = json.load(json_file)['MAP_ZND']
+    dictTexts = dictTexts_jp
+    NPCs = {}
+    WEAPONs = {}
+    
+    for k, v in dictTexts_jp['NPCs'].items():
+        NPCs[v['Name']] = dictTexts['NPCs'][k]['Name']
+    for k, v in dictTexts_jp['WEAPONs'].items():
+        WEAPONs[v['Weapon']] = dictTexts['WEAPONs'][k]['Weapon']
+    
+    folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('MAP')
+    file_list = [file for file in folder_path.rglob('*.ZND') if file.is_file()]
+    file_list = sorted(file_list)
+    
+    for filepath in file_list:
+        relative_path = filepath.relative_to(folder_path)
+        print(f"=== {relative_path.stem}.ARM packing ===")
+        update_ZND(filepath, NPCs, WEAPONs)
+        
 
 def read_MENU_PRG_jp(name: str, suffix: str = 'PRG'):
     class_jp = None
@@ -280,18 +352,16 @@ def read_MENU_PRG_jp(name: str, suffix: str = 'PRG'):
         if class_jp is None:    
             logging.critical(f'wrong function name {name}')
             return None
-    
-    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path(f"MENU/{name}.{suffix}")
-    inp_path = Path(PATH_JPN_VARGRANTSTORY) / Path(f"MENU/{name}.{suffix}")
-    help_jp = class_jp(str(inp_path))
-    
-    return help_jp
-  
+
+    return class_jp(PATH_JPN_VARGRANTSTORY)
 
 def updateMENUstrings(Name: str, kor_strings: dict):
     words = Name.split('_')    
     classMENU = read_MENU_PRG_jp(words[0], words[1])
     classMENU.cvtByte2Str(jpnTBL)
+    
+    #return classMENU
+    
     dictMENU = kor_strings[words[0]]
     len_dict = len(dictMENU)
     
@@ -303,29 +373,123 @@ def updateMENUstrings(Name: str, kor_strings: dict):
         classMENU.strings_str[idx] = v['string']
 
     classMENU.cvtStr2Byte(korTBL)
+    classMENU.packData(f"{PATH_KOR_VARGRANTSTORY}/MENU/{words[0]}.{words[1]}")
     
     return classMENU
+
+def update_SMALL_MON(kor_strings: dict):
+    filepath = f"{PATH_JPN_VARGRANTSTORY}/SMALL/MON.BIN"
+    mon = MON_BIN(str(filepath))
+    mon.cvtByte2Str(jpnTBL)
+
+    #return mon
+
+    dictTexts = kor_strings['MON']
+    len_dict = len(dictTexts)
+    if len_dict > 2*mon.ItemNumber:
+        logging.critical(f"why? {'MON'} string number differnt! {len_dict} > 2*{mon.ItemNumber}")
     
+    for k, v in dictTexts.items():
+        idx = int(k)
+        mon.name_str[idx] = v['name']
+        mon.strings_str[idx] = v['description']
+    
+    mon.cvtStr2Byte(korTBL)    
+    mon.packData(f"{PATH_KOR_VARGRANTSTORY}/SMALL/MON.BIN")
+    
+    return mon
+
+def update_TITLE(kor_strings: dict):
+    filepath = f"{PATH_JPN_VARGRANTSTORY}/TITLE/TITLE.PRG"
+    title = TITLE_PRG_jp(str(filepath))
+    title.cvtByte2Str(jpnTBL)
+
+    #return title
+
+    dictTexts = kor_strings['TITLE']
+    len_dict = len(dictTexts)
+    len_words = len(title.strings_str)
+    if len_dict > len_words:
+        logging.critical(f"why? {'TITLE'} string number differnt! {len_dict} > {len_words}")
+    
+    for k, v in dictTexts.items():
+        idx = int(k)
+        title.strings_str[idx] = v['string']
+    
+    title.cvtStr2Byte(korTBL)    
+    title.packData(f"{PATH_KOR_VARGRANTSTORY}/TITLE/TITLE.PRG")
+
+    return title
+
+def update_SL_Main(kor_strings: dict):
+    sl_main = SL_Main_jp(PATH_JPN_VARGRANTSTORY)
+    sl_main.cvtByte2Str(jpnTBL)
+
+    #return sl_main
+
+    dictTexts = kor_strings['SL_Main']
+    len_dict = len(dictTexts)
+    len_words = len(sl_main.strings_str)
+    if len_dict > len_words:
+        logging.critical(f"why? {'SL_Main'} string number differnt! {len_dict} > {len_words}")
+    
+    for k, v in dictTexts.items():
+        idx = int(k)
+        sl_main.strings_str[idx] = v['string']
+    
+    sl_main.cvtStr2Byte(korTBL)    
+    sl_main.packData(f"{PATH_KOR_VARGRANTSTORY}/SLPS_023.77")
+
+    return sl_main
+
+def update_MENU9(kor_strings: dict):
+    MENU9 = MENU9_PRG_jp(PATH_JPN_VARGRANTSTORY)
+    MENU9.cvtByte2Str(jpnTBL)
+
+    #return MENU9
+
+    dictTexts1 = kor_strings['MENU9_1']
+    dictTexts2 = kor_strings['MENU9_2']
+    len_dict1 = len(dictTexts1)
+    len_dict2 = len(dictTexts2)
+    len_words1 = len(MENU9.strings1_str)
+    len_words2 = len(MENU9.strings2_str)
+    if len_dict1 > len_words1:
+        logging.critical(f"why? {'MENU9_1'} string number differnt! {len_dict1} > {len_words1}")
+    if len_dict2 > len_words2:
+        logging.critical(f"why? {'MENU9_2'} string number differnt! {len_dict2} > {len_words2}")
+    
+    for k, v in dictTexts1.items():
+        idx = int(k)
+        MENU9.strings1_str[idx] = v['string']
+    for k, v in dictTexts2.items():
+        idx = int(k)
+        MENU9.strings2_str[idx] = v['string']
+    
+    MENU9.cvtStr2Byte(korTBL)    
+    MENU9.packData(f"{PATH_KOR_VARGRANTSTORY}/MENU/MENU9.PRG")
+
+    return MENU9
+
 def rebuildKor():
     kor_strings = mergeKorString()
     with open('work/kor/all_strins_kor.json', 'w', encoding='utf-8') as f:
         json.dump(kor_strings, f, indent=2, ensure_ascii=False)
     
+    update_SL_Main(kor_strings)
+    update_TITLE(kor_strings)
     update_BATTLE(kor_strings)
-    return
-    
+    update_MENU9(kor_strings)
+    update_SMALL_MON(kor_strings)
+ 
     #MENUs = [ 'MENU0_PRG', 'MENU1_PRG', 'MENU2_PRG', 'MENU3_PRG', 'MENU4_PRG_jp', 'MENU5_PRG_jp', 'MENU7_PRG_jp', 'MENU8_PRG_jp', 'MENUB_PRG', 'MENUD_PRG_jp', 'MENUE_PRG_jp', 'MENU12_BIN', 'MCMAN_BIN', 'ITEMHELP_BIN' ]
     MENUs = [ 'MENU0_PRG', 'MENU1_PRG', 'MENU2_PRG', 'MENU3_PRG', 'MENU4_PRG_jp', 'MENU5_PRG_jp', 'MENU7_PRG_jp', 'MENU8_PRG_jp', 'MENUB_PRG', 'MENUD_PRG_jp', 'MENUE_PRG_jp', 'MENU12_BIN', 'MCMAN_BIN' ]
     for Name in MENUs:
         print(f"=== {Name} packing ===")
-        classMENU = updateMENUstrings(Name, kor_strings)
-    #    
-        words = Name.split('_')
-        classMENU.packData(f"{PATH_KOR_VARGRANTSTORY}/MENU/{words[0]}.{words[1]}")
- 
-    
- 
+        updateMENUstrings(Name, kor_strings)
+
     updateMAP_MDP(kor_strings)
+    update_SMALL_ARM(kor_strings)
 
 #cvtKorFontImage()
 #downlaod_localazy()
@@ -349,28 +513,8 @@ def test2():
     mpd.packData('work/test/MAP001.MPD')
     exit()
 
-def updateMON(kor_strings: dict):
-    filepath = f"{PATH_JPN_VARGRANTSTORY}/SMALL/MON.BIN"
-    mon = MON_BIN(str(filepath))
-    mon.cvtByte2Str(jpnTBL)
-
-    dictTexts = kor_strings['MON']
-    len_dict = len(dictTexts)
-    if len_dict > 2*mon.ItemNumber:
-        logging.critical(f"why? {'MON'} string number differnt! {len_dict} > 2*{mon.ItemNumber}")
-    
-    #for k, v in dictTexts.items():
-    #    idx = int(k)
-    #    mon.name_str[idx] = v['name']
-    #    mon.strings_str[idx] = v['description']
-    #mon.cvtStr2Byte(korTBL)
-    
-    mon.cvtStr2Byte(jpnTBL)
-
-    return mon
-
 def test3():
     kor_strings = mergeKorString()
-    mon = updateMON(kor_strings)
-    mon.packData('work/test/MON.BIN')
+    update_MAP_ZND(kor_strings)
+
 test3()

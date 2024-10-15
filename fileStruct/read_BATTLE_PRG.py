@@ -17,6 +17,8 @@ def createString_Word_Class(filename: str, stringPtr: int, stringPtr2: int, word
         WordBytes = wordBytes
 
         def __init__(self, input_path: str = '') -> None:
+            self.buffer = bytes()
+            
             self.strings = ReadStrings()
             self.strings_byte = self.strings._byte
             self.strings_str = self.strings._str
@@ -62,15 +64,15 @@ def createString_Word_Class(filename: str, stringPtr: int, stringPtr2: int, word
 
         def unpackData(self, input_path:str):
             with open(input_path, 'rb') as file:
-                buffer = bytearray(file.read())
+                self.buffer = file.read()
 
-                self.strings.unpackData(buffer[self.StringPtr:])
+                self.strings.unpackData(self.buffer[self.StringPtr:])
                 self.strings_byte = self.strings._byte
                 
-                self.strings2.unpackData(buffer[self.StringPtr2:])
+                self.strings2.unpackData(self.buffer[self.StringPtr2:])
                 self.strings2_byte = self.strings2._byte
 
-                self.words.unpackData(buffer[self.WordPtr : self.WordPtr + self.WordNumber*self.WordBytes])
+                self.words.unpackData(self.buffer[self.WordPtr : self.WordPtr + self.WordNumber*self.WordBytes])
 
         def packData(self, output_path:str):
             if len(self.strings._byte) != self.strings.itemNums:
@@ -81,6 +83,8 @@ def createString_Word_Class(filename: str, stringPtr: int, stringPtr2: int, word
                 logging.critical("!!!")
 
             with open(output_path, 'wb') as file:
+                file.write(self.buffer)
+                
                 logging.info(f"BATTLE_1 / ")
                 stringData = self.strings.packData()
                 if stringData is not None:

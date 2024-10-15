@@ -101,30 +101,30 @@ def injectFile(image_path:str, path_file):
 
 #injectFile(PATH_TEMP_VARGRANTSTORY_IMAGE, "")
 
-def trimTextBytes(byte_array: bytes):
-    len_bytes = len(byte_array)
+def trimTextBytes(textbytes: bytes):
+    len_bytes = len(textbytes)
     pos = 1
     while pos < len_bytes:
-        if byte_array[-pos] == 0xE7: 
+        if textbytes[-pos] == 0xE7: 
             break
         pos += 1
 
-    return byte_array[:-pos]
+    return textbytes[:len_bytes-pos+1]
 
-def format_byte_array(byte_array: bytearray, ControlWord: bool = False):
+def format_byte_array(textbytes: bytearray, ControlWord: bool = False):
     if not ControlWord:
-        return ','.join(f'0x{byte:02X}' for byte in byte_array)
+        return ','.join(f'0x{byte:02X}' for byte in textbytes)
     
     result = []
     i = 0
-    while i < len(byte_array):
-        byte = byte_array[i]
+    while i < len(textbytes):
+        byte = textbytes[i]
         if byte < 0xe5:
             result.append(f'0x{byte:02X}')
             i += 1
         else:
-            if i + 1 < len(byte_array):
-                next_byte = byte_array[i + 1]
+            if i + 1 < len(textbytes):
+                next_byte = textbytes[i + 1]
                 combined = (byte << 8) | next_byte
                 result.append(f'0x{combined:04X}')
                 i += 2

@@ -57,10 +57,10 @@ class TreasureSection:
         self.name_byte = trimTextBytes(data)
 
     def cvtByte2Str(self, table: convert_by_TBL):
-        self.name_str = table.cvtBytes_str(self.name_byte)
+        self.name_str = table.cvtByte2Str(self.name_byte)
         
     def cvtStr2Byte(self, table: convert_by_TBL):
-        self.name_byte = table.cvtStr_Bytes(self.name_str)
+        self.name_byte = table.cvtStr2Byte(self.name_str)
             
     def packData(self):
         if self.buffer is None:
@@ -106,6 +106,8 @@ class DialogText:
         if 0 >= len(self.strings):
             return None
 
+        data = self.strings.packData()
+        
         sumBytes = 2*self.strings.itemNums
         for text in self.strings_byte:
             sumBytes += len(text)
@@ -119,7 +121,6 @@ class DialogText:
         if sumBytes_pad == 0:
             return bytes()
         
-        data = self.strings.packData()
         return data + b'\x00'*padding
 
 class ScriptSection:
@@ -135,9 +136,6 @@ class ScriptSection:
 
     def __len__(self):
         return self.header[0] if self.header else 0
-
-    def cvtStr2Byte(self, table: convert_by_TBL):
-        self.dialogText.cvtStr2Byte(table)
 
     def updateOpcode(self):
         for idx, code in enumerate(self.scriptOpcodes.opcodes):
@@ -155,7 +153,10 @@ class ScriptSection:
                         if w < cols or h < rows:
                             logging.warning(f'dialog text is too long. box_w({w})<text_w({cols}), box_h({h})<text_h({rows})')
                         break
-                    
+       
+    def cvtStr2Byte(self, table: convert_by_TBL):
+        self.dialogText.cvtStr2Byte(table)
+             
     def cvtByte2Str(self, table: convert_by_TBL):
         self.dialogText.cvtByte2Str(table)
         self.updateOpcode()    

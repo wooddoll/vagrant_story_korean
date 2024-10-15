@@ -80,7 +80,7 @@ def test1():
     mpd_out = str(Path(os.getcwd()) / Path(mpd_out))
     cmd = f'{PATH_psxinject} "{PATH_TEMP_VARGRANTSTORY_IMAGE}" {PATH_testMPD} "{str(mpd_out)}"'
     utils.run_cmd(cmd, PATH_TEMP)
-test1()
+#test1()
 
 
 
@@ -110,7 +110,7 @@ def test2():
     
     for idx in range(len(mpd.scriptSection.dialogText.dialogBytes)):
         text = dialogLists[idx]
-        byteText = jpnTBL.cvtStr_Bytes(text)
+        byteText = jpnTBL.cvtStr2Byte(text)
         mpd.scriptSection.dialogText.dialogBytes[idx] = byteText
     
     outpath = Path(PATH_TEMP) / Path('Test') / Path(PATH_testMPD)
@@ -356,7 +356,7 @@ def cvtBytes():
             exit()
             
         _inp_bytes = bytes(inp_bytes)
-        inp_text = jpnTBL.cvtBytes_str(_inp_bytes)
+        inp_text = jpnTBL.cvtByte2Str(_inp_bytes)
         for v in _inp_bytes:
             print(f"{v:02X} ", end='')
         print(f"\n{inp_text}")
@@ -382,7 +382,7 @@ def cvtBytes2():
             exit()
             
         _inp_bytes = bytes(inp_bytes)
-        inp_text = usaTBL.cvtBytes_str(_inp_bytes)
+        inp_text = usaTBL.cvtByte2Str(_inp_bytes)
         for v in _inp_bytes:
             print(f"{v:02X} ", end='')
         print(f"\n{inp_text}")
@@ -1099,6 +1099,7 @@ def test12():
     
     system_dat.packData('work/system.dat')
 
+#extract_SMALL_MON_BIN()
 #exit()
 
 
