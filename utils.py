@@ -12,6 +12,8 @@ def int4(buffer: bytes):
     return int.from_bytes(buffer[0:4], byteorder='little')
 def int2(buffer: bytes):
     return int.from_bytes(buffer[0:2], byteorder='little')
+def int1(buffer: bytes):
+    return int.from_bytes(buffer[0:1], byteorder='little')
 
 def bytes4(num: int):
     return num.to_bytes(4, byteorder='little', signed=False)
@@ -101,12 +103,13 @@ def injectFile(image_path:str, path_file):
 
 def trimTextBytes(byte_array: bytes):
     len_bytes = len(byte_array)
-    pos = 0
+    pos = 1
     while pos < len_bytes:
-        if byte_array[pos] == 0xE7: break
+        if byte_array[-pos] == 0xE7: 
+            break
         pos += 1
 
-    return byte_array[:pos]
+    return byte_array[:-pos]
 
 def format_byte_array(byte_array: bytearray, ControlWord: bool = False):
     if not ControlWord:

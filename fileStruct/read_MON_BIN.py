@@ -37,7 +37,7 @@ class MON_BIN():
         for text in self.name_str:
             self.name_byte.append(table.cvtStr_Bytes(text))
         
-        self.strings.cvtStr2Byte(table, False)
+        self.strings.cvtStr2Byte(table)
         self.strings_byte = self.strings._byte
 
     def cvtByte2Str(self, table: convert_by_TBL):

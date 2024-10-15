@@ -17,10 +17,10 @@ class ReadStrings():
         if buffer is not None:
             self.unpackData(buffer)
 
-    def cvtStr2Byte(self, table: convert_by_TBL, align2B = True):
+    def cvtStr2Byte(self, table: convert_by_TBL):
         self._byte.clear()
         for data in self._str:
-            self._byte.append(table.cvtStr_Bytes(data, align2B))
+            self._byte.append(table.cvtStr_Bytes(data))
     
     def cvtByte2Str(self, table: convert_by_TBL):
         self._str.clear()
@@ -63,6 +63,12 @@ class ReadStrings():
             logging.critical(f"check the number of strings, size different; {self.itemNums} != current({len(self._byte)})")
         
         ptrs = [ self.itemNums ]
+        for idx in range(self.itemNums):
+            if self._byte[idx][-1] != 0xE7:
+                 self._byte[idx].append(0xE7)
+            if len(self._byte[idx])%2:  # align 2byte padding
+                self._byte[idx].append(0xEB)
+        
         for idx in range(self.itemNums):
             ptrs.append(ptrs[-1] + len(self._byte[idx])//2)
 

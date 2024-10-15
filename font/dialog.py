@@ -111,7 +111,7 @@ class convert_by_TBL():
         strText.replace('][', '')
         return strText
 
-    def cvtStr_Bytes(self, strText: str, align2B = False) -> bytearray:
+    def cvtStr_Bytes(self, strText: str) -> bytearray:
         length = len(strText)
         pos = 0
         byteText = bytearray()
@@ -132,7 +132,7 @@ class convert_by_TBL():
                 for i in range(0, len_tmp, 2):
                     byteText.append(int(tmp[i:i+2], 16))
                 continue
-            elif letter in ['↵', '\n']:
+            elif letter in ['↵', '\n', '\r', '\r\n']:
                 byteText.append(0xE8)
                 continue
             elif letter == '[':
@@ -155,9 +155,6 @@ class convert_by_TBL():
                     byteText.append(0x07)
         
         byteText.append(0xE7)
-        if align2B and len(byteText) % 2:
-            byteText.append(0xEB)
-
         return byteText
 
 def checkSize(text: str):
