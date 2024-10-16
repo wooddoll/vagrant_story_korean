@@ -289,7 +289,7 @@ def update_SMALL_ARM(kor_strings: dict):
     dictTexts = kor_strings['SMALL_ARM']
     for k, v in dictTexts.items():
         Name = str(k)
-        print(f"=== {Name}.ARM packing ===")
+        logging.info(f"=== {Name}.ARM packing ===")
         update_ARM(Name, v)
 
 def update_ZND(filepath: Path, NPCs: dict, WEAPONs: dict):
@@ -297,22 +297,24 @@ def update_ZND(filepath: Path, NPCs: dict, WEAPONs: dict):
     znd.cvtByte2Str(jpnTBL)
 
     for idx, jpName in enumerate(znd.Enemy.name_str):
+        if not jpName: continue
         korName = NPCs.get(jpName)
         if korName is None:
             logging.critical(f"why? {jpName} is not key?")
         znd.Enemy.name_str[idx] = korName
         
     for idx, jpName in enumerate(znd.Enemy.weapon_str):
+        if not jpName: continue
         korName = WEAPONs.get(jpName)
         if korName is None:
             logging.critical(f"why? {jpName} is not key?")
         znd.Enemy.weapon_str[idx] = korName
     
     znd.cvtStr2Byte(jpnTBL)
-    znd.packData(f"work/test/SMALL/{filepath.stem}.ARM")
+    znd.packData(f"work/test/MAP/{filepath.stem}.ZND")
     return
     znd.cvtStr2Byte(korTBL)
-    znd.packData(f"{PATH_KOR_VARGRANTSTORY}/SMALL/{filepath.stem}.ARM")
+    znd.packData(f"{PATH_KOR_VARGRANTSTORY}/MAP/{filepath.stem}.ZND")
     
     return znd
 
@@ -336,7 +338,7 @@ def update_MAP_ZND(kor_strings: dict):
     
     for filepath in file_list:
         relative_path = filepath.relative_to(folder_path)
-        print(f"=== {relative_path.stem}.ARM packing ===")
+        logging.info(f"=== {relative_path.stem}.ARM packing ===")
         update_ZND(filepath, NPCs, WEAPONs)
         
 
@@ -485,7 +487,7 @@ def rebuildKor():
     #MENUs = [ 'MENU0_PRG', 'MENU1_PRG', 'MENU2_PRG', 'MENU3_PRG', 'MENU4_PRG_jp', 'MENU5_PRG_jp', 'MENU7_PRG_jp', 'MENU8_PRG_jp', 'MENUB_PRG', 'MENUD_PRG_jp', 'MENUE_PRG_jp', 'MENU12_BIN', 'MCMAN_BIN', 'ITEMHELP_BIN' ]
     MENUs = [ 'MENU0_PRG', 'MENU1_PRG', 'MENU2_PRG', 'MENU3_PRG', 'MENU4_PRG_jp', 'MENU5_PRG_jp', 'MENU7_PRG_jp', 'MENU8_PRG_jp', 'MENUB_PRG', 'MENUD_PRG_jp', 'MENUE_PRG_jp', 'MENU12_BIN', 'MCMAN_BIN' ]
     for Name in MENUs:
-        print(f"=== {Name} packing ===")
+        logging.info(f"=== {Name} packing ===")
         updateMENUstrings(Name, kor_strings)
 
     updateMAP_MDP(kor_strings)

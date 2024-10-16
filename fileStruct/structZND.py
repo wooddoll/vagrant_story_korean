@@ -9,13 +9,13 @@ from utils import *
 
 
 
-class ZND_MPD_data():
-    def __init__(self) -> None:
-        self.LBApos: int = 0        # LBA pos
-        self.file_size: int = 0     # bytes !!! not lba, rounded up to multiple of 2048
-        self.file_name: str = ''
+class ZND_MPD_data:
+    def __init__(self, LBApos = 0, File_size = 0, File_name = '') -> None:
+        self.LBApos: int = LBApos        # LBA pos
+        self.File_size: int = File_size     # bytes !!! not lba, rounded up to multiple of 2048
+        self.File_name: str = File_name
 
-class ZND_MPD():
+class ZND_MPD:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.MPD: List[ZND_MPD_data] = []
 
@@ -34,28 +34,26 @@ class ZND_MPD():
         numMPD = header[1] // 8
         byte_stream.seek(header[0])
         for _ in range(numMPD):
-            data = ZND_MPD_data()
-            data.LBApos = int4(byte_stream.read(4))
-            data.file_size = int4(byte_stream.read(4))
+            LBApos = int4(byte_stream.read(4))
+            File_size = int4(byte_stream.read(4))
+            self.MPD.append(ZND_MPD_data(LBApos, File_size))
 
-            self.MPD.append(data)
-
-    def packData(self, buffer: bytearray):
+    def packData(self, buffer: bytes):
         if buffer is None:
             return
         
         byte_stream = io.BytesIO(buffer)
         header = readHeader(byte_stream, 6, 4)
-        if header[0] != len(self.MPD):
+        if (header[1]//8) != len(self.MPD):
             logging.critical(f"check the number of MPD files, size different; privious({header[0]}) != current({len(self.MPD)})")
         self.MPD.clear()
 
         byte_stream.seek(header[0])
         for data in self.MPD:
             byte_stream.write(bytes4(data.LBApos))
-            byte_stream.write(bytes4(data.file_size))        
+            byte_stream.write(bytes4(data.File_size))        
 
-class ZND_Enemy():
+class ZND_Enemy:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.name_byte: List[bytearray] = []
         self.weapon_byte: List[bytearray] = []
@@ -110,7 +108,7 @@ class ZND_Enemy():
             byte_weapon = byte_stream.read(0x18)
             self.weapon_byte.append(bytearray(byte_weapon))
 
-    def packData(self, buffer: bytearray):
+    def packData(self, buffer: bytes):
         if buffer is None:
             return
     
@@ -125,15 +123,11 @@ class ZND_Enemy():
 
         for idx in range(num_enemies):
             len_name = len(self.name_byte[idx])
-            if len_name < 0x18:
-                self.name_byte[idx].extend([0]*(0x18 - len_name))
             if len_name > 0x18:
                 logging.critical(f"check the enemy name, size overflowed({len_name} > {0x18})")
                 self.name_byte[idx] = self.name_byte[idx][:0x18]
             
             len_weapon = len(self.weapon_byte[idx])
-            if len_weapon < 0x18:
-                self.weapon_byte[idx].extend([0]*(0x18 - len_weapon))
             if len_weapon > 0x18:
                 logging.critical(f"check the enemy weapon, size overflowed({len_weapon} > {0x18})")
                 self.weapon_byte[idx] = self.weapon_byte[idx][:0x18]
@@ -149,7 +143,7 @@ class ZND_Enemy():
             byte_stream.seek(ptr_weapon_name)
             byte_stream.write(self.weapon_byte[idx])
 
-class ZNDstruct():
+class ZNDstruct:
     def __init__(self, input_path:str = '') -> None:
         self.buffer = None
 
@@ -166,7 +160,7 @@ class ZNDstruct():
     
     def unpackData(self, input_path:str):
         with open(input_path, 'rb') as file:
-            self.buffer = bytearray(file.read())
+            self.buffer = file.read()
 
             self.MPD.unpackData(self.buffer)
             self.Enemy.unpackData(self.buffer)
