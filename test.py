@@ -15,7 +15,7 @@ from fileStruct.structZND import ZNDstruct
 from fileStruct.structMPD import MPDstruct
 
 from fileStruct.read_MON_BIN import MON_BIN
-
+from fileStruct.read_HELP_HF0 import *
 from fileStruct.readStrFile import *
 from fileStruct.readWordFile import *
 
@@ -1061,6 +1061,62 @@ def extract_MPD_jp_en():
 
     with open('work/strings/MAP_MPD_ja.json', 'w', encoding='utf-8') as f:
         json.dump(mpd_jp, f, indent=2, ensure_ascii=False)
+
+def extract_SMALL_HF0():
+    folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('SMALL')
+    file_list = [file for file in folder_path.rglob('*.HF0') if file.is_file()]
+    file_list = sorted(file_list)
+
+    jpnInfiles = {}
+    for filepath in tqdm(file_list, desc="Processing"):
+        relative_path = filepath.relative_to(folder_path)
+
+        hlp = HELP_HF0(str(filepath))
+        hlp.cvtByte2Str(jpnTBL)
+
+        jpnInfiles[relative_path.stem] = hlp.strings._str
+    
+    ####
+    folder_path = Path(PATH_USA_VARGRANTSTORY) / Path('SMALL')
+    file_list = [file for file in folder_path.rglob('*.HF0') if file.is_file()]
+    file_list = sorted(file_list)
+
+    engInfiles = {}
+    for filepath in tqdm(file_list, desc="Processing"):
+        relative_path = filepath.relative_to(folder_path)
+
+        hlp = HELP_HF0(str(filepath))
+        hlp.cvtByte2Str(usaTBL)
+
+        engInfiles[relative_path.stem] = hlp.strings._str
+
+    ###
+    hlp_names = {}
+    for k, v in jpnInfiles.items():
+        jp = jpnInfiles[k]
+        en = engInfiles[k]
+    
+        len_jpn = len(jp)
+        len_usa = len(en)
+        if len_jpn != len_usa:
+            logging.critical("!!!")
+    
+        texts = {}
+        for idx in range(len(jp)):
+            if not jp[idx] and not en[idx]:
+                continue
+        
+            singleRow = {}
+            singleRow['string'] = jp[idx]
+            #singleRow['@@localazy:comment:string'] = en[idx]
+            texts[f'{idx:03}'] = singleRow
+
+        hlp_names[k] = texts
+
+    dialogLists = {}
+    dialogLists['SMALL_HELP'] = hlp_names
+    with open(f'work/strings/SMALL_HELP_ja.json', 'w', encoding='utf-8') as f:
+        json.dump(dialogLists, f, indent=2, ensure_ascii=False)
         
 def extractAll():
     extract_ARM_jp_en()
@@ -1099,8 +1155,59 @@ def test12():
     
     system_dat.packData('work/system.dat')
 
+def removeControlWord(text: str):
+    len_text = len(text)
+    ret = ''
+    pos = 0
+    while pos < len_text:
+        if text[pos] == '«':
+            while text[pos] != '»':
+                pos += 1
+            pos += 1
+        else:
+            ret += text[pos]
+            pos += 1
+    return ret
+        
+        
+def test13():
+    folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('SMALL')
+    file_list = [file for file in folder_path.rglob('*.HF0') if file.is_file()]
+    file_list = sorted(file_list)
+
+    for filepath in tqdm(file_list, desc="Processing"):
+        relative_path = filepath.relative_to(folder_path)
+
+        hlp = HELP_HF0(str(filepath))
+        hlp.cvtByte2Str(jpnTBL)
+
+        with open(f'work/strings/JPN_{relative_path.stem}_ja.txt', 'w', encoding='utf-8') as f:
+            for text in hlp.strings._str:
+                teexxt = removeControlWord(text)
+                f.write(teexxt)
+                f.write('\n')
+    
+    folder_path = Path(PATH_USA_VARGRANTSTORY) / Path('SMALL')
+    file_list = [file for file in folder_path.rglob('*.HF0') if file.is_file()]
+    file_list = sorted(file_list)
+
+    for filepath in tqdm(file_list, desc="Processing"):
+        relative_path = filepath.relative_to(folder_path)
+
+        hlp = HELP_HF0(str(filepath))
+        hlp.cvtByte2Str(jpnTBL)
+
+        with open(f'work/strings/USA_{relative_path.stem}_en.txt', 'w', encoding='utf-8') as f:
+            for text in hlp.strings._str:
+                teexxt = removeControlWord(text)
+                f.write(teexxt)
+                f.write('\n')
+
+test13()
+    
+#extract_SMALL_HF0()
 #extract_SMALL_MON_BIN()
-#exit()
+exit()
 
 
 

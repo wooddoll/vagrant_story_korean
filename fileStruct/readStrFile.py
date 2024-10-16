@@ -39,7 +39,7 @@ class ReadStrings():
             pos = int2(byte_stream.read(2))
             ptrs.append(2*pos)
         ptrs.append(len_buffer)
-   
+
         self._byte.clear()
         for idx in range(self.itemNums):
             pos = ptrs[idx]
