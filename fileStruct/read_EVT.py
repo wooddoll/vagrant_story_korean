@@ -92,7 +92,16 @@ class EVENT_EVT:
             v.packData(str(output_path))
 
 
-
+'''
+readStrFiles.py에 추가
+        if not self._byte:
+            self.len_buffer = 0
+        else:
+            len_buffer = len(self._byte[-1]) + 1
+            if len_buffer%2:
+                len_buffer += 1
+            self.len_buffer = len_buffer + ptrs[-2]
+'''
 
 def readEVT():
     evts_jp = EVENT_EVT(PATH_JPN_VARGRANTSTORY)
@@ -122,4 +131,5 @@ def readEVT():
             text_file[f'{idx:03}'] = singleRow
         texts[f'{int(k):03}'] = text_file
     
-    print()
+    with open(f'work/strings/EVENT_EVT_ja.json', 'w', encoding='utf-8') as f:
+        json.dump(texts, f, indent=2, ensure_ascii=False)
