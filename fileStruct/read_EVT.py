@@ -88,48 +88,9 @@ class EVENT_EVT:
     def packData(self, output_folder: str):
         for k, v in self.evtFiles.items():
             idx = int(k)
-            output_path =  Path(output_folder) / Path(f'{idx:04}.EVT')
+            print(f"{idx:04}.EVT")
+            output_path =  Path(output_folder) / Path('EVENT') / Path(f'{idx:04}.EVT')
             v.packData(str(output_path))
 
 
-'''
-readStrFiles.py에 추가
-        if not self._byte:
-            self.len_buffer = 0
-        else:
-            len_buffer = len(self._byte[-1]) + 1
-            if len_buffer%2:
-                len_buffer += 1
-            self.len_buffer = len_buffer + ptrs[-2]
-'''
 
-def readEVT():
-    evts_jp = EVENT_EVT(PATH_JPN_VARGRANTSTORY)
-    evts_jp.cvtByte2Str(jpnTBL)
-    
-    evts_en = EVENT_EVT(PATH_USA_VARGRANTSTORY)
-    evts_en.cvtByte2Str(usaTBL)
-    
-    texts = {}
-    for k in evts_jp.evtFiles.keys():
-        text_file = {}
-        _jp = evts_jp.evtFiles[k]
-        _en = evts_en.evtFiles[k]
-        for idx in range(len(_jp.strings_str)):
-            jp = _jp.strings_str[idx]
-            if idx < len(_en.strings_str):
-                en = _en.strings_str[idx]
-            else:
-                en = ''
-
-            if not jp and not en:
-                continue
-            
-            singleRow = {}
-            singleRow['string'] = jp
-            singleRow['@@localazy:comment:string'] = en
-            text_file[f'{idx:03}'] = singleRow
-        texts[f'{int(k):03}'] = text_file
-    
-    with open(f'work/strings/EVENT_EVT_ja.json', 'w', encoding='utf-8') as f:
-        json.dump(texts, f, indent=2, ensure_ascii=False)

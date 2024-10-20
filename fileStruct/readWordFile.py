@@ -24,7 +24,10 @@ class ReadWords():
     def cvtStr2Byte(self, table: convert_by_TBL):
         self._byte.clear()
         for data in self._str:
-            self._byte.append(table.cvtStr2Byte(data))
+            if not data:
+                self._byte.append(bytearray([0xE7]))
+            else:
+                self._byte.append(table.cvtStr2Byte(data))
     
     def cvtByte2Str(self, table: convert_by_TBL):
         self._str.clear()

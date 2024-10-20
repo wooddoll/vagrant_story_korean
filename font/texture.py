@@ -50,7 +50,22 @@ y100
 
 
 def test1():
-    img_ui = Image.open('work/texture/system_dat_unpack_1.png')
+    img_ui = Image.open('work/test/kr_ui_text_10b.png')
     width, height = img_ui.size
     
     img12 = Image.new('RGBA', (width, height), (0, 0, 0, 0))
+    
+    for y in range(height):
+        for x in range(width):
+            px = img_ui.getpixel((x, y))
+            
+            va = (0, 0, 0, 0)
+            if 192 < px[0]:
+                va = (31, 31, 31, 255)
+            elif 64 < px[0]:
+                va = (255, 255, 255, 255)
+            
+            img12.putpixel((x, y), va)
+
+    img12.save('work/test/kr_ui_text_10b-alpha.png')
+test1()

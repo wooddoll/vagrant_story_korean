@@ -3,16 +3,17 @@ import io
 import os
 import logging
 from pathlib import Path
-from font.dialog import convert_by_TBL
+from font.dialog import convert_by_TBL, checkStrLength
 from utils import *
 
+maxByteLen = 0
 
 class ReadStrings(): 
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
-        self.itemNums = -1
+        self.itemNums = 0
         self._byte = []
         self._str = []
-        self.len_buffer = -1
+        self.len_buffer = 0
         
         if buffer is not None:
             self.unpackData(buffer)
@@ -20,12 +21,21 @@ class ReadStrings():
     def cvtStr2Byte(self, table: convert_by_TBL):
         self._byte.clear()
         for data in self._str:
-            self._byte.append(table.cvtStr2Byte(data))
+            if not data:
+                self._byte.append(bytearray([0xE7]))
+            else:
+                self._byte.append(table.cvtStr2Byte(data))
     
     def cvtByte2Str(self, table: convert_by_TBL):
         self._str.clear()
         for data in self._byte:
             self._str.append(table.cvtByte2Str(data))
+            
+            #global maxByteLen
+            #xxx = table.cvtStr2Byte(self._str[-1])
+            #if maxByteLen < len(xxx):
+            #    maxByteLen = len(xxx)
+            #    print(f"max string len: {maxByteLen}")
     
     def unpackData(self, buffer: bytes):
         len_buffer = len(buffer)
@@ -35,23 +45,29 @@ class ReadStrings():
         byte_stream.seek(0)
         
         ptrs = []
-        for idx in range(self.itemNums):
-            pos = int2(byte_stream.read(2))
-            ptrs.append(2*pos)
-        ptrs.append(len_buffer)
+        if self.itemNums:
+            for idx in range(self.itemNums):
+                pos = int2(byte_stream.read(2))
+                ptrs.append(2*pos)
+            last_300 = ptrs[-1] + 300
+            ptrs.append(min(len_buffer, last_300))
 
         self._byte.clear()
         for idx in range(self.itemNums):
             pos = ptrs[idx]
             nextpos = ptrs[idx+1]
             data = buffer[pos:nextpos]
-            trimed = trimTextBytes(data)
+            len_data = checkStrLength(data)
+            trimed = data[:len_data]
             self._byte.append(bytearray(trimed))
 
-        len_buffer = len(self._byte[-1]) + 1
-        if len_buffer%2:
-            len_buffer += 1
-        self.len_buffer = len_buffer + ptrs[-2]
+        if not self._byte:
+            self.len_buffer = 0
+        else:
+            len_buffer = len(self._byte[-1])
+            if len_buffer%2:
+                len_buffer += 1
+            self.len_buffer = ptrs[-2] + len_buffer
 
     def __len__(self):
         return self.len_buffer if 0 < self.itemNums else 0
@@ -65,7 +81,7 @@ class ReadStrings():
         
         ptrs = [ self.itemNums ]
         for idx in range(self.itemNums):
-            if self._byte[idx][-1] != 0xE7:
+            if not self._byte[idx] or self._byte[idx][-1] != 0xE7:
                  self._byte[idx].append(0xE7)
             if len(self._byte[idx])%2:  # align 2byte padding
                 self._byte[idx].append(0xEB)
@@ -77,8 +93,11 @@ class ReadStrings():
         for idx in range(self.itemNums):
             byte_stream.write(bytes2(ptrs[idx]))
             
-        for idx in range(len(self._byte)):
+        for idx in range(self.itemNums):
             data = self._byte[idx]
+            #if 80 < len(data):
+            #    logging.critical(f"check the length of strings, size overflowed; {80} < current({len(data)})")
+            #    logging.critical(f"{idx}: {self._str[idx]}")
             byte_stream.write(data)
         
         currPos = byte_stream.tell()
@@ -150,7 +169,9 @@ def createStringClass(FileName: str, StringPtr: int):
 MENU0_PRG = createStringClass('MENU/MENU0.PRG', 0x2258)
 MENU1_PRG = createStringClass('MENU/MENU1.PRG', 0xC78)
 MENU2_PRG = createStringClass('MENU/MENU2.PRG', 0x1e90)
-MENU3_PRG = createStringClass('MENU/MENU3.PRG', 0x6bb8)
+
+MENU3_PRG_jp = createStringClass('MENU/MENU3.PRG', 0x6bb4)
+MENU3_PRG_en = createStringClass('MENU/MENU3.PRG', 0x6bb8)
 
 MENU4_PRG_en = createStringClass('MENU/MENU4.PRG', 0x4C48)
 MENU4_PRG_jp = createStringClass('MENU/MENU4.PRG', 0x4c44)
@@ -177,3 +198,5 @@ MENUE_PRG_jp = createStringClass('MENU/MENUE.PRG', 0x2644)
 MENU12_BIN = createStringClass('MENU/MENU12.BIN', 0x0)
 MCMAN_BIN = createStringClass('MENU/MCMAN.BIN', 0x0)
 ITEMHELP_BIN = createStringClass('MENU/ITEMHELP.BIN', 0x0)
+
+NAMEDIC_BIN = createStringClass('MENU/NAMEDIC.BIN', 0x0)

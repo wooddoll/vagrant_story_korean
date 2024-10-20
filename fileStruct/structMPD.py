@@ -115,7 +115,7 @@ class DialogText:
         padding = sumBytes_pad - sumBytes
         
         if self.sectionSize < sumBytes_pad:
-            logging.warning(f"check the dialogs length, size overflowed; privious({self.sectionSize}) < current({sumBytes_pad})")
+            logging.info(f"check the dialogs length, size overflowed; privious({self.sectionSize}) < current({sumBytes_pad})")
         self.sectionSize = sumBytes_pad
         
         if sumBytes_pad == 0:
@@ -151,7 +151,7 @@ class ScriptSection:
                         w = _code.Args[5]
                         h = _code.Args[6]
                         if w < cols or h < rows:
-                            logging.warning(f'dialog text is too long. box_w({w})<text_w({cols}), box_h({h})<text_h({rows})')
+                            logging.warning(f'dialog text {code.Args[1]} is too long. box_w({w})<text_w({cols}), box_h({h})<text_h({rows})')
                         break
        
     def cvtStr2Byte(self, table: convert_by_TBL):
@@ -196,7 +196,7 @@ class ScriptSection:
         logging.debug(f"Script / opcode:{sizes[0]}, dialog:{sizes[1]}, unknown1:{sizes[2]}, unknown2:{sizes[3]}")
         
         if sumSizes > self.header[0]:
-            logging.warning(f"check the ScriptSection size, size overflowed({self.header[0]} < {sumSizes})")
+            logging.info(f"check the ScriptSection size, size overflowed({self.header[0]} < {sumSizes})")
 
         self.header[0] = sumSizes
         self.header[1] = poses[1]
@@ -289,7 +289,7 @@ class MPDstruct:
         prevScriptSectionSize = self.header[6] - self.header[4]
         writeSize = len(scriptSection) if scriptSection is not None else 0
         if prevScriptSectionSize < writeSize:
-            logging.warning(f"check the section size, size overflowed({prevScriptSectionSize} < {writeSize})")
+            logging.info(f"check the section size, size overflowed({prevScriptSectionSize} < {writeSize})")
 
         for idx in range(0, 12, 2):
             self.header[idx]   = poses[idx//2]
@@ -301,7 +301,7 @@ class MPDstruct:
             if curr > prev:
                 logging.critical(f"check the file size, LBA overflowed({fileSize} < {sumSizes})")
             else:
-                logging.warning(f"check the file size, size overflowed({fileSize} < {sumSizes})")
+                logging.info(f"check the file size, size overflowed({fileSize} < {sumSizes})")
 
         with open(output_path, 'wb') as file:
             for value in self.header:

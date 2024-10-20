@@ -32,12 +32,10 @@ class ARMstruct():
             
             self.ptrRoomNames = 4 + num_rooms*12 + sum(len_graphicsSection) + 4
             
-            byte_stream.seek(self.ptrRoomNames)
-            
             self.names_byte.clear()
-            for _ in range(num_rooms):
-                self.names_byte.append(byte_stream.read(0x20))
-                byte_stream.seek(4, os.SEEK_CUR)
+            for idx in range(num_rooms):
+                byte_stream.seek(self.ptrRoomNames + 0x24*idx)
+                self.names_byte.append(byte_stream.read(0x1c))
 
     def cvtByte2Str(self, table: convert_by_TBL):
         self.names_str.clear()
@@ -61,14 +59,15 @@ class ARMstruct():
 
         for idx in range(num_rooms):
             len_name = len(self.names_byte[idx])
-            if len_name > 0x20:
-                logging.critical(f"check the room name, size overflowed({len_name} > {0x20})")
-                self.names_byte[idx] = self.names_byte[idx][:0x20]
-
-        byte_stream.seek(self.ptrRoomNames)
-        for idx in range(num_rooms):
-            byte_stream.write(self.names_byte[idx])
-            byte_stream.seek(4, os.SEEK_CUR)
-            
+            if len_name > 0x1c:
+                logging.critical(f"check the room {idx} name, size overflowed({len_name} > {0x1c})")
+                self.names_byte[idx] = self.names_byte[idx][:0x1b]
+                self.names_byte[idx].append(0xe7)
+    
         with open(output_path, 'wb') as file:
             file.write(self.buffer)
+
+            file.seek(self.ptrRoomNames)
+            for idx in range(num_rooms):
+                file.seek(self.ptrRoomNames + idx*0x24)
+                file.write(self.names_byte[idx])

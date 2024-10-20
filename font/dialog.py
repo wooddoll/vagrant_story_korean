@@ -42,7 +42,23 @@ class convert_by_TBLdummy():
                 strText += letter
 
         return strText
-    
+
+def checkStrLength(bytesText: bytes) -> int:
+    pos = 0
+    length = len(bytesText)
+    while(pos < length):
+        tmp = bytesText[pos]
+        pos += 1
+        
+        if tmp == 0xE7:
+            break
+        elif tmp == 0xE8:
+            continue
+        elif tmp >= 0xE5:
+            if pos < length:
+                pos += 1        
+    return pos
+  
 class convert_by_TBL():
     def __init__(self, table: Union[str, dict]) -> None:
         if isinstance(table, str):
@@ -71,7 +87,7 @@ class convert_by_TBL():
                 v1 = (k >> 8) & 0xFF
                 v2 = k & 0xFF
                 self.inv_tbl[v] = [v1, v2]
-
+    
     def cvtByte2Str(self, bytesText: bytes) -> str:
         pos = 0
         length = len(bytesText)
@@ -103,7 +119,8 @@ class convert_by_TBL():
             else:
                 strText += letter
 
-        strText.replace('][', '')
+        strText = strText.replace('][', '')
+        
         return strText
 
     def cvtStr2Byte(self, strText: str) -> bytearray:

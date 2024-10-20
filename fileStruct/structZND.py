@@ -124,7 +124,7 @@ class ZND_Enemy:
         for idx in range(num_enemies):
             len_name = len(self.name_byte[idx])
             if len_name > 0x18:
-                logging.critical(f"check the enemy name, size overflowed({len_name} > {0x18})")
+                logging.critical(f"check the enemy name, size overflowed({0x18}<{len_name})")
                 self.name_byte[idx] = self.name_byte[idx][:0x18]
             
             len_weapon = len(self.weapon_byte[idx])
@@ -143,12 +143,77 @@ class ZND_Enemy:
             byte_stream.seek(ptr_weapon_name)
             byte_stream.write(self.weapon_byte[idx])
 
+class psxTIM:
+    def __init__(self, buffer: bytes = bytes()):
+        self.buffer = buffer
+        byte_stream = io.BytesIO(self.buffer)
+        
+        Magic = int1(byte_stream.read(4))  # 16
+        self.BPP = int1(byte_stream.read(4))
+        DataLen = int4(byte_stream.read(4))
+        self.Image_length = DataLen - 12
+        self.Image_x = int2(byte_stream.read(2))
+        self.Image_y = int2(byte_stream.read(2))
+        self.Image_width = int2(byte_stream.read(2))
+        self.Image_height = int2(byte_stream.read(2))
+        self.Image_data = byte_stream.read(self.Image_length)
+        
+        #print(f"{self.Image_width}x{self.Image_height}, {2*self.Image_width*self.Image_height == self.Image_length}")
+            
+        
+class ZND_TIM:
+    def __init__(self, buffer: Union[bytes, None] = None) -> None:
+        self.TIM: List[psxTIM] = []
+        self.header: List[int] = []
+        if buffer is not None:
+            self.unpackData(buffer)
+
+    def unpackData(self, buffer: bytes):
+        if buffer is None:
+            return
+        
+        byte_stream = io.BytesIO(buffer)
+        header = readHeader(byte_stream, 6, 4)
+        
+        TIM_ptr = header[4]
+        TIM_size = header[5]
+        byte_stream.seek(TIM_ptr)
+        
+        header = readHeader(byte_stream, 5, 4)
+        numTIM = header[4]
+        self.TIM.clear()        
+        for idx in range(numTIM):
+            TIM_size = int4(byte_stream.read(4))
+            TIM_data = byte_stream.read(TIM_size)
+            self.TIM.append(psxTIM(TIM_data))
+        
+        #for idx in range(numTIM):
+        #    with open(f'work/test/{idx:03}.TIM', 'wb') as f:
+        #        f.write(self.TIM[idx].buffer)
+        #print()
+
+    def packData(self, buffer: bytes):
+        if buffer is None:
+            return
+        
+        byte_stream = io.BytesIO(buffer)
+        header = readHeader(byte_stream, 6, 4)
+        if (header[1]//8) != len(self.TIM):
+            logging.critical(f"check the number of MPD files, size different; privious({header[0]}) != current({len(self.TIM)})")
+        self.TIM.clear()
+
+        byte_stream.seek(header[0])
+        for data in self.TIM:
+            byte_stream.write(bytes4(data.File_size))   
+
 class ZNDstruct:
     def __init__(self, input_path:str = '') -> None:
         self.buffer = None
 
         self.MPD = ZND_MPD()
         self.Enemy = ZND_Enemy()
+        self.TIM = ZND_TIM()
+        
         if input_path:
             self.unpackData(input_path)
 
@@ -164,6 +229,7 @@ class ZNDstruct:
 
             self.MPD.unpackData(self.buffer)
             self.Enemy.unpackData(self.buffer)
+            self.TIM.unpackData(self.buffer)
 
     def packData(self, output_path:str):
         if self.buffer is None:

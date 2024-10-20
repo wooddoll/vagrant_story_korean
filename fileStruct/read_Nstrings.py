@@ -26,7 +26,7 @@ class Class_Nstrings:
     def packData(self, output_path: str) -> None:
         pass
 
-def createNstringsNwordsClass(FileName: str, NstringPtrs: List[int], Nwors: List[WordPos] = []):
+def createNstringsNwordsClass(FileName: str, NstringPtrs: List[int], Nwors: List[WordPos] = [], criticalOverflow = False):
     class Class_Nstrings(): 
         def __init__(self, input_path: str = '') -> None:
             self.buffer = bytes()
@@ -84,6 +84,7 @@ def createNstringsNwordsClass(FileName: str, NstringPtrs: List[int], Nwors: List
                 file.write(self.buffer)
                 
                 for idx in range(len(NstringPtrs)):
+                    print(f"index: {idx}")
                     byteData = self.strings[idx].packData()
                     if byteData is not None:
                         file.seek(NstringPtrs[idx])
@@ -100,7 +101,9 @@ def createNstringsNwordsClass(FileName: str, NstringPtrs: List[int], Nwors: List
 MENU0 = createNstringsNwordsClass('MENU/MENU0.PRG', [0x2258])
 MENU1 = createNstringsNwordsClass('MENU/MENU1.PRG', [0xC78])
 MENU2 = createNstringsNwordsClass('MENU/MENU2.PRG', [0x1e90])
-MENU3 = createNstringsNwordsClass('MENU/MENU3.PRG', [0x6bb8])
+
+MENU3_jp = createNstringsNwordsClass('MENU/MENU3.PRG', [0x6bb4])
+MENU3_en = createNstringsNwordsClass('MENU/MENU3.PRG', [0x6bb8])
 
 MENU4_en = createNstringsNwordsClass('MENU/MENU4.PRG', [0x4C48])
 MENU4_jp = createNstringsNwordsClass('MENU/MENU4.PRG', [0x4c44])
@@ -137,8 +140,8 @@ BATTLE_jp = createNstringsNwordsClass('BATTLE/BATTLE.PRG', [0x82050, 0x83080, 0x
 
 MON = createNstringsNwordsClass('SMALL/MON.BIN', [0x19C8], [WordPos(0x12, 0x1A, 150, 0x2C)])
 
-TITLE_en = createNstringsNwordsClass('TITLE/TITLE.PRG', [], [WordPos(0xc42C, 0x18, 8, 0x20)])
-TITLE_jp = createNstringsNwordsClass('TITLE/TITLE.PRG', [], [WordPos(0xA58C, 0x18, 8, 0x20)])
+TITLE_en = createNstringsNwordsClass('TITLE/TITLE.PRG', [], [WordPos(0xc42C, 0x18, 1, 0x20)])
+TITLE_jp = createNstringsNwordsClass('TITLE/TITLE.PRG', [], [WordPos(0xA58C, 0x18, 1, 0x20)])
 
 ITEMNAME = createNstringsNwordsClass('MENU/ITEMNAME.BIN', [], [WordPos(0x0, 0x18, 512)])
 
@@ -195,6 +198,7 @@ def makeNNstrings(fileSrc: Class_Nstrings, fileComment: Class_Nstrings):
             singleRow = {}
             singleRow['string'] = src
             if comment:
+                comment = comment.replace('☐', ' ')
                 singleRow['@@localazy:comment:string'] = comment
             texts[f'{idx1:03}'] = singleRow
     
@@ -223,60 +227,3 @@ def makeNNstrings(fileSrc: Class_Nstrings, fileComment: Class_Nstrings):
         
     return str_group
 
-
-def testNNclass():
-    for name in rN.FileLoadFuncNames:
-        ClassJp, ClassEn = rN.getNNClass(name)        
-        loadJp = ClassJp(PATH_JPN_VARGRANTSTORY)
-        loadEn = ClassEn(PATH_USA_VARGRANTSTORY)
-        
-        loadJp.cvtByte2Str(jpnTBL)
-        loadEn.cvtByte2Str(usaTBL)
-        
-        ####
-        texts = rN.makeNNstrings(loadJp, loadEn)
-        
-        textNstr = {}
-        if name in rN.FileLoad1Strs:
-            if texts.get('str_0') is not None:
-                textNstr[name] = texts['str_0']
-            if texts.get('word_0') is not None:
-                textNstr[name] = texts['word_0']
-            
-        if name == 'MENU9':
-            for idx in range(9):
-                textNstr[f"{name}_{idx+1}"] = texts[f'str_{idx}']
-        
-        if name == 'BATTLE':
-            textNstr[f"BATTLE_1"] = texts[f'str_0']
-            textNstr[f"BATTLE_2"] = texts[f'word_0']
-            textNstr[f"BATTLE_3"] = texts[f'str_1']
-            textNstr[f"BATTLE_4"] = texts[f'str_2']
-                
-        
-        if name == 'MON':
-            subText = {}
-
-            for idx in range(150):
-                monName = texts['word_0'].get(f'{idx:03}')
-                monDesc = texts['str_0'].get(f'{idx:03}')
-                if monDesc is not None:
-                    subText[f"{idx:03}"] = {'name':monName['string'], 
-                                            "@@localazy:comment:name":monName['@@localazy:comment:string'], 
-                                            'description':monDesc['string'], 
-                                            "@@localazy:comment:description":monDesc['@@localazy:comment:string']}
-                else:
-                    subText[f"{idx:03}"] = {'name':monName['string'], 
-                                            "@@localazy:comment:name":monName['@@localazy:comment:string']}
-            textNstr['MON'] = subText
-        with open(f'work/test/{name}_jp.json', 'w', encoding='utf-8') as f:
-            json.dump(textNstr, f, indent=2, ensure_ascii=False)
-        ####
-        
-        loadJp.cvtStr2Byte(jpnTBL)
-        loadEn.cvtStr2Byte(usaTBL)
-        
-        loadJp.packData('work/test/PACKjp')
-        loadEn.packData('work/test/PACKen')
-
-  

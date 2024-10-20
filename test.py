@@ -1,7 +1,7 @@
 import logging
 from rich.logging import RichHandler
 logging.basicConfig(
-        level=logging.DEBUG, 
+        level=logging.WARNING, 
         format="[%(filename)s:%(lineno)s] >> %(message)s",
         handlers=[RichHandler(rich_tracebacks=True)]
     )
@@ -19,10 +19,12 @@ from fileStruct.read_HELP_HF0 import *
 from fileStruct.readStrFile import *
 from fileStruct.readWordFile import *
 
-from fileStruct.read_SL_Main import SL_Main
-from fileStruct.read_TITLE_PRG import TITLE_PRG_en, TITLE_PRG_jp
+#from fileStruct.read_SL_Main import SL_Main
+#from fileStruct.read_TITLE_PRG import TITLE_PRG_en, TITLE_PRG_jp
 from fileStruct.read_BATTLE_PRG import *
 from fileStruct.read_MENU9_PRG import *
+from fileStruct import read_Nstrings as rN
+from fileStruct.read_EVT import EVENT_EVT
 
 from font import dialog, cvtFontBin
 import utils
@@ -44,10 +46,11 @@ PATH_testZND = "MAP/ZONE009.ZND"
 #dummyTBL = dialog.convert_by_TBLdummy()
 
 #jpnTBL = makeTBL.makeTable("font/font14_table.txt", "font/jpn.tbl")
-_jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
+#_jpnTBL = dialog.convert_by_TBL("font/jpn.tbl")
 jpnTBL = dialog.convert_by_TBL("font/font12jp.tbl")
 #udaTBL = makeTBL.makeTable("font/font12_table.txt", "font/usa.tbl", 21)
 usaTBL = dialog.convert_by_TBL("font/usa.tbl")
+korTBL = dialog.convert_by_TBL("font/kor.tbl")
 
 #exit()
 
@@ -135,6 +138,18 @@ def test4():
     outpath = Path(PATH_TEMP) / Path('Test') / Path(PATH_testZND)
     znd.packData(str(outpath))
 
+def test4w():
+    folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('MAP')
+    file_list = [file for file in folder_path.glob('*.ZND') if file.is_file()]
+    file_list = sorted(file_list)
+    for filepath in tqdm(file_list, desc="Processing"):
+        relative_path = filepath.relative_to(folder_path)
+        
+        znd = ZNDstruct(filepath)
+        for idx in range(len(znd.TIM.TIM)):
+            with open(f'work/test/{relative_path.stem}_{idx:03}.TIM', 'wb') as f:
+                f.write(znd.TIM.TIM[idx].buffer)
+#test4w()
 
 def extract_ZND_jp_en():
     namesInfiles = {}
@@ -335,7 +350,7 @@ def makeMPDtexts(folder_path: str, fontTable: dialog.convert_by_TBL, out_path: s
         
             file.write( f"«{fileidx},{idx}»{singleRow[4]}\n" )
 
-def cvtBytes():
+def cvtBytes_jp():
     while True:
         inp_text = input('Jpn>')
         if not inp_text: break
@@ -361,9 +376,9 @@ def cvtBytes():
             print(f"{v:02X} ", end='')
         print(f"\n{inp_text}")
 
-def cvtBytes2():
+def cvtBytes_en():
     while True:
-        inp_text = input('Usa>')
+        inp_text = input('Eng>')
         if not inp_text: break
 
         inp_bytes = []
@@ -387,6 +402,31 @@ def cvtBytes2():
             print(f"{v:02X} ", end='')
         print(f"\n{inp_text}")
 
+def cvtBytes_kor():
+    while True:
+        inp_text = input('Kor>')
+        if not inp_text: break
+
+        inp_bytes = []
+        len_inp = len(inp_text)
+        i = 0
+        while i < len_inp:
+            while inp_text[i] == ' ':
+                i += 1
+                if i >= len_inp: break
+                continue
+            if i+2 >= len_inp: break
+            inp_bytes.append(int(inp_text[i:i+2], 16))
+            i += 2
+        
+        if not inp_bytes:
+            exit()
+            
+        _inp_bytes = bytes(inp_bytes)
+        inp_text = korTBL.cvtByte2Str(_inp_bytes)
+        for v in _inp_bytes:
+            print(f"{v:02X} ", end='')
+        print(f"\n{inp_text}")
 
 
 
@@ -519,22 +559,16 @@ def extract_MCMAN_jp_en():
 #test7()
         
 def test8():
-    inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
-    with open(str(inp_path), 'rb') as file:
-        buffer = bytearray(file.read())
-        len_buffer = len(buffer)
+    inp_path = Path(PATH_JPN_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
+    itemhelp = rN.ITEMHELP(str(inp_path))
+    itemhelp.cvtByte2Str(jpnTBL)
+    
+    for idx in range(itemhelp.strings[0].itemNums):
+        print(f"{idx}({len(itemhelp.strings[0]._byte[idx])}): {itemhelp.strings[0]._str[idx]}")
         
-        for i in range(0, len_buffer, 2):
-            data0 = utils.int2(buffer[i:i+2])
-            data1 = utils.int2(buffer[i+2:i+4])
-            data2 = utils.int2(buffer[i+4:i+6])
-            data3 = utils.int2(buffer[i+6:i+8])
-            
-            if (data1 - data0) == 0xf and (data2 - data1) == 0x16 and (data3 - data2) == 0xE:
-                print(f"{hex(i)}({hex(data0)}), {hex(i+2)}({hex(data1)}) - ", end='')
-                print(f"{hex(i+2)}({hex(data1)}), {hex(i+4)}({hex(data2)}) - ", end='')
-                print(f"{hex(i+4)}({hex(data2)}), {hex(i+6)}({hex(data3)})")
-                
+    print()
+
+
 def test9():
     inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("MENU/ITEMHELP.BIN")
     with open(str(inp_path), 'rb') as file:
@@ -812,9 +846,21 @@ def extract_MENU9_jp_en():
         singleRow['string'] = jp
         texts2[f'{idx:03}'] = singleRow
     
+    texts3 = {}
+    for idx in range(len(help_jp.strings3_str)):
+        jp = help_jp.strings3_str[idx]
+    
+        if not jp:
+            continue
+        
+        singleRow = {}
+        singleRow['string'] = jp
+        texts3[f'{idx:03}'] = singleRow
+    
     dialogLists = {}
     dialogLists['MENU9_1'] = texts1
     dialogLists['MENU9_2'] = texts2
+    dialogLists['MENU9_3'] = texts3
     with open(f'work/strings/MENU_MENU9_PRG_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
     
@@ -1128,7 +1174,7 @@ def extractAll():
     extract_MENU_PRG_jp_en('MENU0')
     extract_MENU_PRG_jp_en('MENU1')
     extract_MENU_PRG_jp_en('MENU2')
-    extract_MENU_PRG_jp_en('MENU3', 'PRG', False)
+    extract_MENU_PRG_jp_en('MENU3')
     extract_MENU_PRG_jp_en('MENU4')
     extract_MENU_PRG_jp_en('MENU5')
     extract_MENU_PRG_jp_en('MENU7')
@@ -1203,16 +1249,122 @@ def test13():
                 f.write(teexxt)
                 f.write('\n')
 
-test13()
+def test14():
+    extract_MENU_PRG_jp_en('MENU3')
+    namedic = MENU3_PRG_jp(PATH_JPN_VARGRANTSTORY)
+    namedic.cvtByte2Str(jpnTBL)
+    
+    for text in namedic.strings_str:
+        print(text)
+#test14()
     
 #extract_SMALL_HF0()
 #extract_SMALL_MON_BIN()
-exit()
+
+def testNNclass():
+    for name in rN.FileLoadFuncNames:
+        if name == 'MENU3':
+            print()
+        ClassJp, ClassEn = rN.getNNClass(name)        
+        loadJp = ClassJp(PATH_JPN_VARGRANTSTORY)
+        loadEn = ClassEn(PATH_USA_VARGRANTSTORY)
+        
+        loadJp.cvtByte2Str(jpnTBL)
+        loadEn.cvtByte2Str(usaTBL)
+        
+        ####
+        texts = rN.makeNNstrings(loadJp, loadEn)
+        
+        textNstr = {}
+        if name in rN.FileLoad1Strs:
+            if texts.get('str_0') is not None:
+                textNstr[name] = texts['str_0']
+            if texts.get('word_0') is not None:
+                textNstr[name] = texts['word_0']
+            
+        if name == 'MENU9':
+            textNstr[f"MENU9_1"] = texts[f'str_1']
+            textNstr[f"MENU9_2"] = texts[f'str_2']
+            textNstr[f"MENU9_3"] = texts[f'str_0']
+            textNstr[f"MENU9_4"] = texts[f'str_3']
+            textNstr[f"MENU9_5"] = texts[f'str_4']
+            textNstr[f"MENU9_6"] = texts[f'str_5']
+            textNstr[f"MENU9_7"] = texts[f'str_6']
+            textNstr[f"MENU9_8"] = texts[f'str_7']
+            textNstr[f"MENU9_9"] = texts[f'str_8']
+        
+        if name == 'BATTLE':
+            textNstr[f"BATTLE_1"] = texts[f'str_0']
+            textNstr[f"BATTLE_2"] = texts[f'word_0']
+            textNstr[f"BATTLE_3"] = texts[f'str_1']
+            textNstr[f"BATTLE_4"] = texts[f'str_2']
+                
+        
+        if name == 'MON':
+            subText = {}
+
+            for idx in range(150):
+                monName = texts['word_0'].get(f'{idx:03}')
+                monDesc = texts['str_0'].get(f'{idx:03}')
+                if monDesc is not None:
+                    subText[f"{idx:03}"] = {'name':monName['string'], 
+                                            "@@localazy:comment:name":monName['@@localazy:comment:string'], 
+                                            'description':monDesc['string'], 
+                                            "@@localazy:comment:description":monDesc['@@localazy:comment:string']}
+                else:
+                    subText[f"{idx:03}"] = {'name':monName['string'], 
+                                            "@@localazy:comment:name":monName['@@localazy:comment:string']}
+            textNstr['MON'] = subText
+        with open(f'work/strings/{name}_ja.json', 'w', encoding='utf-8') as f:
+            json.dump(textNstr, f, indent=2, ensure_ascii=False)
+        ####
+        
+        loadJp.cvtStr2Byte(jpnTBL)
+        loadEn.cvtStr2Byte(usaTBL)
+        
+        loadJp.packData('work/test/PACKjp')
+        loadEn.packData('work/test/PACKen')
+
+#testNNclass()
+
+def readEVT():
+    evts_jp = EVENT_EVT(PATH_JPN_VARGRANTSTORY)
+    evts_jp.cvtByte2Str(jpnTBL)
+    
+    evts_en = EVENT_EVT(PATH_USA_VARGRANTSTORY)
+    evts_en.cvtByte2Str(usaTBL)
+    
+    texts = {}
+    for k in evts_jp.evtFiles.keys():
+        text_file = {}
+        _jp = evts_jp.evtFiles[k]
+        _en = evts_en.evtFiles[k]
+        for idx in range(len(_jp.strings_str)):
+            jp = _jp.strings_str[idx]
+            if idx < len(_en.strings_str):
+                en = _en.strings_str[idx]
+            else:
+                en = ''
+
+            if not jp and not en:
+                continue
+            
+            singleRow = {}
+            singleRow['string'] = jp
+            singleRow['@@localazy:comment:string'] = en
+            text_file[f'{idx:03}'] = singleRow
+        texts[f'{int(k):03}'] = text_file
+
+    with open(f'work/strings/EVENT_EVT_ja.json', 'w', encoding='utf-8') as f:
+        json.dump({'EVENT_EVT': texts}, f, indent=2, ensure_ascii=False)
+#readEVT()
+#exit()
 
 
 
 while True:
-    cvtBytes()
-    cvtBytes2()
+    cvtBytes_jp()
+    cvtBytes_en()
+    cvtBytes_kor()
     
 
