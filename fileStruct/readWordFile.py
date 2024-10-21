@@ -43,7 +43,8 @@ class ReadWords():
             ptr = idx * self.stride
             byte_stream.seek(ptr)
             bytename = byte_stream.read(self.wordBytes)
-            self._byte.append(trimTextBytes(bytename)) 
+            len_text = getTextLength(bytename)
+            self._byte.append(bytename[:len_text]) 
 
     def packData(self):
         if self.buffer is None:

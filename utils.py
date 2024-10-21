@@ -101,6 +101,25 @@ def injectFile(image_path:str, path_file):
 
 #injectFile(PATH_TEMP_VARGRANTSTORY_IMAGE, "")
 
+def getTextLength(bytesText: bytes) -> int:
+    pos = 0
+    length = len(bytesText)
+    while(pos < length):
+        tmp = bytesText[pos]
+        pos += 1
+        
+        if tmp == 0xE7:
+            break
+        elif tmp == 0xE8:
+            continue
+        elif tmp >= 0xE5:
+            tmp = (tmp << 8) | bytesText[pos]
+            if pos < length:
+                pos += 1
+            if tmp == 0xE6E7:
+                break
+    return pos
+
 def trimTextBytes(textbytes: bytes):
     len_bytes = len(textbytes)
     pos = 1

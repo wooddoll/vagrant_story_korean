@@ -42,22 +42,6 @@ class convert_by_TBLdummy():
                 strText += letter
 
         return strText
-
-def checkStrLength(bytesText: bytes) -> int:
-    pos = 0
-    length = len(bytesText)
-    while(pos < length):
-        tmp = bytesText[pos]
-        pos += 1
-        
-        if tmp == 0xE7:
-            break
-        elif tmp == 0xE8:
-            continue
-        elif tmp >= 0xE5:
-            if pos < length:
-                pos += 1        
-    return pos
   
 class convert_by_TBL():
     def __init__(self, table: Union[str, dict]) -> None:

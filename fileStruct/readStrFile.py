@@ -3,7 +3,7 @@ import io
 import os
 import logging
 from pathlib import Path
-from font.dialog import convert_by_TBL, checkStrLength
+from font.dialog import convert_by_TBL
 from utils import *
 
 maxByteLen = 0
@@ -57,9 +57,8 @@ class ReadStrings():
             pos = ptrs[idx]
             nextpos = ptrs[idx+1]
             data = buffer[pos:nextpos]
-            len_data = checkStrLength(data)
-            trimed = data[:len_data]
-            self._byte.append(bytearray(trimed))
+            len_data = getTextLength(data)
+            self._byte.append(data[:len_data])
 
         if not self._byte:
             self.len_buffer = 0
