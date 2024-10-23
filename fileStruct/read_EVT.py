@@ -33,7 +33,7 @@ class read_EVT:
     def unpackData(self, input_path: str):
         with open(input_path, 'rb') as file:
             self.buffer = file.read()
-            len_buffer = int2(self.buffer[:2])
+            len_buffer = len(self.buffer)
             self.stringPtr = int2(self.buffer[2:4])
             self.len_buffer = len_buffer - self.stringPtr
             self.strings.unpackData(self.buffer[self.stringPtr:len_buffer])

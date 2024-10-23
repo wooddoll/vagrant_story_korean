@@ -126,6 +126,8 @@ class HELP_HF0:
             self.Unknown3 = SectionBase(self.buffer[ptrs[3] : ])
 
     def packData(self, output_path: str):
+        preSize = 0x10 + sum(self.header)
+        
         Datas = [ self.strings.packData(), self.Unknown1.packData(), self.Unknown2.packData(), self.Unknown3.packData()]
         self.header[0] = len(self.strings)
         self.header[1] = len(self.Unknown1)
@@ -138,6 +140,11 @@ class HELP_HF0:
                 
             for idx in range(4):
                 file.write(Datas[idx])
+        
+        currSize = os.path.getsize(output_path)
+        maxSize = ((preSize+2047)//2048)*2048
+        if maxSize < currSize:
+            logging.critical(f"check the length of file, size overflowed; {maxSize} < current({currSize})")
 
 def formatHelpText(text_path: str):
     lines: List[str] = []
