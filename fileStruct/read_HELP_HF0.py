@@ -119,13 +119,12 @@ class HELP_HF0:
             ptrs = [ 0x10 ]
             for i in range(3):
                 ptrs.append(ptrs[i] + self.header[i])
-            ptrs.append(len(self.buffer))
             
             self.strings = ReadHelpStrings(self.buffer[ptrs[0] : ptrs[1]])
             self.Unknown1 = SectionBase(self.buffer[ptrs[1] : ptrs[2]])
             self.Unknown2 = SectionBase(self.buffer[ptrs[2] : ptrs[3]])
-            self.Unknown3 = SectionBase(self.buffer[ptrs[3] : ptrs[4]])
-        
+            self.Unknown3 = SectionBase(self.buffer[ptrs[3] : ])
+
     def packData(self, output_path: str):
         Datas = [ self.strings.packData(), self.Unknown1.packData(), self.Unknown2.packData(), self.Unknown3.packData()]
         self.header[0] = len(self.strings)
@@ -139,3 +138,66 @@ class HELP_HF0:
                 
             for idx in range(4):
                 file.write(Datas[idx])
+
+def formatHelpText(text_path: str):
+    lines: List[str] = []
+    with open(text_path, 'rt') as file:
+        lines = file.readlines()
+
+    formatedLines: List[str] = []
+    maxLinePos = 250
+    for line in lines:
+        if line[-1] == '\n':
+            currLine = line[:-1]
+        elif line[-2:] == '\r\n':
+            currLine = line[:-2]
+        else:
+            currLine = line
+
+        len_line = len(currLine)
+        
+        pos = 0
+        lastSpacePos = 0
+        indent = 0
+        if currLine.startswith('«FA'):
+            indent = int(currLine[3:5], 16) + 0x0C
+            
+        txtPos = 0
+        formatedNewLine = ''
+        while pos < len_line:
+            letter = currLine[pos]
+            pos += 1
+            
+            if letter == '«':
+                tmp = ''
+                while pos < len_line:
+                    letter = currLine[pos]
+                    pos += 1
+                    if letter == '»':
+                        break
+                    tmp += letter
+                if tmp[:2] == 'FA':
+                    txtPos += int(tmp[2:4], 16)
+            else:
+                if letter == ' ':
+                    lastSpacePos = pos-1
+                    txtPos += 6
+                else:
+                    txtPos += 12
+            
+            if maxLinePos <= txtPos:
+                formatedNewLine += currLine[:lastSpacePos]
+                formatedLines.append(formatedNewLine)
+                currLine = currLine[lastSpacePos+1:]
+                len_line = len(currLine)
+                pos = 0
+                if 0 < indent:
+                    formatedNewLine = f'«FA{indent:02X}»'
+                else:
+                    formatedNewLine = ''
+                txtPos = indent
+        formatedNewLine += currLine
+        formatedLines.append(formatedNewLine)
+
+    return formatedLines
+                    
