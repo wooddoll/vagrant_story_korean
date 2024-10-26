@@ -58,7 +58,7 @@ def createNstringsNwordsClass(FileName: str, NstringPtrs: List[int], Nwors: List
             for words in self.words:
                 words.cvtByte2Str(table)
 
-        def unpackData(self, input_path: str):
+        def unpackData(self, input_path: str):    
             with open(input_path, 'rb') as file:
                 self.buffer = file.read()
 
@@ -108,8 +108,8 @@ MENU3_en = createNstringsNwordsClass('MENU/MENU3.PRG', [0x6bb8])
 MENU4_en = createNstringsNwordsClass('MENU/MENU4.PRG', [0x4C48])
 MENU4_jp = createNstringsNwordsClass('MENU/MENU4.PRG', [0x4c44])
 
-MENU5_en = createNstringsNwordsClass('MENU/MENU5.PRG', [0x5bfc])
-MENU5_jp = createNstringsNwordsClass('MENU/MENU5.PRG', [0x5c14])
+MENU5_en = createNstringsNwordsClass('MENU/MENU5.PRG', [0x5bfc, 0x5E18, 0x60B0])
+MENU5_jp = createNstringsNwordsClass('MENU/MENU5.PRG', [0x5c14, 0x5DDC, 0x5FC8])
 
 MENU7_en = createNstringsNwordsClass('MENU/MENU7.PRG', [0x81b0])
 MENU7_jp = createNstringsNwordsClass('MENU/MENU7.PRG', [0x7c54])
@@ -143,19 +143,25 @@ MON = createNstringsNwordsClass('SMALL/MON.BIN', [0x19C8], [WordPos(0x12, 0x1A, 
 TITLE_en = createNstringsNwordsClass('TITLE/TITLE.PRG', [], [WordPos(0xc42C, 0x18, 1, 0x20)])
 TITLE_jp = createNstringsNwordsClass('TITLE/TITLE.PRG', [], [WordPos(0xA58C, 0x18, 1, 0x20)])
 
+INITBTL = createNstringsNwordsClass('BATTLE/INITBTL.PRG', [], [WordPos(0x131C, 0x18, 1, 0x20), WordPos(0x1440, 0x18, 1, 0x20)])
+
 ITEMNAME = createNstringsNwordsClass('MENU/ITEMNAME.BIN', [], [WordPos(0x0, 0x18, 512)])
 
 SL_Main_en = createNstringsNwordsClass('SLUS_010.40', [], [WordPos(0x3C1F8, 0x18, 256, 0x34)])
 SL_Main_jp = createNstringsNwordsClass('SLPS_023.77',[], [WordPos(0x3C1F8, 0x18, 256, 0x34)])
 
-FileLoadFuncNames = ['MENU0', 'MENU1', 'MENU2', 'MENU3', 'MENU4', 'MENU5', 
-                     'MENU7', 'MENU8', 'MENU9', 'MENUB', 'MENUD', 'MENUE', 
-                     'MENU12', 'MCMAN', 'ITEMHELP', 'BATTLE', 'MON', 'TITLE',
+MAP017 = createNstringsNwordsClass('MAP/MAP017.MDP',[])
+
+
+
+FileLoadFuncNames = ['MENU0', 'MENU1', 'MENU2', 'MENU3', 'MENU5', 
+                     'MENU8', 'MENU9', 'MENUB', 'MENUD', 'MENUE', 
+                     'BATTLE', 'MON', 'TITLE', 'INITBTL',
                      'ITEMNAME', 'SL_Main']
 
-FileLoad1Strs = ['MENU0', 'MENU1', 'MENU2', 'MENU3', 'MENU4', 'MENU5', 
-                 'MENU7', 'MENU8', 'MENUB', 'MENUD', 'MENUE', 'MENU12', 
-                 'MCMAN', 'ITEMHELP', 'TITLE', 'ITEMNAME', 'SL_Main']
+FileLoad1Strs = ['MENU0', 'MENU1', 'MENU2', 'MENU3',  
+                 'MENU8', 'MENUB', 'MENUD', 'MENUE', 
+                 'TITLE', 'ITEMNAME', 'SL_Main']
 
 def getNNClass(className: str) -> Tuple[Class_Nstrings, Class_Nstrings]:
     Class_en = None

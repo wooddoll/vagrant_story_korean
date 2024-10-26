@@ -13,7 +13,8 @@ from utils import *
 from tqdm import tqdm
 from pathlib import Path
 from font import fontMaker
-from font.fontMaker import HistoKorLetters, font12slots, jpnTableslots, cvtKorFontImage
+from font.fontMaker import HistoKorLetters, font12slots, jpnTableslots, cvtKorFontImage, cvtKorFont14Image
+from font.cvtFontBin import packFont14Bin, insertTITLE_font
 from PIL import Image, ImageDraw, ImageFont
 import math
 from font import dialog, cvtFontBin
@@ -23,26 +24,27 @@ from fileStruct.structARM import ARMstruct
 from fileStruct.structZND import ZNDstruct
 from fileStruct.structMPD import MPDstruct
 from fileStruct.read_EVT import EVENT_EVT
-#from fileStruct.readStrFile import *
-#from fileStruct.readWordFile import *
+from fileStruct import merge_StringBIN as mS
+from fileStruct.read_MAINMENU import *
 from fileStruct import read_Nstrings as rN
+from fileStruct.read_HELP_HF0 import HELP_HF0, formatHelpText
 import subprocess
 
 logging.info(f"loading; --- jpnTBL ---")
 jpnTBL = dialog.convert_by_TBL("font/font12jp.tbl")
 logging.info(f"loading; --- usaTBL ---")
 usaTBL = dialog.convert_by_TBL("font/usa.tbl")
-logging.info(f"loading; --- korTBL ---")
-korTBL = dialog.convert_by_TBL("font/kor.tbl")
 
 def downlaod_localazy():
+    
+    whatLoad = ['MPD', 'EVENT_EVT']
     with open('work/kor/localzay_keys.json', 'r', encoding='utf-8') as json_file:
         localzay_keys = json.load(json_file)
         cmd = "localazy download"
         processes = []
         
         for k, v in localzay_keys.items():
-            if k not in ['MPD', 'EVENT_EVT']:
+            if k not in whatLoad:
                 continue
             
             os.makedirs(f"work/kor/_{k}_", exist_ok=True)
@@ -56,16 +58,30 @@ def downlaod_localazy():
             process.wait()        
         
         for k, v in localzay_keys.items():
-            if k not in ['BATTLE', 'MPD', 'MENU9', 'EVENT_EVT']:
+            if k not in whatLoad:
                 continue
             
             shutil.copy(f"work/kor/_{k}_/{v['download']['files']}", 'work/kor')
             shutil.rmtree(f'work/kor/_{k}_')
 
-#downlaod_localazy()        
+#downlaod_localazy()
 #exit()
     
 def mergeKorString():
+    jpn_strings = {}
+    json_list = list(Path('work/strings').glob('*.json'))
+    for filepath in tqdm(json_list, desc="Processing"):
+        if filepath.stem in ['all_strins_jpn', 'localzay_keys']:
+            continue
+        
+        with open(filepath, 'r', encoding='utf-8') as json_file:
+            json_data = json.load(json_file)
+            jpn_strings.update(json_data)
+    
+    with open('work/strings/all_strins_jpn.json', 'w', encoding='utf-8') as f:
+        json.dump(jpn_strings, f, indent=2, ensure_ascii=False)
+        
+        
     kor_strings = {}
     
     json_list = list(Path('work/kor').glob('*.json'))
@@ -84,9 +100,9 @@ def mergeKorString():
 
 
 def collectKorLetters(kor_strings: dict):
-    PrimeKeys = ['MENU7']
+    PrimeKeys = ['MENU7', 'MCMAN', 'MENU9_3', 'MENU9_7', 'DUMMY']
     MenuKeys = ['BATTLE_1', 'BATTLE_3', 'BATTLE_4', 'MENU0', 'MENU1', 'MENU2', 'MENU3', 'MENU4', 'MENU5', 'MENU8', 
-                'MENU9_1', 'MENU9_2', 'MENU9_3', 'MENU9_4', 'MENU9_5', 'MENU9_6', 'MENU9_7', 'MENU9_8', 'MENU9_9'
+                'MENU9_1', 'MENU9_2', 'MENU9_4', 'MENU9_5', 'MENU9_6', 'MENU9_8', 'MENU9_9'
                 'MENUB', 'MENUD', 'MENUE', 'SL_Main']
     
     def setPrioty(key: str):
@@ -212,19 +228,59 @@ def makeKorFont():
             
             f.write(f"{h}={v}\n")
 
-    
-    korTBL = dialog.convert_by_TBL("font/kor.tbl")
-
     system_dat = cvtFontBin.SYSTEM_DAT(f'{PATH_JPN_VARGRANTSTORY}')
     system_dat.fontData.setImage(imgJpKr)
     #imgUI = Image.open('work/texture/system_dat_pack_1.png')
     #system_dat.texture_ui.setImage(imgUI)
     #system_dat.texture_ui.image.save('work/texture/test_2.png')
     system_dat.packData(f'{PATH_KOR_VARGRANTSTORY}/BATTLE/SYSTEM.DAT')
+    
+    insertTITLE_font(f'{PATH_JPN_VARGRANTSTORY}/TITLE/TITLE.PRG', krfontImage, f'{PATH_KOR_VARGRANTSTORY}/TITLE/TITLE.PRG')
+    return korHisto
+
+def posInTable18_ja(index: int):
+    row = index//18
+    col = index%18
+    
+    x = 14*col
+    y = 14*row
+    
+    return x, y
+
+def makeKorFont14(korHisto: dict):
+    slots = font12slots()
+    slotPos = 0
+
+    imgJpKr = Image.open('font/font14_2b_256.png')
+    imgKr = Image.open('font/font14jp_kor.png')
+    
+    for k, v in korHisto.items():
+        if v['count'] <= 0:
+            break
+        kpos = v['pos']
+        kx, ky = posInTable18_ja(kpos)
+        
+        jpos = slots[slotPos]
+        slotPos += 1
+
+        jx, jy = posInTable18_ja(jpos)
+        
+        kLetterImg = imgKr.crop((kx, ky, kx + 14, ky + 14))
+        imgJpKr.paste(kLetterImg, (jx, jy, jx + 14, jy + 14))
+    
+    krfontImage = 'font/font14kr.png'
+    imgJpKr.save(krfontImage)
+    
+    packFont14Bin(krfontImage, f'{PATH_KOR_VARGRANTSTORY}/MENU/FONT14.BIN')
+    
+
+logging.info(f"loading; --- korTBL ---")
+korTBL = dialog.convert_by_TBL("font/kor.tbl")
+
 
 def fixMPD(idx: int, mpd: MPDstruct):
-    if idx == 1:
-        mpd.scriptSection.scriptOpcodes.opcodes[51].pos(y=66, h=12)
+    if idx == 1: mpd.scriptSection.scriptOpcodes.opcodes[51].pos(y=66, h=12)
+    if idx == 62: mpd.scriptSection.scriptOpcodes.opcodes[161].pos(y=66, h=12)
 
 def update_MPD(index: int, kor_strings: dict):
     Name = f"MAP{index:03}"
@@ -234,11 +290,31 @@ def update_MPD(index: int, kor_strings: dict):
 
     dictTexts = kor_strings[Name]
     len_dict = len(dictTexts)
+    
+    treasure = dictTexts.get('treasure')
+    if treasure is not None:
+        mpd.treasureSection.name_str = treasure
+        len_dict -= 1
+
+    door = dictTexts.get('door')
+    if door is not None:
+        len_dict -= 1
+        if mpd.doorSection.string.itemNums != len(door):
+            logging.critical('check here!!!')
+        for k, v in door.items():
+            idx = int(k)
+            mpd.doorSection.string._str[idx] = v['string']
+        
+    
     len_string = len(mpd.scriptSection.dialogText.strings_str)
     if len_dict > len_string:
         logging.critical(f"why? {Name} string number differnt! {len_dict} != {len_string}")
     
+    
     for k, v in dictTexts.items():
+        if k in ['treasure', 'door']:
+            continue
+        
         idx = int(k)
         rows, cols = dialog.checkSize(mpd.scriptSection.dialogText.strings_str[idx])
         string = v.get('string')
@@ -256,13 +332,11 @@ def update_MPD(index: int, kor_strings: dict):
     return mpd
     
 def updateMAP_MDP(kor_strings: dict):
+    print(f"update === MDP === ")
+    
     for key in kor_strings.keys():
         if str(key)[:3] == 'MAP' and str(key) != 'MAP_ZND':
-            idx = int(str(key)[3:])
-            
-            if idx > 137:   # for test
-                break
-            
+            idx = int(str(key)[3:])           
             logging.info(f"=== MAP{idx:03}.MPD packing ===")
             update_MPD(idx, kor_strings)
 
@@ -289,6 +363,8 @@ def update_ARM(Name: str, dictTexts: dict):
     return arm
 
 def update_SMALL_ARM(kor_strings: dict):
+    print(f"update === ARM === ")
+    
     dictTexts = kor_strings['SMALL_ARM']
     for k, v in dictTexts.items():
         Name = str(k)
@@ -319,6 +395,8 @@ def update_ZND(filepath: Path, NPCs: dict, WEAPONs: dict):
     return znd
 
 def update_MAP_ZND(kor_strings: dict):
+    print(f"update === ZND === ")
+    
     dictTexts = kor_strings['MAP_ZND']
     
     with open('work/strings/MAP_ZND_ja.json', 'r', encoding='utf-8') as json_file:
@@ -343,6 +421,8 @@ def update_MAP_ZND(kor_strings: dict):
         
 
 def rebuildNNclass(kor_strings: dict):
+    print(f"update === rebuildNNclass === ")
+    
     def replaceStr(strlist: List[str], texts: dict):
         for k, v in texts.items():
             string = v.get('string')
@@ -383,6 +463,16 @@ def rebuildNNclass(kor_strings: dict):
             replaceStr(loadJp.strings[1]._str, kor_strings['BATTLE_3'])
             replaceStr(loadJp.strings[2]._str, kor_strings['BATTLE_4'])
         
+        if name == 'MENU5':
+            replaceStr(loadJp.strings[0]._str, kor_strings['MENU5_1'])
+            replaceStr(loadJp.strings[1]._str, kor_strings['MENU5_2'])
+            replaceStr(loadJp.strings[2]._str, kor_strings['MENU5_3'])
+            
+        if name == 'INITBTL':
+            loadJp.words[0]._str[0] = kor_strings['INITBTL']['000']['000']['string']
+            loadJp.words[1]._str[0] = kor_strings['INITBTL']['001']['000']['string']
+            print()
+        
         if name == 'MON':
             monText = kor_strings.get('MON')
             for k, v in monText.items():
@@ -398,17 +488,17 @@ def rebuildNNclass(kor_strings: dict):
         loadJp.packData(PATH_KOR_VARGRANTSTORY)
 
 def update_EVT(kor_strings: dict):
+    print(f"update === EVT === ")
+    
     evts_jp = EVENT_EVT(PATH_JPN_VARGRANTSTORY)
     evts_jp.cvtByte2Str(jpnTBL)
     
     texts = kor_strings['EVENT_EVT']
     for k0, v0 in texts.items():
         int_k0 = int(k0)
-        if 15 < int_k0:
-            break
-        
-        if 504 <= int_k0:   # after here, debug text
-            break
+
+        #if 504 <= int_k0:   # after here, debug text
+        #    break
         
         for k1, v1 in v0.items():
             int_k1 = int(k1)
@@ -421,19 +511,94 @@ def update_EVT(kor_strings: dict):
     #evts_jp.cvtStr2Byte(korTBL)
     evts_jp.packData(PATH_KOR_VARGRANTSTORY)
 
-        
+def stringBIN_merge(kor_strings: dict):
+    jobNames = ['MCMAN', 'MENU12', 'ITEMHELP', 'MENU4', 'MENU7']
+    print(f"update === stringBIN_merge === ")
+    for name in jobNames:
+        print(f"update {name}")
+        if name == 'MCMAN':
+            Class_jp = mS.MCMAN
+        if name == 'MENU12':
+            Class_jp = mS.MENU12
+        if name == 'ITEMHELP':
+            Class_jp = mS.ITEMHELP
+        if name == 'MENU4':
+            Class_jp = mS.MENU4
+        if name == 'MENU7':
+            Class_jp = mS.MENU7
+        #Class_jp = globals()[f'mS.{name}']
+        curr = Class_jp(PATH_JPN_VARGRANTSTORY)
+
+        curr.cvtByte2Str(jpnTBL)    
+        texts = kor_strings[name]
+        for k, v in texts.items():
+            idx = int(k)
+            txt = v.get('string')
+            if txt is None: continue
+            curr.strings._str[idx] = txt
+
+        curr.cvtStr2Byte(korTBL)
+        #curr.checkPtrs()
+        if name not in ['MENU4', 'MENU7']:
+            curr.setBlank(jpnTBL)
+        curr.packData(PATH_KOR_VARGRANTSTORY)
+
+def MAINMENU_merge(kor_strings: dict):
+    print(f"update === MAINMENU === ")
+
+    curr = MAINMENU_jp(PATH_JPN_VARGRANTSTORY)
+
+    curr.cvtByte2Str(jpnTBL)    
+    texts = kor_strings['MAINMENU']
+    curr._str = texts['000']['string']
+    curr.cvtStr2Byte(korTBL)
+    
+    curr.packData(PATH_KOR_VARGRANTSTORY)
+
+def update_Help():
+    print(f"update === HELP === ")
+    hlp = HELP_HF0(f'{PATH_JPN_VARGRANTSTORY}/SMALL/HELP01.HF0')
+    hlp.cvtByte2Str(jpnTBL)
+    
+    helpsingle = {}
+    lines = formatHelpText('work/help/help01.txt')
+    hlp.strings._str.clear()
+    for idx, line in enumerate(lines):
+        hlp.strings._str.append(line)
+        helpsingle[f'{idx:03}'] = line
+   
+    hlp.strings.itemNums = len(hlp.strings._str)
+
+    helpDict = {'HELP_1': helpsingle}
+    with open('work/kor/HELP_ko.json', 'w', encoding='utf-8') as f:
+        json.dump(helpDict, f, indent=2, ensure_ascii=False)
+    
+    hlp.cvtStr2Byte(korTBL)
+    hlp.strings.packData()
+    hlp.packData(f'{PATH_KOR_VARGRANTSTORY}/SMALL/HELP01.HF0')
+    
 def rebuildKor():
     kor_strings = mergeKorString()
     
+    MAINMENU_merge(kor_strings)
     rebuildNNclass(kor_strings)
+    stringBIN_merge(kor_strings)
+    
     updateMAP_MDP(kor_strings)
     update_SMALL_ARM(kor_strings)
     update_MAP_ZND(kor_strings)
+    
     update_EVT(kor_strings)
 
+    update_Help()
 #cvtKorFontImage()
+#cvtKorFont14Image()
 #downlaod_localazy()
-#makeKorFont()
+
+#korHisto = makeKorFont()
+#makeKorFont14(korHisto)
+#exit()
+
 rebuildKor()
 
 def test1():
@@ -475,25 +640,8 @@ def test4():
     for idx in range(itemhelp.strings[0].itemNums):
         print(f"{idx}({len(itemhelp.strings[0]._byte[idx])}): {itemhelp.strings[0]._str[idx]}")
 
-def test5():
-    kor_strings = mergeKorString()
-    classhelp = rN.MCMAN(PATH_KOR_VARGRANTSTORY)
-    classhelp.cvtByte2Str(korTBL)
-    
-    for idx in range(classhelp.strings[0].itemNums):
-        print(f"{idx}({len(classhelp.strings[0]._byte[idx])}): {classhelp.strings[0]._str[idx]}")
 
-    return
-    texts = kor_strings['ITEMHELP']
-    for k, v in texts.items():
-        idx = int(k)
-        string = v.get('string')
-        if string is not None:
-            itemhelp.strings[0]._str[idx] = string
-    itemhelp.cvtStr2Byte(korTBL)
-    for idx in range(itemhelp.strings[0].itemNums):
-        print(f"{idx}({len(itemhelp.strings[0]._byte[idx])}): {itemhelp.strings[0]._str[idx]}")
-#test5()
+
 def test6():
     def replaceStr(strlist: List[str], texts: dict):
         for k, v in texts.items():

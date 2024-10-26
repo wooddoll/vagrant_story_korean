@@ -12,6 +12,8 @@ import json
 from fileStruct.readStrFile import ReadStrings
 from fileStruct.scriptOPcodes import ScriptOpcodes
 
+debugPos = ''
+
 class SectionBase:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.buffer = None
@@ -31,6 +33,71 @@ class SectionBase:
     def packData(self):
         return self.buffer
 
+def createDoorSectionClass(Ptr: int = -1):
+    class DoorSection():
+        def __init__(self, buffer: Union[bytes, None] = None) -> None:
+            self.buffer = None
+            self.string = ReadStrings()
+            self.preSize = 0
+            
+            if buffer is not None:
+                self.unpackData(buffer)
+
+        def __len__(self):
+            if self.buffer is None:
+                return 0
+
+            return len(self.buffer)
+
+        def cvtStr2Byte(self, table: convert_by_TBL):
+            if 0 <= Ptr:
+                self.string.cvtStr2Byte(table)
+                
+        def cvtByte2Str(self, table: convert_by_TBL):
+            if 0 <= Ptr:
+                self.string.cvtByte2Str(table)
+
+        def unpackData(self, buffer: bytes):
+            self.buffer = bytes(buffer) if buffer is not None else None
+            
+            if 0 <= Ptr:
+                self.string.unpackData(self.buffer[Ptr:])
+                self.preSize = self.string.len_buffer
+
+            return
+            global debugPos
+            word1 = bytes(b'\xE7\xEB')
+            word2 = bytes(b'\xE7\x00')
+            len_file = len(buffer) - 2
+            for ptr in range(len_file):
+                if buffer[ptr:ptr+2] == word1:
+                    print(f"{debugPos}, E7EB, ptr: 0x{ptr:X}")
+                    with open(f'work/test/MAP/{debugPos}.door.BIN', 'wb') as file:
+                        file.write(buffer)
+                    break
+                if buffer[ptr:ptr+2] == word2:
+                    print(f"{debugPos}, E700, ptr: 0x{ptr:X}")
+                    with open(f'work/test/MAP/{debugPos}.door.BIN', 'wb') as file:
+                        file.write(buffer)
+                    break
+            
+        def packData(self):
+            if 0 <= Ptr:
+                byteData = self.string.packData()
+                currSize = self.string.len_buffer
+                if self.preSize < currSize:
+                    logging.critical(f"DoorSection data overflow, {self.preSize} < {currSize}')")
+                    
+                byte_stream = io.BytesIO(self.buffer)
+                byte_stream.seek(Ptr)
+                byte_stream.write(byteData)
+                
+                self.buffer = byte_stream.getvalue()
+                    
+            return self.buffer
+        
+    return DoorSection()
+    
 class TreasureSection:
     ptrWeaponName = 0x94
     
@@ -54,7 +121,8 @@ class TreasureSection:
         byte_stream = io.BytesIO(self.buffer)
         byte_stream.seek(self.ptrWeaponName)
         data = byte_stream.read(0x18)
-        self.name_byte = trimTextBytes(data)
+        len_data = getTextLength(data)
+        self.name_byte = data[:len_data]
 
     def cvtByte2Str(self, table: convert_by_TBL):
         self.name_str = table.cvtByte2Str(self.name_byte)
@@ -73,7 +141,7 @@ class TreasureSection:
             self.name_byte = self.name_byte[:0x18]
         byte_stream.write(self.name_byte)
         
-        return self.buffer
+        return byte_stream.getvalue()
 
 class DialogText:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
@@ -151,7 +219,7 @@ class ScriptSection:
                         w = _code.Args[5]
                         h = _code.Args[6]
                         if w < cols or h < rows:
-                            logging.warning(f'dialog text {code.Args[1]} is too long. box_w({w})<text_w({cols}), box_h({h})<text_h({rows})')
+                            logging.info(f'dialog text {code.Args[1]} is too long. box_w({w})<text_w({cols}), box_h({h})<text_h({rows})')
                         break
        
     def cvtStr2Byte(self, table: convert_by_TBL):
@@ -216,12 +284,20 @@ class ScriptSection:
         return byte_stream.getvalue()
 
 class MPDstruct:
-    def __init__(self, input_path:str = '') -> None:
+    DoorPtrs = { 0:0x9c, 17:0x330, 18:0x68 }
+    
+    def __init__(self, input_path: str = '') -> None:
+        inpPath = Path(input_path)
+        
         self.header = []
         self.roomSection        = SectionBase()
         self.clearedSection     = SectionBase()
         self.scriptSection      = ScriptSection()
-        self.doorSection        = SectionBase()
+
+        key = int(inpPath.stem[3:])
+        doorPtr = self.DoorPtrs.get(key, -1)
+        self.doorSection        = createDoorSectionClass(doorPtr)
+
         self.enemySection       = SectionBase()
         self.treasureSection    = TreasureSection()
 
@@ -241,12 +317,14 @@ class MPDstruct:
     def cvtStr2Byte(self, table: convert_by_TBL):
         self.scriptSection.cvtStr2Byte(table)
         self.treasureSection.cvtStr2Byte(table)
+        self.doorSection.cvtStr2Byte(table)
 
     def cvtByte2Str(self, table: convert_by_TBL):
         self.scriptSection.cvtByte2Str(table)
         self.treasureSection.cvtByte2Str(table)
+        self.doorSection.cvtByte2Str(table)
         
-    def unpackData(self, input_path:str):
+    def unpackData(self, input_path: str):
         with open(input_path, 'rb') as file:
             buffer = bytearray(file.read())
             
@@ -265,7 +343,10 @@ class MPDstruct:
             for idx in range(6):
                 if sizes[idx] == 0: continue
                 byte_stream.seek(poses[idx])
-                sections[idx].unpackData(byte_stream.read(sizes[idx]))
+                if idx == 3:
+                    sections[idx].unpackData(byte_stream.read(sizes[idx]))
+                else:
+                    sections[idx].unpackData(byte_stream.read(sizes[idx]))
 
     def packData(self, output_path:str):
         if not self.header:
@@ -289,7 +370,7 @@ class MPDstruct:
         prevScriptSectionSize = self.header[6] - self.header[4]
         writeSize = len(scriptSection) if scriptSection is not None else 0
         if prevScriptSectionSize < writeSize:
-            logging.info(f"check the section size, size overflowed({prevScriptSectionSize} < {writeSize})")
+            logging.info(f"{output_path}, check the section size, size overflowed({prevScriptSectionSize} < {writeSize})")
 
         for idx in range(0, 12, 2):
             self.header[idx]   = poses[idx//2]
@@ -299,9 +380,9 @@ class MPDstruct:
             prev = math.ceil(fileSize / 2048) * 2048
             curr = math.ceil(sumSizes / 2048) * 2048
             if curr > prev:
-                logging.critical(f"check the file size, LBA overflowed({fileSize} < {sumSizes})")
+                logging.critical(f"{output_path}, check the file size, LBA overflowed({fileSize} < {sumSizes})")
             else:
-                logging.info(f"check the file size, size overflowed({fileSize} < {sumSizes})")
+                logging.info(f"{output_path}, check the file size, size overflowed({fileSize} < {sumSizes})")
 
         with open(output_path, 'wb') as file:
             for value in self.header:
@@ -320,8 +401,7 @@ class MPDstruct:
 
 
 
-def exportTextFromMPD(mpd: MPDstruct, fontTable: convert_by_TBL):
-    mpd.scriptSection.dialogText.cvtByte2Str(fontTable)
+def exportDialogFromMPD(mpd: MPDstruct, fontTable: convert_by_TBL):
     dialogLists = []
     mpd.scriptSection.dialogText.cvtByte2Str(fontTable)
     for idx in range(mpd.scriptSection.dialogText.strings.itemNums):
@@ -333,29 +413,53 @@ def exportTextFromMPD(mpd: MPDstruct, fontTable: convert_by_TBL):
         singleRow['string'] = text
         #singleRow['@@localazy:comment:string'] = ''
         singleRow['@@localazy:limit:string'] = str((rows, cols))
-        
-        
+
         dialogLists.append(singleRow)
     
     return dialogLists
 
+
+def exportTresureFromMPD(mpd: MPDstruct, fontTable: convert_by_TBL):
+    mpd.treasureSection.cvtByte2Str(fontTable)
+    return mpd.treasureSection.name_str
+
+def exportDoorFromMPD(mpd: MPDstruct, fontTable: convert_by_TBL):
+    mpd.doorSection.cvtByte2Str(fontTable)
+    
+    texts = {}
+    for idx in range(mpd.doorSection.string.itemNums):
+        text = mpd.doorSection.string._str[idx]
+        texts[f'{idx:03}'] = {'string' : text}
+        
+    return texts
+
 def makeMPDtexts(folder_path: str, fontTable: convert_by_TBL, out_path: str):
+    global debugPos
     extension = '*.MPD'
     file_list = list(Path(folder_path).glob(extension))
 
     dialogLists = {}
-    
-    keyTBL = dialog.ReplaceKeyword("work/VSDictTable.tbl")
+    etcLists = {}
+    #keyTBL = dialog.ReplaceKeyword("work/VSDictTable.tbl")
 
     for filepath in tqdm(file_list, desc="Processing"):
+        debugPos = Path(filepath).stem
         mpd = MPDstruct(str(filepath))
 
-        texts = exportTextFromMPD(mpd, fontTable)
+        texts = exportDialogFromMPD(mpd, fontTable)
         if texts:
             dialogLists[filepath.stem] = texts
             #for idx in range(len(texts)):
             #    dialogLists[f'{filepath.stem}[{idx}]'] = texts[idx]
 
+        texts = exportTresureFromMPD(mpd, fontTable)
+        if texts:
+            etcLists[filepath.stem] = { 'treasure' : texts } 
+        
+        texts = exportDoorFromMPD(mpd, fontTable)
+        if texts:
+            etcLists[filepath.stem] = { 'door' : texts } 
+            
     if out_path:
         with open(out_path, 'w', encoding='utf-8') as f:
             json.dump(dialogLists, f, indent=2, ensure_ascii=False)
@@ -363,7 +467,7 @@ def makeMPDtexts(folder_path: str, fontTable: convert_by_TBL, out_path: str):
         #df.to_csv(out_path, index=False, encoding='utf-8')
         #df.to_excel(out_path, index=False)
     
-    return dialogLists
+    return dialogLists, etcLists
 
 #makeMPDtexts()
 

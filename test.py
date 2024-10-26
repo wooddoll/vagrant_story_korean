@@ -14,15 +14,17 @@ from fileStruct.structARM import ARMstruct
 from fileStruct.structZND import ZNDstruct
 from fileStruct.structMPD import MPDstruct
 
-from fileStruct.read_MON_BIN import MON_BIN
+#from fileStruct.read_MON_BIN import MON_BIN
 from fileStruct.read_HELP_HF0 import *
 from fileStruct.readStrFile import *
 from fileStruct.readWordFile import *
 
+from fileStruct.read_MAINMENU import *
+
 #from fileStruct.read_SL_Main import SL_Main
 #from fileStruct.read_TITLE_PRG import TITLE_PRG_en, TITLE_PRG_jp
-from fileStruct.read_BATTLE_PRG import *
-from fileStruct.read_MENU9_PRG import *
+#from fileStruct.read_BATTLE_PRG import *
+#from fileStruct.read_MENU9_PRG import *
 from fileStruct import read_Nstrings as rN
 from fileStruct.read_EVT import EVENT_EVT
 
@@ -375,6 +377,22 @@ def cvtBytes_jp():
         for v in _inp_bytes:
             print(f"{v:02X} ", end='')
         print(f"\n{inp_text}")
+
+def cvtBytes_jp_inv():
+    while True:
+        inp_text = input('Jpn_inv>')
+        if not inp_text: break
+        
+        len_inp = len(inp_text)
+        if len_inp == 1:
+            exit()
+        
+        inp_bytes = jpnTBL.cvtStr2Byte(inp_text)
+        for v in inp_bytes:
+            print(f"{v:02X} ", end='')
+        print()
+
+
 
 def cvtBytes_en():
     while True:
@@ -918,7 +936,6 @@ def find_string_in_File(filePath: str):
         
     return wordinfile
 
-
 def find0BackE7(byteData: bytes, pos: int, step: int):
     v1 = byteData[pos]
     v2 = byteData[pos+1]
@@ -1058,8 +1075,6 @@ def find_word_in_File(filePath: str):
 
 #wordinfile = find_word_in_File(f'{PATH_USA_VARGRANTSTORY}/BATTLE/BATTLE.PRG')
 #print(wordinfile)
-
-
 def findStrings():
     folder_path = Path(PATH_JPN_VARGRANTSTORY)
     file_list = [file for file in folder_path.rglob('*.PRG') if file.is_file()]
@@ -1086,10 +1101,11 @@ def findStrings():
 #findStrings()
 
 def extract_MPD_jp_en():
-    mpd_jp = fileStruct.structMPD.makeMPDtexts(PATH_JPN_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.json')
-    mpd_en = fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.json')
-    for k, en in mpd_en.items():
-        jp = mpd_jp[k]
+    mpd_jp, etc_jp = fileStruct.structMPD.makeMPDtexts(PATH_JPN_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.json')
+    mpd_en, etc_en = fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.json')
+    
+    for k, jp in mpd_jp.items():
+        en = mpd_en[k]
         if len(jp) >= len(en):
             for i in range(len(en)):
                 idx = -(i + 1)
@@ -1104,9 +1120,43 @@ def extract_MPD_jp_en():
             idx += 1
         
         mpd_jp[k] = texts
-
+        
+    for k, jp in etc_jp.items():
+        en = etc_en[k].get('treasure')
+        if en is not None:
+            etc_jp[k].update( {'@@localazy:comment:treasure': en} )
+        
+        door_en = etc_en[k].get('door')
+        if door_en is not None:
+            for k1, v1 in door_en.items():
+                etc_jp[k]['door'][k1].update( {'@@localazy:comment:string': v1} )
+        
+        if mpd_jp.get(k) is not None:
+            mpd_jp[k].update( etc_jp[k] )
+        else:
+            mpd_jp[k] = etc_jp[k]
+        
+    outDict = dict(sorted(mpd_jp.items()))
+    
     with open('work/strings/MAP_MPD_ja.json', 'w', encoding='utf-8') as f:
-        json.dump(mpd_jp, f, indent=2, ensure_ascii=False)
+        json.dump(outDict, f, indent=2, ensure_ascii=False)
+#extract_MPD_jp_en()
+
+def searchByte():
+    folder_path = Path(PATH_KOR_VARGRANTSTORY)
+    file_list = [file for file in folder_path.rglob('*') if file.is_file()]
+    file_list = sorted(file_list)
+    word = bytes(b'\x5C\x4D\x43')
+    for filepath in tqdm(file_list, desc="Processing"):
+        relative_path = filepath.relative_to(folder_path)
+        with open(filepath, 'rb') as file:
+            buffer = file.read()
+            len_file = len(buffer) - 3
+            for ptr in range(len_file):
+                if buffer[ptr:ptr+3] == word:
+                    print(f"{relative_path}, ptr{ptr:X}")
+#searchByte()
+#exit()
 
 def extract_SMALL_HF0():
     folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('SMALL')
@@ -1263,7 +1313,7 @@ def test14():
 
 def testNNclass():
     for name in rN.FileLoadFuncNames:
-        if name == 'MENU3':
+        if name == 'INITBTL':
             print()
         ClassJp, ClassEn = rN.getNNClass(name)        
         loadJp = ClassJp(PATH_JPN_VARGRANTSTORY)
@@ -1298,7 +1348,17 @@ def testNNclass():
             textNstr[f"BATTLE_2"] = texts[f'word_0']
             textNstr[f"BATTLE_3"] = texts[f'str_1']
             textNstr[f"BATTLE_4"] = texts[f'str_2']
-                
+        
+        if name == 'MENU5':
+            textNstr[f"MENU5_1"] = texts[f'str_0']
+            textNstr[f"MENU5_2"] = texts[f'str_1']
+            textNstr[f"MENU5_3"] = texts[f'str_2']
+            
+        if name == 'INITBTL':
+            subText = {}
+            subText[f"000"] = texts[f'word_0']
+            subText[f"001"] = texts[f'word_1']
+            textNstr['INITBTL'] = subText
         
         if name == 'MON':
             subText = {}
@@ -1325,6 +1385,20 @@ def testNNclass():
         loadJp.packData('work/test/PACKjp')
         loadEn.packData('work/test/PACKen')
 
+    loadEn = MAINMENU_en(PATH_USA_VARGRANTSTORY)
+    loadJp = MAINMENU_jp(PATH_JPN_VARGRANTSTORY)
+    loadEn.cvtByte2Str(usaTBL)
+    loadJp.cvtByte2Str(jpnTBL)
+    singleRow = {}
+    singleRow['string'] = loadJp._str
+    comment = loadEn._str
+    if comment:
+        comment = comment.replace('☐', ' ')
+        singleRow['@@localazy:comment:string'] = comment
+    text = {'MAINMENU' : { '000' : singleRow } }
+    with open(f'work/strings/MAINMENU_ja.json', 'w', encoding='utf-8') as f:
+            json.dump(text, f, indent=2, ensure_ascii=False)
+    
 #testNNclass()
 
 def readEVT():
@@ -1360,11 +1434,18 @@ def readEVT():
 #readEVT()
 #exit()
 
-
+def testMPD():
+    map = MPDstruct(f"{PATH_JPN_VARGRANTSTORY}/MAP/MAP017.MPD")
+    
+    with open('work/test/MAP017.MPD.door', 'wb') as file:
+        file.write( map.doorSection.buffer )
+    print(map)
+#testMPD()
 
 while True:
     cvtBytes_jp()
+    cvtBytes_jp_inv()
     cvtBytes_en()
     cvtBytes_kor()
-    
+
 

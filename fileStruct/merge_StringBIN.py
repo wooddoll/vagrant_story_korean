@@ -13,7 +13,7 @@ def int2Hex(integer: int, table: convert_by_TBL):
     data = table.cvtStr2Byte(tmp)
     return data
 
-def createStringBINNClass(FileName: str, keepPos: List[int] = []):
+def createStringBINNClass(FileName: str, keepPos: List[int] = [], startPtr = 0x0):
     class StringBINNClass(): 
         def __init__(self, input_path: str = '') -> None:
             self.buffer = bytes()
@@ -47,9 +47,9 @@ def createStringBINNClass(FileName: str, keepPos: List[int] = []):
             
             with open(inputFile, 'rb') as file:
                 self.buffer = file.read()
-                self.strings.unpackData(self.buffer)
+                self.strings.unpackData(self.buffer[startPtr:])
 
-                byte_stream = io.BytesIO(self.buffer)
+                byte_stream = io.BytesIO(self.buffer[startPtr:])
                 self.itemNums = int2(byte_stream.read(2))
                 byte_stream.seek(0)
                 self.ptrs = []
@@ -142,35 +142,22 @@ def createStringBINNClass(FileName: str, keepPos: List[int] = []):
                 with open(outPath, 'wb') as file:
                     file.write(self.buffer)
 
-                    file.seek(0)
+                    file.seek(startPtr)
                     for idx in range(self.strings.itemNums):
                         file.write(bytes2(ptrs[idx]//2))
 
                     for idx in range(self.strings.itemNums):
-                        file.seek(ptrs[idx])
+                        file.seek(startPtr+ptrs[idx])
                         file.write(self.strings._byte[idx])
     return StringBINNClass
 
 
 MCMAN = createStringBINNClass('MENU/MCMAN.BIN')
 MENU12 = createStringBINNClass('MENU/MENU12.BIN')
-ITEMHELP = createStringBINNClass('MENU/ITEMHELP.BIN', [651, 652, 653, 654])
-
-'''
-def MCMAN_merge(kor_strings: dict):
-    curr = merge_MCMAN(PATH_JPN_VARGRANTSTORY)
-
-    curr.cvtByte2Str(jpnTBL)    
-    texts = kor_strings['MCMAN']
-    for k, v in texts.items():
-        idx = int(k)
-        txt = v.get('string')
-        if txt is None: continue
-        curr.strings._str[idx] = txt
-        
-    curr.cvtStr2Byte(korTBL)
-    #curr.checkPtrs()
-    #curr.setBlank(jpnTBL)
-    curr.packData(PATH_KOR_VARGRANTSTORY)
-    
-'''
+ITEMHELP_indexes = list(range(373, 413))
+#ITEMHELP_indexes.extend([438, 439])
+ITEMHELP_indexes.extend(list(range(641, 679)))
+ITEMHELP = createStringBINNClass('MENU/ITEMHELP.BIN', ITEMHELP_indexes)
+MENU4 = createStringBINNClass('MENU/MENU4.PRG', [7, 8, 9, 10, 11, 12], 0x4c44)
+BATTLE_2 = createStringBINNClass('BATTLE/BATTLE.PRG', startPtr=0x4c44)
+MENU7 = createStringBINNClass('MENU/MENU7.PRG', startPtr=0x7c54)

@@ -43,8 +43,8 @@ class ReadHelpStrings():
             pos = ptrs[idx]
             nextpos = ptrs[idx+1]
             data = buffer[pos:nextpos]
-            trimed = trimTextBytes(data)
-            self._byte.append(bytearray(trimed))
+            len_data = getTextLength(data)
+            self._byte.append(data[:len_data])
 
         len_buffer = len(self._byte[-1]) + 1
         if len_buffer%2:
@@ -63,6 +63,8 @@ class ReadHelpStrings():
         
 
         for idx in range(self.itemNums):
+            if not self._byte[idx]:
+                self._byte[idx] = bytearray([0xE7])
             if self._byte[idx][-1] != 0xE7:
                  self._byte[idx].append(0xE7)
             if len(self._byte[idx])%2:  # align 2byte padding
@@ -148,7 +150,7 @@ class HELP_HF0:
 
 def formatHelpText(text_path: str):
     lines: List[str] = []
-    with open(text_path, 'rt') as file:
+    with open(text_path, 'rt', encoding='utf-8') as file:
         lines = file.readlines()
 
     formatedLines: List[str] = []

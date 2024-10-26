@@ -150,7 +150,7 @@ class convert_by_TBL():
                 if ret is not None:
                     byteText.extend(ret)
                 else:
-                    #logging.critical(f"'{letter}' is invalid.")
+                    logging.critical(f"'{letter}' is invalid.")
                     byteText.append(0xF7)
                     byteText.append(0x07)
         

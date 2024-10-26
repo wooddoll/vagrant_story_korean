@@ -13,6 +13,7 @@ class MON_BIN():
     StringPtr = ItemBytes*ItemNumber
     
     def __init__(self, input_path: str = '') -> None:
+        self.preFileSize = 0
         self.name_byte = []
         self.name_str = []
         self.data_byte = []
@@ -51,6 +52,7 @@ class MON_BIN():
     def unpackData(self, input_path:str):
         with open(input_path, 'rb') as file:
             buffer = bytearray(file.read())
+            self.preFileSize = len(buffer)
             byte_stream = io.BytesIO(buffer)
             
             self.data_byte.clear()
@@ -89,3 +91,9 @@ class MON_BIN():
             if byteData is not None:
                 file.seek(self.StringPtr)
                 file.write(byteData)
+        
+        newSize = os.path.getsize(output_path)
+        LBAsize = ((self.preFileSize + 2047)//2048)*2048
+        if LBAsize < newSize:
+            logging.critical(f'check LBA limit overflow; {output_path}, {self.preFileSize}({LBAsize}) < {newSize}')
+        self.preFileSize = LBAsize

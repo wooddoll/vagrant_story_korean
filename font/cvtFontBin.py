@@ -251,10 +251,23 @@ def unpackTITLE_PRG(input_path: str):
     width = 256
     width_byte = width//2
 
-    ptrA = 0
+    ptrA = 0x44d08
     ptrA_ = ptrA + 128*224
-    im = makeImage4b_(system_dat[ptrA:])
-    im.save(f"work/title_prg_unpack_A.png")
+    
+    buffer4b = readFont4b(system_dat[ptrA:])
+    buffer2b = []
+    for v in buffer4b:
+        buffer2b.append(v & 0b00000011)
+    for v in buffer4b:
+        buffer2b.append((v & 0b00001100) >> 2)
+    imA = makeImage2b__(buffer2b)
+    imA.save(f"work/title_prg_unpack_A.png")
+    
+    imB = makeImage4b_(system_dat[ptrA:])
+    imB.save(f"work/title_prg_unpack_B.png")
+    
+    imC = makeImage2b_(system_dat[ptrA:])
+    imC.save(f"work/title_prg_unpack_C.png")
 
 
 def packFont14Bin(input_path: str, output_path: str):
@@ -417,6 +430,26 @@ class FontImage2b:
             byte_stream.write(self.buffers[idx])
         
         return byte_stream.getvalue()
+
+
+def insertTITLE_font(input_path: str, insert_image: str, output_path: str):
+    with open(input_path, "rb") as file:
+        title_prg = file.read()
+
+        ptrA = 0x44cc8
+        fontImg = FontImage2b(title_prg[ptrA:])
+        imgJpKr = Image.open(insert_image)
+        fontImg.setImage(imgJpKr)
+
+        buffer = fontImg.packData()
+        
+    with open(output_path, "wb") as file:
+        file.seek(ptrA)
+        file.write(buffer)
+    
+    
+#testTITLE_font('C:/TEMP/Vagrant Story (J)/TITLE/TITLE.PRG', 'font/font12kr.png', 'C:/TEMP/Vagrant Story (Kor)/TITLE/TITLE.PRG')
+#exit()
 
 
 def packImage4b(image: Image):
