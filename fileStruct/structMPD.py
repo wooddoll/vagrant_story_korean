@@ -14,6 +14,78 @@ from fileStruct.scriptOPcodes import ScriptOpcodes
 
 debugPos = ''
 
+def findReverse(buffer: bytes, candidate: List[int], start: int):
+    len_file = len(buffer)
+    maxStr = len(candidate)
+    ptr = candidate[start] - 4
+    while 0 < ptr:
+        idx0 = int2(buffer[ptr:ptr+2])
+        pos = ptr+2
+        if 0 < idx0 and idx0 <= maxStr:
+            prev = idx0
+            inc = True
+            for i in range(idx0-1):
+                    curr = int2(buffer[pos:pos+2])
+                    pos += 2
+                    if prev >= curr: 
+                        inc = False
+                        ptr -= 2
+                        break
+                    xPtr = ptr + 2*curr
+                    if len_file <= xPtr:
+                        inc = False
+                        ptr -= 2
+                        break
+                    matched = False
+                    for xx in candidate:
+                        if xPtr == xx:
+                            matched = True
+                            break
+                    if not matched:
+                        inc = False
+                        ptr -= 2
+                        break
+                    prev = curr
+            if inc:
+                return ptr, idx0
+        else:
+            ptr -= 2
+        
+    return -1, -1
+
+def findStrings(buffer: bytes):
+    byte_stream = io.BytesIO(buffer)           
+    len_file = len(buffer)
+    ptrStrEnd = []
+    for ptr in range(0, len_file, 2):
+        data = byte_stream.read(2)
+        if data[1] == 0xE7 or (data[0] == 0xE7 and (data[1] == 0x00 or data[1] == 0xEB)):
+            ptrStrEnd.append(ptr+2)
+    if not ptrStrEnd: return []
+    
+    devStrPoses: List[int] = []
+    startIdx = len(ptrStrEnd) - 1
+    while 0 <= startIdx:
+        ptr, count = findReverse(buffer, ptrStrEnd, startIdx)
+        if 0 < ptr and 0 < count:
+            lenStr = ptrStrEnd[-1] - ptr
+            if count == 1 and 40 < lenStr:
+                startIdx -= 1
+                ptrStrEnd = ptrStrEnd[:startIdx+1]
+                continue
+            devStrPoses.append(ptr)
+        else:
+            break
+        
+        for i, x in enumerate(ptrStrEnd):
+            if ptr < x:
+                startIdx = i - 1
+                ptrStrEnd = ptrStrEnd[:i]
+                break
+        
+    return sorted(devStrPoses)
+    
+    
 class SectionBase:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.buffer = None
@@ -33,12 +105,12 @@ class SectionBase:
     def packData(self):
         return self.buffer
 
-def createDoorSectionClass(Ptr: int = -1):
+def createDoorSectionClass(Ptrs: List[int] = []):
     class DoorSection():
         def __init__(self, buffer: Union[bytes, None] = None) -> None:
             self.buffer = None
-            self.string = ReadStrings()
-            self.preSize = 0
+            self.strings = []
+            self.preSizes = []
             
             if buffer is not None:
                 self.unpackData(buffer)
@@ -50,22 +122,37 @@ def createDoorSectionClass(Ptr: int = -1):
             return len(self.buffer)
 
         def cvtStr2Byte(self, table: convert_by_TBL):
-            if 0 <= Ptr:
-                self.string.cvtStr2Byte(table)
+            for string in self.strings:
+                string.cvtStr2Byte(table)
                 
         def cvtByte2Str(self, table: convert_by_TBL):
-            if 0 <= Ptr:
-                self.string.cvtByte2Str(table)
+            for string in self.strings:
+                string.cvtByte2Str(table)
 
         def unpackData(self, buffer: bytes):
             self.buffer = bytes(buffer) if buffer is not None else None
             
-            if 0 <= Ptr:
-                self.string.unpackData(self.buffer[Ptr:])
-                self.preSize = self.string.len_buffer
+            if self.buffer is None:
+                return
+            
+            for pos in Ptrs:
+                self.strings.append(ReadStrings(self.buffer[pos:]))
+                self.preSizes = self.strings[-1].len_buffer
+            
+            return
+        
+            global debugPos
+            devStrPoses = findStrings(self.buffer)
+            if devStrPoses:
+                print(f"{int(debugPos[3:])} : [", end='')
+                for p in devStrPoses: print(f"0x{p:04X}, ", end='')
+                print('], ', end='')
+ 
+            with open(f'work/test/MAP/{debugPos}.door.BIN', 'wb') as file:
+                file.write(buffer)
 
             return
-            global debugPos
+            #global debugPos
             word1 = bytes(b'\xE7\xEB')
             word2 = bytes(b'\xE7\x00')
             len_file = len(buffer) - 2
@@ -82,18 +169,20 @@ def createDoorSectionClass(Ptr: int = -1):
                     break
             
         def packData(self):
-            if 0 <= Ptr:
-                byteData = self.string.packData()
-                currSize = self.string.len_buffer
-                if self.preSize < currSize:
-                    logging.critical(f"DoorSection data overflow, {self.preSize} < {currSize}')")
-                    
-                byte_stream = io.BytesIO(self.buffer)
-                byte_stream.seek(Ptr)
+            if self.buffer is None:
+                return None
+            
+            byte_stream = io.BytesIO(self.buffer)
+            for idx, string in enumerate(self.strings):
+                byteData = string.packData()
+                currSize = string.len_buffer
+                if self.preSizes[idx] < currSize:
+                    logging.critical(f"DoorSection data overflow: {idx}th ReadString, {self.preSizes[idx]} < {currSize}')")
+
+                byte_stream.seek(Ptrs[idx])
                 byte_stream.write(byteData)
                 
-                self.buffer = byte_stream.getvalue()
-                    
+            self.buffer = byte_stream.getvalue()
             return self.buffer
         
     return DoorSection()
@@ -284,7 +373,7 @@ class ScriptSection:
         return byte_stream.getvalue()
 
 class MPDstruct:
-    DoorPtrs = { 0:0x9c, 17:0x330, 18:0x68 }
+    DoorPtrs = { 0 : [0x0044, 0x009C, ], 17 : [0x0330, ], 18 : [0x0068, 0x00D8, ], 20 : [0x01E0, 0x03E8, 0x0514, 0x05E4, 0x0714, ], 24 : [0x0058, ], 25 : [0x0058, ], 26 : [0x0058, ], 28 : [0x0070, ], 30 : [0x00A4, 0x0148, ], 32 : [0x0058, 0x04C4, 0x054C, ], 34 : [0x0254, 0x0384, 0x0438, ], 42 : [0x0058, 0x00E0, ], 43 : [0x0058, ], 45 : [0x0058, ], 46 : [0x0058, 0x036C, 0x0438, 0x04F0, ], 50 : [0x0064, ], 51 : [0x0058, 0x00DC, ], 59 : [0x0058, ], 60 : [0x0574, 0x05E8, 0x07F8, ], 61 : [0x0058, ], 63 : [0x0058, ], 67 : [0x0058, ], 69 : [0x0058, ], 75 : [0x011C, ], 77 : [0x0058, ], 79 : [0x0058, ], 83 : [0x0058, 0x00DC, ], 88 : [0x0058, ], 90 : [0x0058, 0x00EC, ], 94 : [0x0058, ], 96 : [0x0058, ], 99 : [0x0198, ], 106 : [0x0058, 0x00DC, ], 109 : [0x006C, 0x012C, ], 110 : [0x0064, ], 112 : [0x0058, ], 113 : [0x0090, ], 115 : [0x0064, ], 121 : [0x006C, 0x012C, ], 124 : [0x0200, ], 140 : [0x0058, 0x00EC, ], 142 : [0x0058, 0x00E8, ], 145 : [0x0058, ], 149 : [0x0588, ], 150 : [0x01F8, 0x03A8, 0x0660, 0x0934, 0x0D3C, ], 151 : [0x0094, ], 153 : [0x00BC, 0x0124, ], 155 : [0x0060, ], 156 : [0x0050, ], 159 : [0x00BC, ], 164 : [0x0058, ], 177 : [0x0060, ], 179 : [0x0120, 0x030C, ], 180 : [0x019C, ], 181 : [0x019C, ], 182 : [0x023C, ], 183 : [0x019C, ], 184 : [0x019C, ], 185 : [0x019C, ], 186 : [0x019C, ], 187 : [0x019C, ], 188 : [0x019C, ], 189 : [0x019C, ], 190 : [0x00B0, 0x0268, ], 191 : [0x019C, ], 192 : [0x01D8, ], 193 : [0x019C, ], 194 : [0x019C, ], 195 : [0x019C, ], 196 : [0x019C, ], 197 : [0x019C, ], 198 : [0x019C, ], 199 : [0x01D8, ], 201 : [0x00FC, ], 202 : [0x00B8, ], 203 : [0x013C, 0x03CC, 0x0708, 0x0A40, 0x0BCC, 0x0E54, ], 223 : [0x0058, ], 228 : [0x0058, ], 231 : [0x0094, ], 232 : [0x0094, ], 233 : [0x0094, ], 235 : [0x0058, 0x00CC, ], 236 : [0x0058, ], 241 : [0x0064, ], 248 : [0x0058, 0x00E4, ], 249 : [0x0058, ], 252 : [0x0058, ], 257 : [0x0058, ], 264 : [0x006C, 0x012C, ], 265 : [0x0058, 0x00E0, ], 266 : [0x0058, ], 268 : [0x0124, ], 269 : [0x00B8, ], 271 : [0x00AC, 0x0150, ], 272 : [0x00AC, 0x0154, ], 277 : [0x0058, ], 282 : [0x0058, 0x012C, ], 286 : [0x0058, ], 288 : [0x0058, ], 290 : [0x0058, ], 298 : [0x0058, ], 310 : [0x009C, ], 312 : [0x0058, ], 314 : [0x0058, ], 315 : [0x0058, ], 316 : [0x0068, 0x00D8, ], 318 : [0x0078, 0x0178, ], 321 : [0x0078, 0x0178, ], 334 : [0x0058, ], 336 : [0x0068, 0x00D8, ], 340 : [0x0058, ], 344 : [0x0080, 0x0190, ], 345 : [0x0068, 0x00D8, ], 350 : [0x00FC, 0x01F4, ], 352 : [0x0174, 0x0320, 0x03D4, ], 356 : [0x0058, 0x00E4, ], 358 : [0x0068, 0x00D8, ], 360 : [0x0058, 0x00E8, ], 362 : [0x0058, 0x00E0, ], 366 : [0x0058, 0x00E4, ], 368 : [0x006C, 0x00DC, ], 371 : [0x0058, ], 377 : [0x0058, 0x00E4, ], 382 : [0x006C, 0x00DC, ], 383 : [0x0058, 0x00E0, ], 387 : [0x0058, 0x00E4, ], 392 : [0x0058, 0x00E4, ], 396 : [0x0068, 0x01B4, 0x02E8, 0x03EC, ], 404 : [0x0058, ], 408 : [0x0058, 0x00DC, ], 416 : [0x0110, 0x026C, ], 417 : [0x00C8, 0x0258, ], }
     
     def __init__(self, input_path: str = '') -> None:
         inpPath = Path(input_path)
@@ -295,7 +384,7 @@ class MPDstruct:
         self.scriptSection      = ScriptSection()
 
         key = int(inpPath.stem[3:])
-        doorPtr = self.DoorPtrs.get(key, -1)
+        doorPtr = self.DoorPtrs.get(key, [])
         self.doorSection        = createDoorSectionClass(doorPtr)
 
         self.enemySection       = SectionBase()
@@ -325,6 +414,9 @@ class MPDstruct:
         self.doorSection.cvtByte2Str(table)
         
     def unpackData(self, input_path: str):
+        global debugPos
+        debugPos = Path(input_path).stem
+        
         with open(input_path, 'rb') as file:
             buffer = bytearray(file.read())
             
@@ -426,24 +518,25 @@ def exportTresureFromMPD(mpd: MPDstruct, fontTable: convert_by_TBL):
 def exportDoorFromMPD(mpd: MPDstruct, fontTable: convert_by_TBL):
     mpd.doorSection.cvtByte2Str(fontTable)
     
-    texts = {}
-    for idx in range(mpd.doorSection.string.itemNums):
-        text = mpd.doorSection.string._str[idx]
-        texts[f'{idx:03}'] = {'string' : text}
-        
-    return texts
+    texts0 = {}
+    for idx0 in range(len(mpd.doorSection.strings)):
+        texts1 = {}
+        for idx1 in range(mpd.doorSection.strings[idx0].itemNums):
+            text = mpd.doorSection.strings[idx0]._str[idx1]
+            texts1[f'{idx1:03}'] = {'string' : text}
+        texts0[f'{idx0:03}'] = texts1
+    return texts0
 
 def makeMPDtexts(folder_path: str, fontTable: convert_by_TBL, out_path: str):
-    global debugPos
     extension = '*.MPD'
     file_list = list(Path(folder_path).glob(extension))
-
+    file_list = sorted(file_list)
+    
     dialogLists = {}
     etcLists = {}
     #keyTBL = dialog.ReplaceKeyword("work/VSDictTable.tbl")
 
     for filepath in tqdm(file_list, desc="Processing"):
-        debugPos = Path(filepath).stem
         mpd = MPDstruct(str(filepath))
 
         texts = exportDialogFromMPD(mpd, fontTable)
