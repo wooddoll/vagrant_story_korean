@@ -1,4 +1,5 @@
 
+from typing import Union, List
 import sys
 import os
 from subprocess import Popen, PIPE

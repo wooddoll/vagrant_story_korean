@@ -416,7 +416,6 @@ def update_MAP_ZND(kor_strings: dict):
         relative_path = filepath.relative_to(folder_path)
         logging.info(f"=== {relative_path.stem}.ARM packing ===")
         update_ZND(filepath, NPCs, WEAPONs)
-        
 
 def rebuildNNclass(kor_strings: dict):
     print(f"update === rebuildNNclass === ")
@@ -578,17 +577,17 @@ def update_Help():
 def rebuildKor():
     kor_strings = mergeKorString()
     
-    MAINMENU_merge(kor_strings)
-    rebuildNNclass(kor_strings)
-    stringBIN_merge(kor_strings)
+    #MAINMENU_merge(kor_strings)
+    #rebuildNNclass(kor_strings)
+    #stringBIN_merge(kor_strings)
     
-    updateMAP_MDP(kor_strings)
-    update_SMALL_ARM(kor_strings)
+    #updateMAP_MDP(kor_strings)
+    #update_SMALL_ARM(kor_strings)
     update_MAP_ZND(kor_strings)
     
-    update_EVT(kor_strings)
+    #update_EVT(kor_strings)
 
-    update_Help()
+    #update_Help()
 #cvtKorFontImage()
 #cvtKorFont14Image()
 #downlaod_localazy()

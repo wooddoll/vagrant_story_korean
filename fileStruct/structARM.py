@@ -13,7 +13,7 @@ class ARMstruct():
 
         self.ptrRoomNames: int = 0
         self.names_str: List[str] = []
-        self.names_byte: List[bytes] = []
+        self.names_byte: List[bytearray] = []
         
         if input_path:
             self.unpackData(input_path)
@@ -35,7 +35,7 @@ class ARMstruct():
             self.names_byte.clear()
             for idx in range(num_rooms):
                 byte_stream.seek(self.ptrRoomNames + 0x24*idx)
-                self.names_byte.append(byte_stream.read(0x1c))
+                self.names_byte.append(bytearray( byte_stream.read(0x1c) ))
 
     def cvtByte2Str(self, table: convert_by_TBL):
         self.names_str.clear()
@@ -59,10 +59,12 @@ class ARMstruct():
 
         for idx in range(num_rooms):
             len_name = len(self.names_byte[idx])
-            if len_name > 0x1c:
-                logging.critical(f"check the room {idx} name, size overflowed({len_name} > {0x1c})")
+            if 0x1c < len_name:
+                logging.critical(f"check the room {idx} name, size overflowed({0x1c} < {len_name})")
                 self.names_byte[idx] = self.names_byte[idx][:0x1b]
                 self.names_byte[idx].append(0xe7)
+            elif len_name < 0x1c:
+                self.names_byte[idx].extend(bytearray(0x1c-len_name))
     
         with open(output_path, 'wb') as file:
             file.write(self.buffer)

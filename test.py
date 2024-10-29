@@ -147,7 +147,7 @@ def test4w():
     for filepath in tqdm(file_list, desc="Processing"):
         relative_path = filepath.relative_to(folder_path)
         
-        znd = ZNDstruct(filepath)
+        znd = ZNDstruct(str(filepath))
         for idx in range(len(znd.TIM.TIM)):
             with open(f'work/test/{relative_path.stem}_{idx:03}.TIM', 'wb') as f:
                 f.write(znd.TIM.TIM[idx].buffer)
