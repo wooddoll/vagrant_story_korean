@@ -55,6 +55,13 @@ class ZND_MPD:
         
         return byte_stream.getvalue()
 
+class Drops:
+    def __init__(self) -> None:
+        self.weapon = 0
+        self.shield = 0
+        self.accessory = 0
+        self.armor: List[int] = []
+        
 class ZND_Enemy:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
         self.name_byte: List[bytearray] = []
@@ -63,6 +70,8 @@ class ZND_Enemy:
         self.name_str: List[str] = []
         self.weapon_str: List[str] = []
 
+        self.drops: List[Drops] = []
+        
         if buffer is not None:
             self.unpackData(buffer)
 
@@ -109,6 +118,20 @@ class ZND_Enemy:
             byte_stream.seek(ptr_weapon_name)
             byte_weapon = byte_stream.read(0x18)
             self.weapon_byte.append(bytearray(byte_weapon))
+
+        self.drops.clear()
+        for idx in range(num_enemies):
+            self.drops.append(Drops())
+            ptr_enemy_idx = ptr_enemies + 0x464*idx
+            byte_stream.seek(ptr_enemy_idx + 0x34 + 0xf0 + 1)
+            self.drops[-1].weapon = int1(byte_stream.read(1))
+            byte_stream.seek(ptr_enemy_idx + 0x140 + 0xc0 + 1)
+            self.drops[-1].shield = int1(byte_stream.read(1))
+            byte_stream.seek(ptr_enemy_idx + 0x204 + 0x30)
+            self.drops[-1].shield = int1(byte_stream.read(1))
+            for ibody in range(6):
+                byte_stream.seek(ptr_enemy_idx + 0x238 + ibody*0x5c + 0x20 + 0x30 + 1)
+                self.drops[-1].armor.append( int1(byte_stream.read(1)) )
 
     def packData(self, buffer: bytes):
         if buffer is None:
