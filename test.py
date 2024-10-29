@@ -1101,8 +1101,8 @@ def findStrings():
 #findStrings()
 
 def extract_MPD_jp_en():
-    mpd_jp, etc_jp = fileStruct.structMPD.makeMPDtexts(PATH_JPN_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.json')
-    mpd_en, etc_en = fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.json')
+    mpd_jp, etc_jp = fileStruct.structMPD.makeMPDtexts(PATH_JPN_VARGRANTSTORY+'/MAP', jpnTBL, 'work/strings/MAP_MPDdialog_jp.json', True)
+    mpd_en, etc_en = fileStruct.structMPD.makeMPDtexts(PATH_USA_VARGRANTSTORY+'/MAP', usaTBL, 'work/strings/MAP_MPDdialog_en.json', False)
     
     for k, jp in mpd_jp.items():
         en = mpd_en[k]
@@ -1122,14 +1122,23 @@ def extract_MPD_jp_en():
         mpd_jp[k] = texts
         
     for k, jp in etc_jp.items():
-        en = etc_en[k].get('treasure')
-        if en is not None:
-            etc_jp[k].update( {'@@localazy:comment:treasure': en} )
+        _etc_en = etc_en.get(k)
+        if _etc_en is not None:
+            treasure_en = _etc_en.get('treasure')
+            if treasure_en is not None:
+                etc_jp[k].update( {'@@localazy:comment:treasure': treasure_en} )
         
-        door_en = etc_en[k].get('door')
-        if door_en is not None:
-            for k1, v1 in door_en.items():
-                etc_jp[k]['door'][k1].update( {'@@localazy:comment:string': v1} )
+            door_en = _etc_en.get('door')
+            if door_en is not None:
+                for k1, v1 in door_en.items():
+                    for k2, v2 in v1.items():
+                        etc_jp_k_door = etc_jp[k].get('door')
+                        if etc_jp_k_door is not None:
+                            etc_jp_k_door_k1 = etc_jp_k_door.get(k1)
+                            if etc_jp_k_door_k1 is not None:
+                                etc_jp_k_door_k1_k2 = etc_jp_k_door_k1.get(k2)
+                                if etc_jp_k_door_k1_k2 is not None:
+                                    etc_jp[k]['door'][k1][k2].update( {'@@localazy:comment:string': v2['string']} )
         
         if mpd_jp.get(k) is not None:
             mpd_jp[k].update( etc_jp[k] )
@@ -1140,7 +1149,8 @@ def extract_MPD_jp_en():
     
     with open('work/strings/MAP_MPD_ja.json', 'w', encoding='utf-8') as f:
         json.dump(outDict, f, indent=2, ensure_ascii=False)
-#extract_MPD_jp_en()
+extract_MPD_jp_en()
+exit()
 
 def searchByte():
     folder_path = Path(PATH_KOR_VARGRANTSTORY)
@@ -1435,12 +1445,28 @@ def readEVT():
 #exit()
 
 def testMPD():
-    map = MPDstruct(f"{PATH_JPN_VARGRANTSTORY}/MAP/MAP017.MPD")
+    folder_path = Path(PATH_USA_VARGRANTSTORY) / Path('MAP')
+    file_list = [file for file in folder_path.rglob('*.MPD') if file.is_file()]
+    file_list = sorted(file_list)
+
+    #for filepath in tqdm(file_list, desc="Processing"):
+    for filepath in file_list:
+        relative_path = filepath.relative_to(folder_path)
+        
+        map = MPDstruct(str(filepath))
     
-    with open('work/test/MAP017.MPD.door', 'wb') as file:
-        file.write( map.doorSection.buffer )
-    print(map)
-#testMPD()
+        #if map.doorSection.buffer is not None:
+        #    with open(f'work/test/MAP/{relative_path.stem}.door.BIN', 'wb') as file:
+        #        file.write( map.doorSection.buffer )
+    #print(map)
+
+def testMPD_():
+    filepath = Path(PATH_USA_VARGRANTSTORY) / Path('MAP/MAP042.MPD')
+    map = MPDstruct(str(filepath), fileStruct.structMPD.DoorPtrs_en)
+    print()
+#testMPD_()
+
+exit()
 
 while True:
     cvtBytes_jp()

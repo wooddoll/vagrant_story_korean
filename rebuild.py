@@ -298,13 +298,11 @@ def update_MPD(index: int, kor_strings: dict):
 
     door = dictTexts.get('door')
     if door is not None:
-        len_dict -= 1
-        if mpd.doorSection.string.itemNums != len(door):
-            logging.critical('check here!!!')
-        for k, v in door.items():
-            idx = int(k)
-            mpd.doorSection.string._str[idx] = v['string']
-        
+        for k1, v1 in door.items():
+            ik1 = int(k1)
+            for k2, v2 in v1.items():
+                ik2 = int(k2)
+                mpd.doorSection.strings[ik1]._str[ik2] = v2['string']
     
     len_string = len(mpd.scriptSection.dialogText.strings_str)
     if len_dict > len_string:
