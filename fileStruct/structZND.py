@@ -51,7 +51,9 @@ class ZND_MPD:
         byte_stream.seek(header[0])
         for data in self.MPD:
             byte_stream.write(bytes4(data.LBApos))
-            byte_stream.write(bytes4(data.File_size))        
+            byte_stream.write(bytes4(data.File_size))
+        
+        buffer = byte_stream.getvalue()
 
 class ZND_Enemy:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
@@ -124,12 +126,12 @@ class ZND_Enemy:
         for idx in range(num_enemies):
             len_name = len(self.name_byte[idx])
             if len_name > 0x18:
-                logging.critical(f"check the enemy name, size overflowed({0x18}<{len_name})")
+                logging.critical(f"check the enemy name, size overflowed({0x18} < {len_name})")
                 self.name_byte[idx] = self.name_byte[idx][:0x18]
             
             len_weapon = len(self.weapon_byte[idx])
             if len_weapon > 0x18:
-                logging.critical(f"check the enemy weapon, size overflowed({len_weapon} > {0x18})")
+                logging.critical(f"check the enemy weapon, size overflowed({0x18}) < {len_weapon}")
                 self.weapon_byte[idx] = self.weapon_byte[idx][:0x18]
 
         ptr_enemies = header[1] + 4 + 8*num_enemies
@@ -143,6 +145,8 @@ class ZND_Enemy:
             byte_stream.seek(ptr_weapon_name)
             byte_stream.write(self.weapon_byte[idx])
 
+        buffer = byte_stream.getvalue()
+        
 class psxTIM:
     def __init__(self, buffer: bytes = bytes()):
         self.buffer = buffer
