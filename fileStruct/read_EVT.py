@@ -14,8 +14,8 @@ class read_EVT:
         self.strings = ReadStrings()
         self.strings_byte = self.strings._byte
         self.strings_str = self.strings._str
-        self.stringPtr = -1
-        self.len_buffer = -1
+        self.Unknown1 = bytes()
+        self.Unknown2 = bytes()
         
         if os.path.isfile(input_path):
             self.unpackData(input_path)
@@ -33,25 +33,48 @@ class read_EVT:
     def unpackData(self, input_path: str):
         with open(input_path, 'rb') as file:
             self.buffer = file.read()
-            len_buffer = len(self.buffer)
-            self.stringPtr = int2(self.buffer[2:4])
-            self.len_buffer = len_buffer - self.stringPtr
-            self.strings.unpackData(self.buffer[self.stringPtr:len_buffer])
+            byte_stream = io.BytesIO(self.buffer)
+            head = readHeader(byte_stream, 4, 2)
+
+            self.strings.unpackData(self.buffer[head[1]:head[2]])
+            self.Unknown1 = self.buffer[head[2]:head[3]]
+            self.Unknown2 = self.buffer[head[3]:head[0]]
+
             self.strings_byte = self.strings._byte
         
     def packData(self, output_path: str):
+        byte_stream = io.BytesIO(self.buffer)
+        head = readHeader(byte_stream, 4, 2)
         byteData = self.strings.packData()
+        new_len_buffer = len(byteData) if byteData is not None else 0
+        new_len_buffer = ((new_len_buffer+3)//4)*4
+
+        prevStr = head[2] - head[1]
+        shift = 0
+        if prevStr < new_len_buffer:
+            shift = new_len_buffer - prevStr
         
-        new_len_buffer = len(self.strings)
-        if self.len_buffer < new_len_buffer:
-            logging.critical(f"check the length of strings, size overflowed; {self.len_buffer} < current({new_len_buffer})")
+        head[0] += shift
+        head[2] += shift
+        head[3] += shift
+        
+        if prevStr < new_len_buffer:
+            logging.warning(f"check the length of strings, size overflowed; {prevStr} < current({new_len_buffer})")
                 
-        self.len_buffer = new_len_buffer
         if byteData is not None:
             with open(output_path, 'wb') as file:
                 file.write(self.buffer)
-                file.seek(self.stringPtr)
+                file.seek(0)
+                file.write(bytes2(head[0]))
+                file.write(bytes2(head[1]))
+                file.write(bytes2(head[2]))
+                file.write(bytes2(head[3]))
+                file.seek(head[1])
                 file.write(byteData)
+                file.seek(head[2])
+                file.write(self.Unknown1)
+                file.seek(head[3])
+                file.write(self.Unknown2)
 
 
 class EVENT_EVT:
@@ -88,7 +111,7 @@ class EVENT_EVT:
     def packData(self, output_folder: str):
         for k, v in self.evtFiles.items():
             idx = int(k)
-            print(f"{idx:04}.EVT")
+            logging.info(f"{idx:04}.EVT")
             output_path =  Path(output_folder) / Path('EVENT') / Path(f'{idx:04}.EVT')
             v.packData(str(output_path))
 

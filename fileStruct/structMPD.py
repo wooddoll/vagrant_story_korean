@@ -140,7 +140,7 @@ def createDoorSectionClass(Ptrs: List[int] = []):
             
             for pos in Ptrs:
                 self.strings.append(ReadStrings(self.buffer[pos:]))
-                self.preSizes = self.strings[-1].len_buffer
+                self.preSizes.append(self.strings[-1].len_buffer)
             
             return
         
@@ -180,7 +180,9 @@ def createDoorSectionClass(Ptrs: List[int] = []):
                 byteData = string.packData()
                 currSize = string.len_buffer
                 if self.preSizes[idx] < currSize:
-                    logging.critical(f"DoorSection data overflow: {idx}th ReadString, {self.preSizes[idx]} < {currSize}')")
+                    logging.critical(f"Door overflow: {idx}th ReadString, {self.preSizes[idx]} < {currSize}')")
+                    for text in string._str:
+                        logging.critical(f"Door overflow: {text}')")
 
                 byte_stream.seek(Ptrs[idx])
                 byte_stream.write(byteData)

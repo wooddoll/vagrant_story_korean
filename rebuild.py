@@ -21,8 +21,8 @@ from font import dialog, cvtFontBin
 from copy import deepcopy
 import shutil
 from fileStruct.structARM import ARMstruct
-from fileStruct.structZND import ZNDstruct
-from fileStruct.structMPD import MPDstruct
+from fileStruct.structZND import ZNDstruct, Drops
+from fileStruct.structMPD import MPDstruct, DoorPtrs_jp, DoorPtrs_en
 from fileStruct.read_EVT import EVENT_EVT
 from fileStruct import merge_StringBIN as mS
 from fileStruct.read_MAINMENU import *
@@ -36,8 +36,7 @@ logging.info(f"loading; --- usaTBL ---")
 usaTBL = dialog.convert_by_TBL("font/usa.tbl")
 
 def downlaod_localazy():
-    
-    whatLoad = ['MPD', 'EVENT_EVT']
+    whatLoad = ['MPD']
     with open('work/kor/localzay_keys.json', 'r', encoding='utf-8') as json_file:
         localzay_keys = json.load(json_file)
         cmd = "localazy download"
@@ -63,9 +62,11 @@ def downlaod_localazy():
             
             shutil.copy(f"work/kor/_{k}_/{v['download']['files']}", 'work/kor')
             shutil.rmtree(f'work/kor/_{k}_')
+    
+    exit()
 
 #downlaod_localazy()
-#exit()
+
     
 def mergeKorString():
     jpn_strings = {}
@@ -129,8 +130,14 @@ def collectKorLetters(kor_strings: dict):
                             for k3, v3 in v2.items():
                                 if isinstance(v3, str):
                                     histoKor.tasteString(v3, Prioty)
+                                elif isinstance(v3, dict):
+                                    for k4, v4 in v3.items():
+                                        if isinstance(v4, str):
+                                            histoKor.tasteString(v4, Prioty)
+                                        else:
+                                            logging.info('why l4?')
                                 else:
-                                    logging.info('why l3?')
+                                            logging.info('why l3?')
                         else:
                             logging.info('why l2?')
                 else:
@@ -273,6 +280,7 @@ def makeKorFont14(korHisto: dict):
     
     packFont14Bin(krfontImage, f'{PATH_KOR_VARGRANTSTORY}/MENU/FONT14.BIN')
     
+    exit()
 
 logging.info(f"loading; --- korTBL ---")
 korTBL = dialog.convert_by_TBL("font/kor.tbl")
@@ -285,7 +293,7 @@ def fixMPD(idx: int, mpd: MPDstruct):
 def update_MPD(index: int, kor_strings: dict):
     Name = f"MAP{index:03}"
     filepath = f"{PATH_JPN_VARGRANTSTORY}/MAP/{Name}.MPD"
-    mpd = MPDstruct(str(filepath))
+    mpd = MPDstruct(str(filepath), DoorPtrs_jp)
     mpd.cvtByte2Str(jpnTBL)
 
     dictTexts = kor_strings[Name]
@@ -298,6 +306,7 @@ def update_MPD(index: int, kor_strings: dict):
 
     door = dictTexts.get('door')
     if door is not None:
+        len_dict -= 1
         for k1, v1 in door.items():
             ik1 = int(k1)
             for k2, v2 in v1.items():
@@ -369,7 +378,7 @@ def update_SMALL_ARM(kor_strings: dict):
         logging.info(f"=== {Name}.ARM packing ===")
         update_ARM(Name, v)
 
-def update_ZND(filepath: Path, NPCs: dict, WEAPONs: dict):
+def update_ZND(filepath: Path, NPCs: dict, WEAPONs: dict, drops: List[Drops] = []):
     znd = ZNDstruct(str(filepath))
     znd.cvtByte2Str(jpnTBL)
 
@@ -386,6 +395,17 @@ def update_ZND(filepath: Path, NPCs: dict, WEAPONs: dict):
         if korName is None:
             logging.critical(f"why? {jpName} is not key?")
         znd.Enemy.weapon_str[idx] = korName
+    
+    for i0, drop_jp in enumerate(znd.Enemy.drops):
+        if drop_jp.weapon != drops[i0].weapon:
+            print(f"Drops diff, {znd.Enemy.name_str[idx]} weapon({znd.Enemy.weapon_str[i0]}), jp {drop_jp.weapon} != en {drops[i0].weapon}")
+        if drop_jp.shield != drops[i0].shield:
+            print(f"Drops diff, {znd.Enemy.name_str[idx]} shield, jp {drop_jp.shield} != en {drops[i0].shield}")
+        if drop_jp.accessory != drops[i0].accessory:
+            print(f"Drops diff, {znd.Enemy.name_str[idx]} accessory, jp {drop_jp.accessory} != en {drops[i0].accessory}")
+        for i1 in range(6):
+            if drop_jp.armor[i1] != drops[i0].armor[i1]:
+                print(f"Drops diff, {znd.Enemy.name_str[idx]} armor, jp {drop_jp.armor[i1]} != en {drops[i0].armor[i1]}")
     
     znd.cvtStr2Byte(korTBL)
     znd.packData(f"{PATH_KOR_VARGRANTSTORY}/MAP/{filepath.stem}.ZND")
@@ -415,7 +435,10 @@ def update_MAP_ZND(kor_strings: dict):
     for filepath in file_list:
         relative_path = filepath.relative_to(folder_path)
         logging.info(f"=== {relative_path.stem}.ARM packing ===")
-        update_ZND(filepath, NPCs, WEAPONs)
+        
+        znd_en = ZNDstruct(str(Path(PATH_USA_VARGRANTSTORY) / Path(f'MAP/{relative_path}')))
+        
+        update_ZND(filepath, NPCs, WEAPONs, znd_en.Enemy.drops)
 
 def rebuildNNclass(kor_strings: dict):
     print(f"update === rebuildNNclass === ")
@@ -502,10 +525,8 @@ def update_EVT(kor_strings: dict):
             string = v1.get('string')
             if string is not None:
                 evts_jp.evtFiles[int_k0].strings_str[int_k1] = string
-        
-        evts_jp.evtFiles[int_k0].cvtStr2Byte(korTBL)
     
-    #evts_jp.cvtStr2Byte(korTBL)
+    evts_jp.cvtStr2Byte(korTBL)
     evts_jp.packData(PATH_KOR_VARGRANTSTORY)
 
 def stringBIN_merge(kor_strings: dict):
@@ -577,24 +598,25 @@ def update_Help():
 def rebuildKor():
     kor_strings = mergeKorString()
     
-    #MAINMENU_merge(kor_strings)
+    MAINMENU_merge(kor_strings)
     #rebuildNNclass(kor_strings)
     #stringBIN_merge(kor_strings)
     
     #updateMAP_MDP(kor_strings)
     #update_SMALL_ARM(kor_strings)
-    update_MAP_ZND(kor_strings)
+    #update_MAP_ZND(kor_strings)
     
     #update_EVT(kor_strings)
 
     #update_Help()
+
 #cvtKorFontImage()
 #cvtKorFont14Image()
 #downlaod_localazy()
 
 #korHisto = makeKorFont()
 #makeKorFont14(korHisto)
-#exit()
+
 
 rebuildKor()
 
