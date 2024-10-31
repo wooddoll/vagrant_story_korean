@@ -19,7 +19,7 @@ def createStringBINNClass(FileName: str, keepPos: List[int] = [], startPtr = 0x0
             self.buffer = bytes()
             self.ptrs: List[int] = []
             self.strings = ReadStrings()
-
+            self.itemNums = 0
             if input_path:
                 self.unpackData(input_path)
 
@@ -159,5 +159,9 @@ ITEMHELP_indexes = list(range(373, 413))
 ITEMHELP_indexes.extend(list(range(641, 679)))
 ITEMHELP = createStringBINNClass('MENU/ITEMHELP.BIN', ITEMHELP_indexes)
 MENU4 = createStringBINNClass('MENU/MENU4.PRG', [7, 8, 9, 10, 11, 12], 0x4c44)
-BATTLE_2 = createStringBINNClass('BATTLE/BATTLE.PRG', startPtr=0x4c44)
+
+BATTLE_3 = createStringBINNClass('BATTLE/BATTLE.PRG', [11], startPtr=0x83080)
 MENU7 = createStringBINNClass('MENU/MENU7.PRG', startPtr=0x7c54)
+MENU2 = createStringBINNClass('MENU/MENU2.PRG', [0, 1, 2, 3, 4, 5], startPtr=0x1e90)
+MENU1 = createStringBINNClass('MENU/MENU1.PRG', [30], startPtr=0xC78)
+#NAMEDIC = createStringBINNClass('MENU/NAMEDIC.BIN', [9, 10, 11, 12])

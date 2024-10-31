@@ -511,7 +511,7 @@
         "string": "원한이 맴도는 방"
       },
       "004": {
-        "string": "승려들이 술의 신 축제에 참가한 방"
+        "string": "사제들이 술의 신 축제에 참가한 방"
       },
       "005": {
         "string": "신성한 약속이 깨진 죄의 전당"
@@ -670,7 +670,7 @@
     },
     "SCEN016": {
       "000": {
-        "string": "[Eunicsʹ Lot]"
+        "string": "[Eunics' Lot]"
       },
       "001": {
         "string": "오딜 바이 파이어"
@@ -706,7 +706,7 @@
         "string": "오딜 바이 워터"
       },
       "012": {
-        "string": "[Coldʹs☐Bridle]"
+        "string": "[Cold's☐Bridle]"
       },
       "013": {
         "string": "[Brank]"

@@ -450,54 +450,42 @@ def cvtBytes_kor():
 
 def extract_SL_Main_jp_en():
     mainpath = Path(PATH_JPN_VARGRANTSTORY) / Path('SLPS_023.77')
-    namesInfiles = []
-    skill_jpn = SL_Main(str(mainpath))
+    skill_jpn = rN.SL_Main_jp(str(mainpath))
     skill_jpn.cvtByte2Str(jpnTBL)
-    namesInfiles.extend(skill_jpn.names_str)
-
     ####
     mainpath = Path(PATH_USA_VARGRANTSTORY) / Path('SLUS_010.40')
-    engInfiles = []
-    skill_usa = SL_Main(str(mainpath))
+    skill_usa = rN.SL_Main_en(str(mainpath))
     skill_usa.cvtByte2Str(usaTBL)
-    engInfiles.extend(skill_usa.names_str)
-
     ###
-    
-    len_jpn = len(namesInfiles)
-    len_usa = len(engInfiles)
-    if len_jpn != len_usa:
-        logging.critical("!!!")
-    
+
     texts = {}
-    for idx in range(len_jpn):
-        jp = namesInfiles[idx]
-        en = engInfiles[idx]
-    
-        if not jp and not en:
-            continue
-        
+    for idx, txt in enumerate(skill_jpn.words[0]._str):
+        jp = txt
+        en = skill_usa.words[0]._str[idx]
+
         singleRow = {}
         singleRow['string'] = jp
         singleRow['@@localazy:comment:string'] = en
         texts[f'{idx:03}'] = singleRow
 
+    texts2 = {}
+    for idx, txt in enumerate(skill_jpn.strings[0]._str):
+        jp = txt
+        en = skill_usa.strings[0]._str[idx]
+
+        singleRow = {}
+        singleRow['string'] = jp
+        singleRow['@@localazy:comment:string'] = en
+        texts2[f'{idx:03}'] = singleRow
+
     dialogLists = {}
     dialogLists['SL_Main'] = texts
+    dialogLists['SL_Main_1'] = texts2
     with open(f'work/strings/SLPS_main_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
-        
-    return
-    wordInfiles = []
-    for i in range(len_jpn):
-        jpn = namesInfiles[i]
-        eng = engInfiles[i]
-        wordInfiles.append([jpn, eng])
 
-    df = pd.DataFrame(wordInfiles, columns=['jp-ja', 'en-us'])
-    outpath = 'work/strings/SLPS_main.csv'
-    df.to_csv(outpath, index=False, encoding='utf-8')
-
+extract_SL_Main_jp_en()
+exit()
 
 def extract_TITLE_PRG_jp_en():
     mainpath = Path(PATH_JPN_VARGRANTSTORY) / Path('TITLE/TITLE.PRG')
@@ -1149,24 +1137,25 @@ def extract_MPD_jp_en():
     
     with open('work/strings/MAP_MPD_ja.json', 'w', encoding='utf-8') as f:
         json.dump(outDict, f, indent=2, ensure_ascii=False)
-extract_MPD_jp_en()
-exit()
+#extract_MPD_jp_en()
+#exit()
 
 def searchByte():
     folder_path = Path(PATH_KOR_VARGRANTSTORY)
     file_list = [file for file in folder_path.rglob('*') if file.is_file()]
     file_list = sorted(file_list)
-    word = bytes(b'\x5C\x4D\x43')
+    word = bytes(b'\x96\xDD\xE4\xCE')
+    len_word = len(word)
     for filepath in tqdm(file_list, desc="Processing"):
         relative_path = filepath.relative_to(folder_path)
         with open(filepath, 'rb') as file:
             buffer = file.read()
-            len_file = len(buffer) - 3
+            len_file = len(buffer) - len_word
             for ptr in range(len_file):
-                if buffer[ptr:ptr+3] == word:
-                    print(f"{relative_path}, ptr{ptr:X}")
-#searchByte()
-#exit()
+                if buffer[ptr:ptr+len_word] == word:
+                    print(f"{relative_path}, ptr 0x{ptr:X}")
+searchByte()
+exit()
 
 def extract_SMALL_HF0():
     folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('SMALL')
@@ -1466,7 +1455,23 @@ def testMPD_():
     print()
 #testMPD_()
 
-exit()
+#utils.findStringsFromFile(str(Path(PATH_JPN_VARGRANTSTORY) / Path('MENU/NAMEDIC.BIN')))
+#exit()
+
+def test15():
+    NAMEDIC = rN.NAMEDIC(PATH_JPN_VARGRANTSTORY)
+    NAMEDIC.cvtByte2Str(jpnTBL)
+    
+    dialogLists = {}
+    texts1 = {}
+    for string in NAMEDIC.strings:
+        for idx, text in enumerate(string._str):
+            texts1.update({f'{idx:03}': {'string' : text}})
+    dialogLists['NAMEDIC'] = texts1
+    with open(f'work/strings/MENU_NAMEDIC_BIN_ja.json', 'w', encoding='utf-8') as f:
+        json.dump(dialogLists, f, indent=2, ensure_ascii=False)
+        
+#test15()
 
 while True:
     cvtBytes_jp()

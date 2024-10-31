@@ -75,6 +75,10 @@ class read_EVT:
                 file.write(self.Unknown1)
                 file.seek(head[3])
                 file.write(self.Unknown2)
+                currSize = file.tell()
+                if 4096 < currSize:
+                    over = currSize - 4096
+                    logging.critical(f"check the length of strings, size overflowed; {new_len_buffer-over} < current({new_len_buffer})")
 
 
 class EVENT_EVT:
@@ -111,7 +115,8 @@ class EVENT_EVT:
     def packData(self, output_folder: str):
         for k, v in self.evtFiles.items():
             idx = int(k)
-            logging.info(f"{idx:04}.EVT")
+            #logging.info(f"{idx:04}.EVT")
+            print(f"{idx:04}.EVT")
             output_path =  Path(output_folder) / Path('EVENT') / Path(f'{idx:04}.EVT')
             v.packData(str(output_path))
 

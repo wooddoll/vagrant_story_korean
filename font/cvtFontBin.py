@@ -436,14 +436,15 @@ def insertTITLE_font(input_path: str, insert_image: str, output_path: str):
     with open(input_path, "rb") as file:
         title_prg = file.read()
 
-        ptrA = 0x44cc8
-        fontImg = FontImage2b(title_prg[ptrA:])
-        imgJpKr = Image.open(insert_image)
-        fontImg.setImage(imgJpKr)
+    ptrA = 0x44cc8
+    fontImg = FontImage2b(title_prg[ptrA:])
+    imgJpKr = Image.open(insert_image)
+    fontImg.setImage(imgJpKr)
 
-        buffer = fontImg.packData()
+    buffer = fontImg.packData()
         
     with open(output_path, "wb") as file:
+        file.write(title_prg)
         file.seek(ptrA)
         file.write(buffer)
     

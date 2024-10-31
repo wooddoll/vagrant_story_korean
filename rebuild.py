@@ -237,12 +237,13 @@ def makeKorFont():
 
     system_dat = cvtFontBin.SYSTEM_DAT(f'{PATH_JPN_VARGRANTSTORY}')
     system_dat.fontData.setImage(imgJpKr)
-    #imgUI = Image.open('work/texture/system_dat_pack_1.png')
-    #system_dat.texture_ui.setImage(imgUI)
+    
+    imgUI = Image.open('work/texture/Textkor2.png')
+    system_dat.texture_ui.setImage(imgUI)
     #system_dat.texture_ui.image.save('work/texture/test_2.png')
     system_dat.packData(f'{PATH_KOR_VARGRANTSTORY}/BATTLE/SYSTEM.DAT')
     
-    insertTITLE_font(f'{PATH_JPN_VARGRANTSTORY}/TITLE/TITLE.PRG', krfontImage, f'{PATH_KOR_VARGRANTSTORY}/TITLE/TITLE.PRG')
+    insertTITLE_font(f'{PATH_JPN_VARGRANTSTORY}/TITLE/TITLE.PRG', 'font/font12kr.png', f'{PATH_KOR_VARGRANTSTORY}/TITLE/TITLE.PRG')
     return korHisto
 
 def posInTable18_ja(index: int):
@@ -274,6 +275,23 @@ def makeKorFont14(korHisto: dict):
         
         kLetterImg = imgKr.crop((kx, ky, kx + 14, ky + 14))
         imgJpKr.paste(kLetterImg, (jx, jy, jx + 14, jy + 14))
+    
+    draw = ImageDraw.Draw(imgJpKr, 'RGBA')
+    imgEng = Image.open('font/system_dat_unpack_F.png')
+    xx=2184
+    for i in range(84):
+        ex = i%21
+        ey = i//21
+        ex *= 12
+        ey *= 11
+        jx = xx%18
+        jy = xx//18
+        jx = jx*14 + 1
+        jy = jy*14 + 1
+        xx += 1
+        eLetterImg = imgEng.crop((ex, ey, ex + 12, ey + 11))
+        draw.rectangle((jx, jy, jx + 14, jy + 14), fill=(0, 0, 0, 0))
+        imgJpKr.paste(eLetterImg, (jx, jy, jx + 12, jy + 11))
     
     krfontImage = 'font/font14kr.png'
     imgJpKr.save(krfontImage)
@@ -444,6 +462,8 @@ def rebuildNNclass(kor_strings: dict):
     print(f"update === rebuildNNclass === ")
     
     def replaceStr(strlist: List[str], texts: dict):
+        if len(strlist) != len(texts):
+            logging.info(f"why???")
         for k, v in texts.items():
             string = v.get('string')
             if string is not None:
@@ -452,8 +472,11 @@ def rebuildNNclass(kor_strings: dict):
     for name in rN.FileLoadFuncNames:
         print(f"update {name}")
         
-        ClassJp, ClassEn = rN.getNNClass(name)        
-        loadJp = ClassJp(PATH_JPN_VARGRANTSTORY)
+        ClassJp, ClassEn = rN.getNNClass(name)
+        if name == 'TITLE':
+            loadJp = ClassJp(PATH_KOR_VARGRANTSTORY)
+        else:
+            loadJp = ClassJp(PATH_JPN_VARGRANTSTORY)
         
         loadJp.cvtByte2Str(jpnTBL)
              
@@ -480,8 +503,8 @@ def rebuildNNclass(kor_strings: dict):
         if name == 'BATTLE':
             replaceStr(loadJp.strings[0]._str, kor_strings['BATTLE_1'])
             replaceStr(loadJp.words[0]._str, kor_strings['BATTLE_2'])
-            replaceStr(loadJp.strings[1]._str, kor_strings['BATTLE_3'])
-            replaceStr(loadJp.strings[2]._str, kor_strings['BATTLE_4'])
+            #replaceStr(loadJp.strings[1]._str, kor_strings['BATTLE_3'])
+            replaceStr(loadJp.strings[1]._str, kor_strings['BATTLE_4'])
         
         if name == 'MENU5':
             replaceStr(loadJp.strings[0]._str, kor_strings['MENU5_1'])
@@ -491,7 +514,6 @@ def rebuildNNclass(kor_strings: dict):
         if name == 'INITBTL':
             loadJp.words[0]._str[0] = kor_strings['INITBTL']['000']['000']['string']
             loadJp.words[1]._str[0] = kor_strings['INITBTL']['001']['000']['string']
-            print()
         
         if name == 'MON':
             monText = kor_strings.get('MON')
@@ -504,6 +526,10 @@ def rebuildNNclass(kor_strings: dict):
                 if monDesc is not None:
                     loadJp.strings[0]._str[int(k)] = monDesc
         
+        if name == 'SL_Main':
+            replaceStr(loadJp.words[0]._str, kor_strings['SL_Main'])
+            replaceStr(loadJp.strings[0]._str, kor_strings['SL_Main_1'])
+            
         loadJp.cvtStr2Byte(korTBL)
         loadJp.packData(PATH_KOR_VARGRANTSTORY)
 
@@ -530,7 +556,7 @@ def update_EVT(kor_strings: dict):
     evts_jp.packData(PATH_KOR_VARGRANTSTORY)
 
 def stringBIN_merge(kor_strings: dict):
-    jobNames = ['MCMAN', 'MENU12', 'ITEMHELP', 'MENU4', 'MENU7']
+    jobNames = ['MCMAN', 'MENU12', 'ITEMHELP', 'MENU4', 'MENU7', 'MENU2', 'MENU1', 'BATTLE_3']
     print(f"update === stringBIN_merge === ")
     for name in jobNames:
         print(f"update {name}")
@@ -544,11 +570,25 @@ def stringBIN_merge(kor_strings: dict):
             Class_jp = mS.MENU4
         if name == 'MENU7':
             Class_jp = mS.MENU7
+        if name == 'MENU2':
+            Class_jp = mS.MENU2
+        if name == 'MENU1':
+            Class_jp = mS.MENU1
+        if name == 'BATTLE_3':
+            Class_jp = mS.BATTLE_3
+        if name == 'NAMEDIC':
+            Class_jp = mS.NAMEDIC
+            
         #Class_jp = globals()[f'mS.{name}']
-        curr = Class_jp(PATH_JPN_VARGRANTSTORY)
+        if name == 'BATTLE_3':
+            curr = Class_jp(PATH_KOR_VARGRANTSTORY)
+        else:
+            curr = Class_jp(PATH_JPN_VARGRANTSTORY)
 
         curr.cvtByte2Str(jpnTBL)    
         texts = kor_strings[name]
+        if curr.itemNums != len(texts):
+            logging.info(f"why???")
         for k, v in texts.items():
             idx = int(k)
             txt = v.get('string')
@@ -557,7 +597,7 @@ def stringBIN_merge(kor_strings: dict):
 
         curr.cvtStr2Byte(korTBL)
         #curr.checkPtrs()
-        if name not in ['MENU4', 'MENU7']:
+        if name in ['MCMAN', 'MENU12', 'ITEMHELP', 'NAMEDIC']:
             curr.setBlank(jpnTBL)
         curr.packData(PATH_KOR_VARGRANTSTORY)
 
@@ -598,25 +638,27 @@ def update_Help():
 def rebuildKor():
     kor_strings = mergeKorString()
     
+    insertTITLE_font(f'{PATH_JPN_VARGRANTSTORY}/TITLE/TITLE.PRG', 'font/font12kr.png', f'{PATH_KOR_VARGRANTSTORY}/TITLE/TITLE.PRG')
+        
     MAINMENU_merge(kor_strings)
-    #rebuildNNclass(kor_strings)
-    #stringBIN_merge(kor_strings)
-    
-    #updateMAP_MDP(kor_strings)
-    #update_SMALL_ARM(kor_strings)
-    #update_MAP_ZND(kor_strings)
-    
-    #update_EVT(kor_strings)
+    rebuildNNclass(kor_strings)
+    stringBIN_merge(kor_strings)
 
-    #update_Help()
+    updateMAP_MDP(kor_strings)
+    update_SMALL_ARM(kor_strings)
+    update_MAP_ZND(kor_strings)
+    
+    update_EVT(kor_strings)
+
+    update_Help()
 
 #cvtKorFontImage()
 #cvtKorFont14Image()
+#exit()
 #downlaod_localazy()
 
 #korHisto = makeKorFont()
 #makeKorFont14(korHisto)
-
 
 rebuildKor()
 

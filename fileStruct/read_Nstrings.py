@@ -135,8 +135,10 @@ MENU12 = createNstringsNwordsClass('MENU/MENU12.BIN', [0x0])
 MCMAN = createNstringsNwordsClass('MENU/MCMAN.BIN', [0x0])
 ITEMHELP = createNstringsNwordsClass('MENU/ITEMHELP.BIN', [0x0])
 
-BATTLE_en = createNstringsNwordsClass('BATTLE/BATTLE.PRG', [0x82068, 0x831DC, 0x835DC], [WordPos(0x83758, 0x18, 21)])
-BATTLE_jp = createNstringsNwordsClass('BATTLE/BATTLE.PRG', [0x82050, 0x83080, 0x8341C], [WordPos(0x83520, 0x18, 21)])
+ptr_BATTLE_en = [0x82068, 0x831DC, 0x835DC]
+BATTLE_en = createNstringsNwordsClass('BATTLE/BATTLE.PRG', [0x82068, 0x835DC], [WordPos(0x83758, 0x18, 21)])
+ptr_BATTLE_jp = [0x82050, 0x83080, 0x8341C]
+BATTLE_jp = createNstringsNwordsClass('BATTLE/BATTLE.PRG', [0x82050, 0x8341C], [WordPos(0x83520, 0x18, 21)])
 
 MON = createNstringsNwordsClass('SMALL/MON.BIN', [0x19C8], [WordPos(0x12, 0x1A, 150, 0x2C)])
 
@@ -147,21 +149,20 @@ INITBTL = createNstringsNwordsClass('BATTLE/INITBTL.PRG', [], [WordPos(0x131C, 0
 
 ITEMNAME = createNstringsNwordsClass('MENU/ITEMNAME.BIN', [], [WordPos(0x0, 0x18, 512)])
 
-SL_Main_en = createNstringsNwordsClass('SLUS_010.40', [], [WordPos(0x3C1F8, 0x18, 256, 0x34)])
-SL_Main_jp = createNstringsNwordsClass('SLPS_023.77',[], [WordPos(0x3C1F8, 0x18, 256, 0x34)])
+SL_Main_en = createNstringsNwordsClass('SLUS_010.40', [0x405CC], [WordPos(0x3C1F8, 0x18, 256, 0x34)])
+SL_Main_jp = createNstringsNwordsClass('SLPS_023.77',[0x405CC], [WordPos(0x3C1F8, 0x18, 256, 0x34)])
 
-MAP017 = createNstringsNwordsClass('MAP/MAP017.MDP',[])
+NAMEDIC = createNstringsNwordsClass('MENU/NAMEDIC.BIN', [0x0])
 
 
-
-FileLoadFuncNames = ['MENU0', 'MENU1', 'MENU2', 'MENU3', 'MENU5', 
+FileLoadFuncNames = ['MENU0', 'MENU3', 'MENU5', 'NAMEDIC',
                      'MENU8', 'MENU9', 'MENUB', 'MENUD', 'MENUE', 
                      'BATTLE', 'MON', 'TITLE', 'INITBTL',
                      'ITEMNAME', 'SL_Main']
 
-FileLoad1Strs = ['MENU0', 'MENU1', 'MENU2', 'MENU3',  
+FileLoad1Strs = ['MENU0', 'MENU3',  'NAMEDIC',
                  'MENU8', 'MENUB', 'MENUD', 'MENUE', 
-                 'TITLE', 'ITEMNAME', 'SL_Main']
+                 'TITLE', 'ITEMNAME']
 
 def getNNClass(className: str) -> Tuple[Class_Nstrings, Class_Nstrings]:
     Class_en = None

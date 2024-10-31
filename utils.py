@@ -7,6 +7,7 @@ import signal
 import shlex
 import logging
 import io
+from pathlib import Path
 from VS_pathes import *
 
 def int4(buffer: bytes):
@@ -152,3 +153,88 @@ def format_byte_array(textbytes: bytearray, ControlWord: bool = False):
                 result.append(f'0x{byte:02X}')
                 i += 1
     return ','.join(result)
+
+
+
+
+def findReverse(buffer: bytes, candidate: List[int], start: int):
+    len_file = len(buffer)
+    maxStr = len(candidate)
+    ptr = candidate[start] - 4
+    while 0 < ptr:
+        idx0 = int2(buffer[ptr:ptr+2])
+        pos = ptr+2
+        if 0 < idx0 and idx0 <= maxStr:
+            prev = idx0
+            inc = True
+            for i in range(idx0-1):
+                    curr = int2(buffer[pos:pos+2])
+                    pos += 2
+                    if prev >= curr: 
+                        inc = False
+                        ptr -= 2
+                        break
+                    xPtr = ptr + 2*curr
+                    if len_file <= xPtr:
+                        inc = False
+                        ptr -= 2
+                        break
+                    matched = False
+                    for xx in candidate:
+                        if xPtr == xx:
+                            matched = True
+                            break
+                    if not matched:
+                        inc = False
+                        ptr -= 2
+                        break
+                    prev = curr
+            if inc:
+                return ptr, idx0
+        else:
+            ptr -= 2
+        
+    return -1, -1
+
+def findStrings(buffer: bytes):
+    byte_stream = io.BytesIO(buffer)           
+    len_file = len(buffer)
+    ptrStrEnd = []
+    for ptr in range(0, len_file, 2):
+        data = byte_stream.read(2)
+        if data[1] == 0xE7 or (data[0] == 0xE7 and (data[1] == 0x00 or data[1] == 0xEB)):
+            ptrStrEnd.append(ptr+2)
+    if not ptrStrEnd: return []
+    
+    devStrPoses: List[int] = []
+    startIdx = len(ptrStrEnd) - 1
+    while 0 <= startIdx:
+        ptr, count = findReverse(buffer, ptrStrEnd, startIdx)
+        if 0 < ptr and 0 < count:
+            lenStr = ptrStrEnd[-1] - ptr
+            if count == 1 and 40 < lenStr:
+                startIdx -= 1
+                ptrStrEnd = ptrStrEnd[:startIdx+1]
+                continue
+            devStrPoses.append(ptr)
+        else:
+            break
+        
+        for i, x in enumerate(ptrStrEnd):
+            if ptr < x:
+                startIdx = i - 1
+                ptrStrEnd = ptrStrEnd[:i]
+                break
+        
+    return sorted(devStrPoses)
+    
+    
+def findStringsFromFile(filepath: str):
+    with open(filepath, 'rb') as file:
+        buffer = file.read()
+        devStrPoses = findStrings(buffer)
+        if devStrPoses:
+            _filepath = Path(filepath)
+            print(f"{int(_filepath.stem)} : [", end='')
+            for p in devStrPoses: print(f"0x{p:04X}, ", end='')
+            print('], ', end='')

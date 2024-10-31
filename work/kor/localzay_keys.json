@@ -77,7 +77,7 @@
     }
   },
   "MENU5": {
-    "readKey": "a7205291056841859706-2d681010b692fce2180ef48962c00cd9e18b9a336ff5551626fd8a987d85f4da",
+    "readKey": "a7184030480509655747-e70df21b83c86a67226c8ebcd3abd0794421c706a19add93190b98eb87fffbe8",
     "download": {
       "includeSourceLang": false,
       "files": "MENU_MENU5_PRG_ko.json"
@@ -133,7 +133,7 @@
     }
   },
   "SLPS": {
-    "readKey": "a7205317337411199727-ab57def3432797f3cd8e4c3af40b39511fd56f3b0802c88c413a060d5ea744a4",
+    "readKey": "a7185310327076760395-9a841a0e9154e3451c25e13831d8bed8624e68e0641c988d741185691b691d3e",
     "download": {
       "includeSourceLang": false,
       "files": "SLPS_main_ko.json"
