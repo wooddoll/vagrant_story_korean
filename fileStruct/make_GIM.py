@@ -76,7 +76,7 @@ class gimDADDY(read_gimBase):
         blk1 = self.Image.crop((0, 7, 64, 14))
         self.Canvas.paste(blk1, (0, 0))
         blk2 = self.Image.crop((64, 0, 127, 7))
-        self.Canvas.paste(blk1, (0, 7))
+        self.Canvas.paste(blk1, (0, 7)) 
 
     def packData(self, output_path: str):
         # here
