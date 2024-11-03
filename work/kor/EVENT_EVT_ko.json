@@ -145,12 +145,12 @@
         "string": "«FB60»«FA0C»[W]hat's going on[?]↵«FA0C»[Y]ou«FA0C»were«FA0C»most↵«FA0C»certainly dead[!]"
       },
       "008": {
-        "string": "«FB»"
+        "string": "«FB68»«F802» [S]o... still think the dead..«F808».«F802»↵ only rise in faerie...«FC00»tales[?]"
       }
     },
     "015": {
       "000": {
-        "string": "«FB»"
+        "string": "«FBD0»«F802»«FA12»[M]y...apologies..«F80C».«F802» [I]'ve↵«FA12»no time..«F80C».«F802»«FA0C»to«FA0C»toy...↵«FA12»with you... now...«FC00»"
       }
     },
     "020": {
@@ -173,7 +173,7 @@
         "string": "«FB68»«FA18»그녀?"
       },
       "006": {
-        "string": "«FB98»«FA0C»에이전트・멜로즈。"
+        "string": "«FB98»«FA30»에이전트・멜로즈。"
       }
     },
     "023": {
@@ -282,7 +282,7 @@
         "string": "«FB68»«FA0C»⋯도망치지 않겠다면,↵«FA0C»적당히 상대 해주지。"
       },
       "001": {
-        "string": "«FB68»«FA0C»⋯뭘 하고 있는 건가요?"
+        "string": "«FB68»«FA08»⋯뭘 하고 있는 건가요?"
       },
       "002": {
         "string": "«FB68»«FA0C»흐흥,그냥 평범한 낙서다«F814»。«F801»↵«FA0C»⋯어때,하딘。"
@@ -300,19 +300,19 @@
         "string": "«FB68»«FA18»“魔”를 받아 들여서,↵«FA18»“힘”으로 하고 있어서다。↵«FA18»⋯여기까진 예상 대로다。"
       },
       "007": {
-        "string": "«FB68»«FA24»⋯어쩔 셈이지?"
+        "string": "«FB68»«FA18»⋯어쩔 셈이지?"
       },
       "008": {
         "string": "«FB68»«FA24»어쩌다니⋯이대로,↵«FA24»나를 쫓아오게 할거다。"
       },
       "009": {
-        "string": "«FB98»«FA0C»무슨 생각이야,시드니!«FAFA»!"
+        "string": "«FB98»«FA18»무슨 생각이야,시드니!«FAFA»!"
       },
       "010": {
-        "string": "«FB68»«FA0C»성인기사단이 이 도시를 점거하는 것도↵«FA0C»시간 문제야。"
+        "string": "«FB68»«FA0C»성인기사단이 이 도시를 점거하는↵«FA0C»것도 시간 문제야。"
       },
       "011": {
-        "string": "«FB68»«FA18»그런 녀석에게 신경 쓸 처지야?↵«FA18»시간에 쫓기지 않았나?"
+        "string": "«FB68»«FA18»그런 녀석에게 신경 쓸 처지야?↵«FA18»시간에 쫓기고 있지 않았나?"
       },
       "012": {
         "string": "«FB68»«FA18»그렇게 안절부절 하지마,하딘。↵«FA18»예정대로라고 했자나?"
@@ -324,7 +324,7 @@
         "string": "«FBC8»«FA24»저 리스크 브레이커가↵«FA24»괴물처럼 강한것도,↵«FA24»전부 예정대로 라는 거냐!«FAFA»!"
       },
       "015": {
-        "string": "«FB68»«FA24»⋯미안해。시드니。"
+        "string": "«FB68»«FA18»⋯미안해。시드니。"
       },
       "016": {
         "string": "«FB68»«FA24»괜찮아,하딘。↵«FA24»신경쓰지마。"
@@ -339,7 +339,7 @@
         "string": "«FB68»«FA0C»네 친구를 위해↵«FA0C»저녁 만찬을 준비해 두는 거야。"
       },
       "020": {
-        "string": "«FB68»[gylda]«FAFC»・«FAFC»[meundes]«FAFC»・«FAFC»[haati]«FAFC»・«FAFC»[smohta]«F80F»⋯«F801»↵ [ferdes]«FAFC»・«FAFC»[raati]«FAFC»・«FAFC»[salba]«FAFC»・«FAFC»[gylmota]«F80F»⋯«F801»↵어둠에서 초대된 마계의 영제여⋯"
+        "string": "«FB68»«FA18»[gylda]«FAFC»・«FAFC»[meundes]«FAFC»・«FAFC»[haati]«FAFC»・«FAFC»[smohta]«F80F»⋯«F801»↵«FA18»[ferdes]«FAFC»・«FAFC»[raati]«FAFC»・«FAFC»[salba]«FAFC»・«FAFC»[gylmota]«F80F»⋯«F801»↵«FA18»어둠에서 초대된 마계의 영제여⋯"
       },
       "021": {
         "string": "«FB68»«FA12»죄 많은 혈족과의 규약에 의해,↵«FA12»너의 흉수를 우리의 종으로 인도하라⋯↵«FA12»[gylta]・[shalm]・[len]・[methada]!"
