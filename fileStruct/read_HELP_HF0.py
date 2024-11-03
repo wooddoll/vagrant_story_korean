@@ -85,10 +85,15 @@ class ReadHelpStrings():
             byte_stream.write(data)
         
         currPos = byte_stream.tell()
+        currPos_4b = ((currPos+3)//4)*4
+        if currPos < currPos_4b:
+            padd0 = currPos_4b - currPos
+            byte_stream.write(bytearray(padd0))
+            
         if self.len_buffer < currPos:
-            logging.warning(f"check the length of strings, size overflowed; {self.len_buffer} < current({currPos})")
+            logging.warning(f"check the length of strings, size overflowed; {self.len_buffer} < current({currPos_4b})")
         
-        self.len_buffer = currPos
+        self.len_buffer = currPos_4b
         
         return byte_stream.getvalue()
 
@@ -154,7 +159,7 @@ def formatHelpText(text_path: str):
         lines = file.readlines()
 
     formatedLines: List[str] = []
-    maxLinePos = 250
+    maxLinePos = 306
     for line in lines:
         if line[-1] == '\n':
             currLine = line[:-1]
@@ -191,13 +196,24 @@ def formatHelpText(text_path: str):
                 if letter == ' ':
                     lastSpacePos = pos-1
                     txtPos += 6
+                elif letter in [',', '。']:
+                    lastSpacePos = pos
+                    txtPos += 12
+                elif letter == '・':
+                    lastSpacePos = pos-1
+                    txtPos += 12
                 else:
                     txtPos += 12
             
             if maxLinePos <= txtPos:
                 formatedNewLine += currLine[:lastSpacePos]
                 formatedLines.append(formatedNewLine)
-                currLine = currLine[lastSpacePos+1:]
+                if currLine[lastSpacePos-1] in ['。', ',']:
+                    currLine = currLine[lastSpacePos:]
+                elif currLine[lastSpacePos] in [' ', '・']:
+                    currLine = currLine[lastSpacePos+1:]
+                else:
+                    currLine = currLine[lastSpacePos:]
                 len_line = len(currLine)
                 pos = 0
                 if 0 < indent:
@@ -205,7 +221,10 @@ def formatHelpText(text_path: str):
                 else:
                     formatedNewLine = ''
                 txtPos = indent
-        formatedNewLine += currLine
+        if not currLine:
+            formatedNewLine += ' '
+        else:
+            formatedNewLine += currLine
         formatedLines.append(formatedNewLine)
 
     return formatedLines

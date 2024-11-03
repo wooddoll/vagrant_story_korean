@@ -116,7 +116,7 @@ class EVENT_EVT:
         for k, v in self.evtFiles.items():
             idx = int(k)
             #logging.info(f"{idx:04}.EVT")
-            print(f"{idx:04}.EVT")
+            #print(f"{idx:04}.EVT")
             output_path =  Path(output_folder) / Path('EVENT') / Path(f'{idx:04}.EVT')
             v.packData(str(output_path))
 

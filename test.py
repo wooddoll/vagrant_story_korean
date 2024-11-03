@@ -484,8 +484,8 @@ def extract_SL_Main_jp_en():
     with open(f'work/strings/SLPS_main_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
 
-extract_SL_Main_jp_en()
-exit()
+#extract_SL_Main_jp_en()
+#exit()
 
 def extract_TITLE_PRG_jp_en():
     mainpath = Path(PATH_JPN_VARGRANTSTORY) / Path('TITLE/TITLE.PRG')
@@ -1144,7 +1144,7 @@ def searchByte():
     folder_path = Path(PATH_KOR_VARGRANTSTORY)
     file_list = [file for file in folder_path.rglob('*') if file.is_file()]
     file_list = sorted(file_list)
-    word = bytes(b'\x96\xDD\xE4\xCE')
+    word = bytes(b'\x32\xED\x02')
     len_word = len(word)
     for filepath in tqdm(file_list, desc="Processing"):
         relative_path = filepath.relative_to(folder_path)
@@ -1154,8 +1154,8 @@ def searchByte():
             for ptr in range(len_file):
                 if buffer[ptr:ptr+len_word] == word:
                     print(f"{relative_path}, ptr 0x{ptr:X}")
-searchByte()
-exit()
+#searchByte()
+#exit()
 
 def extract_SMALL_HF0():
     folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('SMALL')
@@ -1212,7 +1212,8 @@ def extract_SMALL_HF0():
     dialogLists['SMALL_HELP'] = hlp_names
     with open(f'work/strings/SMALL_HELP_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
-        
+extract_SMALL_HF0()  
+exit()
 def extractAll():
     extract_ARM_jp_en()
     extract_ZND_jp_en()

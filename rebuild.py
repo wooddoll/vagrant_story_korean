@@ -1,7 +1,7 @@
 import logging
 from rich.logging import RichHandler
 logging.basicConfig(
-        level=logging.WARNING, 
+        level=logging.CRITICAL, 
         format="[%(filename)s:%(lineno)s] >> %(message)s",
         handlers=[RichHandler(rich_tracebacks=True)]
     )
@@ -28,6 +28,7 @@ from fileStruct import merge_StringBIN as mS
 from fileStruct.read_MAINMENU import *
 from fileStruct import read_Nstrings as rN
 from fileStruct.read_HELP_HF0 import HELP_HF0, formatHelpText
+from fileStruct.make_GIM import read_GIM
 import subprocess
 
 logging.info(f"loading; --- jpnTBL ---")
@@ -197,7 +198,14 @@ def makeKorFont():
     slots = font12slots()
     slotPos = 0
     kor_strings = mergeKorString()
-    korHisto = collectKorLetters(kor_strings)
+    _korHisto = collectKorLetters(kor_strings)
+    
+    idx = 0
+    
+    korHisto = {}
+    for k, v in _korHisto.items():
+        korHisto[k] = v
+        idx += 1
     
     ji = 0
     for k, v in korHisto.items():
@@ -413,7 +421,7 @@ def update_ZND(filepath: Path, NPCs: dict, WEAPONs: dict, drops: List[Drops] = [
         if korName is None:
             logging.critical(f"why? {jpName} is not key?")
         znd.Enemy.weapon_str[idx] = korName
-    
+    '''
     for i0, drop_jp in enumerate(znd.Enemy.drops):
         if drop_jp.weapon != drops[i0].weapon:
             print(f"Drops diff, {znd.Enemy.name_str[idx]} weapon({znd.Enemy.weapon_str[i0]}), jp {drop_jp.weapon} != en {drops[i0].weapon}")
@@ -424,7 +432,7 @@ def update_ZND(filepath: Path, NPCs: dict, WEAPONs: dict, drops: List[Drops] = [
         for i1 in range(6):
             if drop_jp.armor[i1] != drops[i0].armor[i1]:
                 print(f"Drops diff, {znd.Enemy.name_str[idx]} armor, jp {drop_jp.armor[i1]} != en {drops[i0].armor[i1]}")
-    
+    '''
     znd.cvtStr2Byte(korTBL)
     znd.packData(f"{PATH_KOR_VARGRANTSTORY}/MAP/{filepath.stem}.ZND")
     
@@ -519,12 +527,12 @@ def rebuildNNclass(kor_strings: dict):
             monText = kor_strings.get('MON')
             for k, v in monText.items():
                 monName = v.get('name')
-                monDesc = v.get('description')
+                #monDesc = v.get('description')
                 
                 if monName is not None:
                     loadJp.words[0]._str[int(k)] = monName
-                if monDesc is not None:
-                    loadJp.strings[0]._str[int(k)] = monDesc
+                #if monDesc is not None:
+                #    loadJp.strings[0]._str[int(k)] = monDesc
         
         if name == 'SL_Main':
             replaceStr(loadJp.words[0]._str, kor_strings['SL_Main'])
@@ -556,9 +564,8 @@ def update_EVT(kor_strings: dict):
     evts_jp.packData(PATH_KOR_VARGRANTSTORY)
 
 def stringBIN_merge(kor_strings: dict):
-    jobNames = ['MCMAN', 'MENU12', 'ITEMHELP', 'MENU4', 'MENU7', 'MENU2', 'MENU1', 'BATTLE_3']
     print(f"update === stringBIN_merge === ")
-    for name in jobNames:
+    for name in mS.FileLoadFuncNames:
         print(f"update {name}")
         if name == 'MCMAN':
             Class_jp = mS.MCMAN
@@ -576,11 +583,11 @@ def stringBIN_merge(kor_strings: dict):
             Class_jp = mS.MENU1
         if name == 'BATTLE_3':
             Class_jp = mS.BATTLE_3
-        if name == 'NAMEDIC':
-            Class_jp = mS.NAMEDIC
+        if name == 'MON':
+            Class_jp = mS.MON
             
         #Class_jp = globals()[f'mS.{name}']
-        if name == 'BATTLE_3':
+        if name in ['BATTLE_3', 'MON']:
             curr = Class_jp(PATH_KOR_VARGRANTSTORY)
         else:
             curr = Class_jp(PATH_JPN_VARGRANTSTORY)
@@ -595,10 +602,17 @@ def stringBIN_merge(kor_strings: dict):
             if txt is None: continue
             curr.strings._str[idx] = txt
 
+        if name == 'MON':
+            for k, v in texts.items():
+                idx = int(k)
+                txt = v.get('description')
+                if txt is None: continue
+                curr.strings._str[idx] = txt
+        
         curr.cvtStr2Byte(korTBL)
         #curr.checkPtrs()
-        if name in ['MCMAN', 'MENU12', 'ITEMHELP', 'NAMEDIC']:
-            curr.setBlank(jpnTBL)
+        #if name in ['MCMAN', 'MENU12', 'ITEMHELP', 'NAMEDIC']:
+        #    curr.setBlank(jpnTBL)
         curr.packData(PATH_KOR_VARGRANTSTORY)
 
 def MAINMENU_merge(kor_strings: dict):
@@ -613,27 +627,44 @@ def MAINMENU_merge(kor_strings: dict):
     
     curr.packData(PATH_KOR_VARGRANTSTORY)
 
-def update_Help():
-    print(f"update === HELP === ")
-    hlp = HELP_HF0(f'{PATH_JPN_VARGRANTSTORY}/SMALL/HELP01.HF0')
-    hlp.cvtByte2Str(jpnTBL)
-    
-    helpsingle = {}
-    lines = formatHelpText('work/help/help01.txt')
-    hlp.strings._str.clear()
-    for idx, line in enumerate(lines):
-        hlp.strings._str.append(line)
-        helpsingle[f'{idx:03}'] = line
+def getTextfromText():
+    helpDict = {}
+    for i in range(1, 15):
+        lines = formatHelpText(f'work/help/help{i:02}.txt')
+        
+        helpsingle = {}
+        for idx, line in enumerate(lines):
+            helpsingle[f'{idx:03}'] = line
    
-    hlp.strings.itemNums = len(hlp.strings._str)
-
-    helpDict = {'HELP_1': helpsingle}
+        helpDict[f'HELP_{i:02}'] = helpsingle
+        
     with open('work/kor/HELP_ko.json', 'w', encoding='utf-8') as f:
         json.dump(helpDict, f, indent=2, ensure_ascii=False)
     
-    hlp.cvtStr2Byte(korTBL)
-    hlp.strings.packData()
-    hlp.packData(f'{PATH_KOR_VARGRANTSTORY}/SMALL/HELP01.HF0')
+    return helpDict
+
+def update_Help():
+    print(f"update === HELP === ")
+    
+    #getTextfromText()
+    
+    with open('work/kor/HELP_ko.json', 'r', encoding='utf-8') as json_file:
+        helpDict = json.load(json_file)
+        
+    for i in range(1, 15):
+        print(f"HELP{i:02}")
+        hlp = HELP_HF0(f'{PATH_JPN_VARGRANTSTORY}/SMALL/HELP{i:02}.HF0')
+        hlp.cvtByte2Str(jpnTBL)
+
+        lines = helpDict[f'HELP_{i:02}']
+        hlp.strings._str.clear()
+        for idx, line in lines.items():
+            hlp.strings._str.append(line)
+        hlp.strings.itemNums = len(hlp.strings._str)
+
+        hlp.cvtStr2Byte(korTBL)
+        hlp.strings.packData()
+        hlp.packData(f'{PATH_KOR_VARGRANTSTORY}/SMALL/HELP{i:02}.HF0')
     
 def rebuildKor():
     kor_strings = mergeKorString()
@@ -652,6 +683,10 @@ def rebuildKor():
 
     update_Help()
 
+    gim = read_GIM(PATH_JPN_VARGRANTSTORY)
+    gim.setImage()
+    gim.pack(PATH_KOR_VARGRANTSTORY)
+
 #cvtKorFontImage()
 #cvtKorFont14Image()
 #exit()
@@ -659,7 +694,8 @@ def rebuildKor():
 
 #korHisto = makeKorFont()
 #makeKorFont14(korHisto)
-
+#update_Help()
+#exit()
 rebuildKor()
 
 def test1():

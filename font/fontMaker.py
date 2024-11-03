@@ -172,7 +172,7 @@ def cvtKorFont14Image():
         ky = 14*row
         return kx, ky
     
-    img = Image.open('font/Galmuri14a.png')
+    img = Image.open('font/Galmuri12a.png')
     len_kor = len(Kor_letters)
     
     len_letter = len_kor + 1 + 166

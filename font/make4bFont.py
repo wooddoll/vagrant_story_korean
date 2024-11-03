@@ -48,13 +48,14 @@ fontGroup_PFS = {
 }
 
 fontGroup_Galmuri9 = {
-    'Regular' : "work/Galmuri/Galmuri9.ttf",
-    'Mono' : "work/Galmuri/GalmuriMono9.ttf",
+    'Regular' : "work/Galmuri/Galmuri-v2.39.6/Galmuri9.ttf",
+    'Mono' : "work/Galmuri/Galmuri-v2.39.6/GalmuriMono9.ttf",
 }
 fontGroup_Galmuri11 = {
-    'Regular' : "work/Galmuri/Galmuri11.ttf",
-    'Mono' : "work/Galmuri/GalmuriMono11.ttf",
-    'Bold' : "work/Galmuri/Galmuri11-Bold.ttf",
+    'Regular' : "work/Galmuri/Galmuri-v2.39.6/Galmuri11.ttf",
+    'Mono' : "work/Galmuri/Galmuri-v2.39.6/GalmuriMono11.ttf",
+    'Bold' : "work/Galmuri/Galmuri-v2.39.6/Galmuri11-Bold.ttf",
+    'Condensed' : "work/Galmuri/Galmuri-v2.39.6/Galmuri11-Condensed.ttf",
 }
 
 
@@ -74,9 +75,9 @@ class Make4bFont():
         if monofontpath is not None:
             self.fontMono = ImageFont.truetype(monofontpath, self.fontSize, encoding="utf-8")
         
-        rgularfontpath = fontGroup.get('Mono')
-        if rgularfontpath is not None:
-            self.fontRgular = ImageFont.truetype(rgularfontpath, self.fontSize, encoding="utf-8")
+        regularfontpath = fontGroup.get('Mono')
+        if regularfontpath is not None:
+            self.fontRegular = ImageFont.truetype(regularfontpath, self.fontSize, encoding="utf-8")
             
         boldfontpath = fontGroup.get('Bold')
         if boldfontpath is not None:
@@ -85,6 +86,10 @@ class Make4bFont():
         extraBoldfontpath = fontGroup.get('ExtraBold')
         if extraBoldfontpath is not None:
             self.fontExtraBold = ImageFont.truetype(extraBoldfontpath, self.fontSize, encoding="utf-8")
+        
+        condensedfontpath = fontGroup.get('Condensed')
+        if condensedfontpath is not None:
+            self.fontCondensed = ImageFont.truetype(condensedfontpath, self.fontSize, encoding="utf-8")
 
     def make1bMap(self, font: ImageFont.FreeTypeFont, text: str = '', columns = 21, mode = 'a'):
         len_text = len(text)
@@ -140,7 +145,7 @@ class Make4bFont():
 
     def drawGrid(self, img):
         draw = ImageDraw.Draw(img)
-        len_text = len(KorFont2350)
+        len_text = len(KorFont2350a)
         columns = 21
         rows = (len_text + columns - 1) // columns
         for idx in range(len_text):
@@ -154,25 +159,30 @@ class Make4bFont():
  
 def testFontA():
     text = [ "Battle Mode", "BattleMode", "배틀모드", "배틀 모드", 
-            "RISK", "AttackK", "Parry", "침묵", 
-            "이동불능", "↑⇑⇡⇧⇪⇮", "↓↡↯↧⇓⇣⇩", 
+            "RISK", "Attack", "Parry", "침묵", 
+            "ATTACK", "PARRY",
+            "이동불능", "↑ ⇑ ⇡ ⇧ ⇪ ⇮", "↓ ↡ ↯ ↧ ⇓ ⇣ ⇩", 
             "Slow", "Quick", "Silent",
             "저림", "독", "마비", "저주", "Regenertion", 
-            "재생", "마법무효", "장비",
+            "재생", "마법무효", "마 법 무 효", "장비",
             "부착", "저항", "Resist", "RESIST", 
             "디스펠", "주문해제", "Dispel", "DISPEL",
             "바람", "불", "물", "흙", 
             "AIR", "FIRE", "WATER", "EARTH", 
             "Air", "Fire", "Water", "Earth", 
             "Warlock", "Sharman", "Sorcerer", "Enchanter", 
+            "WARLOCK", "SHARMAN", "SORCERER", "ENCHANTER", 
             "워록", "샤먼", "소서러", "인챈터",
             "아이템", "ITEMS", "Items", "브레이크아츠",
-            "BreakArts", "체인A", "디펜스A",
-            "체인 A", "디펜스 A",
+            "BreakArts", "Break Arts", "체인A", "디펜스A",
+            "체인 A", "디펜스 A", "Chain A.", "Defense A.", "ChainA.", "DefenseA.",
             ]
     fa = Make4bFont(fontGroup_Galmuri9, 10)
     img1 = fa.make1bMap(fa.fontMono, text, 21, 'a')
     img1.save('work/Galmuri/galmuri9a.png')
+    
+    img2 = fa.make1bMap(fa.fontRegular, text, 21, 'a')
+    img2.save('work/Galmuri/galmuri9b.png')
 #testFontA()
 #exit()
  
@@ -224,8 +234,8 @@ def cvtGalmuriFont_b(inpImg_font: str, img_cols: int, font_w: int, font_h: int, 
         y = idx // img_cols
         x = idx % img_cols
         
-        kx = (font_w + 2)*x + 1
-        ky = (font_h + 2)*y + 1
+        kx = (font_w + 0)*x + 0
+        ky = (font_h + 0)*y + 0
         kLetterImg = imgKr.crop((kx, ky, kx + font_w, ky + font_h))
         
         jx = font_w*x
@@ -246,7 +256,7 @@ def cvtGalmuriFont_b(inpImg_font: str, img_cols: int, font_w: int, font_h: int, 
 
     fontMap4b.save(outImg_font)
 
-cvtGalmuriFont_b('work/Galmuri/galmuri14_18.png', 18, 14, 14, 'font/Galmuri14a.png')
+cvtGalmuriFont_b('font/galmuri12.png', 18, 14, 14, 'font/Galmuri12a.png')
 exit()
 
 #fonttest = Make4bFont(fontGroup_NotoSans)

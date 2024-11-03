@@ -165,3 +165,8 @@ MENU7 = createStringBINNClass('MENU/MENU7.PRG', startPtr=0x7c54)
 MENU2 = createStringBINNClass('MENU/MENU2.PRG', [0, 1, 2, 3, 4, 5], startPtr=0x1e90)
 MENU1 = createStringBINNClass('MENU/MENU1.PRG', [30], startPtr=0xC78)
 #NAMEDIC = createStringBINNClass('MENU/NAMEDIC.BIN', [9, 10, 11, 12])
+
+MON = createStringBINNClass('SMALL/MON.BIN', [], 0x19C8)
+
+FileLoadFuncNames = ['MENU1', 'MENU2', 'MENU4', 'MENU7', 'MENU12', 'MCMAN', 'ITEMHELP',
+                     'BATTLE_3', 'MON' ]
