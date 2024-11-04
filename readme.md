@@ -2,6 +2,10 @@
 - 일어판을 한글화
 
 ## 문자열 추출 파일
+- BATTLE/BATTLE.PRG
+- BATTLE/INITBTL.PRG
+- TITLE/TITLE.PRG
+- MENU/NAMEDIC.BIN
 - SLPS_023.77         ; skill name x256
 - MENU/ITEMNAME.BIN   ; item name  x512
 - MENU/MCMAN.BIN      ; ui
@@ -14,6 +18,7 @@
 - SMALL/MON.BIN       ; monster desc.
 
 ## 진행상황
+- 2024-11-04(beta v0.81): 거의 모든 번역을 완료함. NAMEDIC 에 있는 것으로 보이는 무기 이름 입력할 때의 패드 버튼 설명 부분  '決定', '前削除', '削除', '挿入'은 위치를 못 찾고 있다. 
 - 2024-10-22: 메뉴를 수정하고 적용했을 때 일부는 정상으로 나오지만, 일부는 어딘가 오프셋을 잘못 적용한 것처럼 나와서 혼란 스럽다. MENU/MCMAN.BIN같이 파일 헤더에 각 항목의 위치가 있는 파일도 그렇다. 그런데 오늘 검색 중에 중요한 사실을 알았다. [SadNES cITy의 이탈리아 번역 그룹이 쓴 글](https://www.sadnescity.it/traduzioni/vs/vs.php)을 보면 .PRG안에도 항목의 위치가 인코딩되어 있다고 한다. 좀 괴롭긴 하지만, relative search 툴을 받아서 검색해봐야겠다.
 - 2024-10-4: MENU/*.PRG (UI) 추가
 - 2024-10-1: font table 수정
