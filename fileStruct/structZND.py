@@ -168,13 +168,13 @@ class ZND_Enemy:
         for idx in range(num_enemies):
             ptr_enemy_name = ptr_enemies + 0x464*idx + 4
             byte_stream.seek(ptr_enemy_name)
-            if not all([b==0 for b in self.name_byte[idx]]) and self.name_byte[idx]:
+            if self.name_byte[idx] and self.name_byte[idx][0] != 0:
                 byte_stream.write(self.name_byte[idx])
             #else:
             #    print(f'name: 0x00, {self.name_str[idx]}')
             ptr_weapon_name = ptr_enemies + 0x464*idx + 0x34 + 0xf4
             byte_stream.seek(ptr_weapon_name)
-            if not all([b==0 for b in self.weapon_byte[idx]]) and self.weapon_str[idx]:
+            if self.weapon_str[idx] and self.weapon_byte[idx][0] != 0:
                 byte_stream.write(self.weapon_byte[idx])
             #else:
             #    print(f'weapon: 0x00, {self.weapon_str[idx]}')

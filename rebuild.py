@@ -1,7 +1,7 @@
 import logging
 from rich.logging import RichHandler
 logging.basicConfig(
-        level=logging.CRITICAL, 
+        level=logging.WARNING, 
         format="[%(filename)s:%(lineno)s] >> %(message)s",
         handlers=[RichHandler(rich_tracebacks=True)]
     )
@@ -29,6 +29,7 @@ from fileStruct.read_MAINMENU import *
 from fileStruct import read_Nstrings as rN
 from fileStruct.read_HELP_HF0 import HELP_HF0, formatHelpText
 from fileStruct.make_GIM import read_GIM
+from fileStruct.read_ButtonName import ButtonSpecial
 import subprocess
 
 logging.info(f"loading; --- jpnTBL ---")
@@ -479,7 +480,8 @@ def rebuildNNclass(kor_strings: dict):
     
     for name in rN.FileLoadFuncNames:
         print(f"update {name}")
-        
+        if name== 'MENU3':
+            print()
         ClassJp, ClassEn = rN.getNNClass(name)
         if name == 'TITLE':
             loadJp = ClassJp(PATH_KOR_VARGRANTSTORY)
@@ -567,27 +569,10 @@ def stringBIN_merge(kor_strings: dict):
     print(f"update === stringBIN_merge === ")
     for name in mS.FileLoadFuncNames:
         print(f"update {name}")
-        if name == 'MCMAN':
-            Class_jp = mS.MCMAN
-        if name == 'MENU12':
-            Class_jp = mS.MENU12
-        if name == 'ITEMHELP':
-            Class_jp = mS.ITEMHELP
-        if name == 'MENU4':
-            Class_jp = mS.MENU4
-        if name == 'MENU7':
-            Class_jp = mS.MENU7
-        if name == 'MENU2':
-            Class_jp = mS.MENU2
-        if name == 'MENU1':
-            Class_jp = mS.MENU1
-        if name == 'BATTLE_3':
-            Class_jp = mS.BATTLE_3
-        if name == 'MON':
-            Class_jp = mS.MON
+        Class_jp = mS.getNNClass(name)
             
         #Class_jp = globals()[f'mS.{name}']
-        if name in ['BATTLE_3', 'MON']:
+        if name in ['BATTLE_3', 'MON', 'MENU2_1']:
             curr = Class_jp(PATH_KOR_VARGRANTSTORY)
         else:
             curr = Class_jp(PATH_JPN_VARGRANTSTORY)
@@ -615,6 +600,7 @@ def stringBIN_merge(kor_strings: dict):
         #    curr.setBlank(jpnTBL)
         curr.packData(PATH_KOR_VARGRANTSTORY)
 
+
 def MAINMENU_merge(kor_strings: dict):
     print(f"update === MAINMENU === ")
 
@@ -622,7 +608,9 @@ def MAINMENU_merge(kor_strings: dict):
 
     curr.cvtByte2Str(jpnTBL)    
     texts = kor_strings['MAINMENU']
-    curr._str = texts['000']['string']
+    for k, v in texts.items():
+        idx = int(k)
+        curr.words[idx]._str = v['string']
     curr.cvtStr2Byte(korTBL)
     
     curr.packData(PATH_KOR_VARGRANTSTORY)
@@ -665,7 +653,18 @@ def update_Help():
         hlp.cvtStr2Byte(korTBL)
         hlp.strings.packData()
         hlp.packData(f'{PATH_KOR_VARGRANTSTORY}/SMALL/HELP{i:02}.HF0')
+
+def updateButton():
+    btn = ButtonSpecial(PATH_KOR_VARGRANTSTORY)
+    btn.cvtByte2Str(jpnTBL)
+    btn._str[0] = '결정'
+    btn._str[1] = '←삭제'
+    btn._str[2] = '삭제'
+    btn._str[3] = '삽입'
+    btn.cvtStr2Byte(korTBL)
+    btn.packData(PATH_KOR_VARGRANTSTORY)
     
+        
 def rebuildKor():
     kor_strings = mergeKorString()
     
@@ -686,6 +685,8 @@ def rebuildKor():
     gim = read_GIM(PATH_JPN_VARGRANTSTORY)
     gim.setImage()
     gim.pack(PATH_KOR_VARGRANTSTORY)
+
+    updateButton()
 
 #cvtKorFontImage()
 #cvtKorFont14Image()

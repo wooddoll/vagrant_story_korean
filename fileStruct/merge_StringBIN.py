@@ -153,20 +153,40 @@ def createStringBINNClass(FileName: str, keepPos: List[int] = [], startPtr = 0x0
 
 
 MCMAN = createStringBINNClass('MENU/MCMAN.BIN')
-MENU12 = createStringBINNClass('MENU/MENU12.BIN')
+
 ITEMHELP_indexes = list(range(373, 413))
 #ITEMHELP_indexes.extend([438, 439])
 ITEMHELP_indexes.extend(list(range(641, 679)))
 ITEMHELP = createStringBINNClass('MENU/ITEMHELP.BIN', ITEMHELP_indexes)
 MENU4 = createStringBINNClass('MENU/MENU4.PRG', [7, 8, 9, 10, 11, 12], 0x4c44)
 
-BATTLE_3 = createStringBINNClass('BATTLE/BATTLE.PRG', [11], startPtr=0x83080)
+BATTLE_3 = createStringBINNClass('BATTLE/BATTLE.PRG', [11], 0x83080)
+
+MENU0 = createStringBINNClass('MENU/MENU0.PRG', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 0x2258)
+MENU1 = createStringBINNClass('MENU/MENU1.PRG', [30], 0xC78)
+MENU2 = createStringBINNClass('MENU/MENU2.PRG', [0, 1, 2, 3, 4, 5], 0x1e90)
+MENU2_1 = createStringBINNClass('MENU/MENU2.PRG', [12, 13, 14, 15, 16, 17], 0x2478)
+MENU3 = createStringBINNClass('MENU/MENU3.PRG', [], 0x6bb4)
 MENU7 = createStringBINNClass('MENU/MENU7.PRG', startPtr=0x7c54)
-MENU2 = createStringBINNClass('MENU/MENU2.PRG', [0, 1, 2, 3, 4, 5], startPtr=0x1e90)
-MENU1 = createStringBINNClass('MENU/MENU1.PRG', [30], startPtr=0xC78)
+MENU12 = createStringBINNClass('MENU/MENU12.BIN')
 #NAMEDIC = createStringBINNClass('MENU/NAMEDIC.BIN', [9, 10, 11, 12])
+MENUB = createStringBINNClass('MENU/MENUB.PRG', startPtr=0x7a80)
 
 MON = createStringBINNClass('SMALL/MON.BIN', [], 0x19C8)
 
-FileLoadFuncNames = ['MENU1', 'MENU2', 'MENU4', 'MENU7', 'MENU12', 'MCMAN', 'ITEMHELP',
-                     'BATTLE_3', 'MON' ]
+FileLoadFuncNames = ['MENU0', 'MENU1', 'MENU2', 'MENU2_1', 'MENU3', 'MENU4', 'MENU7', 'MENU12', 'MCMAN', 'ITEMHELP',
+                     'MENUB', 'BATTLE_3', 'MON' ]
+
+def getNNClass(className: str):
+    Class_jp = None
+    
+    if className in globals():
+        Class_jp = globals()[className]
+        
+    if Class_jp is None:
+        if f'{className}_jp' in globals():
+            Class_jp = globals()[f'{className}_jp']
+        if Class_jp is None:    
+            logging.warning(f'wrong function name {className}')
+    
+    return Class_jp

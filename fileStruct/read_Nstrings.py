@@ -100,7 +100,8 @@ def createNstringsNwordsClass(FileName: str, NstringPtrs: List[int], Nwors: List
 
 MENU0 = createNstringsNwordsClass('MENU/MENU0.PRG', [0x2258])
 MENU1 = createNstringsNwordsClass('MENU/MENU1.PRG', [0xC78])
-MENU2 = createNstringsNwordsClass('MENU/MENU2.PRG', [0x1e90])
+MENU2_jp = createNstringsNwordsClass('MENU/MENU2.PRG', [0x1e90, 0x2478])
+MENU2_en = createNstringsNwordsClass('MENU/MENU2.PRG', [0x1e90, 0x26D8])
 
 MENU3_jp = createNstringsNwordsClass('MENU/MENU3.PRG', [0x6bb4])
 MENU3_en = createNstringsNwordsClass('MENU/MENU3.PRG', [0x6bb8])
@@ -155,13 +156,13 @@ SL_Main_jp = createNstringsNwordsClass('SLPS_023.77',[0x405CC], [WordPos(0x3C1F8
 NAMEDIC = createNstringsNwordsClass('MENU/NAMEDIC.BIN', [0x0])
 
 
-FileLoadFuncNames = ['MENU0', 'MENU3', 'MENU5', 'NAMEDIC',
-                     'MENU8', 'MENU9', 'MENUB', 'MENUD', 'MENUE', 
+FileLoadFuncNames = ['MENU5', 'NAMEDIC',
+                     'MENU8', 'MENU9', 'MENUD', 'MENUE', 
                      'BATTLE', 'MON', 'TITLE', 'INITBTL',
                      'ITEMNAME', 'SL_Main']
 
-FileLoad1Strs = ['MENU0', 'MENU3',  'NAMEDIC', 
-                 'MENU8', 'MENUB', 'MENUD', 'MENUE', 
+FileLoad1Strs = ['NAMEDIC',
+                 'MENU8', 'MENUD', 'MENUE', 
                  'TITLE', 'ITEMNAME']
 
 def getNNClass(className: str) -> Tuple[Class_Nstrings, Class_Nstrings]:

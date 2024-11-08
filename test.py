@@ -27,6 +27,7 @@ from fileStruct.read_MAINMENU import *
 #from fileStruct.read_MENU9_PRG import *
 from fileStruct import read_Nstrings as rN
 from fileStruct.read_EVT import EVENT_EVT
+from fileStruct.read_ButtonName import ButtonSpecial
 
 from font import dialog, cvtFontBin
 import utils
@@ -446,6 +447,20 @@ def cvtBytes_kor():
             print(f"{v:02X} ", end='')
         print(f"\n{inp_text}")
 
+
+def cvtBytes_kor_inv():
+    while True:
+        inp_text = input('Kor_Inv>')
+        if not inp_text: break
+        
+        len_inp = len(inp_text)
+        if len_inp == 1:
+            exit()
+        
+        inp_bytes = korTBL.cvtStr2Byte(inp_text)
+        for v in inp_bytes:
+            print(f"{v:02X} ", end='')
+        print()
 
 
 def extract_SL_Main_jp_en():
@@ -1144,10 +1159,18 @@ def searchByte():
     folder_path = Path(PATH_KOR_VARGRANTSTORY)
     file_list = [file for file in folder_path.rglob('*') if file.is_file()]
     file_list = sorted(file_list)
-    word = bytes(b'\x32\xED\x02')
+    #word = bytearray([0x91, 0xE0, 0x90, 0xCD, 0x53, 0xA2, 0xD7, 0xE7])
+    #word = bytearray([0xE0, 0x9C, 0x90, 0xCD, 0xED, 0x23, 0xA2, 0xD7])
+    #word = bytearray([0xEF, 0x6B, 0xF0, 0x0C, 0x4A, 0x63])
+    word = bytearray([0x16 , 0x19 , 0xED , 0x2A , 0xEE , 0xAB , 0x56 , 0x4D , 0x5F])
     len_word = len(word)
     for filepath in tqdm(file_list, desc="Processing"):
         relative_path = filepath.relative_to(folder_path)
+        if relative_path.suffix == '.STR': continue
+        if relative_path.suffix == '.XA': continue
+        if relative_path.stem.startswith('MUSIC'): continue
+        if relative_path.stem.startswith('WAVE0'): continue
+        
         with open(filepath, 'rb') as file:
             buffer = file.read()
             len_file = len(buffer) - len_word
@@ -1212,8 +1235,8 @@ def extract_SMALL_HF0():
     dialogLists['SMALL_HELP'] = hlp_names
     with open(f'work/strings/SMALL_HELP_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
-extract_SMALL_HF0()  
-exit()
+#extract_SMALL_HF0()  
+#exit()
 def extractAll():
     extract_ARM_jp_en()
     extract_ZND_jp_en()
@@ -1311,10 +1334,26 @@ def test14():
 #extract_SMALL_HF0()
 #extract_SMALL_MON_BIN()
 
+def testMENU2():
+    loadJp = rN.MENU2_jp(PATH_JPN_VARGRANTSTORY)
+    loadEn = rN.MENU2_en(PATH_USA_VARGRANTSTORY)
+    
+    loadJp.cvtByte2Str(jpnTBL)
+    loadEn.cvtByte2Str(usaTBL)
+    
+    ####
+    texts = rN.makeNNstrings(loadJp, loadEn)
+    
+    textNstr = {}
+    textNstr[f"MENU2"] = texts[f'str_0']
+    textNstr[f"MENU2_2"] = texts[f'str_1']
+    
+    with open(f'work/strings/MENU2_ja.json', 'w', encoding='utf-8') as f:
+        json.dump(textNstr, f, indent=2, ensure_ascii=False)
+
 def testNNclass():
     for name in rN.FileLoadFuncNames:
-        if name == 'INITBTL':
-            print()
+
         ClassJp, ClassEn = rN.getNNClass(name)        
         loadJp = ClassJp(PATH_JPN_VARGRANTSTORY)
         loadEn = ClassEn(PATH_USA_VARGRANTSTORY)
@@ -1459,7 +1498,7 @@ def testMPD_():
 #utils.findStringsFromFile(str(Path(PATH_JPN_VARGRANTSTORY) / Path('MENU/NAMEDIC.BIN')))
 #exit()
 
-def test15():
+def testNAMEDIC():
     NAMEDIC = rN.NAMEDIC(PATH_JPN_VARGRANTSTORY)
     NAMEDIC.cvtByte2Str(jpnTBL)
     
@@ -1474,10 +1513,24 @@ def test15():
         
 #test15()
 
+def testButtonSpecial():
+    btn = ButtonSpecial(PATH_KOR_VARGRANTSTORY)
+    btn.cvtByte2Str(jpnTBL)
+    btn._str[0] = '결정'
+    btn._str[1] = '←삭제'
+    btn._str[2] = '삭제'
+    btn._str[3] = '삽입'
+    btn.cvtStr2Byte(korTBL)
+    btn.packData(PATH_KOR_VARGRANTSTORY)
+    
+
+#exit()
+
 while True:
     cvtBytes_jp()
     cvtBytes_jp_inv()
     cvtBytes_en()
     cvtBytes_kor()
+    cvtBytes_kor_inv()
 
 
