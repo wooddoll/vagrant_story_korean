@@ -92,8 +92,17 @@ def create1strings0Class(FileName: str, words: List[SpecialWordData]):
                         logging.critical(f'string overflow MAINMENU {word.length} < {len_byte}')
                     _byte = deepcopy(word._byte)
                     if len_byte < word.length:
-                        zeros = bytes(word.length-len_byte)
-                        _byte.extend(zeros)
+                        diff = word.length - len_byte
+                        if word.closer:
+                            zeros = bytes(word.length-len_byte)
+                            _byte.extend(zeros)
+                        elif diff%2:
+                            logging.critical('why? !!!')
+                        else:
+                            zc = diff//2
+                            for i in range(zc):
+                                _byte.extend(b'\xEC\x8F')
+                            
                     file.write(_byte)
 
     return Class_Nstrings
