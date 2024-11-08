@@ -14,7 +14,7 @@
         "@@localazy:comment:Name": "Wyvern"
       },
       "003": {
-        "Name": "聖仙騎士マンデル",
+        "Name": "聖印騎士マンデル",
         "@@localazy:comment:Name": "Mandel"
       },
       "004": {
@@ -38,15 +38,15 @@
         "@@localazy:comment:Name": "Bat"
       },
       "009": {
-        "Name": "聖仙騎士サックハイム",
+        "Name": "聖印騎士サックハイム",
         "@@localazy:comment:Name": "Sackheim"
       },
       "010": {
-        "Name": "聖仙騎士グッドウィン",
+        "Name": "聖印騎士グッドウィン",
         "@@localazy:comment:Name": "Goodwin"
       },
       "011": {
-        "Name": "聖仙騎士",
+        "Name": "聖印騎士",
         "@@localazy:comment:Name": "Crimson Blade"
       },
       "012": {
@@ -54,7 +54,7 @@
         "@@localazy:comment:Name": "Zombie Knight"
       },
       "013": {
-        "Name": "練習吉ドール",
+        "Name": "練習用ドール",
         "@@localazy:comment:Name": "Dummy"
       },
       "014": {
@@ -210,11 +210,11 @@
         "@@localazy:comment:Name": "Duane"
       },
       "052": {
-        "Name": "聖仙騎士サージク",
+        "Name": "聖印騎士サージク",
         "@@localazy:comment:Name": "Sarjik"
       },
       "053": {
-        "Name": "聖仙騎士ベジャール",
+        "Name": "聖印騎士ベジャール",
         "@@localazy:comment:Name": "Bejart"
       },
       "054": {
