@@ -190,7 +190,7 @@ def collectJpLetters():
     
     return jpnList
 
-def makeKorFont():
+def makeKorFontData():
     jpnIndexes, jpnLetters = jpnTableslots(jpnTBL)
     korTBL = deepcopy(jpnTBL)
     korKeys = list(korTBL.fwd_tbl.keys())
@@ -244,6 +244,13 @@ def makeKorFont():
             
             f.write(f"{h}={v}\n")
 
+    
+    return korHisto
+
+def applyKorFont():
+    krfontImage = 'font/font12kr.png'
+    imgJpKr = Image.open(krfontImage)
+    
     system_dat = cvtFontBin.SYSTEM_DAT(f'{PATH_JPN_VARGRANTSTORY}')
     system_dat.fontData.setImage(imgJpKr)
     
@@ -253,7 +260,6 @@ def makeKorFont():
     system_dat.packData(f'{PATH_KOR_VARGRANTSTORY}/BATTLE/SYSTEM.DAT')
     
     insertTITLE_font(f'{PATH_JPN_VARGRANTSTORY}/TITLE/TITLE.PRG', 'font/font12kr.png', f'{PATH_KOR_VARGRANTSTORY}/TITLE/TITLE.PRG')
-    return korHisto
 
 def posInTable18_ja(index: int):
     row = index//18
@@ -320,6 +326,8 @@ def fixMPD(idx: int, mpd: MPDstruct):
 def update_MPD(index: int, kor_strings: dict):
     Name = f"MAP{index:03}"
     filepath = f"{PATH_JPN_VARGRANTSTORY}/MAP/{Name}.MPD"
+    if Name == 'MAP038':
+        print()
     mpd = MPDstruct(str(filepath), DoorPtrs_jp)
     mpd.cvtByte2Str(jpnTBL)
 
@@ -371,7 +379,8 @@ def updateMAP_MDP(kor_strings: dict):
     for key in kor_strings.keys():
         if str(key)[:3] == 'MAP' and str(key) != 'MAP_ZND':
             idx = int(str(key)[3:])           
-            logging.info(f"=== MAP{idx:03}.MPD packing ===")
+            #logging.info(f"=== MAP{idx:03}.MPD packing ===")
+            print(f"=== MAP{idx:03}.MPD packing ===")
             update_MPD(idx, kor_strings)
 
 def update_ARM(Name: str, dictTexts: dict):
@@ -561,9 +570,10 @@ def update_EVT(kor_strings: dict):
             string = v1.get('string')
             if string is not None:
                 evts_jp.evtFiles[int_k0].strings_str[int_k1] = string
-    
-    evts_jp.cvtStr2Byte(korTBL)
-    evts_jp.packData(PATH_KOR_VARGRANTSTORY)
+        
+        evts_jp.evtFiles[int_k0].strings.cvtStr2Byte(korTBL)
+        evts_jp.evtFiles[int_k0].packData(f"{PATH_KOR_VARGRANTSTORY}/EVENT/{int_k0:04}.EVT")
+
 
 def stringBIN_merge(kor_strings: dict):
     print(f"update === stringBIN_merge === ")
@@ -693,10 +703,11 @@ def rebuildKor():
 #exit()
 #downlaod_localazy()
 
-#korHisto = makeKorFont()
+#korHisto = makeKorFontData()
 #makeKorFont14(korHisto)
 #update_Help()
 #exit()
+applyKorFont()
 rebuildKor()
 
 def test1():

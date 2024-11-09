@@ -157,12 +157,12 @@ NAMEDIC = createNstringsNwordsClass('MENU/NAMEDIC.BIN', [0x0])
 
 
 FileLoadFuncNames = ['MENU5', 'NAMEDIC',
-                     'MENU8', 'MENU9', 'MENUD', 'MENUE', 
+                     'MENU9', 'MENUD', 'MENUE', 
                      'BATTLE', 'MON', 'TITLE', 'INITBTL',
                      'ITEMNAME', 'SL_Main']
 
 FileLoad1Strs = ['NAMEDIC',
-                 'MENU8', 'MENUD', 'MENUE', 
+                 'MENUD', 'MENUE', 
                  'TITLE', 'ITEMNAME']
 
 def getNNClass(className: str) -> Tuple[Class_Nstrings, Class_Nstrings]:

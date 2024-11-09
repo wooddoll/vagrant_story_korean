@@ -168,13 +168,15 @@ MENU2 = createStringBINNClass('MENU/MENU2.PRG', [0, 1, 2, 3, 4, 5], 0x1e90)
 MENU2_1 = createStringBINNClass('MENU/MENU2.PRG', [12, 13, 14, 15, 16, 17], 0x2478)
 MENU3 = createStringBINNClass('MENU/MENU3.PRG', [], 0x6bb4)
 MENU7 = createStringBINNClass('MENU/MENU7.PRG', startPtr=0x7c54)
+MENU8 = createStringBINNClass('MENU/MENU8.PRG', [62], 0x429c)
+
 MENU12 = createStringBINNClass('MENU/MENU12.BIN')
 #NAMEDIC = createStringBINNClass('MENU/NAMEDIC.BIN', [9, 10, 11, 12])
 MENUB = createStringBINNClass('MENU/MENUB.PRG', startPtr=0x7a80)
 
 MON = createStringBINNClass('SMALL/MON.BIN', [], 0x19C8)
 
-FileLoadFuncNames = ['MENU0', 'MENU1', 'MENU2', 'MENU2_1', 'MENU3', 'MENU4', 'MENU7', 'MENU12', 'MCMAN', 'ITEMHELP',
+FileLoadFuncNames = ['MENU0', 'MENU1', 'MENU2', 'MENU2_1', 'MENU3', 'MENU4', 'MENU7', 'MENU8', 'MENU12', 'MCMAN', 'ITEMHELP',
                      'MENUB', 'BATTLE_3', 'MON' ]
 
 def getNNClass(className: str):

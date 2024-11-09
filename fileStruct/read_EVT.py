@@ -39,8 +39,13 @@ class read_EVT:
             self.strings.unpackData(self.buffer[head[1]:head[2]])
             self.Unknown1 = self.buffer[head[2]:head[3]]
             self.Unknown2 = self.buffer[head[3]:head[0]]
-
+            
             self.strings_byte = self.strings._byte
+            
+            #if not all([x==0 for x in self.Unknown1]):
+            #    print()
+            #if not all([x==0 for x in self.Unknown2]):
+            #    print()
         
     def packData(self, output_path: str):
         byte_stream = io.BytesIO(self.buffer)

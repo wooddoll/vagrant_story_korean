@@ -71,7 +71,7 @@ class ReadStrings():
     def __len__(self):
         return self.len_buffer if 0 < self.itemNums else 0
 
-    def packData(self):
+    def packData(self, aligb4b = True):
         if 0 >= self.itemNums:
             return None
         
@@ -100,10 +100,20 @@ class ReadStrings():
             byte_stream.write(data)
         
         currPos = byte_stream.tell()
-        if self.len_buffer < currPos:
-            logging.warning(f"check the length of strings, size overflowed; {self.len_buffer} < current({currPos})")
+        if aligb4b:
+            sumBytes_pad = ((currPos+3)//4)*4
+            padding = sumBytes_pad - currPos
+            if padding:
+                for _ in range(padding):
+                    byte_stream.write(bytes1(0))
+            sumBytes = sumBytes_pad
+        else:
+            sumBytes = currPos
         
-        self.len_buffer = currPos
+        if self.len_buffer < sumBytes:
+            logging.warning(f"check the length of strings, size overflowed; {self.len_buffer} < current({sumBytes})")
+        
+        self.len_buffer = sumBytes
         
         return byte_stream.getvalue()
 

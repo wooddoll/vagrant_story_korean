@@ -105,8 +105,9 @@ class SectionBase:
     def packData(self):
         return self.buffer
 
-DoorPtrs_jp = { 0 : [0x0044, 0x009C, ], 17 : [0x0330, ], 18 : [0x0068, 0x00D8, ], 20 : [0x01E0, 0x03E8, 0x0514, 0x05E4, 0x0714, ], 24 : [0x0058, ], 25 : [0x0058, ], 26 : [0x0058, ], 28 : [0x0070, ], 30 : [0x00A4, 0x0148, ], 32 : [0x0058, 0x04C4, 0x054C, ], 34 : [0x0254, 0x0384, 0x0438, ], 42 : [0x0058, 0x00E0, ], 43 : [0x0058, ], 45 : [0x0058, ], 46 : [0x0058, 0x036C, 0x0438, 0x04F0, ], 50 : [0x0064, ], 51 : [0x0058, 0x00DC, ], 59 : [0x0058, ], 60 : [0x0574, 0x05E8, 0x07F8, ], 61 : [0x0058, ], 63 : [0x0058, ], 67 : [0x0058, ], 69 : [0x0058, ], 75 : [0x011C, ], 77 : [0x0058, ], 79 : [0x0058, ], 83 : [0x0058, 0x00DC, ], 88 : [0x0058, ], 90 : [0x0058, 0x00EC, ], 94 : [0x0058, ], 96 : [0x0058, ], 99 : [0x0198, ], 106 : [0x0058, 0x00DC, ], 109 : [0x006C, 0x012C, ], 110 : [0x0064, ], 112 : [0x0058, ], 113 : [0x0090, ], 115 : [0x0064, ], 121 : [0x006C, 0x012C, ], 124 : [0x0200, ], 140 : [0x0058, 0x00EC, ], 142 : [0x0058, 0x00E8, ], 145 : [0x0058, ], 149 : [0x0588, ], 150 : [0x01F8, 0x03A8, 0x0660, 0x0934, 0x0D3C, ], 151 : [0x0094, ], 153 : [0x00BC, 0x0124, ], 155 : [0x0060, ], 156 : [0x0050, ], 159 : [0x00BC, ], 164 : [0x0058, ], 177 : [0x0060, ], 179 : [0x0120, 0x030C, ], 180 : [0x019C, ], 181 : [0x019C, ], 182 : [0x023C, ], 183 : [0x019C, ], 184 : [0x019C, ], 185 : [0x019C, ], 186 : [0x019C, ], 187 : [0x019C, ], 188 : [0x019C, ], 189 : [0x019C, ], 190 : [0x00B0, 0x0268, ], 191 : [0x019C, ], 192 : [0x01D8, ], 193 : [0x019C, ], 194 : [0x019C, ], 195 : [0x019C, ], 196 : [0x019C, ], 197 : [0x019C, ], 198 : [0x019C, ], 199 : [0x01D8, ], 201 : [0x00FC, ], 202 : [0x00B8, ], 203 : [0x013C, 0x03CC, 0x0708, 0x0A40, 0x0BCC, 0x0E54, ], 223 : [0x0058, ], 228 : [0x0058, ], 231 : [0x0094, ], 232 : [0x0094, ], 233 : [0x0094, ], 235 : [0x0058, 0x00CC, ], 236 : [0x0058, ], 241 : [0x0064, ], 248 : [0x0058, 0x00E4, ], 249 : [0x0058, ], 252 : [0x0058, ], 257 : [0x0058, ], 264 : [0x006C, 0x012C, ], 265 : [0x0058, 0x00E0, ], 266 : [0x0058, ], 268 : [0x0124, ], 269 : [0x00B8, ], 271 : [0x00AC, 0x0150, ], 272 : [0x00AC, 0x0154, ], 277 : [0x0058, ], 282 : [0x0058, 0x012C, ], 286 : [0x0058, ], 288 : [0x0058, ], 290 : [0x0058, ], 298 : [0x0058, ], 310 : [0x009C, ], 312 : [0x0058, ], 314 : [0x0058, ], 315 : [0x0058, ], 316 : [0x0068, 0x00D8, ], 318 : [0x0078, 0x0178, ], 321 : [0x0078, 0x0178, ], 334 : [0x0058, ], 336 : [0x0068, 0x00D8, ], 340 : [0x0058, ], 344 : [0x0080, 0x0190, ], 345 : [0x0068, 0x00D8, ], 350 : [0x00FC, 0x01F4, ], 352 : [0x0174, 0x0320, 0x03D4, ], 356 : [0x0058, 0x00E4, ], 358 : [0x0068, 0x00D8, ], 360 : [0x0058, 0x00E8, ], 362 : [0x0058, 0x00E0, ], 366 : [0x0058, 0x00E4, ], 368 : [0x006C, 0x00DC, ], 371 : [0x0058, ], 377 : [0x0058, 0x00E4, ], 382 : [0x006C, 0x00DC, ], 383 : [0x0058, 0x00E0, ], 387 : [0x0058, 0x00E4, ], 392 : [0x0058, 0x00E4, ], 396 : [0x0068, 0x01B4, 0x02E8, 0x03EC, ], 404 : [0x0058, ], 408 : [0x0058, 0x00DC, ], 416 : [0x0110, 0x026C, ], 417 : [0x00C8, 0x0258, ], }
-DoorPtrs_en = {0 : [0x0044, 0x009C, ], 17 : [0x0330, ], 18 : [0x0068, 0x00E8, ], 20 : [0x01E0, 0x0418, 0x0574, 0x0650, ], 24 : [0x0058, ], 25 : [0x0058, ], 26 : [0x0058, ], 28 : [0x0070, ], 30 : [0x00A4, 0x0154, ], 32 : [0x04D8, 0x0564, ], 34 : [0x0254, ], 42 : [0x0058, 0x00E4, ], 46 : [0x0058, 0x0370, 0x044C, 0x0514, ], 50 : [0x0064, ], 51 : [0x0058, 0x00E0, ], 60 : [0x0058, ], 61 : [0x0058, ], 63 : [0x0058, ], 67 : [0x0058, ], 69 : [0x0058, ], 75 : [0x011C, ], 77 : [0x0058, ], 79 : [0x0058, ], 83 : [0x0058, 0x00E0, ], 88 : [0x0058, ], 90 : [0x0058, 0x00F0, ], 94 : [0x0058, ], 96 : [0x0058, ], 99 : [0x0198, ], 106 : [0x0058, 0x00E0, ], 109 : [0x006C, 0x013C, ], 110 : [0x0064, ], 113 : [0x0090, ], 115 : [0x0064, ], 121 : [0x006C, 0x013C, ], 140 : [0x0058, 0x00F0, ], 142 : [0x0058, 0x00EC, ], 145 : [0x0058, ], 149 : [0x0588, ], 150 : [0x067C, 0x0968, 0x0D98, ], 151 : [0x0094, ], 153 : [0x0140, ], 155 : [0x0060, ], 156 : [0x0050, ], 177 : [0x0060, ], 179 : [0x0120, 0x0318, ], 180 : [0x019C, ], 181 : [0x019C, ], 182 : [0x023C, ], 183 : [0x019C, ], 184 : [0x019C, ], 185 : [0x019C, ], 186 : [0x019C, ], 187 : [0x019C, ], 188 : [0x019C, ], 189 : [0x019C, ], 190 : [0x0284, ], 191 : [0x019C, ], 192 : [0x01D8, ], 193 : [0x019C, ], 194 : [0x019C, ], 195 : [0x019C, ], 196 : [0x019C, ], 197 : [0x019C, ], 198 : [0x019C, ], 199 : [0x01D8, ], 203 : [0x03E8, 0x0728, 0x0A70, 0x0C08, 0x0E94, ], 223 : [0x0058, ], 231 : [0x0094, ], 232 : [0x0094, ], 233 : [0x0094, ], 235 : [0x0058, 0x00D8, ], 241 : [0x0064, ], 248 : [0x0058, 0x00E8, ], 249 : [0x0058, ], 252 : [0x0058, ], 257 : [0x0058, ], 264 : [0x006C, 0x013C, ], 265 : [0x0058, 0x00E4, ], 266 : [0x0058, ], 268 : [0x0124, ], 271 : [0x00AC, 0x015C, ], 272 : [0x00AC, 0x0160, ], 277 : [0x0058, ], 282 : [0x0058, 0x0138, ], 286 : [0x0058, ], 290 : [0x0058, ], 298 : [0x0058, ], 310 : [0x009C, ], 312 : [0x0058, ], 314 : [0x0058, ], 315 : [0x0058, ], 316 : [0x0068, 0x00E8, ], 318 : [0x0078, 0x0188, ], 321 : [0x0078, 0x0188, ], 334 : [0x0058, ], 336 : [0x0068, 0x00E8, ], 340 : [0x0058, ], 344 : [0x0080, 0x019C, ], 345 : [0x0068, 0x00E8, ], 350 : [0x0210, ], 352 : [0x0174, 0x0320, 0x03D4, ], 356 : [0x0058, 0x00E8, ], 358 : [0x0068, 0x00E8, ], 360 : [0x0058, 0x00EC, ], 362 : [0x0058, 0x00E4, ], 366 : [0x0058, 0x00E8, ], 368 : [0x006C, 0x00EC, ], 371 : [0x0058, ], 377 : [0x0058, 0x00E8, ], 382 : [0x006C, 0x00EC, ], 383 : [0x0058, 0x00E4, ], 387 : [0x0058, 0x00E8, ], 392 : [0x0058, 0x00E8, ], 396 : [0x0068, 0x01C0, 0x0304, 0x0418, ], 404 : [0x0058, ], 408 : [0x0058, 0x00E0, ], 416 : [0x0110, 0x026C, ],}
+#282 : [0x0058, 0x012C, ]
+DoorPtrs_jp = { 0 : [0x0044, 0x009C, ], 17 : [0x0330, ], 18 : [0x0068, 0x00D8, ], 20 : [0x01E0, 0x03E8, 0x0514, 0x05E4, 0x0714, ], 24 : [0x0058, ], 25 : [0x0058, ], 26 : [0x0058, ], 28 : [0x0070, ], 30 : [0x00A4, 0x0148, ], 32 : [0x0058, 0x04C4, 0x054C, ], 34 : [0x0254, 0x0384, 0x0438, ], 38: [0xB0,], 42 : [0x0058, 0x00E0, ], 43 : [0x0058, ], 45 : [0x0058, ], 46 : [0x0058, 0x036C, 0x0438, 0x04F0, ], 50 : [0x0064, ], 51 : [0x0058, 0x00DC, ], 59 : [0x0058, ], 60 : [0x0574, 0x05E8, 0x07F8, ], 61 : [0x0058, ], 63 : [0x0058, ], 67 : [0x0058, ], 69 : [0x0058, ], 75 : [0x011C, ], 77 : [0x0058, ], 79 : [0x0058, ], 83 : [0x0058, 0x00DC, ], 88 : [0x0058, ], 90 : [0x0058, 0x00EC, ], 94 : [0x0058, ], 96 : [0x0058, ], 99 : [0x0198, ], 106 : [0x0058, 0x00DC, ], 109 : [0x006C, 0x012C, ], 110 : [0x0064, ], 112 : [0x0058, ], 113 : [0x0090, ], 115 : [0x0064, ], 121 : [0x006C, 0x012C, ], 124 : [0x0200, ], 140 : [0x0058, 0x00EC, ], 142 : [0x0058, 0x00E8, ], 145 : [0x0058, ], 149 : [0x0588, ], 150 : [0x01F8, 0x03A8, 0x0660, 0x0934, 0x0D3C, ], 151 : [0x0094, ], 153 : [0x00BC, 0x0124, ], 155 : [0x0060, ], 156 : [0x0050, ], 159 : [0x00BC, ], 164 : [0x0058, ], 177 : [0x0060, ], 179 : [0x0120, 0x030C, ], 180 : [0x019C, ], 181 : [0x019C, ], 182 : [0x023C, ], 183 : [0x019C, ], 184 : [0x019C, ], 185 : [0x019C, ], 186 : [0x019C, ], 187 : [0x019C, ], 188 : [0x019C, ], 189 : [0x019C, ], 190 : [0x00B0, 0x0268, ], 191 : [0x019C, ], 192 : [0x01D8, ], 193 : [0x019C, ], 194 : [0x019C, ], 195 : [0x019C, ], 196 : [0x019C, ], 197 : [0x019C, ], 198 : [0x019C, ], 199 : [0x01D8, ], 201 : [0x00FC, ], 202 : [0x00B8, ], 203 : [0x013C, 0x03CC, 0x0708, 0x0A40, 0x0BCC, 0x0E54, ], 223 : [0x0058, ], 228 : [0x0058, ], 231 : [0x0094, ], 232 : [0x0094, ], 233 : [0x0094, ], 235 : [0x0058, 0x00CC, ], 236 : [0x0058, ], 241 : [0x0064, ], 248 : [0x0058, 0x00E4, ], 249 : [0x0058, ], 252 : [0x0058, ], 257 : [0x0058, ], 264 : [0x006C, 0x012C, ], 265 : [0x0058, 0x00E0, ], 266 : [0x0058, ], 268 : [0x0124, ], 269 : [0x00B8, ], 271 : [0x00AC, 0x0150, ], 272 : [0x00AC, 0x0154, ], 277 : [0x0058, ], 282 : [0x0058, ], 286 : [0x0058, ], 288 : [0x0058, ], 290 : [0x0058, ], 298 : [0x0058, ], 310 : [0x009C, ], 312 : [0x0058, ], 314 : [0x0058, ], 315 : [0x0058, ], 316 : [0x0068, 0x00D8, ], 318 : [0x0078, 0x0178, ], 321 : [0x0078, 0x0178, ], 334 : [0x0058, ], 336 : [0x0068, 0x00D8, ], 340 : [0x0058, ], 344 : [0x0080, 0x0190, ], 345 : [0x0068, 0x00D8, ], 350 : [0x00FC, 0x01F4, ], 352 : [0x0174, 0x0320, 0x03D4, ], 356 : [0x0058, 0x00E4, ], 358 : [0x0068, 0x00D8, ], 360 : [0x0058, 0x00E8, ], 362 : [0x0058, 0x00E0, ], 366 : [0x0058, 0x00E4, ], 368 : [0x006C, 0x00DC, ], 371 : [0x0058, ], 377 : [0x0058, 0x00E4, ], 382 : [0x006C, 0x00DC, ], 383 : [0x0058, 0x00E0, ], 387 : [0x0058, 0x00E4, ], 392 : [0x0058, 0x00E4, ], 396 : [0x0068, 0x01B4, 0x02E8, 0x03EC, ], 404 : [0x0058, ], 408 : [0x0058, 0x00DC, ], 416 : [0x0110, 0x026C, ], 417 : [0x00C8, 0x0258, ], }
+DoorPtrs_en = {0 : [0x0044, 0x009C, ], 17 : [0x0330, ], 18 : [0x0068, 0x00E8, ], 20 : [0x01E0, 0x0418, 0x0574, 0x0650, ], 24 : [0x0058, ], 25 : [0x0058, ], 26 : [0x0058, ], 28 : [0x0070, ], 30 : [0x00A4, 0x0154, ], 32 : [0x04D8, 0x0564, ], 34 : [0x0254, ], 38: [0xB0,], 42 : [0x0058, 0x00E4, ], 46 : [0x0058, 0x0370, 0x044C, 0x0514, ], 50 : [0x0064, ], 51 : [0x0058, 0x00E0, ], 60 : [0x0058, ], 61 : [0x0058, ], 63 : [0x0058, ], 67 : [0x0058, ], 69 : [0x0058, ], 75 : [0x011C, ], 77 : [0x0058, ], 79 : [0x0058, ], 83 : [0x0058, 0x00E0, ], 88 : [0x0058, ], 90 : [0x0058, 0x00F0, ], 94 : [0x0058, ], 96 : [0x0058, ], 99 : [0x0198, ], 106 : [0x0058, 0x00E0, ], 109 : [0x006C, 0x013C, ], 110 : [0x0064, ], 113 : [0x0090, ], 115 : [0x0064, ], 121 : [0x006C, 0x013C, ], 140 : [0x0058, 0x00F0, ], 142 : [0x0058, 0x00EC, ], 145 : [0x0058, ], 149 : [0x0588, ], 150 : [0x067C, 0x0968, 0x0D98, ], 151 : [0x0094, ], 153 : [0x0140, ], 155 : [0x0060, ], 156 : [0x0050, ], 177 : [0x0060, ], 179 : [0x0120, 0x0318, ], 180 : [0x019C, ], 181 : [0x019C, ], 182 : [0x023C, ], 183 : [0x019C, ], 184 : [0x019C, ], 185 : [0x019C, ], 186 : [0x019C, ], 187 : [0x019C, ], 188 : [0x019C, ], 189 : [0x019C, ], 190 : [0x0284, ], 191 : [0x019C, ], 192 : [0x01D8, ], 193 : [0x019C, ], 194 : [0x019C, ], 195 : [0x019C, ], 196 : [0x019C, ], 197 : [0x019C, ], 198 : [0x019C, ], 199 : [0x01D8, ], 203 : [0x03E8, 0x0728, 0x0A70, 0x0C08, 0x0E94, ], 223 : [0x0058, ], 231 : [0x0094, ], 232 : [0x0094, ], 233 : [0x0094, ], 235 : [0x0058, 0x00D8, ], 241 : [0x0064, ], 248 : [0x0058, 0x00E8, ], 249 : [0x0058, ], 252 : [0x0058, ], 257 : [0x0058, ], 264 : [0x006C, 0x013C, ], 265 : [0x0058, 0x00E4, ], 266 : [0x0058, ], 268 : [0x0124, ], 271 : [0x00AC, 0x015C, ], 272 : [0x00AC, 0x0160, ], 277 : [0x0058, ], 282 : [0x0058, ], 286 : [0x0058, ], 290 : [0x0058, ], 298 : [0x0058, ], 310 : [0x009C, ], 312 : [0x0058, ], 314 : [0x0058, ], 315 : [0x0058, ], 316 : [0x0068, 0x00E8, ], 318 : [0x0078, 0x0188, ], 321 : [0x0078, 0x0188, ], 334 : [0x0058, ], 336 : [0x0068, 0x00E8, ], 340 : [0x0058, ], 344 : [0x0080, 0x019C, ], 345 : [0x0068, 0x00E8, ], 350 : [0x0210, ], 352 : [0x0174, 0x0320, 0x03D4, ], 356 : [0x0058, 0x00E8, ], 358 : [0x0068, 0x00E8, ], 360 : [0x0058, 0x00EC, ], 362 : [0x0058, 0x00E4, ], 366 : [0x0058, 0x00E8, ], 368 : [0x006C, 0x00EC, ], 371 : [0x0058, ], 377 : [0x0058, 0x00E8, ], 382 : [0x006C, 0x00EC, ], 383 : [0x0058, 0x00E4, ], 387 : [0x0058, 0x00E8, ], 392 : [0x0058, 0x00E8, ], 396 : [0x0068, 0x01C0, 0x0304, 0x0418, ], 404 : [0x0058, ], 408 : [0x0058, 0x00E0, ], 416 : [0x0110, 0x026C, ],}
 
 def createDoorSectionClass(Ptrs: List[int] = []):
     class DoorSection():
@@ -140,7 +141,16 @@ def createDoorSectionClass(Ptrs: List[int] = []):
             
             for pos in Ptrs:
                 self.strings.append(ReadStrings(self.buffer[pos:]))
-                self.preSizes.append(self.strings[-1].len_buffer)
+                len_str = self.strings[-1].len_buffer
+                len_str_pad = ((len_str+3)//4)*4
+                pad = len_str_pad - len_str
+                if pad:
+                    res = self.buffer[pos+len_str:pos+len_str+pad]
+                    if all([x==0 for x in res]):
+                        len_str = len_str_pad
+                    else:
+                        logging.debug("why?")
+                self.preSizes.append(len_str)
             
             return
         
@@ -232,7 +242,8 @@ class TreasureSection:
         byte_stream.seek(self.ptrWeaponName)
         if 0x18 < len(self.name_byte):
             logging.critical(f"WeaponName: {self.name_str} is too long. max (24byte.)")
-            self.name_byte = self.name_byte[:0x18]
+            self.name_byte = self.name_byte[:0x17]
+            self.name_byte.append(0xE7)
         byte_stream.write(self.name_byte)
         
         return byte_stream.getvalue()
@@ -269,21 +280,15 @@ class DialogText:
             return None
 
         data = self.strings.packData()
+        sumBytes = self.strings.len_buffer
+                
+        if self.sectionSize < sumBytes:
+            logging.info(f"check the dialogs length, size overflowed; privious({self.sectionSize}) < current({sumBytes})")
+        self.sectionSize = sumBytes
         
-        sumBytes = 2*self.strings.itemNums
-        for text in self.strings_byte:
-            sumBytes += len(text)
-        sumBytes_pad = ((sumBytes+3)//4)*4
-        padding = sumBytes_pad - sumBytes
-        
-        if self.sectionSize < sumBytes_pad:
-            logging.info(f"check the dialogs length, size overflowed; privious({self.sectionSize}) < current({sumBytes_pad})")
-        self.sectionSize = sumBytes_pad
-        
-        if sumBytes_pad == 0:
+        if sumBytes == 0:
             return bytes()
-        
-        return data + b'\x00'*padding
+        return data
 
 class ScriptSection:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
@@ -439,10 +444,7 @@ class MPDstruct:
             for idx in range(6):
                 if sizes[idx] == 0: continue
                 byte_stream.seek(poses[idx])
-                if idx == 3:
-                    sections[idx].unpackData(byte_stream.read(sizes[idx]))
-                else:
-                    sections[idx].unpackData(byte_stream.read(sizes[idx]))
+                sections[idx].unpackData(byte_stream.read(sizes[idx]))
 
     def packData(self, output_path:str):
         if not self.header:
@@ -452,7 +454,7 @@ class MPDstruct:
         poses = [self.header[0]]
         sizes = []
         
-        scriptSection = self.scriptSection.packData()
+        scriptSectionData = self.scriptSection.packData()
         
         sections = [self.roomSection, self.clearedSection, self.scriptSection, self.doorSection, self.enemySection, self.treasureSection]
 
@@ -461,10 +463,10 @@ class MPDstruct:
             if idx > 0:
                 poses.append(poses[idx-1] + sizes[idx-1])
         sumSizes = sum(sizes)
-        logging.debug(f"MDP / room:{self.header[1]}, cleared:{self.header[3]}, script:{self.header[5]}, door:{self.header[7]}, enemy:{self.header[9]}, treasure:{self.header[1]}")
+        logging.debug(f"MDP / room:{self.header[1]}, cleared:{self.header[3]}, script:{self.header[5]}, door:{self.header[7]}, enemy:{self.header[9]}, treasure:{self.header[11]}")
         
-        prevScriptSectionSize = self.header[6] - self.header[4]
-        writeSize = len(scriptSection) if scriptSection is not None else 0
+        prevScriptSectionSize = self.header[5]
+        writeSize = len(scriptSectionData) if scriptSectionData is not None else 0
         if prevScriptSectionSize < writeSize:
             logging.info(f"{output_path}, check the section size, size overflowed({prevScriptSectionSize} < {writeSize})")
 
@@ -473,9 +475,9 @@ class MPDstruct:
             self.header[idx+1] = sizes[idx//2]
             
         if sumSizes > fileSize:
-            prev = math.ceil(fileSize / 2048) * 2048
-            curr = math.ceil(sumSizes / 2048) * 2048
-            if curr > prev:
+            prev = ((fileSize + 2047) // 2048) * 2048
+            curr = ((sumSizes + 2047) // 2048) * 2048
+            if prev < curr:
                 logging.critical(f"{output_path}, check the file size, LBA overflowed({fileSize} < {sumSizes})")
             else:
                 logging.info(f"{output_path}, check the file size, size overflowed({fileSize} < {sumSizes})")
@@ -485,7 +487,7 @@ class MPDstruct:
                 file.write(bytes4(value))
 
             for idx in range(6):
-                data = scriptSection if idx == 2 else sections[idx].packData()
+                data = scriptSectionData if idx == 2 else sections[idx].packData()
                 if data is not None:
                     file.seek(poses[idx])
                     file.write(data)
