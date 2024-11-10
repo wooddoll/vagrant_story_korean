@@ -777,17 +777,17 @@ def extract_MENU_PRG_jp_en(name: str, suffix: str = 'PRG', useEN = True):
 
 def extract_BATTLE_jp_en():
     inp_path = Path(PATH_JPN_VARGRANTSTORY) / Path("BATTLE/BATTLE.PRG")
-    help_jp = BATTLE_PRG_jp(str(inp_path))
+    help_jp = rN.BATTLE_jp(str(inp_path))
     help_jp.cvtByte2Str(jpnTBL)
 
     inp_path = Path(PATH_USA_VARGRANTSTORY) / Path("BATTLE/BATTLE.PRG")
-    help_en = BATTLE_PRG_en(str(inp_path))
+    help_en = rN.BATTLE_en(str(inp_path))
     help_en.cvtByte2Str(usaTBL)
 
     texts1 = {}
-    for idx in range(len(help_jp.strings_str)):
-        jp = help_jp.strings_str[idx]
-        en = help_en.strings_str[idx]
+    for idx in range(len(help_jp.strings[0]._str)):
+        jp = help_jp.strings[0]._str[idx]
+        en = help_en.strings[0]._str[idx]
     
         if not jp and not en:
             continue
@@ -798,9 +798,12 @@ def extract_BATTLE_jp_en():
         texts1[f'{idx:03}'] = singleRow
     
     texts2 = {}
-    for idx in range(len(help_jp.words_str)):
-        jp = help_jp.words_str[idx]
-        en = help_en.words_str[idx]
+    for idx in range(len(help_jp.words[0]._str)):
+        jp = help_jp.words[0]._str[idx]
+        if idx == 0:
+            en = ''
+        else:
+            en = help_en.words[0]._str[idx-1]
     
         if not jp and not en:
             continue
@@ -811,9 +814,9 @@ def extract_BATTLE_jp_en():
         texts2[f'{idx:03}'] = singleRow
     
     texts3 = {}
-    for idx in range(len(help_jp.strings2_str)):
-        jp = help_jp.strings2_str[idx]
-        en = help_en.strings2_str[idx]
+    for idx in range(len(help_jp.strings[1]._str)):
+        jp = help_jp.strings[1]._str[idx]
+        en = help_en.strings[1]._str[idx]
     
         if not jp and not en:
             continue
@@ -827,12 +830,12 @@ def extract_BATTLE_jp_en():
     dialogLists = {}
     dialogLists['BATTLE_1'] = texts1
     dialogLists['BATTLE_2'] = texts2
-    dialogLists['BATTLE_3'] = texts3
+    dialogLists['BATTLE_4'] = texts3
     with open(f'work/strings/BATTLE_BATTLE_PRG_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
 
-#extract_BATTLE_jp_en()
-#exit()
+extract_BATTLE_jp_en()
+exit()
 
 def extract_MENU9_jp_en():
     inp_path = Path(PATH_JPN_VARGRANTSTORY) / Path("MENU/MENU9.PRG")
@@ -1162,7 +1165,8 @@ def searchByte():
     #word = bytearray([0x91, 0xE0, 0x90, 0xCD, 0x53, 0xA2, 0xD7, 0xE7])
     #word = bytearray([0xE0, 0x9C, 0x90, 0xCD, 0xED, 0x23, 0xA2, 0xD7])
     #word = bytearray([0xEF, 0x6B, 0xF0, 0x0C, 0x4A, 0x63])
-    word = bytearray([0xD1,0xC4 ,0xB5 ,0xB2])
+    #word = bytearray([0xD1,0xC4 ,0xB5 ,0xB2])
+    word = bytearray([0x95 ,0xB5 ,0xAF ,0x90 ,0x56 ,0xEE ,0xBB ,0xEE ,0x25])
     len_word = len(word)
     for filepath in tqdm(file_list, desc="Processing"):
         relative_path = filepath.relative_to(folder_path)

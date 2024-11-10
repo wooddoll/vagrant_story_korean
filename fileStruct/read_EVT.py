@@ -41,11 +41,6 @@ class read_EVT:
             self.Unknown2 = self.buffer[head[3]:head[0]]
             
             self.strings_byte = self.strings._byte
-            
-            #if not all([x==0 for x in self.Unknown1]):
-            #    print()
-            #if not all([x==0 for x in self.Unknown2]):
-            #    print()
         
     def packData(self, output_path: str):
         byte_stream = io.BytesIO(self.buffer)
@@ -55,6 +50,18 @@ class read_EVT:
         new_len_buffer = ((new_len_buffer+3)//4)*4
 
         prevStr = head[2] - head[1]
+
+        ppx = False
+        if not all([x==0 for x in self.Unknown1]):
+            ppx = True
+        if not all([x==0 for x in self.Unknown2]):
+            ppx = True
+        if prevStr < new_len_buffer:
+            if ppx:
+                logging.critical(f"{Path(output_path).stem}, check the length of strings, size overflowed; {prevStr} < current({new_len_buffer})")
+            else:
+                logging.warning(f"{Path(output_path).stem}, check the length of strings, size overflowed; {prevStr} < current({new_len_buffer})")
+
         shift = 0
         if prevStr < new_len_buffer:
             shift = new_len_buffer - prevStr
@@ -62,10 +69,7 @@ class read_EVT:
         head[0] += shift
         head[2] += shift
         head[3] += shift
-        
-        if prevStr < new_len_buffer:
-            logging.warning(f"check the length of strings, size overflowed; {prevStr} < current({new_len_buffer})")
-                
+                        
         if byteData is not None:
             with open(output_path, 'wb') as file:
                 file.write(self.buffer)

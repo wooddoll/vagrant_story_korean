@@ -12,8 +12,8 @@ class ReadWords():
         self.wordNums = wordNums
         self.wordBytes = wordBytes
         self.stride = stride if 0 < stride else wordBytes
-        self._byte = []
-        self._str = []
+        self._byte: List[bytearray] = []
+        self._str: List[str] = []
         
         if buffer is not None:
             self.unpackData(buffer)
@@ -58,7 +58,8 @@ class ReadWords():
             len_bytes = len(self._byte[idx])
             
             if len_bytes > self.wordBytes:
-                bytename = self._byte[idx][:self.wordBytes]
+                bytename = self._byte[idx][:self.wordBytes-1]
+                bytename.append(0xE7)
                 logging.critical(f"check the word length, size overflowed; allocated({self.wordBytes}) < current({len_bytes})")
             else:
                 bytename = self._byte[idx]

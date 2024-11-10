@@ -142,7 +142,7 @@ def createDoorSectionClass(Ptrs: List[int] = []):
             for pos in Ptrs:
                 self.strings.append(ReadStrings(self.buffer[pos:]))
                 len_str = self.strings[-1].len_buffer
-                len_str_pad = ((len_str+3)//4)*4
+                len_str_pad = ((len_str+1)//2)*2
                 pad = len_str_pad - len_str
                 if pad:
                     res = self.buffer[pos+len_str:pos+len_str+pad]

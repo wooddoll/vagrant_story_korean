@@ -248,8 +248,8 @@ def makeKorFontData():
     return korHisto
 
 def applyKorFont():
-    krfontImage = 'font/font12kr.png'
-    imgJpKr = Image.open(krfontImage)
+    krfont12Image = 'font/font12kr.png'
+    imgJpKr = Image.open(krfont12Image)
     
     system_dat = cvtFontBin.SYSTEM_DAT(f'{PATH_JPN_VARGRANTSTORY}')
     system_dat.fontData.setImage(imgJpKr)
@@ -261,6 +261,9 @@ def applyKorFont():
     
     insertTITLE_font(f'{PATH_JPN_VARGRANTSTORY}/TITLE/TITLE.PRG', 'font/font12kr.png', f'{PATH_KOR_VARGRANTSTORY}/TITLE/TITLE.PRG')
 
+    krfont14Image = 'font/font14kr.png'
+    packFont14Bin(krfont14Image, f'{PATH_KOR_VARGRANTSTORY}/MENU/FONT14.BIN')
+    
 def posInTable18_ja(index: int):
     row = index//18
     col = index%18
@@ -380,7 +383,7 @@ def updateMAP_MDP(kor_strings: dict):
         if str(key)[:3] == 'MAP' and str(key) != 'MAP_ZND':
             idx = int(str(key)[3:])           
             #logging.info(f"=== MAP{idx:03}.MPD packing ===")
-            print(f"=== MAP{idx:03}.MPD packing ===")
+            #print(f"=== MAP{idx:03}.MPD packing ===")
             update_MPD(idx, kor_strings)
 
 def update_ARM(Name: str, dictTexts: dict):
@@ -707,7 +710,7 @@ def rebuildKor():
 #makeKorFont14(korHisto)
 #update_Help()
 #exit()
-applyKorFont()
+#applyKorFont()
 rebuildKor()
 
 def test1():
