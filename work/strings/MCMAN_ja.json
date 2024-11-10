@@ -1,0 +1,552 @@
+{
+  "MCMAN": {
+    "000": {
+      "string": "セーブ",
+      "@@localazy:comment:string": "SAVE"
+    },
+    "001": {
+      "string": "データをセーブします。",
+      "@@localazy:comment:string": "Save game data."
+    },
+    "002": {
+      "string": "ロード",
+      "@@localazy:comment:string": "LOAD"
+    },
+    "003": {
+      "string": "データをロードします。",
+      "@@localazy:comment:string": "Load saved game data."
+    },
+    "004": {
+      "string": "スロット«FA0C»1",
+      "@@localazy:comment:string": "MEMORY CARD slot 1"
+    },
+    "005": {
+      "string": "スロット«FA0C»2",
+      "@@localazy:comment:string": "MEMORY CARD slot 2"
+    },
+    "006": {
+      "string": "メモリーカードスロットを選択してください。",
+      "@@localazy:comment:string": "Select a MEMORY CARD slot."
+    },
+    "007": {
+      "string": "メモリーカードをチェックしています。↵絶対にメモリーカードを抜き差ししないでください。",
+      "@@localazy:comment:string": "Checking MEMORY CARD...↵Do not insert or remove MEMORY CARDs."
+    },
+    "008": {
+      "string": "メモリーカードが正しく接続されていません。«E6E7»",
+      "@@localazy:comment:string": "MEMORY CARD is not inserted correctly.«E6E7»"
+    },
+    "009": {
+      "string": "前回のデータが見つかりませんでした。«E6E7»",
+      "@@localazy:comment:string": "No save data found.«E6E7»"
+    },
+    "010": {
+      "string": "データの書き込みに失敗しました。データを失う↵可能性があるため,再度セーブしてください。«E6E7»",
+      "@@localazy:comment:string": "Saving failed.↵Please save again to prevent data loss.«E6E7»"
+    },
+    "011": {
+      "string": "データの読み込みに失敗しました。メモリーカードが↵正しく接続されているかどうか確認してください。«E6E7»",
+      "@@localazy:comment:string": "Loading failed.↵MEMORY CARD may be inserted incorrectly.«E6E7»"
+    },
+    "012": {
+      "string": "ファイルを選択してください。↵絶対にメモリーカードを抜き差ししないでください。",
+      "@@localazy:comment:string": "Select file.↵Do not insert or remove MEMORY CARDs."
+    },
+    "013": {
+      "string": "データが正しくセーブされていません。↵このデータでゲームを続行することはできません。«E6E7»",
+      "@@localazy:comment:string": "Data is not saved properly.↵You may not continue gameplay with this data.«E6E7»"
+    },
+    "014": {
+      "string": "メモリーカードにデータを書き込んでいます。↵絶対にメモリーカードを抜き差ししないでください。",
+      "@@localazy:comment:string": "Saving...↵Do not insert or remove MEMORY CARDs."
+    },
+    "015": {
+      "string": "メモリーカードからデータを読み込んでいます。↵絶対にメモリーカードを抜き差ししないでください。",
+      "@@localazy:comment:string": "Loading...↵Do not insert or remove MEMORY CARDs."
+    },
+    "016": {
+      "string": "データのセーブを完了しました!",
+      "@@localazy:comment:string": "Game saved."
+    },
+    "017": {
+      "string": "データのロードを完了しました!",
+      "@@localazy:comment:string": "Game loaded."
+    },
+    "018": {
+      "string": "«FA66»使用中",
+      "@@localazy:comment:string": "                In Use"
+    },
+    "019": {
+      "string": "«FA66»未使用",
+      "@@localazy:comment:string": "                Empty"
+    },
+    "020": {
+      "string": "«FA60»新規作成",
+      "@@localazy:comment:string": "             New save data"
+    },
+    "021": {
+      "string": "メモリーカードが差し替えられました。↵もう一度やり直してください。«E6E7»",
+      "@@localazy:comment:string": "MEMORY CARD was removed.↵Please try again.«E6E7»"
+    },
+    "022": {
+      "string": "スロット1のメモリーカードをチェックしています。↵絶対にメモリーカードを抜き差ししないでください。",
+      "@@localazy:comment:string": "Accessing MEMORY CARDs...↵Do not insert or remove MEMORY CARDs."
+    },
+    "023": {
+      "string": "スロット2のメモリーカードをチェックしています。↵絶対にメモリーカードを抜き差ししないでください。",
+      "@@localazy:comment:string": "Accessing MEMORY CARDs...↵Do not insert or remove MEMORY CARDs."
+    },
+    "024": {
+      "string": "このまま操作を続け,最後にセーブを行うと↵コンテナの中身が失われますがよろしいですか?",
+      "@@localazy:comment:string": "If you save now, all container contents↵will be lost. Continue?"
+    },
+    "025": {
+      "string": "メモリーカードが初期化されていません。↵ここで初期化しますか?",
+      "@@localazy:comment:string": "MEMORY CARD is not formatted.↵Do you wish to format it?"
+    },
+    "026": {
+      "string": "YES",
+      "@@localazy:comment:string": "YES"
+    },
+    "027": {
+      "string": "NO",
+      "@@localazy:comment:string": "NO"
+    },
+    "028": {
+      "string": "メモリーカードを初期化しています。↵絶対にメモリーカードを抜き差ししないでください。",
+      "@@localazy:comment:string": "Formatting MEMORY CARD...↵Do not insert or remove MEMORY CARD."
+    },
+    "029": {
+      "string": "メモリーカードを初期化しました。",
+      "@@localazy:comment:string": "Formatted MEMORY CARD."
+    },
+    "030": {
+      "string": "メモリーカードの初期化に失敗しました。«E6E7»",
+      "@@localazy:comment:string": "MEMORY CARD format failed.«E6E7»"
+    },
+    "031": {
+      "string": "メモリーカードの初期化をキャンセルしました。«E6E7»",
+      "@@localazy:comment:string": "MEMORY CARD format cancelled.«E6E7»"
+    },
+    "032": {
+      "string": "セーブデータのバージョンが古くなっています。↵続行すると正常に動作しない可能性があります。",
+      "@@localazy:comment:string": "Old save data.↵Continued gameplay may cause errors."
+    },
+    "033": {
+      "string": "このファイルに上書き保存します。↵よろしいですか?",
+      "@@localazy:comment:string": "Overwrite the file?"
+    },
+    "034": {
+      "string": "ベイグラントストーリーのファイルが↵見つかりません。«E6E7»",
+      "@@localazy:comment:string": "No VAGRANT STORY data found.«E6E7»"
+    },
+    "035": {
+      "string": "空きブロックが不足しています。↵セーブには3ブロック必要です。«E6E7»",
+      "@@localazy:comment:string": "Not enough free blocks.↵3 blocks required to save.«E6E7»"
+    },
+    "036": {
+      "string": "«FA10»YES",
+      "@@localazy:comment:string": "«FA10»YES"
+    },
+    "037": {
+      "string": "«FA10»NO",
+      "@@localazy:comment:string": "«FA10»NO"
+    },
+    "038": {
+      "string": "データは正しくセーブされていません。↵コンテナの中身が失われますが,よろしいですか?",
+      "@@localazy:comment:string": "Data is not saved correctly. Container contents↵may be lost. Continue?"
+    },
+    "039": {
+      "string": "データはセーブされていません。↵データをセーブしますか?",
+      "@@localazy:comment:string": "Game is not saved.↵Save now?"
+    },
+    "040": {
+      "string": "バトル中はセーブできません。",
+      "@@localazy:comment:string": "Cannot save during battle."
+    },
+    "041": {
+      "string": "破損ファイル",
+      "@@localazy:comment:string": "Corrupted file"
+    },
+    "042": {
+      "string": "労働者の休憩所",
+      "@@localazy:comment:string": "Breakroom"
+    },
+    "043": {
+      "string": "ワインギルドの間",
+      "@@localazy:comment:string": "Wine Guild Hall"
+    },
+    "044": {
+      "string": "ワインの闇市場",
+      "@@localazy:comment:string": "Blackmarket"
+    },
+    "045": {
+      "string": "復豐を誓った広間",
+      "@@localazy:comment:string": "Hall of Revenge"
+    },
+    "046": {
+      "string": "枯れた霊泉の広間",
+      "@@localazy:comment:string": "Withered Spring"
+    },
+    "047": {
+      "string": "パワーホール",
+      "@@localazy:comment:string": "Work of Art/WS"
+    },
+    "048": {
+      "string": "神が降臨した霊地",
+      "@@localazy:comment:string": "Advent Ground"
+    },
+    "049": {
+      "string": "バーミリオン通り",
+      "@@localazy:comment:string": "Rue Vermillion"
+    },
+    "050": {
+      "string": "ブロンズハンマー",
+      "@@localazy:comment:string": "Magic Hammer/WS"
+    },
+    "051": {
+      "string": "命運の分かれ路",
+      "@@localazy:comment:string": "The Crossing"
+    },
+    "052": {
+      "string": "暗闇と迷信の坑道",
+      "@@localazy:comment:string": "The Dark Tunnel"
+    },
+    "053": {
+      "string": "ブケッツ通り",
+      "@@localazy:comment:string": "Rue Bouquet"
+    },
+    "054": {
+      "string": "太陽を望んだ街道",
+      "@@localazy:comment:string": "The Sunless Way"
+    },
+    "055": {
+      "string": "精霊界の隣接点",
+      "@@localazy:comment:string": "Faerie Circle"
+    },
+    "056": {
+      "string": "森が生まれた川",
+      "@@localazy:comment:string": "Forest River"
+    },
+    "057": {
+      "string": "森を守った出口",
+      "@@localazy:comment:string": "The Wood Gate"
+    },
+    "058": {
+      "string": "バルダマン城門前",
+      "@@localazy:comment:string": "Valdiman Gate"
+    },
+    "059": {
+      "string": "戦いと憩いの広場",
+      "@@localazy:comment:string": "Warriorʹs Rest"
+    },
+    "060": {
+      "string": "ファインクラフト",
+      "@@localazy:comment:string": "Keaneʹs/WS"
+    },
+    "061": {
+      "string": "罪人達の街角",
+      "@@localazy:comment:string": "Sinnerʹs Corner"
+    },
+    "062": {
+      "string": "崩壊した商店街",
+      "@@localazy:comment:string": "Crumbling Mrkt."
+    },
+    "063": {
+      "string": "契約を交わす部屋",
+      "@@localazy:comment:string": "Treaty Room"
+    },
+    "064": {
+      "string": "盜賊達の空洞",
+      "@@localazy:comment:string": "Banditsʹ Hollow"
+    },
+    "065": {
+      "string": "鉱物を運んだ坑道",
+      "@@localazy:comment:string": "The Ore Road"
+    },
+    "066": {
+      "string": "命を壳った通路",
+      "@@localazy:comment:string": "Auction Block"
+    },
+    "067": {
+      "string": "地底への道",
+      "@@localazy:comment:string": "Way Down"
+    },
+    "068": {
+      "string": "ディパイス通り",
+      "@@localazy:comment:string": "Rue Lejour"
+    },
+    "069": {
+      "string": "ケッシュ大橋",
+      "@@localazy:comment:string": "Kesch Bridge"
+    },
+    "070": {
+      "string": "メタルワークス",
+      "@@localazy:comment:string": "Metal Works/WS"
+    },
+    "071": {
+      "string": "ジャンクション",
+      "@@localazy:comment:string": "Junction Pt./WS"
+    },
+    "072": {
+      "string": "闇が生まれた聖地",
+      "@@localazy:comment:string": "The Dark Coast"
+    },
+    "073": {
+      "string": "ルミタール広場",
+      "@@localazy:comment:string": "Plateia Lumitar"
+    },
+    "074": {
+      "string": "罪と罰の間",
+      "@@localazy:comment:string": "Punishment"
+    },
+    "075": {
+      "string": "聖戦の間",
+      "@@localazy:comment:string": "The Atrium"
+    },
+    "076": {
+      "string": "ワークショップ",
+      "@@localazy:comment:string": "Godhands/WS"
+    },
+    "077": {
+      "string": "セーブ36欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»36«F6EF»«F6EF»"
+    },
+    "078": {
+      "string": "セーブ37欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»37«F6EF»«F6EF»"
+    },
+    "079": {
+      "string": "セーブ38欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»39«F6EF»«F6EF»"
+    },
+    "080": {
+      "string": "セーブ39欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»38«F6EF»«F6EF»"
+    },
+    "081": {
+      "string": "セーブ40欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»40«F6EF»«F6EF»"
+    },
+    "082": {
+      "string": "セーブ41欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»41«F6EF»«F6EF»"
+    },
+    "083": {
+      "string": "セーブ42欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»42«F6EF»«F6EF»"
+    },
+    "084": {
+      "string": "セーブ43欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»43«F6EF»«F6EF»"
+    },
+    "085": {
+      "string": "セーブ44欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»44«F6EF»«F6EF»"
+    },
+    "086": {
+      "string": "セーブ45欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»45«F6EF»«F6EF»"
+    },
+    "087": {
+      "string": "セーブ46欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»46«F6EF»«F6EF»"
+    },
+    "088": {
+      "string": "セーブ47欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»47«F6EF»«F6EF»"
+    },
+    "089": {
+      "string": "クリアデータ",
+      "@@localazy:comment:string": "Game Clear Data"
+    },
+    "090": {
+      "string": "セーブ49欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»48«F6EF»«F6EF»"
+    },
+    "091": {
+      "string": "セーブ50欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»50«F6EF»«F6EF»"
+    },
+    "092": {
+      "string": "セーブ51欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»51«F6EF»«F6EF»"
+    },
+    "093": {
+      "string": "セーブ52欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»52«F6EF»«F6EF»"
+    },
+    "094": {
+      "string": "セーブ53欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»53«F6EF»«F6EF»"
+    },
+    "095": {
+      "string": "セーブ54欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»54«F6EF»«F6EF»"
+    },
+    "096": {
+      "string": "セーブ55欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»55«F6EF»«F6EF»"
+    },
+    "097": {
+      "string": "セーブ56欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»56«F6EF»«F6EF»"
+    },
+    "098": {
+      "string": "セーブ57欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»57«F6EF»«F6EF»"
+    },
+    "099": {
+      "string": "セーブ58欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»59«F6EF»«F6EF»"
+    },
+    "100": {
+      "string": "セーブ59欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»58«F6EF»«F6EF»"
+    },
+    "101": {
+      "string": "セーブ60欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»60«F6EF»«F6EF»"
+    },
+    "102": {
+      "string": "セーブ61欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»61«F6EF»«F6EF»"
+    },
+    "103": {
+      "string": "セーブ62欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»62«F6EF»«F6EF»"
+    },
+    "104": {
+      "string": "セーブ63欠番",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»63«F6EF»«F6EF»"
+    },
+    "105": {
+      "string": "ワインギルドの間",
+      "@@localazy:comment:string": "Wine Guild Hall"
+    },
+    "106": {
+      "string": "復豐を誓った広間",
+      "@@localazy:comment:string": "Hall of Revenge"
+    },
+    "107": {
+      "string": "神が降臨した霊地",
+      "@@localazy:comment:string": "Advent Ground"
+    },
+    "108": {
+      "string": "森が生まれた川",
+      "@@localazy:comment:string": "Forest River"
+    },
+    "109": {
+      "string": "闇が生まれた聖地",
+      "@@localazy:comment:string": "The Dark Coast"
+    },
+    "110": {
+      "string": "罪と罰の間",
+      "@@localazy:comment:string": "Sin and Punish."
+    },
+    "111": {
+      "string": "パワーホール",
+      "@@localazy:comment:string": "Work of Art/WS"
+    },
+    "112": {
+      "string": "ブロンズハンマー",
+      "@@localazy:comment:string": "Magic Hammer/WS"
+    },
+    "113": {
+      "string": "ファインクラフト",
+      "@@localazy:comment:string": "Keaneʹs/WS"
+    },
+    "114": {
+      "string": "メタルワークス",
+      "@@localazy:comment:string": "Metal Works/WS"
+    },
+    "115": {
+      "string": "ジャンクション",
+      "@@localazy:comment:string": "Junction Pt./WS"
+    },
+    "116": {
+      "string": "ワークショップ",
+      "@@localazy:comment:string": "Godhands/WS"
+    },
+    "117": {
+      "string": "コンテナ12/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»12/«F6EF»"
+    },
+    "118": {
+      "string": "コンテナ13/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»13/«F6EF»"
+    },
+    "119": {
+      "string": "コンテナ14/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»14/«F6EF»"
+    },
+    "120": {
+      "string": "コンテナ15/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»15/«F6EF»"
+    },
+    "121": {
+      "string": "コンテナ16/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»16/«F6EF»"
+    },
+    "122": {
+      "string": "コンテナ17/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»17/«F6EF»"
+    },
+    "123": {
+      "string": "コンテナ18/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»19/«F6EF»"
+    },
+    "124": {
+      "string": "コンテナ19/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»18/«F6EF»"
+    },
+    "125": {
+      "string": "コンテナ20/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»20/«F6EF»"
+    },
+    "126": {
+      "string": "コンテナ21/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»21/«F6EF»"
+    },
+    "127": {
+      "string": "コンテナ22/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»22/«F6EF»"
+    },
+    "128": {
+      "string": "コンテナ23/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»23/«F6EF»"
+    },
+    "129": {
+      "string": "コンテナ24/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»24/«F6EF»"
+    },
+    "130": {
+      "string": "コンテナ25/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»25/«F6EF»"
+    },
+    "131": {
+      "string": "コンテナ26/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»26/«F6EF»"
+    },
+    "132": {
+      "string": "コンテナ27/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»27/«F6EF»"
+    },
+    "133": {
+      "string": "コンテナ28/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»29/«F6EF»"
+    },
+    "134": {
+      "string": "コンテナ29/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»28/«F6EF»"
+    },
+    "135": {
+      "string": "コンテナ30/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»30/«F6EF»"
+    },
+    "136": {
+      "string": "コンテナ31/仮",
+      "@@localazy:comment:string": "«F6EF»«F6EF»«F6EF»«F6EF»31/«F6EF»"
+    }
+  }
+}

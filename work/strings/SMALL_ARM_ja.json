@@ -2,29 +2,29 @@
   "SMALL_ARM": {
     "DUMMY": {
       "000": {
-        "string": "石壁の部屋01",
+        "string": "外壁の部屋01",
         "@@localazy:comment:string": "«ED8D»«F113»à«F02E»«EF4D»01"
       },
       "001": {
-        "string": "石壁の部屋02",
+        "string": "外壁の部屋02",
         "@@localazy:comment:string": "«ED8D»«F113»à«F02E»«EF4D»02"
       },
       "002": {
-        "string": "石壁の部屋03",
+        "string": "外壁の部屋03",
         "@@localazy:comment:string": "«ED8D»«F113»à«F02E»«EF4D»03"
       }
     },
     "SCEN001": {
       "000": {
-        "string": "登の旧口と關の入口",
+        "string": "光の出口と闇の入口",
         "@@localazy:comment:string": "«FB06»Entrance to Darkness"
       },
       "001": {
-        "string": "庶兆のための赤ワインが眠る部屋",
+        "string": "庶民のための赤ワインが眠る部屋",
         "@@localazy:comment:string": "«FB06»Room of Cheap Red Wine"
       },
       "002": {
-        "string": "庶兆のための吐ワインが眠る部屋",
+        "string": "庶民のための白ワインが眠る部屋",
         "@@localazy:comment:string": "«FB06»Room of Cheap White Wine"
       },
       "003": {
@@ -32,7 +32,7 @@
         "@@localazy:comment:string": "«FB06»Hall of Struggle"
       },
       "004": {
-        "string": "樽柿を作った字段",
+        "string": "樽柿を作った階段",
         "@@localazy:comment:string": "«FB06»Smokebarrel Stair"
       },
       "005": {
@@ -76,7 +76,7 @@
         "@@localazy:comment:string": "«FB06»Workerʹs Breakroom"
       },
       "015": {
-        "string": "ワインの關辺場",
+        "string": "ワインの闇市場",
         "@@localazy:comment:string": "«FB06»Blackmarket of Wines"
       },
       "016": {
@@ -84,13 +84,13 @@
         "@@localazy:comment:string": "«FB06»The Heroʹs Winehall"
       },
       "017": {
-        "string": "共遠の愛を誓った職人の払什所",
+        "string": "永遠の愛を誓った職人の処刑所",
         "@@localazy:comment:string": "«FB06»The Gallows"
       }
     },
     "SCEN002": {
       "000": {
-        "string": "復豐を誓った争間",
+        "string": "復豐を誓った広間",
         "@@localazy:comment:string": "«FB06»Hall of Sworn Revenge"
       },
       "001": {
@@ -102,7 +102,7 @@
         "@@localazy:comment:string": "«FB06»The Weeping Corridor"
       },
       "003": {
-        "string": "迫害された者達の争間",
+        "string": "迫害された者達の広間",
         "@@localazy:comment:string": "«FB06»Persecution Hall"
       },
       "004": {
@@ -114,11 +114,11 @@
         "@@localazy:comment:string": "«FB06»Rodent—Ridden Chamber"
       },
       "006": {
-        "string": "殉教者達に祈りを捧げた墓収",
+        "string": "殉教者達に祈りを捧げた墓地",
         "@@localazy:comment:string": "«FB06»Shrine to the Martyrs"
       },
       "007": {
-        "string": "希望の歌が処唱された争間",
+        "string": "希望の歌が合唱された広間",
         "@@localazy:comment:string": "«FB06»Hall of Dying Hope"
       },
       "008": {
@@ -134,7 +134,7 @@
         "@@localazy:comment:string": "«FB06»Faith Overcame Fear"
       },
       "011": {
-        "string": "枯れた霊泉の争間",
+        "string": "枯れた霊泉の広間",
         "@@localazy:comment:string": "«FB06»The Withered Spring"
       },
       "012": {
@@ -164,11 +164,11 @@
     },
     "SCEN003": {
       "000": {
-        "string": "犯罪者を閉じ多めた防壁",
+        "string": "犯罪者を閉じ込めた防壁",
         "@@localazy:comment:string": "«FB06»Prisonersʹ Niche"
       },
       "001": {
-        "string": "田祭が覚醒した歩廊",
+        "string": "司祭が覚醒した歩廊",
         "@@localazy:comment:string": "«FB06»Corridor of the Clerics"
       },
       "002": {
@@ -188,7 +188,7 @@
         "@@localazy:comment:string": "«FB06»Shrine of the Martyrs"
       },
       "006": {
-        "string": "神が降臨した霊収",
+        "string": "神が降臨した霊地",
         "@@localazy:comment:string": "«FB06»Advent Ground"
       },
       "007": {
@@ -196,11 +196,11 @@
         "@@localazy:comment:string": "«FB06»Passage of the Refugees"
       },
       "008": {
-        "string": "登への字段",
+        "string": "光への階段",
         "@@localazy:comment:string": "«FB06»Stairway to the Light"
       },
       "009": {
-        "string": "自合を望んだ霊場",
+        "string": "自由を望んだ霊場",
         "@@localazy:comment:string": "«FB06»Hallowed Hope"
       },
       "010": {
@@ -212,7 +212,7 @@
         "@@localazy:comment:string": "«FB06»Hall of Sacrilege"
       },
       "012": {
-        "string": "邪心を清めた在拝堂",
+        "string": "邪心を清めた礼拝堂",
         "@@localazy:comment:string": "«FB06»The Cleansing Chantry"
       }
     },
@@ -234,7 +234,7 @@
         "@@localazy:comment:string": "«FB06»Conflict and Accord"
       },
       "004": {
-        "string": "曲てを賭けた坑道",
+        "string": "全てを賭けた坑道",
         "@@localazy:comment:string": "«FB06»The Suicide King"
       },
       "005": {
@@ -242,19 +242,19 @@
         "@@localazy:comment:string": "«FB06»The End of the Line"
       },
       "006": {
-        "string": "守いが勃発した通路",
+        "string": "争いが勃発した通路",
         "@@localazy:comment:string": "«FB06»The Battleʹs Beginning"
       },
       "007": {
-        "string": "さらなる獲物を求める字段",
+        "string": "さらなる獲物を求める階段",
         "@@localazy:comment:string": "«FB06»What Lies Ahead?"
       },
       "008": {
-        "string": "協力が牙を奏した鉱脈",
+        "string": "協力が功を奏した鉱脈",
         "@@localazy:comment:string": "«FB06»The Fruits of Friendship"
       },
       "009": {
-        "string": "収農で潰された坑内",
+        "string": "地震で潰された坑内",
         "@@localazy:comment:string": "«FB06»The Earthquakeʹs Mark"
       },
       "010": {
@@ -270,7 +270,7 @@
         "@@localazy:comment:string": "«FB06»The Hall of Hope"
       },
       "013": {
-        "string": "暗關と迷信の坑道",
+        "string": "暗闇と迷信の坑道",
         "@@localazy:comment:string": "«FB06»The Dark Tunnel"
       },
       "014": {
@@ -278,7 +278,7 @@
         "@@localazy:comment:string": "«FB06»Rust in Peace"
       },
       "015": {
-        "string": "深く功くを求めた通路",
+        "string": "深く多くを求めた通路",
         "@@localazy:comment:string": "«FB06»Everwant Passage"
       },
       "016": {
@@ -286,7 +286,7 @@
         "@@localazy:comment:string": "«FB06»Mining Regrets"
       },
       "017": {
-        "string": "鉱回の精鍊所",
+        "string": "鉱石の精鍊所",
         "@@localazy:comment:string": "«FB06»The Smeltry"
       },
       "018": {
@@ -298,11 +298,11 @@
         "@@localazy:comment:string": "«FB06»Greed Knows No Bounds"
       },
       "020": {
-        "string": "各き延びるための坑道",
+        "string": "生き延びるための坑道",
         "@@localazy:comment:string": "«FB06»Live Long and Prosper"
       },
       "021": {
-        "string": "鉱物の神を崇めた字段",
+        "string": "鉱物の神を崇めた階段",
         "@@localazy:comment:string": "«FB06»Pray to the Mineral Gods"
       },
       "022": {
@@ -316,11 +316,11 @@
     },
     "SCEN005": {
       "000": {
-        "string": "サイコロで人各を決めた通路",
+        "string": "サイコロで人生を決めた通路",
         "@@localazy:comment:string": "«FB06»Gamblerʹs Passage"
       },
       "001": {
-        "string": "契約を年わす部屋",
+        "string": "契約を交わす部屋",
         "@@localazy:comment:string": "«FB06»Treaty Room"
       },
       "002": {
@@ -328,7 +328,7 @@
         "@@localazy:comment:string": "«FB06»The Minerʹs End"
       },
       "003": {
-        "string": "過労で倒れた字段",
+        "string": "過労で倒れた階段",
         "@@localazy:comment:string": "«FB06»Work, Then Die"
       },
       "004": {
@@ -340,11 +340,11 @@
         "@@localazy:comment:string": "«FB06»Delusions of Happiness"
       },
       "006": {
-        "string": "暗關の中での食事場",
+        "string": "暗闇の中での食事場",
         "@@localazy:comment:string": "«FB06»Dining in Darkness"
       },
       "007": {
-        "string": "収下の各物に驚いた通路",
+        "string": "地下の生物に驚いた通路",
         "@@localazy:comment:string": "«FB06»Subtellurian Horrors"
       },
       "008": {
@@ -352,11 +352,11 @@
         "@@localazy:comment:string": "«FB06»Hidden Resources"
       },
       "009": {
-        "string": "迷い多んだ子供達の通路",
+        "string": "迷い込んだ子供達の通路",
         "@@localazy:comment:string": "«FB06»Way of Lost Children"
       },
       "010": {
-        "string": "登のない通路",
+        "string": "光のない通路",
         "@@localazy:comment:string": "«FB06»Hall of the Empty Sconce"
       },
       "011": {
@@ -372,7 +372,7 @@
         "@@localazy:comment:string": "«FB06»The Abandoned Catspaw"
       },
       "014": {
-        "string": "各まれ変わった者達の墓場",
+        "string": "生まれ変わった者達の墓場",
         "@@localazy:comment:string": "«FB06»Tomb of the Reborn"
       },
       "015": {
@@ -380,19 +380,19 @@
         "@@localazy:comment:string": "«FB06»The Fallen Bricklayer"
       },
       "016": {
-        "string": "血と涙の十古路",
+        "string": "血と涙の十字路",
         "@@localazy:comment:string": "«FB06»Crossing of Blood"
       },
       "017": {
-        "string": "旧来の悪い金属に狂喜した通路",
+        "string": "出来の悪い金属に狂喜した通路",
         "@@localazy:comment:string": "«FB06»Foolʹs Gold, Foolʹs Loss"
       },
       "018": {
-        "string": "獸の雄兄びが聞こえた恐饰の字段",
+        "string": "獸の雄叫びが聞こえた恐饰の階段",
         "@@localazy:comment:string": "«FB06»Cry of the Beast"
       },
       "019": {
-        "string": "感覚を礼う通路",
+        "string": "感覚を失う通路",
         "@@localazy:comment:string": "«FB06»Senses Lost"
       },
       "020": {
@@ -400,7 +400,7 @@
         "@@localazy:comment:string": "«FB06»Desireʹs Passage"
       },
       "021": {
-        "string": "少召が自分の包前を刻んだ字段",
+        "string": "少年が自分の名前を刻んだ階段",
         "@@localazy:comment:string": "«FB06»Kilroy Was Here"
       },
       "022": {
@@ -408,7 +408,7 @@
         "@@localazy:comment:string": "«FB06»Suicidal Desires"
       },
       "023": {
-        "string": "旬說の鉱回が掘り起こされた通路",
+        "string": "伝說の鉱石が掘り起こされた通路",
         "@@localazy:comment:string": "«FB06»The Ore of Legend"
       },
       "024": {
@@ -424,7 +424,7 @@
         "@@localazy:comment:string": "«FB06»The Lunatic Veins"
       },
       "027": {
-        "string": "暗關の通路",
+        "string": "暗闇の通路",
         "@@localazy:comment:string": "«FB06»Corridor of Shade"
       },
       "028": {
@@ -434,11 +434,11 @@
     },
     "SCEN006": {
       "000": {
-        "string": "登を憎んだ字段",
+        "string": "光を憎んだ階段",
         "@@localazy:comment:string": "«FB06»Dark Abhors Light"
       },
       "001": {
-        "string": "聖収を夢見た争間",
+        "string": "聖地を夢見た広間",
         "@@localazy:comment:string": "«FB06»Dream of the Holy Land"
       },
       "002": {
@@ -446,7 +446,7 @@
         "@@localazy:comment:string": "«FB06»The Ore Road"
       },
       "003": {
-        "string": "共遠に屆かぬ通路",
+        "string": "永遠に屆かぬ通路",
         "@@localazy:comment:string": "«FB06»Atone for Eternity"
       },
       "004": {
@@ -458,23 +458,23 @@
         "@@localazy:comment:string": "«FB06»Bonds of Friendship"
       },
       "006": {
-        "string": "聖収を名指す字段",
+        "string": "聖地を目指す階段",
         "@@localazy:comment:string": "«FB06»Stair to Sanctuary"
       },
       "007": {
-        "string": "落盤の争間",
+        "string": "落盤の広間",
         "@@localazy:comment:string": "«FB06»The Fallen Hall"
       },
       "008": {
-        "string": "鉱回を見ぬまま倒れた通路",
+        "string": "鉱石を見ぬまま倒れた通路",
         "@@localazy:comment:string": "«FB06»The Rotten Core"
       },
       "009": {
-        "string": "史酒に幸福を踊った字段",
+        "string": "安酒に幸福を踊った階段",
         "@@localazy:comment:string": "«FB06»Bacchus is Cheap"
       },
       "010": {
-        "string": "負傷者の兄び声が聞こえた争間",
+        "string": "負傷者の叫び声が聞こえた広間",
         "@@localazy:comment:string": "«FB06»Screams of the Wounded"
       },
       "011": {
@@ -482,19 +482,19 @@
         "@@localazy:comment:string": "«FB06»The Ore—Bearers"
       },
       "012": {
-        "string": "夢見た者達が冬った場所",
+        "string": "夢見た者達が登った場所",
         "@@localazy:comment:string": "«FB06»The Dreamerʹs Climb"
       },
       "013": {
-        "string": "罪人が各計を壮てた字段",
+        "string": "罪人が生計を立てた階段",
         "@@localazy:comment:string": "«FB06»Sinnerʹs Sustenence"
       },
       "014": {
-        "string": "月のない夜を過ごした式寝室",
+        "string": "月のない夜を過ごした仮寝室",
         "@@localazy:comment:string": "«FB06»The Timely Dew of Sleep"
       },
       "015": {
-        "string": "励まし処って過した部屋",
+        "string": "励まし合って過した部屋",
         "@@localazy:comment:string": "«FB06»Companions in Arms"
       },
       "016": {
@@ -502,7 +502,7 @@
         "@@localazy:comment:string": "«FB06»The Auction Block"
       },
       "017": {
-        "string": "さらなる場所への字段",
+        "string": "さらなる場所への階段",
         "@@localazy:comment:string": "«FB06»Ascension"
       },
       "018": {
@@ -510,7 +510,7 @@
         "@@localazy:comment:string": "«FB06»Where the Serpent Hunts"
       },
       "019": {
-        "string": "矢に備えるアリ達の行路",
+        "string": "冬に備えるアリ達の行路",
         "@@localazy:comment:string": "«FB06»Ants Prepare for Winter"
       },
       "020": {
@@ -526,11 +526,11 @@
         "@@localazy:comment:string": "«FB06»Stone and Sulfurous Fire"
       },
       "023": {
-        "string": "拷問が繰り返された当処所",
+        "string": "拷問が繰り返された会合所",
         "@@localazy:comment:string": "«FB06»Torture Without End"
       },
       "024": {
-        "string": "収底への道",
+        "string": "地底への道",
         "@@localazy:comment:string": "«FB06»Way Down"
       },
       "025": {
@@ -538,7 +538,7 @@
         "@@localazy:comment:string": "«FB06»Excavated Hollow"
       },
       "026": {
-        "string": "収上へ灵された者の無念の字段",
+        "string": "地上へ灵された者の無念の階段",
         "@@localazy:comment:string": "«FB06»Parting Regrets"
       },
       "027": {
@@ -550,7 +550,7 @@
         "@@localazy:comment:string": "«FB06»Dust Shall Eat the Days"
       },
       "029": {
-        "string": "日料が金で支会われた争間",
+        "string": "日料が金で支払われた広間",
         "@@localazy:comment:string": "«FB06»Hall of the Wage—Paying"
       },
       "030": {
@@ -560,19 +560,19 @@
     },
     "SCEN007": {
       "000": {
-        "string": "關が各まれた聖収",
+        "string": "闇が生まれた聖地",
         "@@localazy:comment:string": "«FB06»The Dark Coast"
       },
       "001": {
-        "string": "約束の兆が集う祈りの争間",
+        "string": "約束の民が集う祈りの広間",
         "@@localazy:comment:string": "«FB06»Hall of Prayer"
       },
       "002": {
-        "string": "關を受け入れた者の場",
+        "string": "闇を受け入れた者の場",
         "@@localazy:comment:string": "«FB06»Those who Drink the Dark"
       },
       "003": {
-        "string": "絶望を掲げた甘平の在拝室",
+        "string": "絶望を掲げた古代の礼拝室",
         "@@localazy:comment:string": "«FB06»The Chapel of Meschaunce"
       },
       "004": {
@@ -580,7 +580,7 @@
         "@@localazy:comment:string": "«FB06»The Resentful Ones"
       },
       "005": {
-        "string": "登を恐れた者の争間",
+        "string": "光を恐れた者の広間",
         "@@localazy:comment:string": "«FB06»Those who Fear the Light"
       },
       "006": {
@@ -588,13 +588,13 @@
         "@@localazy:comment:string": "«FB06»Chamber of Reason"
       },
       "007": {
-        "string": "魔都中枢への旧口",
+        "string": "魔都中枢への出口",
         "@@localazy:comment:string": "«FB06»Exit to City Center"
       }
     },
     "SCEN008": {
       "000": {
-        "string": "先気と狂気の部屋",
+        "string": "正気と狂気の部屋",
         "@@localazy:comment:string": "«FB06»Sanity and Madness"
       },
       "001": {
@@ -610,17 +610,17 @@
         "@@localazy:comment:string": "«FB06»The Victorʹs Laurels"
       },
       "004": {
-        "string": "魂を狙いさ迷う守奪の間",
+        "string": "魂を狙いさ迷う争奪の間",
         "@@localazy:comment:string": "«FB06»Struggle for the Soul"
       },
       "005": {
-        "string": "田祭に魂を壳った神官の字段",
+        "string": "司祭に魂を壳った神官の階段",
         "@@localazy:comment:string": "«FB06»An Offering of Souls"
       }
     },
     "SCEN009": {
       "000": {
-        "string": "異端者の同を剝がした自吐の間",
+        "string": "異端者の皮を剝がした自白の間",
         "@@localazy:comment:string": "«FB06»The Flayed Confessional"
       },
       "001": {
@@ -628,7 +628,7 @@
         "@@localazy:comment:string": "«FB06»Monkʹs Leap"
       },
       "002": {
-        "string": "共遠の關が争がる苦悩の間",
+        "string": "永遠の闇が広がる苦悩の間",
         "@@localazy:comment:string": "«FB06»Where Darkness Spreads"
       },
       "003": {
@@ -636,11 +636,11 @@
         "@@localazy:comment:string": "«FB06»Hieratic Recollections"
       },
       "004": {
-        "string": "關に登を照らした聖なる部屋",
+        "string": "闇に光を照らした聖なる部屋",
         "@@localazy:comment:string": "«FB06»A Light in the Dark"
       },
       "005": {
-        "string": "聖なる教当を毒した部屋",
+        "string": "聖なる教会を毒した部屋",
         "@@localazy:comment:string": "«FB06»The Poisoned Chapel"
       },
       "006": {
@@ -662,7 +662,7 @@
         "@@localazy:comment:string": "«FB06»He Screams for Mercy"
       },
       "001": {
-        "string": "登と關の存戦の間",
+        "string": "光と闇の激戦の間",
         "@@localazy:comment:string": "«FB06»Light and Dark Wage War"
       },
       "002": {
@@ -674,19 +674,19 @@
         "@@localazy:comment:string": "«FB06»Maelstrom of Malice"
       },
       "004": {
-        "string": "修道僧が酒神祭に参札した部屋",
+        "string": "修道僧が酒神祭に参加した部屋",
         "@@localazy:comment:string": "«FB06»The Acolyteʹs Weakness"
       },
       "005": {
-        "string": "聖なる誓約が破られた罪悪の争間",
+        "string": "聖なる誓約が破られた罪悪の広間",
         "@@localazy:comment:string": "«FB06»The Hall of Broken Vows"
       },
       "006": {
-        "string": "狂気の旋律に処わせて踊った部屋",
+        "string": "狂気の旋律に合わせて踊った部屋",
         "@@localazy:comment:string": "«FB06»The Melodics of Madness"
       },
       "007": {
-        "string": "処唱が煩悩を排した部屋",
+        "string": "合唱が煩悩を排した部屋",
         "@@localazy:comment:string": "«FB06»Free from Base Desires"
       },
       "008": {
@@ -694,17 +694,17 @@
         "@@localazy:comment:string": "«FB06»The Convent Room"
       },
       "009": {
-        "string": "關に写かい因を飛ばした狂乱の間",
+        "string": "闇に向かい矢を飛ばした狂乱の間",
         "@@localazy:comment:string": "«FB06»An Arrow into Darkness"
       },
       "010": {
-        "string": "不治の病が旬染した礼望の部屋",
+        "string": "不治の病が伝染した失望の部屋",
         "@@localazy:comment:string": "«FB06»What Ails You, Kills You"
       }
     },
     "SCEN011": {
       "000": {
-        "string": "異端者達の修用の間",
+        "string": "異端者達の修史の間",
         "@@localazy:comment:string": "«FB06»The Hereticsʹ Story"
       },
       "001": {
@@ -732,11 +732,11 @@
     },
     "SCEN013": {
       "000": {
-        "string": "罪人の隠れ家への字段",
+        "string": "罪人の隠れ家への階段",
         "@@localazy:comment:string": "«FB06»Stair to the Sinners"
       },
       "001": {
-        "string": "罪無き人を殺めた争間",
+        "string": "罪無き人を殺めた広間",
         "@@localazy:comment:string": "«FB06»Slaugher of the Innocent"
       },
       "002": {
@@ -754,23 +754,23 @@
     },
     "SCEN014": {
       "000": {
-        "string": "落盤から身を司った坑道",
+        "string": "落盤から身を守った坑道",
         "@@localazy:comment:string": "«FB06»Shelter From the Quake"
       },
       "001": {
-        "string": "各き埋めの部屋",
+        "string": "生き埋めの部屋",
         "@@localazy:comment:string": "«FB06»Buried Alive"
       },
       "002": {
-        "string": "關に脅える道",
+        "string": "闇に脅える道",
         "@@localazy:comment:string": "«FB06»Movement of Fear"
       },
       "003": {
-        "string": "幻影に壮ち写った通路",
+        "string": "幻影に立ち向った通路",
         "@@localazy:comment:string": "«FB06»Facing Your Illusions"
       },
       "004": {
-        "string": "關に飲み多まれた坑道",
+        "string": "闇に飲み込まれた坑道",
         "@@localazy:comment:string": "«FB06»The Darkness Drinks"
       },
       "005": {
@@ -1003,18 +1003,18 @@
       },
       "003": {
         "string": "アレアティコ川",
-        "@@localazy:comment:string": "!Ѩ!\\Qï"
+        "@@localazy:comment:string": "!Ѩ!\\Q═[ï]"
       },
       "004": {
         "string": "ブラケット通り",
         "@@localazy:comment:string": "H→)U<«EF93»ï"
       },
       "005": {
-        "string": "グラシア━ノ教当跡収",
+        "string": "グラシア━ノ教会跡地",
         "@@localazy:comment:string": "2→[!d+«F012»«EE1A»«ED28»«EE34»"
       },
       "006": {
-        "string": "ピノタ━ジュ石壁通り",
+        "string": "ピノタ━ジュ外壁通り",
         "@@localazy:comment:string": "L+,d6W«ED8D»«F113»«EF93»ï"
       },
       "007": {
@@ -1051,7 +1051,7 @@
       },
       "015": {
         "string": "シュナン・ブラン大橋",
-        "@@localazy:comment:string": "[W>Z«F6EB»H→Zé«F6B5»"
+        "@@localazy:comment:string": "[W>Z«F6EB»H→Z[é]«F6B5»"
       },
       "016": {
         "string": "グレケット通り",
@@ -1062,36 +1062,36 @@
         "@@localazy:comment:string": "{Q!d+«EF93»ï"
       },
       "018": {
-        "string": "シャスラの央公園",
-        "@@localazy:comment:string": "[V]→à♪«ED36»«F090»"
+        "string": "シャスラの丘公園",
+        "@@localazy:comment:string": "[V]→à[♪]«ED36»«F090»"
       },
       "019": {
-        "string": "エルミタ━ジュ争場",
+        "string": "エルミタ━ジュ広場",
         "@@localazy:comment:string": "$↓□,d6W«ED97»«F048»"
       },
       "020": {
         "string": "空中廊下1",
-        "@@localazy:comment:string": "«EEEC»«ED2B»«F0FD»Î1"
+        "@@localazy:comment:string": "«EEEC»«ED2B»«F0FD»[Î]1"
       },
       "021": {
         "string": "空中廊下2",
-        "@@localazy:comment:string": "«EEEC»«ED2B»«F0FD»Î2"
+        "@@localazy:comment:string": "«EEEC»«ED2B»«F0FD»[Î]2"
       },
       "022": {
         "string": "空中廊下3",
-        "@@localazy:comment:string": "«EEEC»«ED2B»«F0FD»Î3"
+        "@@localazy:comment:string": "«EEEC»«ED2B»«F0FD»[Î]3"
       },
       "023": {
-        "string": "兆家1",
+        "string": "民家1",
         "@@localazy:comment:string": "«EDA1»«EE63»1"
       },
       "024": {
-        "string": "兆家2",
+        "string": "民家2",
         "@@localazy:comment:string": "«EDA1»«EE63»2"
       },
       "025": {
         "string": "金属素材工房",
-        "@@localazy:comment:string": "«EEF2»«F04C»«EF8D»«EE9C»ò«F48A»"
+        "@@localazy:comment:string": "«EEF2»«F04C»«EF8D»«EE9C»[ò]«F48A»"
       },
       "026": {
         "string": "ファクトリ━3",
@@ -1116,15 +1116,15 @@
         "@@localazy:comment:string": "«FB06»The Bread Peddlerʹs Way"
       },
       "002": {
-        "string": "鉱山に写かった希望の道",
+        "string": "鉱山に向かった希望の道",
         "@@localazy:comment:string": "«FB06»Way of the Mother Lode"
       },
       "003": {
-        "string": "鼠達が食べかすを狙った収下道",
+        "string": "鼠達が食べかすを狙った地下道",
         "@@localazy:comment:string": "«FB06»Sewer of Ravenous Rats"
       },
       "004": {
-        "string": "収底の魚辺場",
+        "string": "地底の魚市場",
         "@@localazy:comment:string": "«FB06»Underdark Fishmarket"
       },
       "005": {
@@ -1136,11 +1136,11 @@
         "@@localazy:comment:string": "«FB06»Remembering Days of Yore"
       },
       "007": {
-        "string": "狩人が冬った字段",
+        "string": "狩人が登った階段",
         "@@localazy:comment:string": "«FB06»Where the Hunter Climbed"
       },
       "008": {
-        "string": "貧しい矢に備える食料倉庫",
+        "string": "貧しい冬に備える食料倉庫",
         "@@localazy:comment:string": "«FB06»Larder for a Lean Winter"
       },
       "009": {
@@ -1148,7 +1148,7 @@
         "@@localazy:comment:string": "«FB06»Hall of Poverty"
       },
       "010": {
-        "string": "奴婦が洗濯物を干した道",
+        "string": "主婦が洗濯物を干した道",
         "@@localazy:comment:string": "«FB06»The Washing—Womanʹs Way"
       },
       "011": {
@@ -1156,23 +1156,23 @@
         "@@localazy:comment:string": "«FB06»Beggars of the Mouthharp"
       },
       "012": {
-        "string": "辺兆が日常を何気なく各きた街角",
+        "string": "市民が日常を何気なく生きた街角",
         "@@localazy:comment:string": "«FB06»Corner of the Wretched"
       },
       "013": {
-        "string": "莀作物を運び多んだ通路",
+        "string": "莀作物を運び込んだ通路",
         "@@localazy:comment:string": "«FB06»Path to the Greengrocer"
       },
       "014": {
-        "string": "憩いの年差点",
+        "string": "憩いの交差点",
         "@@localazy:comment:string": "«FB06»Crossroads of Rest"
       },
       "015": {
-        "string": "子供達が過した字段",
+        "string": "子供達が過した階段",
         "@@localazy:comment:string": "«FB06»Path of the Children"
       },
       "016": {
-        "string": "収農に脅えた混乱の争間",
+        "string": "地震に脅えた混乱の広間",
         "@@localazy:comment:string": "«FB06»Fear of the Fall"
       },
       "017": {
@@ -1180,7 +1180,7 @@
         "@@localazy:comment:string": "«FB06»Sinnerʹs Corner"
       },
       "018": {
-        "string": "共遠の關に狂喜した通路",
+        "string": "永遠の闇に狂喜した通路",
         "@@localazy:comment:string": "«FB06»Nameless Dark Oblivion"
       },
       "019": {
@@ -1188,7 +1188,7 @@
         "@@localazy:comment:string": "«FB06»Corner of Prayers"
       },
       "020": {
-        "string": "登を塞がれた絶望の脱旧口",
+        "string": "光を塞がれた絶望の脱出口",
         "@@localazy:comment:string": "«FB06»Hope Obstructed"
       },
       "021": {
@@ -1200,11 +1200,11 @@
         "@@localazy:comment:string": "«FB06»The Crumbling Market"
       },
       "023": {
-        "string": "亡き人が運ばれた涙の収下道",
+        "string": "亡き人が運ばれた涙の地下道",
         "@@localazy:comment:string": "«FB06»Tears from Empty Sockets"
       },
       "024": {
-        "string": "水門の補強に礼敗した字段",
+        "string": "水門の補強に失敗した階段",
         "@@localazy:comment:string": "«FB06»Where Flood Waters Ran"
       },
       "025": {
@@ -1216,33 +1216,33 @@
         "@@localazy:comment:string": "«FB06»Salvation for the Mother"
       },
       "027": {
-        "string": "小犬が飼い奴の傷跡を噛んだ街頭",
+        "string": "小犬が飼い主の傷跡を噛んだ街頭",
         "@@localazy:comment:string": "«FB06»Bite the Masterʹs Wounds"
       }
     },
     "SCEN020": {
       "000": {
-        "string": "新たな失界を名指した通路",
+        "string": "新たな世界を目指した通路",
         "@@localazy:comment:string": "«FB06»Hall to a New World"
       },
       "001": {
-        "string": "自合な議論が年わされた争場",
+        "string": "自由な議論が交わされた広場",
         "@@localazy:comment:string": "«FB06»Place of Free Words"
       },
       "002": {
-        "string": "異国の商人達が集った珍品の辺場",
+        "string": "異国の商人達が集った珍品の市場",
         "@@localazy:comment:string": "«FB06»Bazaar of the Bizarre"
       },
       "003": {
-        "string": "責金属と絹が年換された通路",
+        "string": "責金属と絹が交換された通路",
         "@@localazy:comment:string": "«FB06»Noble Gold and Silk"
       },
       "004": {
-        "string": "騎士が剣を壳った収下道",
+        "string": "騎士が剣を壳った地下道",
         "@@localazy:comment:string": "«FB06»A Knight Sells his Sword"
       },
       "005": {
-        "string": "宝回幼きの武器が壳られた關辺場",
+        "string": "宝石付きの武器が壳られた闇市場",
         "@@localazy:comment:string": "«FB06»Gemsword Blackmarket"
       },
       "006": {
@@ -1250,15 +1250,15 @@
         "@@localazy:comment:string": "«FB06»The Pirateʹs Son"
       },
       "007": {
-        "string": "剣士が包剣を壳った争場",
+        "string": "剣士が名剣を壳った広場",
         "@@localazy:comment:string": "«FB06»Sale of the Sword"
       },
       "008": {
-        "string": "武器が違法に運び旧された争間",
+        "string": "武器が違法に運び出された広間",
         "@@localazy:comment:string": "«FB06»Weapons Not Allowed"
       },
       "009": {
-        "string": "莀作物の価値を決めた字段",
+        "string": "莀作物の価値を決めた階段",
         "@@localazy:comment:string": "«FB06»The Greengrocerʹs Stair"
       },
       "010": {
@@ -1266,17 +1266,17 @@
         "@@localazy:comment:string": "«FB06»Where Black Waters Ran"
       },
       "011": {
-        "string": "蛮族の本囲に備えた武器倉庫",
+        "string": "蛮族の包囲に備えた武器倉庫",
         "@@localazy:comment:string": "«FB06»Arms Against Invaders"
       },
       "012": {
-        "string": "少召が集った盜品辺場",
+        "string": "少年が集った盜品市場",
         "@@localazy:comment:string": "«FB06»Catspaw Blackmarket"
       }
     },
     "SCEN021": {
       "000": {
-        "string": "戦いと憩いの争場",
+        "string": "戦いと憩いの広場",
         "@@localazy:comment:string": "«FB06»The Warriorʹs Rest"
       },
       "001": {
@@ -1284,11 +1284,11 @@
         "@@localazy:comment:string": "«FB06»The Soldierʹs Bedding"
       },
       "002": {
-        "string": "流れ因が兵士の心臟を貫いた宿舎",
+        "string": "流れ矢が兵士の心臟を貫いた宿舎",
         "@@localazy:comment:string": "«FB06»A Storm of Arrows"
       },
       "003": {
-        "string": "少召が励まされた部屋",
+        "string": "少年が励まされた部屋",
         "@@localazy:comment:string": "«FB06»Urge the Boy On"
       },
       "004": {
@@ -1306,7 +1306,7 @@
     },
     "SCEN022": {
       "000": {
-        "string": "剣豪が各まれた訓練所",
+        "string": "剣豪が生まれた訓練所",
         "@@localazy:comment:string": "«FB06»Students of Death"
       },
       "001": {
@@ -1314,17 +1314,17 @@
         "@@localazy:comment:string": "«FB06»The Gabled Hall"
       },
       "002": {
-        "string": "剣豪の死を見屆けた字段",
+        "string": "剣豪の死を見屆けた階段",
         "@@localazy:comment:string": "«FB06»Where the Master Fell"
       }
     },
     "SCEN023": {
       "000": {
-        "string": "少召の涙と約束の間",
+        "string": "少年の涙と約束の間",
         "@@localazy:comment:string": "«FB06»The Weeping Boy"
       },
       "001": {
-        "string": "母国を司る剣士達の間",
+        "string": "母国を守る剣士達の間",
         "@@localazy:comment:string": "«FB06»Swords for the Land"
       },
       "002": {
@@ -1346,7 +1346,7 @@
         "@@localazy:comment:string": "«FB06»Train and Grow Strong"
       },
       "001": {
-        "string": "騎士希望者が集処する挑戦の間",
+        "string": "騎士希望者が集合する挑戦の間",
         "@@localazy:comment:string": "«FB06»The Squireʹs Gathering"
       },
       "002": {
@@ -1354,7 +1354,7 @@
         "@@localazy:comment:string": "«FB06»The Invaders are Found"
       },
       "003": {
-        "string": "司備隊が夢を語る部屋",
+        "string": "守備隊が夢を語る部屋",
         "@@localazy:comment:string": "«FB06»The Dream—Weavers"
       },
       "004": {
@@ -1368,7 +1368,7 @@
         "@@localazy:comment:string": "«FB06»Traces of Invasion Past"
       },
       "001": {
-        "string": "少召が騎士の称生を得た部屋",
+        "string": "少年が騎士の称号を得た部屋",
         "@@localazy:comment:string": "«FB06»From Squire to Knight"
       },
       "002": {
@@ -1376,25 +1376,25 @@
         "@@localazy:comment:string": "«FB06»Be for Battle Prepared"
       },
       "003": {
-        "string": "以建と破壊を繰り返す戦いの間",
+        "string": "再建と破壊を繰り返す戦いの間",
         "@@localazy:comment:string": "«FB06»Destruction and Rebirth"
       },
       "004": {
-        "string": "少召が英雄となった場所",
+        "string": "少年が英雄となった場所",
         "@@localazy:comment:string": "«FB06»From Boy to Hero"
       },
       "005": {
-        "string": "蛮族の侵入を許した敗末の間",
+        "string": "蛮族の侵入を許した敗北の間",
         "@@localazy:comment:string": "«FB06»A Welcome Invasion"
       }
     },
     "SCEN026": {
       "000": {
-        "string": "獲物を追った狩人の旧発点",
+        "string": "獲物を追った狩人の出発点",
         "@@localazy:comment:string": "«FB06»The Hunt Begins"
       },
       "001": {
-        "string": "人間を惑わす迷いの十古路",
+        "string": "人間を惑わす迷いの十字路",
         "@@localazy:comment:string": "«FB06»Which Way Home"
       },
       "002": {
@@ -1418,7 +1418,7 @@
         "@@localazy:comment:string": "«FB06»The Woodcutterʹs Run"
       },
       "007": {
-        "string": "狼から我が子を司った分かれ道",
+        "string": "狼から我が子を守った分かれ道",
         "@@localazy:comment:string": "«FB06»The Wolvesʹ Choice"
       },
       "008": {
@@ -1446,7 +1446,7 @@
         "@@localazy:comment:string": "«FB06»Where Soft Rains Fell"
       },
       "014": {
-        "string": "自然と加化した妖精達の路",
+        "string": "自然と同化した妖精達の路",
         "@@localazy:comment:string": "«FB06»The Spirit Trees"
       },
       "015": {
@@ -1462,7 +1462,7 @@
         "@@localazy:comment:string": "«FB06»The Hollow Hills"
       },
       "018": {
-        "string": "狼達と走った少召の路",
+        "string": "狼達と走った少年の路",
         "@@localazy:comment:string": "«FB06»Running with the Wolves"
       },
       "019": {
@@ -1478,25 +1478,25 @@
         "@@localazy:comment:string": "«FB06»The Faerie Circle"
       },
       "022": {
-        "string": "各還を望んだ争場",
+        "string": "生還を望んだ広場",
         "@@localazy:comment:string": "«FB06»Return to the Land"
       },
       "023": {
-        "string": "森が各まれた川",
+        "string": "森が生まれた川",
         "@@localazy:comment:string": "«FB06»Forest River"
       },
       "024": {
-        "string": "大自然の支配に挑んだ争場",
+        "string": "大自然の支配に挑んだ広場",
         "@@localazy:comment:string": "«FB06»Hewn from Nature"
       },
       "025": {
-        "string": "森を司った旧口",
+        "string": "森を守った出口",
         "@@localazy:comment:string": "«FB06»The Wood Gate"
       }
     },
     "SCEN027": {
       "000": {
-        "string": "獲物を追った苦難の争場",
+        "string": "獲物を追った苦難の広場",
         "@@localazy:comment:string": "«FB06»Steady the Boar—Spears"
       },
       "001": {
@@ -1504,7 +1504,7 @@
         "@@localazy:comment:string": "«FB06»The Boarʹs Revenge"
       },
       "002": {
-        "string": "大自然を確認した争場",
+        "string": "大自然を確認した広場",
         "@@localazy:comment:string": "«FB06»Natureʹs Womb"
       }
     },
@@ -1526,7 +1526,7 @@
         "@@localazy:comment:string": "«FB06»Tircolas Flow"
       },
       "004": {
-        "string": "グラシアルドラ教当跡収",
+        "string": "グラシアルドラ教会跡地",
         "@@localazy:comment:string": "«FB06»Glacialdra Kirk Ruins"
       },
       "005": {
@@ -1534,7 +1534,7 @@
         "@@localazy:comment:string": "«FB06»Rue Bouquet"
       },
       "006": {
-        "string": "ピレボット石壁通り",
+        "string": "ピレボット外壁通り",
         "@@localazy:comment:string": "«FB06»Villeport Way"
       },
       "007": {
@@ -1602,7 +1602,7 @@
         "@@localazy:comment:string": "«FB06»Rue Fisserano"
       },
       "004": {
-        "string": "シャスラスの央公園",
+        "string": "シャスラスの丘公園",
         "@@localazy:comment:string": "«FB06»Shasras Hill Park"
       },
       "005": {
@@ -1614,7 +1614,7 @@
         "@@localazy:comment:string": "«FB06»The House Gilgitte"
       },
       "007": {
-        "string": "ルミタール争場",
+        "string": "ルミタール広場",
         "@@localazy:comment:string": "«FB06»Plateia Lumitar"
       },
       "008": {

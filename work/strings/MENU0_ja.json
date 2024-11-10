@@ -1,0 +1,722 @@
+{
+  "MENU0": {
+    "000": {
+      "string": "ウォーロック«FA0A»(攻擊)",
+      "@@localazy:comment:string": "WARLOCK    (ATT)"
+    },
+    "001": {
+      "string": "ターゲットにダメージを与える攻擊魔法のリスト。",
+      "@@localazy:comment:string": "A list of spells that deal damage."
+    },
+    "002": {
+      "string": "ウォーロック(攻擊魔法)を覚えていない。",
+      "@@localazy:comment:string": "Ashley has yet to learn↵any Warlock (attack) spells."
+    },
+    "003": {
+      "string": "シーアルジー«FA04»(回復)",
+      "@@localazy:comment:string": "SHAMAN     (REC)"
+    },
+    "004": {
+      "string": "HPやステータス異常等を回復する回復魔法のリスト。",
+      "@@localazy:comment:string": "A list of spells that cure status↵abnormalities or restore HP."
+    },
+    "005": {
+      "string": "シーアルジー(回復魔法)を覚えていない。",
+      "@@localazy:comment:string": "Ashley has yet to learn↵any Shaman (recovery) spells."
+    },
+    "006": {
+      "string": "ソーサリー«FA11»(補助)",
+      "@@localazy:comment:string": "SORCERER   (AID)"
+    },
+    "007": {
+      "string": "ターゲットをステータス異常にする等の↵補助魔法のリスト。",
+      "@@localazy:comment:string": "A list of spells that cause status abnormalities↵in foes or otherwise aid Ashley in battle."
+    },
+    "008": {
+      "string": "ソーサリー(補助魔法)を覚えていない。",
+      "@@localazy:comment:string": "Ashley has yet to learn↵any Sorcerer (aid) spells."
+    },
+    "009": {
+      "string": "エンチャント«FA08»(属性)",
+      "@@localazy:comment:string": "ENCHANTER  (AFF)"
+    },
+    "010": {
+      "string": "ウェポンやシールドなどのエレメント(属性)を↵変化させる属性魔法のリスト。",
+      "@@localazy:comment:string": "A list of spells that change the elemental↵affinities of equipment."
+    },
+    "011": {
+      "string": "エンチャント(属性魔法)を覚えていない。",
+      "@@localazy:comment:string": "Ashley has yet to learn any↵Enchanter (affinity) spells."
+    },
+    "012": {
+      "string": "物理属性攻擊魔法。投射型。リム単体。↵強烈な衝擊波を放ちダメージを与える。",
+      "@@localazy:comment:string": "Physical Attack; Conjuration; Single Target.↵Strikes enemies with an explosive shockwave."
+    },
+    "013": {
+      "string": "風属性攻擊魔法。投射型。リム単体。↵雷の矢を放ちダメージを与える。",
+      "@@localazy:comment:string": "Air Affinity; Conjuration; Single Target.↵Shoots out arrows of lightning."
+    },
+    "014": {
+      "string": "火属性攻擊魔法。投射型。リム単体。↵灼熱の炎の彈を放ちダメージを与える。",
+      "@@localazy:comment:string": "Fire Affinity; Conjuration; Single Target.↵Pummels enemies with balls of fire."
+    },
+    "015": {
+      "string": "土属性攻擊魔法。投射型。リム単体。↵銳利な火山彈を放ちダメージを与える。",
+      "@@localazy:comment:string": "Earth Affinity; Conjuration; Single Target.↵Showers enemies with volcanic debris."
+    },
+    "016": {
+      "string": "水属性攻擊魔法。投射型。リム単体。↵強烈な冷気を超高速で放ちダメージを与える。",
+      "@@localazy:comment:string": "Water Affinity; Conjuration; Single Target.↵Engulfs enemies with freezing water blast."
+    },
+    "017": {
+      "string": "神聖属性攻擊魔法。投射型。リム単体。↵光の精霊を放ちダメージを与える。",
+      "@@localazy:comment:string": "Light Affinity; Conjuration; Single Target.↵Summons a spirit of light to attack enemies."
+    },
+    "018": {
+      "string": "暗黑属性攻擊魔法。投射型。リム単体。↵苦痛の呪いを放ちダメージを与える。",
+      "@@localazy:comment:string": "Dark Affinity; Conjuration; Single Target.↵Afflicts enemies with crippling pain."
+    },
+    "019": {
+      "string": "神聖属性攻擊魔法。放出型。ユニット複数。アンデッド↵を除霊する。対象のHPが少ないほど成功率が高い。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Multiple Targets.↵Exorcise undead foes."
+    },
+    "020": {
+      "string": "暗黑属性攻擊魔法。放出型。ユニット複数。↵禁断の即死の魔法。ただし,アンデッドには効かない。",
+      "@@localazy:comment:string": "Dark Affinity; Evocation; Multiple Targets.↵Forbidden spell of instant death."
+    },
+    "021": {
+      "string": "物理属性攻擊魔法。放出型。リム複数。↵対象の場所で爆発を起こし衝擊波でダメージを与える。",
+      "@@localazy:comment:string": "Physical Attack; Evocation; Multiple Targets.↵A highly focused, devastating blast."
+    },
+    "022": {
+      "string": "風属性攻擊魔法。放出型。リム複数。↵対象の頭上に大量の雷を落としダメージを与える。",
+      "@@localazy:comment:string": "Air Affinity; Evocation; Multiple Targets.↵Calls down a great bolt from the heavens."
+    },
+    "023": {
+      "string": "火属性攻擊魔法。放出型。リム複数。↵対象の空間に超高溫の炎を作りダメージを与える。",
+      "@@localazy:comment:string": "Fire Affinity; Evocation; Multiple Targets.↵Wreaths target in flames."
+    },
+    "024": {
+      "string": "土属性攻擊魔法。放出型。リム複数。↵対象の空間の重力を急激に上げダメージを与える。",
+      "@@localazy:comment:string": "Earth Affinity; Evocation; Multiple Targets.↵Creates crushing gravity warp around target."
+    },
+    "025": {
+      "string": "水属性攻擊魔法。放出型。リム複数。↵対象の空間を瞬時に絶対零度にしダメージを与える。",
+      "@@localazy:comment:string": "Water Affinity; Evocation; Multiple Targets.↵Super—freezes air around target."
+    },
+    "026": {
+      "string": "神聖属性攻擊魔法。放出型。リム複数。↵神々の光の波動を集結させ,ダメージを与える。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Multiple Targets.↵Pierces enemies with focused rays of light."
+    },
+    "027": {
+      "string": "暗黑属性攻擊魔法。放出型。リム複数。↵天空より隕石を呼び集め,ダメージを与える。",
+      "@@localazy:comment:string": "Dark Affinity; Evocation; Multiple Targets.↵Rains meteors down on the target."
+    },
+    "028": {
+      "string": "暗黑属性攻擊魔法。放出型。リム単体。↵対象のHPを自分のものにする。",
+      "@@localazy:comment:string": "Dark Affinity; Evocation; Single Target.↵Steals HP from enemies."
+    },
+    "029": {
+      "string": "暗黑属性攻擊魔法。放出型。ユニット単体。↵対象のMPを自分のものにする。",
+      "@@localazy:comment:string": "Dark Affinity; Evocation; Single Target.↵Steals MP from enemies."
+    },
+    "030": {
+      "string": "神聖属性回復魔法。放出型。ユニット単体。↵対象の傷を癒すことでHPを回復する。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Restores targetʹs HP."
+    },
+    "031": {
+      "string": "神聖属性回復魔法。放出型。ユニット単体。↵「マヒ」ステータス異常を回復する。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Cures ʺParalysis.ʺ"
+    },
+    "032": {
+      "string": "神聖属性回復魔法。放出型。ユニット単体。↵「毒」ステータス異常を回復する。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Cures ʺPoison.ʺ"
+    },
+    "033": {
+      "string": "神聖属性回復魔法。放出型。ユニット単体。↵「呪い」ステータス異常を回復する。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Cures ʺCurse.ʺ"
+    },
+    "034": {
+      "string": "神聖属性回復魔法。放出型。ユニット単体。↵マヒ・毒・しびれを回復する。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Cures all status abnormalities."
+    },
+    "035": {
+      "string": "神聖属性回復魔法。放出型。ユニット単体。↵徐々にHPが回復していく。",
+      "@@localazy:comment:string": "Light Affinity; Evocation; Single Target.↵Recharges HP over a short period of time."
+    },
+    "036": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象のストレングス(力)を一定時間增加する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs strength."
+    },
+    "037": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象のストレングス(力)を一定時間減少する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs strength."
+    },
+    "038": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象のインテリジェンス(知力)を一定時間增加する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs intelligence."
+    },
+    "039": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象のインテリジェンス(知力)を一定時間減少する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs intelligence."
+    },
+    "040": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象のアジリティ(素早さ)を一定時間增加する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily increases targetʹs agility."
+    },
+    "041": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象のアジリティ(素早さ)を一定時間減少する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily decreases targetʹs agility."
+    },
+    "042": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象の武器や防具の性能を一定時間增加する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily strengthens targetʹs equipment."
+    },
+    "043": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象の武器や防具の性能を一定時間減少する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily weakens targetʹs equipments."
+    },
+    "044": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象を一時的に魔法を使えないようにする。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Temporarily prevents target from casting spells."
+    },
+    "045": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象にかけられた魔法を一回だけ,確実に無効にする。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Nullifies the next spell cast on target."
+    },
+    "046": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象を「マヒ」ステータス異常にする。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Casts ʺParalysisʺ on target."
+    },
+    "047": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象を「毒」ステータス異常にする。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Casts ʺPoisonʺ on target."
+    },
+    "048": {
+      "string": "暗黑属性補助魔法。放出型。ユニット単体。↵対象を「呪い」ステータス異常にする。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Casts ʺCurseʺ on target."
+    },
+    "049": {
+      "string": "補助魔法。放出型。↵マップ中の移動ブロックを一定時間停止させる。",
+      "@@localazy:comment:string": "Support Magic; Evocation.↵Freezes the roomʹs Cloudstones in place."
+    },
+    "050": {
+      "string": "補助魔法。放出型。ユニット単体。↵対象にかかっている魔法を無効化する。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Nullifies any spell currently affecting target."
+    },
+    "051": {
+      "string": "補助魔法。放出型。宝箱単体。魔法でロックされた↵宝箱の鍵を外す。RISKが高いほど成功率が高い。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Treasure Chest.↵Opens treasure chests locked with magic."
+    },
+    "052": {
+      "string": "補助魔法。放出型。トラップ複数。トラップを一時的に↵視認することができる。そのマップのみ有効。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Multiple Traps.↵Reveals all traps in the room."
+    },
+    "053": {
+      "string": "補助魔法。放出型。ユニット単体。対象のパラメータを↵分析する。RISKが高いほど成功率が高い。",
+      "@@localazy:comment:string": "Support Magic; Evocation; Single Target.↵Analyzes enemiesʹ parameters and stats."
+    },
+    "054": {
+      "string": "風属性属性魔法。放出型。ユニット単体。↵武器の「風属性」を一定時間強化する。",
+      "@@localazy:comment:string": "Air affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs air affinity."
+    },
+    "055": {
+      "string": "火属性属性魔法。放出型。ユニット単体。↵武器の「火属性」を一定時間強化する。",
+      "@@localazy:comment:string": "Fire affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs fire affinity."
+    },
+    "056": {
+      "string": "土属性属性魔法。放出型。ユニット単体。↵武器の「土属性」を一定時間強化する。",
+      "@@localazy:comment:string": "Earth affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs earth affinity."
+    },
+    "057": {
+      "string": "水属性属性魔法。放出型。ユニット単体。↵武器の「水属性」を一定時間強化する。",
+      "@@localazy:comment:string": "Water affinity; Evocation; Single Target.↵Temporarily strengthens weaponʹs water affinity."
+    },
+    "058": {
+      "string": "風属性属性魔法。放出型。ユニット単体。↵防具の「風属性」を一定時間強化する。",
+      "@@localazy:comment:string": "Air affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs air affinity."
+    },
+    "059": {
+      "string": "火属性属性魔法。放出型。ユニット単体。↵防具の「火属性」を一定時間強化する。",
+      "@@localazy:comment:string": "Fire affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs fire affinity."
+    },
+    "060": {
+      "string": "土属性属性魔法。放出型。ユニット単体。↵防具の「土属性」を一定時間強化する。",
+      "@@localazy:comment:string": "Earth affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs earth affinity."
+    },
+    "061": {
+      "string": "水属性属性魔法。放出型。ユニット単体。↵防具の「水属性」を一定時間強化する。",
+      "@@localazy:comment:string": "Water affinity; Evocation; Single Target.↵Temporarily strengthens armorʹs water affinity."
+    },
+    "062": {
+      "string": "ソリッドショック",
+      "@@localazy:comment:string": "Solid Shock"
+    },
+    "063": {
+      "string": "ライトニングボウ",
+      "@@localazy:comment:string": "Lightning Bolt"
+    },
+    "064": {
+      "string": "ファイアボール",
+      "@@localazy:comment:string": "Fireball"
+    },
+    "065": {
+      "string": "ヴァルカンランス",
+      "@@localazy:comment:string": "Vulcan Lance"
+    },
+    "066": {
+      "string": "アクアブラスト",
+      "@@localazy:comment:string": "Aqua Blast"
+    },
+    "067": {
+      "string": "スピリットサージ",
+      "@@localazy:comment:string": "Spirit Surge"
+    },
+    "068": {
+      "string": "デスラプトペイン",
+      "@@localazy:comment:string": "Dark Chant"
+    },
+    "069": {
+      "string": "イクソシズム",
+      "@@localazy:comment:string": "Exorcism"
+    },
+    "070": {
+      "string": "バニッシュ",
+      "@@localazy:comment:string": "Banish"
+    },
+    "071": {
+      "string": "イクスプロジョン",
+      "@@localazy:comment:string": "Explosion"
+    },
+    "072": {
+      "string": "サンダーバースト",
+      "@@localazy:comment:string": "Thunderburst"
+    },
+    "073": {
+      "string": "フレイムスフィア",
+      "@@localazy:comment:string": "Flame Sphere"
+    },
+    "074": {
+      "string": "ガイアストライク",
+      "@@localazy:comment:string": "Gaea Strike"
+    },
+    "075": {
+      "string": "アヴァランチ",
+      "@@localazy:comment:string": "Avalanche"
+    },
+    "076": {
+      "string": "ラディウス",
+      "@@localazy:comment:string": "Radial Surge"
+    },
+    "077": {
+      "string": "メテオインパクト",
+      "@@localazy:comment:string": "Meteor"
+    },
+    "078": {
+      "string": "ドレインハート",
+      "@@localazy:comment:string": "Drain Heart"
+    },
+    "079": {
+      "string": "ドレインマインド",
+      "@@localazy:comment:string": "Drain Mind"
+    }
+  },
+  "MENU0_1": {
+    "000": {
+      "string": "テレポート«FA11»(移動)",
+      "@@localazy:comment:string": "TELEPORTATION"
+    },
+    "001": {
+      "string": "任意の魔法陣へ瞬間移動することができる。↵魔法陣の上でのみ使用可能。",
+      "@@localazy:comment:string": "Teleport to any Circle of Magic.↵Effective only when standing on a Circle."
+    },
+    "002": {
+      "string": "結界が張られていてテレポートできない。",
+      "@@localazy:comment:string": "The spirit paling prevents teleportation."
+    },
+    "003": {
+      "string": "労働者の休憩所",
+      "@@localazy:comment:string": "Workerʹs Breakroom"
+    },
+    "004": {
+      "string": "ワイン貯蔵庫『労働者の休憩所』へ移動する。",
+      "@@localazy:comment:string": "To Workerʹs Breakroom (Wine Cellar)."
+    },
+    "005": {
+      "string": "ワインギルドの間",
+      "@@localazy:comment:string": "Wine Guild Hall"
+    },
+    "006": {
+      "string": "ワイン貯蔵庫『ワインギルドの間』へ移動する。",
+      "@@localazy:comment:string": "To Wine Guild Hall (Wine Cellar)."
+    },
+    "007": {
+      "string": "ワインの闇市場",
+      "@@localazy:comment:string": "Blackmarket"
+    },
+    "008": {
+      "string": "ワイン貯蔵庫『ワインの闇市場』へ移動する。",
+      "@@localazy:comment:string": "To Blackmarket of Wines (Wine Cellar)."
+    },
+    "009": {
+      "string": "復豐を誓った広間",
+      "@@localazy:comment:string": "Hall of Revenge"
+    },
+    "010": {
+      "string": "地下墓地『復豐を誓った広間』へ移動する。",
+      "@@localazy:comment:string": "To Hall of Sworn Revenge (Catacombs)."
+    },
+    "011": {
+      "string": "枯れた霊泉の広間",
+      "@@localazy:comment:string": "The Withered Spring"
+    },
+    "012": {
+      "string": "地下墓地『枯れた霊泉の広間』へ移動する。",
+      "@@localazy:comment:string": "To the Withered Spring (Catacombs)."
+    },
+    "013": {
+      "string": "パワーホール",
+      "@@localazy:comment:string": "Work of Art/WS"
+    },
+    "014": {
+      "string": "地下墓地『パワー・ホール』へ移動する。",
+      "@@localazy:comment:string": "To Workshop ʺWork of Artʺ (Catacombs)."
+    },
+    "015": {
+      "string": "神が降臨した霊地",
+      "@@localazy:comment:string": "Advent Ground"
+    },
+    "016": {
+      "string": "地下教会『神が降臨した霊地』へ移動する。",
+      "@@localazy:comment:string": "To Advent Ground (Sanctum)."
+    },
+    "017": {
+      "string": "バーミリオン通り",
+      "@@localazy:comment:string": "Rue Vermillion"
+    },
+    "018": {
+      "string": "市街地 西部『バーミリオン通り』へ移動する。",
+      "@@localazy:comment:string": "To Rue Vermillion (Town Center West)."
+    },
+    "019": {
+      "string": "ブロンズハンマー",
+      "@@localazy:comment:string": "Magic Hammer/WS"
+    },
+    "020": {
+      "string": "市街地 西部『ザ・ブロンズ・ハンマー』へ↵移動する。",
+      "@@localazy:comment:string": "To Workshop ʺMagic Hammerʺ (Town Center West)."
+    },
+    "021": {
+      "string": "命運の分かれ路",
+      "@@localazy:comment:string": "The Crossing"
+    },
+    "022": {
+      "string": "廃坑 第1階層『命運の分かれ路』へ移動する。",
+      "@@localazy:comment:string": "To the Crossing (Abandoned Mines B1)."
+    },
+    "023": {
+      "string": "暗闇と迷信の坑道",
+      "@@localazy:comment:string": "The Dark Tunnel"
+    },
+    "024": {
+      "string": "廃坑 第1階層『暗闇と迷信の坑道』へ移動する。",
+      "@@localazy:comment:string": "To the Dark Tunnel (Abandoned Mines B1)."
+    },
+    "025": {
+      "string": "ブケッツ通り",
+      "@@localazy:comment:string": "Rue Bouquet"
+    },
+    "026": {
+      "string": "市街地 西部『ブケッツ通り』へ移動する。",
+      "@@localazy:comment:string": "To Rue Bouquet (Town Center West)."
+    },
+    "027": {
+      "string": "太陽を望んだ街道",
+      "@@localazy:comment:string": "The Sunless Way"
+    },
+    "028": {
+      "string": "地下街 西部『太陽を望んだ街道』へ移動する。",
+      "@@localazy:comment:string": "To the Sunless Way (Undercity West)."
+    },
+    "029": {
+      "string": "精霊界の隣接点",
+      "@@localazy:comment:string": "The Faerie Circle"
+    },
+    "030": {
+      "string": "羽虫の森『精霊界の隣接点』へ移動する。",
+      "@@localazy:comment:string": "To the Faerie Circle (Snowfly Forest)."
+    },
+    "031": {
+      "string": "森が生まれた川",
+      "@@localazy:comment:string": "Forest River"
+    },
+    "032": {
+      "string": "羽虫の森『森が生まれた川』へ移動する。",
+      "@@localazy:comment:string": "To Forest River (Snowfly Forest)."
+    },
+    "033": {
+      "string": "森を守った出口",
+      "@@localazy:comment:string": "The Wood Gate"
+    },
+    "034": {
+      "string": "羽虫の森『森を守った出口』へ移動する。",
+      "@@localazy:comment:string": "To the Wood Gate (Snowfly Forest)."
+    },
+    "035": {
+      "string": "バルダマン城門前",
+      "@@localazy:comment:string": "Valdiman Gates"
+    },
+    "036": {
+      "string": "市街地 南部『バルダマン城門前』へ移動する。",
+      "@@localazy:comment:string": "To Valdiman Gates (Town Center South)."
+    },
+    "037": {
+      "string": "戦いと憩いの広場",
+      "@@localazy:comment:string": "The Warriorʹs Rest"
+    },
+    "038": {
+      "string": "レアモンデ砦『戦いと憩いの広場』へ移動する。",
+      "@@localazy:comment:string": "To the Warriorʹs Rest (Keep)."
+    },
+    "039": {
+      "string": "ファインクラフト",
+      "@@localazy:comment:string": "Keaneʹs/WS"
+    },
+    "040": {
+      "string": "レアモンデ砦『ファイン・クラフト』へ移動する。",
+      "@@localazy:comment:string": "To workshop ʺKeaneʹs Craftsʺ (Keep)."
+    },
+    "041": {
+      "string": "罪人達の街角",
+      "@@localazy:comment:string": "Sinnerʹs Corner"
+    },
+    "042": {
+      "string": "地下街 西部『罪人達の街角』へ移動する。",
+      "@@localazy:comment:string": "To Sinnerʹs Corner (Undercity West)."
+    },
+    "043": {
+      "string": "崩壊した商店街",
+      "@@localazy:comment:string": "Crumbling Market"
+    },
+    "044": {
+      "string": "地下街 西部『崩壊した商店街』へ移動する。",
+      "@@localazy:comment:string": "To the Crumbling Market (Undercity West)."
+    },
+    "045": {
+      "string": "契約を交わす部屋",
+      "@@localazy:comment:string": "Treaty Room"
+    },
+    "046": {
+      "string": "廃坑 第2階層『契約を交わす部屋』へ移動する。",
+      "@@localazy:comment:string": "To Treaty Room (Abandoned Mines B2)."
+    },
+    "047": {
+      "string": "盜賊達の空洞",
+      "@@localazy:comment:string": "Banditsʹ Hollow"
+    },
+    "048": {
+      "string": "廃坑 第2階層『盜賊達の空洞』へ移動する。",
+      "@@localazy:comment:string": "To Banditsʹ Hollow (Abandoned Mines B2)."
+    },
+    "049": {
+      "string": "鉱物を運んだ坑道",
+      "@@localazy:comment:string": "The Ore Road"
+    },
+    "050": {
+      "string": "ライムストーン運搬溝『鉱物を運んだ坑道』へ↵移動する。",
+      "@@localazy:comment:string": "To the Ore Road (Limestone Quarry)."
+    },
+    "051": {
+      "string": "命を壳った通路",
+      "@@localazy:comment:string": "The Auction Block"
+    },
+    "052": {
+      "string": "ライムストーン運搬溝『命を壳った通路』へ↵移動する。",
+      "@@localazy:comment:string": "To the Auction Block (Limestone Quarry)."
+    },
+    "053": {
+      "string": "地底への道",
+      "@@localazy:comment:string": "Way Down"
+    },
+    "054": {
+      "string": "ライムストーン運搬溝『地底への道』へ↵移動する。",
+      "@@localazy:comment:string": "To Way Down (Limestone Quarry)."
+    },
+    "055": {
+      "string": "ディパイス通り",
+      "@@localazy:comment:string": "Rue Lejour"
+    },
+    "056": {
+      "string": "市街地 東部『ディパイス通り』へ移動する。",
+      "@@localazy:comment:string": "To Rue Lejour (Town Center East)."
+    },
+    "057": {
+      "string": "ケッシュ大橋",
+      "@@localazy:comment:string": "Kesch Bridge"
+    },
+    "058": {
+      "string": "市街地 東部『ケッシュ大橋』へ移動する。",
+      "@@localazy:comment:string": "To Kesch Bridge (Town Center East)."
+    },
+    "059": {
+      "string": "メタルワークス",
+      "@@localazy:comment:string": "Metal Works/WS"
+    },
+    "060": {
+      "string": "市街地 東部『メタル・ワークス』へ移動する。",
+      "@@localazy:comment:string": "To Workshop ʺMetal Worksʺ (Town Center East)."
+    },
+    "061": {
+      "string": "ジャンクション",
+      "@@localazy:comment:string": "Junction Pt./WS"
+    },
+    "062": {
+      "string": "市街地 東部『ジャンクション』へ移動する。",
+      "@@localazy:comment:string": "To Workshop ʺJunction Pointʺ (Town Center East)."
+    },
+    "063": {
+      "string": "闇が生まれた聖地",
+      "@@localazy:comment:string": "The Dark Coast"
+    },
+    "064": {
+      "string": "キルティア神殿『闇が生まれた聖地』へ↵移動する。",
+      "@@localazy:comment:string": "To the Dark Coast (Temple of Kiltia)."
+    },
+    "065": {
+      "string": "ルミタール広場",
+      "@@localazy:comment:string": "Plateia Lumitar"
+    },
+    "066": {
+      "string": "市街地 東部『ルミタール広場』へ移動する。",
+      "@@localazy:comment:string": "To Plateia Lumitar (Town Center East)."
+    },
+    "067": {
+      "string": "罪と罰の間",
+      "@@localazy:comment:string": "Sin and Punishment"
+    },
+    "068": {
+      "string": "大聖堂 1階『罪と罰の間』へ移動する。",
+      "@@localazy:comment:string": "To Sin and Punishment (Great Cathedral L1)."
+    },
+    "069": {
+      "string": "聖戦の間",
+      "@@localazy:comment:string": "The Atrium"
+    },
+    "070": {
+      "string": "大聖堂 4階『聖戦の間』へ移動する。",
+      "@@localazy:comment:string": "To the Atrium (Great Cathedral L4)."
+    },
+    "071": {
+      "string": "ワークショップ",
+      "@@localazy:comment:string": "Godhands/WS"
+    },
+    "072": {
+      "string": "地下街 西部『ワークショップ』へ移動する。",
+      "@@localazy:comment:string": "To Workshop ʺGodhandsʺ (Town Center West)."
+    },
+    "073": {
+      "string": "セーブ36",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»36"
+    },
+    "074": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "075": {
+      "string": "セーブ37",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»37"
+    },
+    "076": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "077": {
+      "string": "セーブ38",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»39"
+    },
+    "078": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "079": {
+      "string": "セーブ39",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»38"
+    },
+    "080": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "081": {
+      "string": "セーブ40",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»40"
+    },
+    "082": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "083": {
+      "string": "セーブ41",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»41"
+    },
+    "084": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "085": {
+      "string": "セーブ42",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»42"
+    },
+    "086": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "087": {
+      "string": "セーブ43",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»43"
+    },
+    "088": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "089": {
+      "string": "セーブ44",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»44"
+    },
+    "090": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "091": {
+      "string": "セーブ45",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»45"
+    },
+    "092": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "093": {
+      "string": "セーブ46",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»46"
+    },
+    "094": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "095": {
+      "string": "セーブ47",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»47"
+    },
+    "096": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "097": {
+      "string": "セーブ48",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»49"
+    },
+    "098": {
+      "string": "空きデータ。リコール不可。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    }
+  }
+}

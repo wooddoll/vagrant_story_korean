@@ -471,6 +471,568 @@
     "117": {
       "string": "フレイムスフィアѨ4",
       "@@localazy:comment:string": "Flame Sphere Ѩ4"
+    },
+    "118": {
+      "string": "ガイアストライクѨ1",
+      "@@localazy:comment:string": "Gaea Strike Ѩ1"
+    },
+    "119": {
+      "string": "ガイアストライクѨ2",
+      "@@localazy:comment:string": "Gaea Strike Ѩ2"
+    },
+    "120": {
+      "string": "ガイアストライクѨ3",
+      "@@localazy:comment:string": "Gaea Strike Ѩ3"
+    },
+    "121": {
+      "string": "ガイアストライクѨ4",
+      "@@localazy:comment:string": "Gaea Strike Ѩ4"
+    },
+    "122": {
+      "string": "アヴァランチѨ1",
+      "@@localazy:comment:string": "Avalanche Ѩ1"
+    },
+    "123": {
+      "string": "アヴァランチѨ2",
+      "@@localazy:comment:string": "Avalanche Ѩ2"
+    },
+    "124": {
+      "string": "アヴァランチѨ3",
+      "@@localazy:comment:string": "Avalanche Ѩ3"
+    },
+    "125": {
+      "string": "アヴァランチѨ4",
+      "@@localazy:comment:string": "Avalanche Ѩ4"
+    },
+    "126": {
+      "string": "ラディウスѨ1",
+      "@@localazy:comment:string": "Radial Surge Ѩ1"
+    },
+    "127": {
+      "string": "ラディウスѨ2",
+      "@@localazy:comment:string": "Radial Surge Ѩ2"
+    },
+    "128": {
+      "string": "ラディウスѨ3",
+      "@@localazy:comment:string": "Radial Surge Ѩ3"
+    },
+    "129": {
+      "string": "ラディウスѨ4",
+      "@@localazy:comment:string": "Radial Surge Ѩ4"
+    },
+    "130": {
+      "string": "メテオインパクトѨ1",
+      "@@localazy:comment:string": "Meteor Ѩ1"
+    },
+    "131": {
+      "string": "メテオインパクトѨ2",
+      "@@localazy:comment:string": "Meteor Ѩ2"
+    },
+    "132": {
+      "string": "メテオインパクトѨ3",
+      "@@localazy:comment:string": "Meteor Ѩ3"
+    },
+    "133": {
+      "string": "メテオインパクトѨ4",
+      "@@localazy:comment:string": "Meteor Ѩ4"
+    },
+    "134": {
+      "string": "トルネード",
+      "@@localazy:comment:string": "Tornado"
+    },
+    "135": {
+      "string": "サンダーボルト",
+      "@@localazy:comment:string": "Thunderbolt"
+    },
+    "136": {
+      "string": "ファイアストーム",
+      "@@localazy:comment:string": "Fire Storm"
+    },
+    "137": {
+      "string": "グラビティ",
+      "@@localazy:comment:string": "Gravity"
+    },
+    "138": {
+      "string": "アシッドフロー",
+      "@@localazy:comment:string": "Acid Flow"
+    },
+    "139": {
+      "string": "ジャッジメント",
+      "@@localazy:comment:string": "Judgment"
+    },
+    "140": {
+      "string": "アポカリプス",
+      "@@localazy:comment:string": "Apocalypse"
+    },
+    "141": {
+      "string": "スタンブラスト",
+      "@@localazy:comment:string": "Stun Blast"
+    },
+    "142": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "143": {
+      "string": "タイダルラッシュ",
+      "@@localazy:comment:string": "Tidal Rush"
+    },
+    "144": {
+      "string": "ブラスフェミー",
+      "@@localazy:comment:string": "Blasphemous Howl"
+    },
+    "145": {
+      "string": "テイルアタック",
+      "@@localazy:comment:string": "Tail Attack"
+    },
+    "146": {
+      "string": "テイルアタック",
+      "@@localazy:comment:string": "Tail Attack"
+    },
+    "147": {
+      "string": "ファイアブレス",
+      "@@localazy:comment:string": "Fire Breath"
+    },
+    "148": {
+      "string": "ファイアブレス",
+      "@@localazy:comment:string": "Fire Breath"
+    },
+    "149": {
+      "string": "アシッドブレス",
+      "@@localazy:comment:string": "Acid Breath"
+    },
+    "150": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "151": {
+      "string": "アシッドブレス",
+      "@@localazy:comment:string": "Acid Breath"
+    },
+    "152": {
+      "string": "ロトンブレス",
+      "@@localazy:comment:string": "Rot Breath"
+    },
+    "153": {
+      "string": "カイザースラスト",
+      "@@localazy:comment:string": "Caeserʹs Thrust"
+    },
+    "154": {
+      "string": "ファイアブレス",
+      "@@localazy:comment:string": "Thermal Breath"
+    },
+    "155": {
+      "string": "サンダーブレス",
+      "@@localazy:comment:string": "Thunder Breath"
+    },
+    "156": {
+      "string": "ヘヴンズティア",
+      "@@localazy:comment:string": "Heavenʹs Tear"
+    },
+    "157": {
+      "string": "フレイムブレス",
+      "@@localazy:comment:string": "Searing Breath"
+    },
+    "158": {
+      "string": "タイランツメイス",
+      "@@localazy:comment:string": "Tyrantʹs Mace"
+    },
+    "159": {
+      "string": "フロストブレス",
+      "@@localazy:comment:string": "Frost Breath"
+    },
+    "160": {
+      "string": "レイヴェンアイ",
+      "@@localazy:comment:string": "Raven Eye"
+    },
+    "161": {
+      "string": "ディバインブレス",
+      "@@localazy:comment:string": "Divine Breath"
+    },
+    "162": {
+      "string": "ポイズンブレス",
+      "@@localazy:comment:string": "Poison Breath"
+    },
+    "163": {
+      "string": "マインドブラスト",
+      "@@localazy:comment:string": "Mind Blast"
+    },
+    "164": {
+      "string": "マインドブラスト",
+      "@@localazy:comment:string": "Mind Blast"
+    },
+    "165": {
+      "string": "ナミングフック",
+      "@@localazy:comment:string": "Numbing Hook"
+    },
+    "166": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "167": {
+      "string": "ナミングニードル",
+      "@@localazy:comment:string": "Numbing Needle"
+    },
+    "168": {
+      "string": "ブラッドサック",
+      "@@localazy:comment:string": "Bloodsuck"
+    },
+    "169": {
+      "string": "アシッドスニーズ",
+      "@@localazy:comment:string": "Acid Sneeze"
+    },
+    "170": {
+      "string": "スパイラルシェル",
+      "@@localazy:comment:string": "Spiral Shell"
+    },
+    "171": {
+      "string": "グラナイトパンチ",
+      "@@localazy:comment:string": "Granite Punch"
+    },
+    "172": {
+      "string": "デヴァイタライズ",
+      "@@localazy:comment:string": "Devitalize"
+    },
+    "173": {
+      "string": "ポルターガイスト",
+      "@@localazy:comment:string": "Poltergeist"
+    },
+    "174": {
+      "string": "ブラディマーダー",
+      "@@localazy:comment:string": "Reaperʹs Scythe"
+    },
+    "175": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "176": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "177": {
+      "string": "ギガラッシュ",
+      "@@localazy:comment:string": "Giga Rush"
+    },
+    "178": {
+      "string": "アクアバブル",
+      "@@localazy:comment:string": "Aqua Bubble"
+    },
+    "179": {
+      "string": "ポイズンスニーズ",
+      "@@localazy:comment:string": "Poison Sneeze"
+    },
+    "180": {
+      "string": "アクリッドウーズ",
+      "@@localazy:comment:string": "Acrid Ooze"
+    },
+    "181": {
+      "string": "ブラディシン",
+      "@@localazy:comment:string": "Bloody Sin"
+    },
+    "182": {
+      "string": "ラストアセンション",
+      "@@localazy:comment:string": "Last Ascension"
+    },
+    "183": {
+      "string": "欠番",
+      "@@localazy:comment:string": "untitled"
+    },
+    "184": {
+      "string": "號気彈",
+      "@@localazy:comment:string": "Whistle Sting"
+    },
+    "185": {
+      "string": "影縫い",
+      "@@localazy:comment:string": "Shadoweave"
+    },
+    "186": {
+      "string": "ダブルファング",
+      "@@localazy:comment:string": "Double Fang"
+    },
+    "187": {
+      "string": "怒竜玉砕",
+      "@@localazy:comment:string": "Wyrm Scorn"
+    },
+    "188": {
+      "string": "裂帛双重突",
+      "@@localazy:comment:string": "Rending Gale"
+    },
+    "189": {
+      "string": "黑斬破",
+      "@@localazy:comment:string": "Vile Scar"
+    },
+    "190": {
+      "string": "桜花円舞",
+      "@@localazy:comment:string": "Cherry Ronde"
+    },
+    "191": {
+      "string": "飛蝶乱舞",
+      "@@localazy:comment:string": "Papillon Reel"
+    },
+    "192": {
+      "string": "壊人彈",
+      "@@localazy:comment:string": "Sunder"
+    },
+    "193": {
+      "string": "雷電轟爆波",
+      "@@localazy:comment:string": "Thunderwave"
+    },
+    "194": {
+      "string": "飛燕斬",
+      "@@localazy:comment:string": "Swallow Slash"
+    },
+    "195": {
+      "string": "神鳴烈印斬",
+      "@@localazy:comment:string": "Advent Sign"
+    },
+    "196": {
+      "string": "ミストラルエッジ",
+      "@@localazy:comment:string": "Mistral Edge"
+    },
+    "197": {
+      "string": "氷牙疾風烈",
+      "@@localazy:comment:string": "Glacial Gale"
+    },
+    "198": {
+      "string": "マンティスレア",
+      "@@localazy:comment:string": "Killer Mantis"
+    },
+    "199": {
+      "string": "インフィニティ",
+      "@@localazy:comment:string": "Black Nebula"
+    },
+    "200": {
+      "string": "ベアクラッシュ",
+      "@@localazy:comment:string": "Bear Claw"
+    },
+    "201": {
+      "string": "煉獄魔人斬",
+      "@@localazy:comment:string": "Accursed Umbra"
+    },
+    "202": {
+      "string": "破鋼秘点",
+      "@@localazy:comment:string": "Iron Ripper"
+    },
+    "203": {
+      "string": "イメティックボム",
+      "@@localazy:comment:string": "Emetic Bomb"
+    },
+    "204": {
+      "string": "爆炎打",
+      "@@localazy:comment:string": "Sirocco"
+    },
+    "205": {
+      "string": "リスクブレイク",
+      "@@localazy:comment:string": "Riskbreak"
+    },
+    "206": {
+      "string": "ヘヴィダスト",
+      "@@localazy:comment:string": "Gravis Aether"
+    },
+    "207": {
+      "string": "アブソルトデルタ",
+      "@@localazy:comment:string": "Trinity Pulse"
+    },
+    "208": {
+      "string": "ボーンクラッシュ",
+      "@@localazy:comment:string": "Bonecrusher"
+    },
+    "209": {
+      "string": "迅雷爆裂打",
+      "@@localazy:comment:string": "Quickshock"
+    },
+    "210": {
+      "string": "輪焔殺",
+      "@@localazy:comment:string": "Ignis Wheel"
+    },
+    "211": {
+      "string": "ヘクターブロウ",
+      "@@localazy:comment:string": "Hex Flux"
+    },
+    "212": {
+      "string": "ルインハーツ",
+      "@@localazy:comment:string": "Ruination"
+    },
+    "213": {
+      "string": "アサルトスフィア",
+      "@@localazy:comment:string": "Scythe Wind"
+    },
+    "214": {
+      "string": "ギガテンペスト",
+      "@@localazy:comment:string": "Giga Tempest"
+    },
+    "215": {
+      "string": "スパイラルブロウ",
+      "@@localazy:comment:string": "Spiral Scourge"
+    },
+    "216": {
+      "string": "獄炎烈散彈",
+      "@@localazy:comment:string": "Brimstone Hail"
+    },
+    "217": {
+      "string": "調伏烈光彈",
+      "@@localazy:comment:string": "Heavenʹs Scorn"
+    },
+    "218": {
+      "string": "デッドスクリーム",
+      "@@localazy:comment:string": "Death Wail"
+    },
+    "219": {
+      "string": "アトミックフレア",
+      "@@localazy:comment:string": "Sanctus Flare"
+    },
+    "220": {
+      "string": "紅蓮掌",
+      "@@localazy:comment:string": "Lotus Palm"
+    },
+    "221": {
+      "string": "眩暈脚",
+      "@@localazy:comment:string": "Vertigo"
+    },
+    "222": {
+      "string": "紫磨金波",
+      "@@localazy:comment:string": "Vermillion Aura"
+    },
+    "223": {
+      "string": "臨界至天滅",
+      "@@localazy:comment:string": "Retribution"
+    },
+    "224": {
+      "string": "HP50回復",
+      "@@localazy:comment:string": "Recover 50 HP"
+    },
+    "225": {
+      "string": "HP100回復",
+      "@@localazy:comment:string": "Recover 100 HP"
+    },
+    "226": {
+      "string": "HP150回復",
+      "@@localazy:comment:string": "Recover 150 HP"
+    },
+    "227": {
+      "string": "HP完全回復",
+      "@@localazy:comment:string": "HP Full"
+    },
+    "228": {
+      "string": "MP25回復",
+      "@@localazy:comment:string": "Recharge 25 MP"
+    },
+    "229": {
+      "string": "MP50回復",
+      "@@localazy:comment:string": "Recharge 50 MP"
+    },
+    "230": {
+      "string": "MP100回復",
+      "@@localazy:comment:string": "Recharge 100 MP"
+    },
+    "231": {
+      "string": "MP完全回復",
+      "@@localazy:comment:string": "MP Full"
+    },
+    "232": {
+      "string": "HP&MP100回復",
+      "@@localazy:comment:string": "HP & MP Recover 100"
+    },
+    "233": {
+      "string": "HP&MP完全回復",
+      "@@localazy:comment:string": "HP & MP Full"
+    },
+    "234": {
+      "string": "HP&リスク25回復",
+      "@@localazy:comment:string": "HP & RISK 25"
+    },
+    "235": {
+      "string": "HP&リスク50回復",
+      "@@localazy:comment:string": "HP & RISK 50"
+    },
+    "236": {
+      "string": "マヒ回復",
+      "@@localazy:comment:string": "Cure Paralysis"
+    },
+    "237": {
+      "string": "毒回復",
+      "@@localazy:comment:string": "Cure Poison"
+    },
+    "238": {
+      "string": "呪い回復",
+      "@@localazy:comment:string": "Cure Curse"
+    },
+    "239": {
+      "string": "しびれ回復",
+      "@@localazy:comment:string": "Cure Numbness"
+    },
+    "240": {
+      "string": "マヒ・毒・しびれ回復",
+      "@@localazy:comment:string": "Cureall"
+    },
+    "241": {
+      "string": "トラップをマーク",
+      "@@localazy:comment:string": "Mark Trap"
+    },
+    "242": {
+      "string": "魔法効果解除",
+      "@@localazy:comment:string": "Magic Cancel"
+    },
+    "243": {
+      "string": "リスク25回復",
+      "@@localazy:comment:string": "RISK —25"
+    },
+    "244": {
+      "string": "リスク50回復",
+      "@@localazy:comment:string": "RISK —50"
+    },
+    "245": {
+      "string": "リスク75回復",
+      "@@localazy:comment:string": "RISK —75"
+    },
+    "246": {
+      "string": "リスク完全回復",
+      "@@localazy:comment:string": "No RISK"
+    },
+    "247": {
+      "string": "クイック",
+      "@@localazy:comment:string": "Quicken"
+    },
+    "248": {
+      "string": "STRアップ",
+      "@@localazy:comment:string": "STR—up"
+    },
+    "249": {
+      "string": "INTアップ",
+      "@@localazy:comment:string": "INT—up"
+    },
+    "250": {
+      "string": "AGLアップ",
+      "@@localazy:comment:string": "AGL—up"
+    },
+    "251": {
+      "string": "HPアップ",
+      "@@localazy:comment:string": "HP—up"
+    },
+    "252": {
+      "string": "MPアップ",
+      "@@localazy:comment:string": "MP—up"
+    },
+    "253": {
+      "string": "STRダウン",
+      "@@localazy:comment:string": "STR—down"
+    },
+    "254": {
+      "string": "INTダウン",
+      "@@localazy:comment:string": "INT—down"
+    },
+    "255": {
+      "string": "AGLダウン",
+      "@@localazy:comment:string": "AGL—down"
+    }
+  },
+  "SL_Main_1": {
+    "000": {
+      "string": "キュ━ブ",
+      "@@localazy:comment:string": "Cube"
+    },
+    "001": {
+      "string": "アシュレイ",
+      "@@localazy:comment:string": "Ashley Riot"
     }
   }
 }
