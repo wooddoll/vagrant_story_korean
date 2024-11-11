@@ -98,7 +98,8 @@ def createNstringsNwordsClass(FileName: str, NstringPtrs: List[int], Nwors: List
 
     return Class_Nstrings
 
-MENU0 = createNstringsNwordsClass('MENU/MENU0.PRG', [0x2258])
+MENU0_jp = createNstringsNwordsClass('MENU/MENU0.PRG', [0x2258, 0x30BC])
+MENU0_en = createNstringsNwordsClass('MENU/MENU0.PRG', [0x2258, 0x3594])
 MENU1 = createNstringsNwordsClass('MENU/MENU1.PRG', [0xC78])
 MENU2_jp = createNstringsNwordsClass('MENU/MENU2.PRG', [0x1e90, 0x2478])
 MENU2_en = createNstringsNwordsClass('MENU/MENU2.PRG', [0x1e90, 0x26D8])
@@ -109,7 +110,7 @@ MENU3_en = createNstringsNwordsClass('MENU/MENU3.PRG', [0x6bb8])
 MENU4_en = createNstringsNwordsClass('MENU/MENU4.PRG', [0x4C48])
 MENU4_jp = createNstringsNwordsClass('MENU/MENU4.PRG', [0x4c44])
 
-MENU5_en = createNstringsNwordsClass('MENU/MENU5.PRG', [0x5bfc, 0x5E30, 0x60B0])
+MENU5_en = createNstringsNwordsClass('MENU/MENU5.PRG', [0x5bfc, 0x5E18, 0x60B0])
 MENU5_jp = createNstringsNwordsClass('MENU/MENU5.PRG', [0x5c14, 0x5DDC, 0x5FC8])
 
 MENU7_en = createNstringsNwordsClass('MENU/MENU7.PRG', [0x81b0])

@@ -10,7 +10,7 @@
       "string": "아직 워록 주문을 배우지 못했다。"
     },
     "003": {
-      "string": "샤먼«FA24»(회복)"
+      "string": "샤먼«FA21»(회복)"
     },
     "004": {
       "string": "HP회복 및 상태이상을 치유하는 주문 목록"
@@ -323,7 +323,7 @@
       "@@localazy:comment:string": "Magic Hammer/WS"
     },
     "020": {
-      "string": "시가지 서부,『더 브론즈 해머』로↵이동한다。",
+      "string": "시가지 서부,『더 브론즈 해머』로 이동한다。",
       "@@localazy:comment:string": "To Workshop ʺMagic Hammerʺ (Town Center West)."
     },
     "021": {
