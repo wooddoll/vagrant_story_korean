@@ -109,7 +109,7 @@ MENU3_en = createNstringsNwordsClass('MENU/MENU3.PRG', [0x6bb8])
 MENU4_en = createNstringsNwordsClass('MENU/MENU4.PRG', [0x4C48])
 MENU4_jp = createNstringsNwordsClass('MENU/MENU4.PRG', [0x4c44])
 
-MENU5_en = createNstringsNwordsClass('MENU/MENU5.PRG', [0x5bfc, 0x5E18, 0x60B0])
+MENU5_en = createNstringsNwordsClass('MENU/MENU5.PRG', [0x5bfc, 0x5E30, 0x60B0])
 MENU5_jp = createNstringsNwordsClass('MENU/MENU5.PRG', [0x5c14, 0x5DDC, 0x5FC8])
 
 MENU7_en = createNstringsNwordsClass('MENU/MENU7.PRG', [0x81b0])

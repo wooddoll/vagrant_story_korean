@@ -57,7 +57,12 @@ def createStringBINNClass(FileName: str, keepPos: List[int] = [], startPtr = 0x0
                     for _ in range(self.itemNums):
                         pos = int2(byte_stream.read(2))
                         self.ptrs.append(2*pos)
-                self.ptrs.append(len(self.buffer))
+                
+                data = self.buffer[self.ptrs[-1]:]
+                len_data = getTextLength(data)
+                if len_data%2:
+                    len_data += 1
+                self.ptrs.append(self.ptrs[-1] + len_data)
 
         def setBlank(self, table: convert_by_TBL):
             len_buffer = len(self.buffer)
@@ -108,7 +113,10 @@ def createStringBINNClass(FileName: str, keepPos: List[int] = [], startPtr = 0x0
             else:
                 logging.warning(f'{output_path} is not valid path.')
 
-            byteData = self.strings.packData()
+            bytesData = self.strings.packData()
+            if bytesData is None:
+                return
+
             pre_sizes = []
             for idx in range(self.itemNums):
                 pre_sizes.append(self.ptrs[idx+1] - self.ptrs[idx])
@@ -127,28 +135,26 @@ def createStringBINNClass(FileName: str, keepPos: List[int] = [], startPtr = 0x0
                         if 0 < idx:
                             ptrs[idx] = ptrs[idx-1] + cur_sizes[idx-1]
 
-            if not keepPos:
+            act_sizes = []
+            for idx in range(self.itemNums):
+                act_sizes.append(ptrs[idx+1] - ptrs[idx])
+                
+            for idx in range(self.strings.itemNums):
+                #print(f'{idx}th data, {pre_sizes[idx]} / {cur_sizes[idx]}')
+                if act_sizes[idx] < cur_sizes[idx]:
+                    logging.critical(f'{idx}th data overflow, {act_sizes[idx]} < {cur_sizes[idx]}')
+
+            with open(outPath, 'wb') as file:
+                file.write(self.buffer)
+                file.seek(startPtr)
+                
                 for idx in range(self.strings.itemNums):
-                    #print(f'{idx}th data, {pre_sizes[idx]} / {cur_sizes[idx]}')
-                    if pre_sizes[idx] < cur_sizes[idx]:
-                        logging.critical(f'{idx}th data overflow, {pre_sizes[idx]} < {cur_sizes[idx]}')
-            else:
-                for idx in keepPos:
-                    #print(f'{idx}th data, {pre_sizes[idx]} / {cur_sizes[idx]}')
-                    if pre_sizes[idx] < cur_sizes[idx]:
-                        logging.critical(f'{idx}th data overflow, {pre_sizes[idx]} < {cur_sizes[idx]}')
-
-            if byteData is not None:
-                with open(outPath, 'wb') as file:
-                    file.write(self.buffer)
-
-                    file.seek(startPtr)
-                    for idx in range(self.strings.itemNums):
-                        file.write(bytes2(ptrs[idx]//2))
-
-                    for idx in range(self.strings.itemNums):
-                        file.seek(startPtr+ptrs[idx])
-                        file.write(self.strings._byte[idx])
+                    file.write(bytes2(ptrs[idx]//2))
+                    
+                for idx in range(self.strings.itemNums):
+                    file.seek(startPtr+ptrs[idx])
+                    file.write(self.strings._byte[idx])
+                    
     return StringBINNClass
 
 
@@ -163,6 +169,7 @@ MENU4 = createStringBINNClass('MENU/MENU4.PRG', [7, 8, 9, 10, 11, 12], 0x4c44)
 BATTLE_3 = createStringBINNClass('BATTLE/BATTLE.PRG', [11], 0x83080)
 
 MENU0 = createStringBINNClass('MENU/MENU0.PRG', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 0x2258)
+MENU0_1 = createStringBINNClass('MENU/MENU0.PRG', [0, 1, 2], 0x30BC)
 MENU1 = createStringBINNClass('MENU/MENU1.PRG', [30], 0xC78)
 MENU2 = createStringBINNClass('MENU/MENU2.PRG', [0, 1, 2, 3, 4, 5], 0x1e90)
 MENU2_1 = createStringBINNClass('MENU/MENU2.PRG', [12, 13, 14, 15, 16, 17], 0x2478)
@@ -176,8 +183,8 @@ MENUB = createStringBINNClass('MENU/MENUB.PRG', startPtr=0x7a80)
 
 MON = createStringBINNClass('SMALL/MON.BIN', [], 0x19C8)
 
-FileLoadFuncNames = ['MENU0', 'MENU1', 'MENU2', 'MENU2_1', 'MENU3', 'MENU4', 'MENU7', 'MENU8', 'MENU12', 'MCMAN', 'ITEMHELP',
-                     'MENUB', 'BATTLE_3', 'MON' ]
+FileLoadFuncNames = ['MENU0', 'MENU0_1', 'MENU1', 'MENU2', 'MENU2_1', 'MENU3', 'MENU4', 'MENU7', 'MENU8', 'MENU12', 
+                     'MENUB', 'MCMAN', 'ITEMHELP', 'BATTLE_3', 'MON' ]
 
 def getNNClass(className: str):
     Class_jp = None

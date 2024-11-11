@@ -1,7 +1,7 @@
 {
   "MENU0": {
     "000": {
-      "string": "워록«FA18»(공격)"
+      "string": "워록«FA24»(공격)"
     },
     "001": {
       "string": "대상에게 피해를 주는 공격 주문 목록"
@@ -10,7 +10,7 @@
       "string": "아직 워록 주문을 배우지 못했다。"
     },
     "003": {
-      "string": "샤먼«FA14»(회복)"
+      "string": "샤먼«FA24»(회복)"
     },
     "004": {
       "string": "HP회복 및 상태이상을 치유하는 주문 목록"
@@ -19,7 +19,7 @@
       "string": "아직 샤먼 주문을 배우지 못했다"
     },
     "006": {
-      "string": "소서러«FA0B»(보조)"
+      "string": "소서러«FA18»(보조)"
     },
     "007": {
       "string": "타겟에 상태이상을 유발하는 주문의 목록"
@@ -28,7 +28,7 @@
       "string": "아직 소서러 주문을 배우지 못했다。"
     },
     "009": {
-      "string": "인챈터«FA0C»(속성)"
+      "string": "인챈터«FA18»(속성)"
     },
     "010": {
       "string": "장비에 원소(속성)을↵변경하는 속성마법의 목록"
@@ -239,6 +239,404 @@
     },
     "079": {
       "string": "드레인 마인드"
+    }
+  },
+  "MENU0_1": {
+    "000": {
+      "string": "텔레포트☐(이동)",
+      "@@localazy:comment:string": "TELEPORTATION"
+    },
+    "001": {
+      "string": "다른 마법진으로 순간 이동할 수 있다。↵마법진에서만 사용 가능。",
+      "@@localazy:comment:string": "Teleport to any Circle of Magic.↵Effective only when standing on a Circle."
+    },
+    "002": {
+      "string": "결계 때문에 텔레포트 할 수 없다。",
+      "@@localazy:comment:string": "The spirit paling prevents teleportation."
+    },
+    "003": {
+      "string": "노동자 휴게소",
+      "@@localazy:comment:string": "Workerʹs Breakroom"
+    },
+    "004": {
+      "string": "와인 저장고,『노동자 휴게소』로 이동한다。",
+      "@@localazy:comment:string": "To Workerʹs Breakroom (Wine Cellar)."
+    },
+    "005": {
+      "string": "와인 길드 홀",
+      "@@localazy:comment:string": "Wine Guild Hall"
+    },
+    "006": {
+      "string": "와인 저장고,『와인 길드 홀』로 이동한다。",
+      "@@localazy:comment:string": "To Wine Guild Hall (Wine Cellar)."
+    },
+    "007": {
+      "string": "와인 암시장",
+      "@@localazy:comment:string": "Blackmarket"
+    },
+    "008": {
+      "string": "와인 저장고,『와인 암시장』으로 이동한다。",
+      "@@localazy:comment:string": "To Blackmarket of Wines (Wine Cellar)."
+    },
+    "009": {
+      "string": "복수를 맹세한 곳",
+      "@@localazy:comment:string": "Hall of Revenge"
+    },
+    "010": {
+      "string": "지하 묘지,『복수를 맹세한 곳』으로 이동한다。",
+      "@@localazy:comment:string": "To Hall of Sworn Revenge (Catacombs)."
+    },
+    "011": {
+      "string": "시들어버린 정령의 샘",
+      "@@localazy:comment:string": "The Withered Spring"
+    },
+    "012": {
+      "string": "지하 묘지,『시들어버린 정령의 샘』으로 이동한다。",
+      "@@localazy:comment:string": "To the Withered Spring (Catacombs)."
+    },
+    "013": {
+      "string": "공방-파워 홀",
+      "@@localazy:comment:string": "Work of Art/WS"
+    },
+    "014": {
+      "string": "지하 묘지,『파워 홀』로 이동한다。",
+      "@@localazy:comment:string": "To Workshop ʺWork of Artʺ (Catacombs)."
+    },
+    "015": {
+      "string": "신이 강림한 영지",
+      "@@localazy:comment:string": "Advent Ground"
+    },
+    "016": {
+      "string": "지하 교회,『신이 강림한 영지』로 이동한다。",
+      "@@localazy:comment:string": "To Advent Ground (Sanctum)."
+    },
+    "017": {
+      "string": "버밀리온 거리",
+      "@@localazy:comment:string": "Rue Vermillion"
+    },
+    "018": {
+      "string": "시가지 서부,『버밀리온 거리』로 이동한다。",
+      "@@localazy:comment:string": "To Rue Vermillion (Town Center West)."
+    },
+    "019": {
+      "string": "공방-더 브론즈 해머",
+      "@@localazy:comment:string": "Magic Hammer/WS"
+    },
+    "020": {
+      "string": "시가지 서부,『더 브론즈 해머』로↵이동한다。",
+      "@@localazy:comment:string": "To Workshop ʺMagic Hammerʺ (Town Center West)."
+    },
+    "021": {
+      "string": "운명의 갈림길",
+      "@@localazy:comment:string": "The Crossing"
+    },
+    "022": {
+      "string": "폐광 1층,『운명의 갈림길』로 이동한다。",
+      "@@localazy:comment:string": "To the Crossing (Abandoned Mines B1)."
+    },
+    "023": {
+      "string": "어둠과 미신의 갱도",
+      "@@localazy:comment:string": "The Dark Tunnel"
+    },
+    "024": {
+      "string": "폐광 1층,『어둠과 미신의 갱도』로 이동한다。",
+      "@@localazy:comment:string": "To the Dark Tunnel (Abandoned Mines B1)."
+    },
+    "025": {
+      "string": "부케 거리",
+      "@@localazy:comment:string": "Rue Bouquet"
+    },
+    "026": {
+      "string": "시가지 서부,『부케 거리』로 이동한다。",
+      "@@localazy:comment:string": "To Rue Bouquet (Town Center West)."
+    },
+    "027": {
+      "string": "태양을 기원하는 길",
+      "@@localazy:comment:string": "The Sunless Way"
+    },
+    "028": {
+      "string": "지하상가 서부,『태양을 기원하는 길』로 이동한다。",
+      "@@localazy:comment:string": "To the Sunless Way (Undercity West)."
+    },
+    "029": {
+      "string": "정령계 인접점",
+      "@@localazy:comment:string": "The Faerie Circle"
+    },
+    "030": {
+      "string": "깃털벌레의 숲,『정령계 인접점』으로 이동한다。",
+      "@@localazy:comment:string": "To the Faerie Circle (Snowfly Forest)."
+    },
+    "031": {
+      "string": "숲이 태어난 강",
+      "@@localazy:comment:string": "Forest River"
+    },
+    "032": {
+      "string": "깃털벌레의 숲,『숲이 태어난 강』으로 이동한다。",
+      "@@localazy:comment:string": "To Forest River (Snowfly Forest)."
+    },
+    "033": {
+      "string": "숲을 지키는 출구",
+      "@@localazy:comment:string": "The Wood Gate"
+    },
+    "034": {
+      "string": "깃털벌레의 숲,『숲을 지키는 출구』로 이동한다。",
+      "@@localazy:comment:string": "To the Wood Gate (Snowfly Forest)."
+    },
+    "035": {
+      "string": "발디만 성문 앞",
+      "@@localazy:comment:string": "Valdiman Gates"
+    },
+    "036": {
+      "string": "시가지 남부,『발디만 성문 앞』으로 이동한다。",
+      "@@localazy:comment:string": "To Valdiman Gates (Town Center South)."
+    },
+    "037": {
+      "string": "전투와 휴식의 광장",
+      "@@localazy:comment:string": "The Warriorʹs Rest"
+    },
+    "038": {
+      "string": "레아몽드 요새,『전투와 휴식의 광장』으로 이동한다。",
+      "@@localazy:comment:string": "To the Warriorʹs Rest (Keep)."
+    },
+    "039": {
+      "string": "공방-파인 크래프트",
+      "@@localazy:comment:string": "Keaneʹs/WS"
+    },
+    "040": {
+      "string": "레아몽드 요새,『파인 크래프트』로 이동한다。",
+      "@@localazy:comment:string": "To workshop ʺKeaneʹs Craftsʺ (Keep)."
+    },
+    "041": {
+      "string": "죄인들의 길모퉁이",
+      "@@localazy:comment:string": "Sinnerʹs Corner"
+    },
+    "042": {
+      "string": "지하상가 서부,『죄인들의 길모퉁이』로 이동한다。",
+      "@@localazy:comment:string": "To Sinnerʹs Corner (Undercity West)."
+    },
+    "043": {
+      "string": "무너진 상점가",
+      "@@localazy:comment:string": "Crumbling Market"
+    },
+    "044": {
+      "string": "지하상가 서부,『무너진 상점가』로 이동한다。",
+      "@@localazy:comment:string": "To the Crumbling Market (Undercity West)."
+    },
+    "045": {
+      "string": "계약이 이루어진 곳",
+      "@@localazy:comment:string": "Treaty Room"
+    },
+    "046": {
+      "string": "폐광 2층,『계약이 이루어진 곳』으로 이동한다。",
+      "@@localazy:comment:string": "To Treaty Room (Abandoned Mines B2)."
+    },
+    "047": {
+      "string": "도적들의 구덩이",
+      "@@localazy:comment:string": "Banditsʹ Hollow"
+    },
+    "048": {
+      "string": "폐광 2층,『도적들의 구덩이』로 이동한다。",
+      "@@localazy:comment:string": "To Banditsʹ Hollow (Abandoned Mines B2)."
+    },
+    "049": {
+      "string": "광물을 운반하는 갱도",
+      "@@localazy:comment:string": "The Ore Road"
+    },
+    "050": {
+      "string": "석회암 채석장,『광물을 운반하는 갱도』로↵이동한다。",
+      "@@localazy:comment:string": "To the Ore Road (Limestone Quarry)."
+    },
+    "051": {
+      "string": "생명을 앗아간 통로",
+      "@@localazy:comment:string": "The Auction Block"
+    },
+    "052": {
+      "string": "석회암 채석장,『생명을 앗아간 통로』로↵이동한다。",
+      "@@localazy:comment:string": "To the Auction Block (Limestone Quarry)."
+    },
+    "053": {
+      "string": "지하로 가는 길",
+      "@@localazy:comment:string": "Way Down"
+    },
+    "054": {
+      "string": "석회암 채석장,『지하로 가는 길』로↵이동한다。",
+      "@@localazy:comment:string": "To Way Down (Limestone Quarry)."
+    },
+    "055": {
+      "string": "디파이스 거리",
+      "@@localazy:comment:string": "Rue Lejour"
+    },
+    "056": {
+      "string": "시가지 동부,『디파이스 거리』로 이동한다。",
+      "@@localazy:comment:string": "To Rue Lejour (Town Center East)."
+    },
+    "057": {
+      "string": "케쉬 다리",
+      "@@localazy:comment:string": "Kesch Bridge"
+    },
+    "058": {
+      "string": "시가지 동부,『케쉬 다리』로 이동한다。",
+      "@@localazy:comment:string": "To Kesch Bridge (Town Center East)."
+    },
+    "059": {
+      "string": "공방-메탈 웍스",
+      "@@localazy:comment:string": "Metal Works/WS"
+    },
+    "060": {
+      "string": "시가지 동부,『메탈 웍스』로 이동한다。",
+      "@@localazy:comment:string": "To Workshop ʺMetal Worksʺ (Town Center East)."
+    },
+    "061": {
+      "string": "공방-정션",
+      "@@localazy:comment:string": "Junction Pt./WS"
+    },
+    "062": {
+      "string": "시가지 동부,『정션』으로 이동한다。",
+      "@@localazy:comment:string": "To Workshop ʺJunction Pointʺ (Town Center East)."
+    },
+    "063": {
+      "string": "어둠이 태어난 성지",
+      "@@localazy:comment:string": "The Dark Coast"
+    },
+    "064": {
+      "string": "킬티아 신전,『어둠이 태어난 성지』로↵이동한다。",
+      "@@localazy:comment:string": "To the Dark Coast (Temple of Kiltia)."
+    },
+    "065": {
+      "string": "루미타르 광장",
+      "@@localazy:comment:string": "Plateia Lumitar"
+    },
+    "066": {
+      "string": "시가지 동부,『루미타르 광장』으로 이동한다。",
+      "@@localazy:comment:string": "To Plateia Lumitar (Town Center East)."
+    },
+    "067": {
+      "string": "죄와 벌",
+      "@@localazy:comment:string": "Sin and Punishment"
+    },
+    "068": {
+      "string": "대성당 1층,『죄와 벌』로 이동한다。",
+      "@@localazy:comment:string": "To Sin and Punishment (Great Cathedral L1)."
+    },
+    "069": {
+      "string": "신성한 전투",
+      "@@localazy:comment:string": "The Atrium"
+    },
+    "070": {
+      "string": "대성당 4층,『신성한 전투』로 이동한다。",
+      "@@localazy:comment:string": "To the Atrium (Great Cathedral L4)."
+    },
+    "071": {
+      "string": "공방-워크샵",
+      "@@localazy:comment:string": "Godhands/WS"
+    },
+    "072": {
+      "string": "지하상가 서부,『워크샵』으로 이동한다。",
+      "@@localazy:comment:string": "To Workshop ʺGodhandsʺ (Town Center West)."
+    },
+    "073": {
+      "string": "세이브36",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»36"
+    },
+    "074": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "075": {
+      "string": "세이브37",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»37"
+    },
+    "076": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "077": {
+      "string": "세이브38",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»39"
+    },
+    "078": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "079": {
+      "string": "세이브39",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»38"
+    },
+    "080": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "081": {
+      "string": "세이브40",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»40"
+    },
+    "082": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "083": {
+      "string": "세이브41",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»41"
+    },
+    "084": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "085": {
+      "string": "세이브42",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»42"
+    },
+    "086": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "087": {
+      "string": "세이브43",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»43"
+    },
+    "088": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "089": {
+      "string": "세이브44",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»44"
+    },
+    "090": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "091": {
+      "string": "세이브45",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»45"
+    },
+    "092": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "093": {
+      "string": "세이브46",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»46"
+    },
+    "094": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "095": {
+      "string": "세이브47",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»47"
+    },
+    "096": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
+    },
+    "097": {
+      "string": "세이브48",
+      "@@localazy:comment:string": "«F6EF»_«F6EF»49"
+    },
+    "098": {
+      "string": "사용 가능한 데이터。리콜 불가。",
+      "@@localazy:comment:string": "«F6EF»È«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»_«F6EF»«F6EF»«F6EF»«F6EF»"
     }
   }
 }

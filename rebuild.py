@@ -388,6 +388,7 @@ def updateMAP_MDP(kor_strings: dict):
 
 def update_ARM(Name: str, dictTexts: dict):
     filepath = f"{PATH_JPN_VARGRANTSTORY}/SMALL/{Name}.ARM"
+    #print(f"ARM_{Name}")
     arm = ARMstruct(str(filepath))
     arm.cvtByte2Str(jpnTBL)
 
@@ -585,7 +586,7 @@ def stringBIN_merge(kor_strings: dict):
         Class_jp = mS.getNNClass(name)
             
         #Class_jp = globals()[f'mS.{name}']
-        if name in ['BATTLE_3', 'MON', 'MENU2_1']:
+        if name in ['BATTLE_3', 'MON', 'MENU2_1', 'MENU0_1']:
             curr = Class_jp(PATH_KOR_VARGRANTSTORY)
         else:
             curr = Class_jp(PATH_JPN_VARGRANTSTORY)
@@ -711,6 +712,7 @@ def rebuildKor():
 #update_Help()
 #exit()
 #applyKorFont()
+
 rebuildKor()
 
 def test1():
@@ -736,22 +738,25 @@ def test3():
 
 def test4():
     kor_strings = mergeKorString()
-    itemhelp = rN.ITEMHELP(PATH_JPN_VARGRANTSTORY)
+    itemhelp = mS.ITEMHELP(PATH_JPN_VARGRANTSTORY)
     itemhelp.cvtByte2Str(jpnTBL)
     
-    for idx in range(itemhelp.strings[0].itemNums):
-        print(f"{idx}({len(itemhelp.strings[0]._byte[idx])}): {itemhelp.strings[0]._str[idx]}")
+    #for idx in range(itemhelp.strings[0].itemNums):
+    #    print(f"{idx}({len(itemhelp.strings[0]._byte[idx])}): {itemhelp.strings[0]._str[idx]}")
 
     texts = kor_strings['ITEMHELP']
     for k, v in texts.items():
         idx = int(k)
         string = v.get('string')
         if string is not None:
-            itemhelp.strings[0]._str[idx] = v['string']
+            itemhelp.strings._str[idx] = v['string']
+    
     itemhelp.cvtStr2Byte(korTBL)
-    for idx in range(itemhelp.strings[0].itemNums):
-        print(f"{idx}({len(itemhelp.strings[0]._byte[idx])}): {itemhelp.strings[0]._str[idx]}")
-
+    itemhelp.packData(PATH_KOR_VARGRANTSTORY)
+    #for idx in range(itemhelp.strings[0].itemNums):
+    #    print(f"{idx}({len(itemhelp.strings[0]._byte[idx])}): {itemhelp.strings[0]._str[idx]}")
+    
+#test4()
 
 
 def test6():

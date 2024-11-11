@@ -834,8 +834,8 @@ def extract_BATTLE_jp_en():
     with open(f'work/strings/BATTLE_BATTLE_PRG_ja.json', 'w', encoding='utf-8') as f:
         json.dump(dialogLists, f, indent=2, ensure_ascii=False)
 
-extract_BATTLE_jp_en()
-exit()
+#extract_BATTLE_jp_en()
+#exit()
 
 def extract_MENU9_jp_en():
     inp_path = Path(PATH_JPN_VARGRANTSTORY) / Path("MENU/MENU9.PRG")
@@ -1338,9 +1338,9 @@ def test14():
 #extract_SMALL_HF0()
 #extract_SMALL_MON_BIN()
 
-def testMENU2():
-    loadJp = rN.MENU2_jp(PATH_JPN_VARGRANTSTORY)
-    loadEn = rN.MENU2_en(PATH_USA_VARGRANTSTORY)
+def testMENU5():
+    loadJp = rN.MENU5_jp(PATH_JPN_VARGRANTSTORY)
+    loadEn = rN.MENU5_en(PATH_USA_VARGRANTSTORY)
     
     loadJp.cvtByte2Str(jpnTBL)
     loadEn.cvtByte2Str(usaTBL)
@@ -1349,11 +1349,14 @@ def testMENU2():
     texts = rN.makeNNstrings(loadJp, loadEn)
     
     textNstr = {}
-    textNstr[f"MENU2"] = texts[f'str_0']
-    textNstr[f"MENU2_2"] = texts[f'str_1']
+    textNstr[f"MENU5_1"] = texts[f'str_0']
+    textNstr[f"MENU5_2"] = texts[f'str_1']
+    textNstr[f"MENU5_3"] = texts[f'str_2']
     
-    with open(f'work/strings/MENU2_ja.json', 'w', encoding='utf-8') as f:
+    with open(f'work/strings/MENU5_ja.json', 'w', encoding='utf-8') as f:
         json.dump(textNstr, f, indent=2, ensure_ascii=False)
+testMENU5()
+exit()
 
 def testNNclass():
     for name in rN.FileLoadFuncNames:
@@ -1425,8 +1428,8 @@ def testNNclass():
         loadJp.cvtStr2Byte(jpnTBL)
         loadEn.cvtStr2Byte(usaTBL)
         
-        loadJp.packData('work/test/PACKjp')
-        loadEn.packData('work/test/PACKen')
+        #loadJp.packData('work/test/PACKjp')
+        #loadEn.packData('work/test/PACKen')
 
     loadEn = MAINMENU_en(PATH_USA_VARGRANTSTORY)
     loadJp = MAINMENU_jp(PATH_JPN_VARGRANTSTORY)
