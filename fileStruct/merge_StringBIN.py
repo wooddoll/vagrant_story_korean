@@ -58,7 +58,7 @@ def createStringBINNClass(FileName: str, keepPos: List[int] = [], startPtr = 0x0
                         pos = int2(byte_stream.read(2))
                         self.ptrs.append(2*pos)
                 
-                data = self.buffer[self.ptrs[-1]:]
+                data = self.buffer[startPtr+self.ptrs[-1]:]
                 len_data = getTextLength(data)
                 if len_data%2:
                     len_data += 1
@@ -144,16 +144,21 @@ def createStringBINNClass(FileName: str, keepPos: List[int] = [], startPtr = 0x0
                 if act_sizes[idx] < cur_sizes[idx]:
                     logging.critical(f'{idx}th data overflow, {act_sizes[idx]} < {cur_sizes[idx]}')
 
+            byte_stream = io.BytesIO()
+            for idx in range(self.strings.itemNums):
+                byte_stream.write(bytes2(ptrs[idx]//2))
+                    
+            for idx in range(self.strings.itemNums):
+                byte_stream.seek(ptrs[idx])
+                byte_stream.write(self.strings._byte[idx])
+            byteData = byte_stream.getvalue()
+            if self.ptrs[-1] < len(byteData):
+                logging.critical(f'total data overflow, {self.ptrs[-1]} < {len(byteData)}')
+                
             with open(outPath, 'wb') as file:
                 file.write(self.buffer)
                 file.seek(startPtr)
-                
-                for idx in range(self.strings.itemNums):
-                    file.write(bytes2(ptrs[idx]//2))
-                    
-                for idx in range(self.strings.itemNums):
-                    file.seek(startPtr+ptrs[idx])
-                    file.write(self.strings._byte[idx])
+                file.write(byteData)
                     
     return StringBINNClass
 
