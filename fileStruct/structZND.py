@@ -36,6 +36,8 @@ class ZND_MPD:
         for _ in range(numMPD):
             LBApos = int4(byte_stream.read(4))
             File_size = int4(byte_stream.read(4))
+            if File_size%0x800:
+                logging.critical('why mpd file size is not $800?')
             self.MPD.append(ZND_MPD_data(LBApos, File_size))
 
     def packData(self, buffer: bytes):
@@ -149,17 +151,23 @@ class ZND_Enemy:
         for idx in range(num_enemies):
             len_name = len(self.name_byte[idx])
             if len_name > 0x18:
-                self.name_byte[idx] = self.name_byte[idx][:0x18]
-                if not all([b==0 for b in self.name_byte[idx]]):
+                if not all([b==0 for b in self.name_byte[idx][:4]]):
                     logging.critical(f"check the enemy name, size overflowed({0x18} < {len_name})")
+                    self.name_byte[idx] = self.name_byte[idx][:0x17]
+                    self.name_byte[idx].append(0xE7)
+                else:
+                    self.name_byte[idx] = bytearray()
             elif len_name < 0x18:
                 self.name_byte[idx].extend(bytearray(0x18-len_name))
                 
             len_weapon = len(self.weapon_byte[idx])
             if len_weapon > 0x18:
-                self.weapon_byte[idx] = self.weapon_byte[idx][:0x18]
-                if not all([b==0 for b in self.weapon_byte[idx]]):
+                if not all([b==0 for b in self.weapon_byte[idx][:4]]):
                     logging.critical(f"check the enemy weapon, size overflowed({0x18}) < {len_weapon}")
+                    self.weapon_byte[idx] = self.weapon_byte[idx][:0x17]
+                    self.weapon_byte[idx].append(0xE7)
+                else:
+                    self.weapon_byte[idx] = bytearray()
             elif len_weapon < 0x18:
                 self.weapon_byte[idx].extend(bytearray(0x18-len_weapon))
 
@@ -265,15 +273,15 @@ class ZNDstruct:
         with open(input_path, 'rb') as file:
             self.buffer = file.read()
 
-            self.MPD.unpackData(self.buffer)
+            #self.MPD.unpackData(self.buffer)
             self.Enemy.unpackData(self.buffer)
-            self.TIM.unpackData(self.buffer)
+            #self.TIM.unpackData(self.buffer)
 
     def packData(self, output_path:str):
         if self.buffer is None:
             return
 
-        self.buffer = self.MPD.packData(self.buffer)
+        #self.buffer = self.MPD.packData(self.buffer)
         self.buffer = self.Enemy.packData(self.buffer)
 
         with open(output_path, 'wb') as file:

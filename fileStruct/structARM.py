@@ -30,12 +30,12 @@ class ARMstruct():
                 len_graphicsSection.append(int4(byte_stream.read(4)))
                 byte_stream.seek(4, os.SEEK_CUR)
             
-            self.ptrRoomNames = 4 + num_rooms*12 + sum(len_graphicsSection) + 4
+            self.ptrRoomNames = 4 + num_rooms*12 + sum(len_graphicsSection) + 4 # last 4 for dummy head 'f800fb04'
             
             self.names_byte.clear()
             for idx in range(num_rooms):
                 byte_stream.seek(self.ptrRoomNames + 0x24*idx)
-                self.names_byte.append(bytearray( byte_stream.read(0x1c) ))
+                self.names_byte.append(bytearray( byte_stream.read(0x1c) ))     #$1c for $20-4
 
     def cvtByte2Str(self, table: convert_by_TBL):
         self.names_str.clear()
