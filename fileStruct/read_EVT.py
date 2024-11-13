@@ -45,7 +45,7 @@ class read_EVT:
     def packData(self, output_path: str):
         byte_stream = io.BytesIO(self.buffer)
         head = readHeader(byte_stream, 4, 2)
-        byteData = self.strings.packData()
+        byteData = self.strings.packData(True)
         new_len_buffer = len(byteData) if byteData is not None else 0
         new_len_buffer = ((new_len_buffer+3)//4)*4
 

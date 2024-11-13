@@ -13,6 +13,19 @@ def int2Hex(integer: int, table: convert_by_TBL):
     data = table.cvtStr2Byte(tmp)
     return data
 
+class _StringBINNClass:
+    def __init__(self, input_path: str = '') -> None:
+        self.strings = ReadStrings()
+        self.itemNums = 0
+    def cvtStr2Byte(self, table: convert_by_TBL) -> None:
+        pass
+    def cvtByte2Str(self, table: convert_by_TBL) -> None:
+        pass
+    def unpackData(self, input_path: str) -> None:
+        pass
+    def packData(self, output_path: str) -> None:
+        pass
+    
 def createStringBINNClass(FileName: str, keepPos: List[int] = [], startPtr = 0x0):
     class StringBINNClass(): 
         def __init__(self, input_path: str = '') -> None:
@@ -191,8 +204,8 @@ MON = createStringBINNClass('SMALL/MON.BIN', [], 0x19C8)
 FileLoadFuncNames = ['MENU0', 'MENU0_1', 'MENU1', 'MENU2', 'MENU2_1', 'MENU3', 'MENU4', 'MENU7', 'MENU8', 'MENU12', 
                      'MENUB', 'MCMAN', 'ITEMHELP', 'BATTLE_3', 'MON' ]
 
-def getNNClass(className: str):
-    Class_jp = None
+def getNNClass(className: str) -> _StringBINNClass:
+    Class_jp = _StringBINNClass()
     
     if className in globals():
         Class_jp = globals()[className]
@@ -200,7 +213,9 @@ def getNNClass(className: str):
     if Class_jp is None:
         if f'{className}_jp' in globals():
             Class_jp = globals()[f'{className}_jp']
+
         if Class_jp is None:    
-            logging.warning(f'wrong function name {className}')
-    
+            logging.critical(f'wrong function name {className}')
+            exit()
+
     return Class_jp

@@ -97,7 +97,10 @@ class SectionBase:
         if self.buffer is None:
             return 0
 
-        return len(self.buffer)
+        size = len(self.buffer)
+        if size%4:
+            logging.critical("why not div. by 4?")
+        return size
     
     def unpackData(self, buffer: bytes):
         self.buffer = bytearray(buffer) if buffer is not None else None
@@ -135,7 +138,6 @@ def createDoorSectionClass(Ptrs: List[int] = []):
 
         def unpackData(self, buffer: bytes):
             self.buffer = bytes(buffer) if buffer is not None else None
-            
             if self.buffer is None:
                 return
             
@@ -196,8 +198,9 @@ def createDoorSectionClass(Ptrs: List[int] = []):
 
                 byte_stream.seek(Ptrs[idx])
                 byte_stream.write(byteData)
-                
+            
             self.buffer = byte_stream.getvalue()
+
             return self.buffer
         
     return DoorSection()
@@ -246,7 +249,9 @@ class TreasureSection:
             self.name_byte.append(0xE7)
         byte_stream.write(self.name_byte)
         
-        return byte_stream.getvalue()
+        self.buffer = byte_stream.getvalue()
+   
+        return self.buffer
 
 class DialogText:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
@@ -279,13 +284,13 @@ class DialogText:
         if 0 >= len(self.strings):
             return None
 
-        data = self.strings.packData()
+        data = self.strings.packData(True)
         sumBytes = self.strings.len_buffer
-                
+
         if self.sectionSize < sumBytes:
             logging.info(f"check the dialogs length, size overflowed; privious({self.sectionSize}) < current({sumBytes})")
         self.sectionSize = sumBytes
-        
+
         if sumBytes == 0:
             return bytes()
         return data
@@ -361,7 +366,7 @@ class ScriptSection:
                 poses.append(poses[idx-1] + sizes[idx-1])
         sumSizes = sum(sizes) + 16
         logging.debug(f"Script / opcode:{sizes[0]}, dialog:{sizes[1]}, unknown1:{sizes[2]}, unknown2:{sizes[3]}")
-        
+  
         if sumSizes > self.header[0]:
             logging.info(f"check the ScriptSection size, size overflowed({self.header[0]} < {sumSizes})")
 
@@ -399,6 +404,8 @@ class MPDstruct:
         self.enemySection       = SectionBase()
         self.treasureSection    = TreasureSection()
 
+        self.fileSize = 0
+        
         if input_path:
             self.unpackData(input_path)
 
@@ -406,10 +413,7 @@ class MPDstruct:
         if not self.header:
             return 0
         
-        bufferSize = 0
-        for idx in range(1, 12, 2):
-            bufferSize += self.header[idx]
-            
+        bufferSize = self.header[10] + self.header[11]
         return bufferSize
     
     def cvtStr2Byte(self, table: convert_by_TBL):
@@ -429,10 +433,10 @@ class MPDstruct:
         with open(input_path, 'rb') as file:
             buffer = bytearray(file.read())
             
-            filesize = len(buffer)
-            lbaSize = ((filesize + 2047)//2048)*2048
+            self.fileSize = len(buffer)
+            lbaSize = ((self.fileSize + 2047)//2048)*2048
             
-            logging.info(f"{Path(input_path).stem}: The free space in LBA is {lbaSize - filesize} bytes.")
+            logging.info(f"{Path(input_path).stem}: The free space in LBA is {lbaSize - self.fileSize} bytes.")
             byte_stream = io.BytesIO(buffer)
 
             self.header = readHeader(byte_stream, 12, 4)
@@ -449,8 +453,7 @@ class MPDstruct:
     def packData(self, output_path:str):
         if not self.header:
             return
-        
-        fileSize = len(self)
+
         poses = [self.header[0]]
         sizes = []
         
@@ -462,7 +465,7 @@ class MPDstruct:
             sizes.append(len(sections[idx]))
             if idx > 0:
                 poses.append(poses[idx-1] + sizes[idx-1])
-        sumSizes = sum(sizes)
+        sumSizes = poses[5] + sizes[5]
         logging.debug(f"MDP / room:{self.header[1]}, cleared:{self.header[3]}, script:{self.header[5]}, door:{self.header[7]}, enemy:{self.header[9]}, treasure:{self.header[11]}")
         
         prevScriptSectionSize = self.header[5]
@@ -474,13 +477,13 @@ class MPDstruct:
             self.header[idx]   = poses[idx//2]
             self.header[idx+1] = sizes[idx//2]
             
-        if sumSizes > fileSize:
-            prev = ((fileSize + 2047) // 2048) * 2048
+        if self.fileSize < sumSizes:
+            prev = ((self.fileSize + 2047) // 2048) * 2048
             curr = ((sumSizes + 2047) // 2048) * 2048
             if prev < curr:
-                logging.critical(f"{output_path}, check the file size, LBA overflowed({fileSize} < {sumSizes})")
+                logging.critical(f"{output_path}, check the file size, LBA overflowed({self.fileSize} < {sumSizes})")
             else:
-                logging.info(f"{output_path}, check the file size, size overflowed({fileSize} < {sumSizes})")
+                logging.info(f"{output_path}, check the file size, size overflowed({self.fileSize} < {sumSizes})")
 
         with open(output_path, 'wb') as file:
             for value in self.header:
