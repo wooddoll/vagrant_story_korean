@@ -158,11 +158,107 @@ class convert_by_TBL():
             byteText.append(0xE7)
         return byteText
 
+def checkLineLength(text: str):
+    length = len(text)
+    pos = 0
+    cols = 0
+    halfCharictor = False
+    while pos < length:
+        letter = text[pos]
+        pos += 1
+        if letter == '[':
+            halfCharictor = True
+        elif letter == ']':
+            halfCharictor = False
+        elif letter == '«':
+            TypeCtl = text[pos:pos+2]
+            pos += 2
+            if text[pos] == '»':
+                pos += 1
+                continue
+
+            Value = text[pos:pos+2]
+            pos += 2
+            if TypeCtl.upper() == 'FA':
+                num = int(Value, 16)
+                if num > 0x7F:
+                    num -= 0x100
+                cols += num
+            if text[pos] == '»':
+                pos += 1
+                continue
+            else:
+                logging.critical('control word «» incorrect!!')
+        else:
+            if letter in "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!?/,:+-":
+                cols += 6 if halfCharictor else 12
+            elif letter in "abcdefghijklmnopqrstuvwxyz⌊⌋\'\".;「」『』()":
+                cols += 6
+            else:
+                cols += 12
+    
+    return (cols + 11) // 12
+
+def checkFirstSpace(text: str):
+    length = len(text)
+    space = 0
+    pos = 0
+    while pos < length:
+        letter = text[pos]
+        pos += 1
+        if letter == ' ':
+            space += 6
+        elif letter == '☐':
+            space += 12
+        elif letter == '«':
+            temp = []
+            while letter != '»':
+                letter = text[pos]
+                pos += 1
+                if letter != '»':
+                    temp.append(letter)
+
+            if len(temp) == 4:
+                tmp0 = temp[0]+temp[1]
+                tmp1 = temp[2]+temp[3]
+                if tmp0.upper() == 'FA':
+                    num = int(tmp1, 16)
+                    if num > 0x7F:
+                        num -= 0x100
+                    space += num
+                    break
+        else:
+            break
+    return space
+
+def checkFirst(text: str) -> List[int]:
+    ret = []
+    lines = text.split('↵')
+    for line in lines:
+        _cols = checkFirstSpace(line)
+        ret.append(_cols)
+    sp0 = ret[0]
+    AllSame = True
+    for i in range(1, len(ret)):
+        if sp0 != ret[i]:
+            AllSame = False
+            break
+    if AllSame:
+        return [sp0]
+    return ret
+
 def checkSize(text: str):
     rows = 1
     cols = 1
     _cols = 0
 
+    lines = text.split('↵')
+    rows = len(lines)
+    for line in lines:
+        _cols = checkLineLength(line)
+        cols = max(cols, _cols)
+    return rows, cols
+    
     length = len(text)
     pos = 0
     while pos < length:
