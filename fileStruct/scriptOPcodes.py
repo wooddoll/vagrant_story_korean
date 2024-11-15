@@ -280,7 +280,7 @@ class ScriptOpcode:
             hl = (arg[3] << 8) + arg[2]
             #if (arg[0]>>4) != (arg[0]&0xF):
             #    logging.critical('idDlg diff !!')  # evt 88 has diff id, why? , ({[(hex(hl)), (hl&0xFFF), (hl>>12)]})
-            self.Mnemonic = f"DialogShow(idDlg={(arg[0]&0xF)}, Style={arg[1]>>4, arg[1]&0xF}, x={[arg[2], arg[3]]}, y={arg[4]}, w={arg[5]}, h={arg[6]}, {arg[7]}, {arg[8]}, {arg[9]})"
+            self.Mnemonic = f"DialogShow(idDlg={(arg[0]&0xF)}, Style={arg[1]&0xF}({arg[1]>>4}), x={[arg[2], arg[3]]}, y={arg[4]}, w={arg[5]}, h={arg[6]}, {arg[7]}, {arg[8]}, {arg[9]})"
         if self.Op == 0x11:
             self.Mnemonic = f"DialogText(idDlg={arg[0]}, idText={arg[1]}, {arg[2]})"
         if self.Op == 0x12:
