@@ -72,7 +72,7 @@ def createStringBINNClass(FileName: str, keepPos: List[int] = [], startPtr = 0x0
                         self.ptrs.append(2*pos)
                 
                 data = self.buffer[startPtr+self.ptrs[-1]:]
-                len_data = getTextLength(data)
+                len_data = getByteTextLength(data)
                 if len_data%2:
                     len_data += 1
                 self.ptrs.append(self.ptrs[-1] + len_data)
@@ -184,6 +184,8 @@ ITEMHELP_indexes.extend(list(range(641, 679)))
 ITEMHELP = createStringBINNClass('MENU/ITEMHELP.BIN', ITEMHELP_indexes)
 MENU4 = createStringBINNClass('MENU/MENU4.PRG', [7, 8, 9, 10, 11, 12], 0x4c44)
 
+BATTLE_1_indexes = list(range(20, 81))
+BATTLE_1 = createStringBINNClass('BATTLE/BATTLE.PRG', [], 0x82050)
 BATTLE_3 = createStringBINNClass('BATTLE/BATTLE.PRG', [11], 0x83080)
 
 MENU0 = createStringBINNClass('MENU/MENU0.PRG', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 0x2258)
@@ -202,7 +204,7 @@ MENUB = createStringBINNClass('MENU/MENUB.PRG', startPtr=0x7a80)
 MON = createStringBINNClass('SMALL/MON.BIN', [], 0x19C8)
 
 FileLoadFuncNames = ['MENU0', 'MENU0_1', 'MENU1', 'MENU2', 'MENU2_1', 'MENU3', 'MENU4', 'MENU7', 'MENU8', 'MENU12', 
-                     'MENUB', 'MCMAN', 'ITEMHELP', 'BATTLE_3', 'MON' ]
+                     'MENUB', 'MCMAN', 'ITEMHELP', 'BATTLE_1', 'BATTLE_3', 'MON' ]
 
 def getNNClass(className: str) -> _StringBINNClass:
     Class_jp = _StringBINNClass()

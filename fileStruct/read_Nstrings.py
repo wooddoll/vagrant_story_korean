@@ -140,7 +140,7 @@ ITEMHELP = createNstringsNwordsClass('MENU/ITEMHELP.BIN', [0x0])
 ptr_BATTLE_en = [0x82068, 0x831DC, 0x835DC]
 BATTLE_en = createNstringsNwordsClass('BATTLE/BATTLE.PRG', [0x82068, 0x835DC], [WordPos(0x83758, 0x18, 33)])
 ptr_BATTLE_jp = [0x82050, 0x83080, 0x8341C]
-BATTLE_jp = createNstringsNwordsClass('BATTLE/BATTLE.PRG', [0x82050, 0x8341C], [WordPos(0x83520, 0x18, 33)])
+BATTLE_jp = createNstringsNwordsClass('BATTLE/BATTLE.PRG', [0x8341C], [WordPos(0x83520, 0x18, 33)])
 
 MON = createNstringsNwordsClass('SMALL/MON.BIN', [], [WordPos(0x12, 0x1A, 150, 0x2C)])
 
@@ -157,12 +157,12 @@ SL_Main_jp = createNstringsNwordsClass('SLPS_023.77',[0x405CC], [WordPos(0x3C1F8
 NAMEDIC = createNstringsNwordsClass('MENU/NAMEDIC.BIN', [0x0])
 
 
-FileLoadFuncNames = ['MENU5', 'NAMEDIC',
+FileLoadFuncNames = ['MENU5', 'NAMEDIC', 
                      'MENU9', 'MENUD', 'MENUE', 
                      'BATTLE', 'MON', 'TITLE', 'INITBTL',
                      'ITEMNAME', 'SL_Main']
 
-FileLoad1Strs = ['NAMEDIC',
+FileLoad1Strs = ['NAMEDIC', 
                  'MENUD', 'MENUE', 
                  'TITLE', 'ITEMNAME']
 

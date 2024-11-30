@@ -7,15 +7,14 @@ from font.dialog import convert_by_TBL
 from utils import *
 
 from fileStruct.readStrFile import ReadStrings
+from fileStruct.structMPD import ScriptSection
 
 class read_EVT: 
     def __init__(self, input_path: str = '') -> None:
         self.buffer = bytes()
-        self.strings = ReadStrings()
-        self.strings_byte = self.strings._byte
-        self.strings_str = self.strings._str
-        self.Unknown1 = bytes()
-        self.Unknown2 = bytes()
+        self.data = ScriptSection()
+        self.strings_byte = self.data.dialogText.strings_byte
+        self.strings_str = self.data.dialogText.strings_str
         
         if os.path.isfile(input_path):
             self.unpackData(input_path)
@@ -23,67 +22,41 @@ class read_EVT:
             logging.warning(f'{input_path} is not valid path.')
             
     def cvtStr2Byte(self, table: convert_by_TBL):
-        self.strings.cvtStr2Byte(table)
-        self.strings_byte = self.strings._byte
+        self.data.cvtStr2Byte(table)
+        self.strings_byte = self.data.dialogText.strings_byte
         
     def cvtByte2Str(self, table: convert_by_TBL):
-        self.strings.cvtByte2Str(table)
-        self.strings_str = self.strings._str
+        self.data.cvtByte2Str(table)
+        self.strings_str = self.data.dialogText.strings_str
         
     def unpackData(self, input_path: str):
         with open(input_path, 'rb') as file:
             self.buffer = file.read()
-            byte_stream = io.BytesIO(self.buffer)
-            head = readHeader(byte_stream, 4, 2)
-
-            self.strings.unpackData(self.buffer[head[1]:head[2]])
-            self.Unknown1 = self.buffer[head[2]:head[3]]
-            self.Unknown2 = self.buffer[head[3]:head[0]]
-            
-            self.strings_byte = self.strings._byte
+            self.data.unpackData(self.buffer)
         
     def packData(self, output_path: str):
-        byte_stream = io.BytesIO(self.buffer)
-        head = readHeader(byte_stream, 4, 2)
-        byteData = self.strings.packData(True)
-        new_len_buffer = len(byteData) if byteData is not None else 0
+        prevStr = self.data.header[2] - self.data.header[1]
+        
+        buffer = self.data.packData()
+
+        new_len_buffer = len(self.data.dialogText.strings) if 0 < self.data.dialogText.strings.itemNums else 0
         new_len_buffer = ((new_len_buffer+3)//4)*4
 
-        prevStr = head[2] - head[1]
-
         ppx = False
-        if not all([x==0 for x in self.Unknown1]):
+        if not all([x==0 for x in self.data.unknownSection1.buffer]):
             ppx = True
-        if not all([x==0 for x in self.Unknown2]):
+        if not all([x==0 for x in self.data.unknownSection2.buffer]):
             ppx = True
         if prevStr < new_len_buffer:
             if ppx:
                 logging.critical(f"{Path(output_path).stem}, check the length of strings, size overflowed; {prevStr} < current({new_len_buffer})")
             else:
                 logging.warning(f"{Path(output_path).stem}, check the length of strings, size overflowed; {prevStr} < current({new_len_buffer})")
-
-        shift = 0
-        if prevStr < new_len_buffer:
-            shift = new_len_buffer - prevStr
-        
-        head[0] += shift
-        head[2] += shift
-        head[3] += shift
                         
-        if byteData is not None:
+        if buffer is not None:
+            self.buffer = buffer
             with open(output_path, 'wb') as file:
                 file.write(self.buffer)
-                file.seek(0)
-                file.write(bytes2(head[0]))
-                file.write(bytes2(head[1]))
-                file.write(bytes2(head[2]))
-                file.write(bytes2(head[3]))
-                file.seek(head[1])
-                file.write(byteData)
-                file.seek(head[2])
-                file.write(self.Unknown1)
-                file.seek(head[3])
-                file.write(self.Unknown2)
                 currSize = file.tell()
                 if 4096 < currSize:
                     over = currSize - 4096
@@ -92,7 +65,7 @@ class read_EVT:
 
 class EVENT_EVT:
     def __init__(self, input_folder: str) -> None:
-        self.evtFiles: Dict[int, read_EVT] = {}
+        self.evtFiles: Dict[int, ScriptSection] = {}
         
         if os.path.isdir(input_folder):
             self.unpackData(input_folder)
@@ -118,6 +91,7 @@ class EVENT_EVT:
             idx = int(relative_path.stem)
             
             evt = read_EVT(str(filepath))
+            
             if evt.strings_byte:
                 self.evtFiles[idx] = evt
     

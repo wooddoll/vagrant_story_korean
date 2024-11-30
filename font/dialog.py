@@ -158,6 +158,79 @@ class convert_by_TBL():
             byteText.append(0xE7)
         return byteText
 
+def getControl(text: str):
+    if len(text) < 6:
+        return '', text
+
+    if text[0] == '«':
+        return text[:6], text[6:]
+    else:
+        return '', text
+
+def checkHead(text: str):
+    head = ''
+    _h, retTxt = getControl(text)
+    while _h:
+        if _h[1] == 'F' and _h[2] == 'A':
+            retTxt = _h + retTxt
+            break
+        else:
+            head += _h
+            _h, retTxt = getControl(retTxt)
+
+    return head, retTxt
+
+def checkFirstSpace(text: str):
+    length = len(text)
+    space = 0
+    pos = 0
+    while pos < length:
+        letter = text[pos]
+        pos += 1
+        if letter == ' ':
+            space += 6
+        elif letter == '☐':
+            space += 12
+        elif letter == '«':
+            temp = []
+            while letter != '»':
+                letter = text[pos]
+                pos += 1
+                if letter != '»':
+                    temp.append(letter)
+
+            if len(temp) == 4:
+                tmp0 = temp[0]+temp[1]
+                tmp1 = temp[2]+temp[3]
+                if tmp0.upper() == 'FA':
+                    num = int(tmp1, 16)
+                    if num > 0x7F:
+                        num -= 0x100
+                    space += num
+                    break
+        else:
+            pos -= 1
+            break
+    return space, text[pos:]
+
+
+
+def checkFirst(text: str) -> List[int]:
+    ret = []
+    lines = text.split('↵')
+    for line in lines:
+        _cols, last = checkFirstSpace(line)
+        ret.append(_cols)
+    sp0 = ret[0]
+    AllSame = True
+    for i in range(1, len(ret)):
+        if sp0 != ret[i]:
+            AllSame = False
+            break
+    if AllSame:
+        return [sp0]
+    return ret
+
 def checkLineLength(text: str):
     length = len(text)
     pos = 0
@@ -192,61 +265,41 @@ def checkLineLength(text: str):
         else:
             if letter in "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!?/,:+-":
                 cols += 6 if halfCharictor else 12
-            elif letter in "abcdefghijklmnopqrstuvwxyz⌊⌋\'\".;「」『』()":
+            elif letter in " abcdefghijklmnopqrstuvwxyz⌊⌋\'\".;「」『』()":
                 cols += 6
             else:
                 cols += 12
     
-    return (cols + 11) // 12
+    return (cols + 5) // 12
 
-def checkFirstSpace(text: str):
-    length = len(text)
-    space = 0
-    pos = 0
-    while pos < length:
-        letter = text[pos]
-        pos += 1
-        if letter == ' ':
-            space += 6
-        elif letter == '☐':
-            space += 12
-        elif letter == '«':
-            temp = []
-            while letter != '»':
-                letter = text[pos]
-                pos += 1
-                if letter != '»':
-                    temp.append(letter)
-
-            if len(temp) == 4:
-                tmp0 = temp[0]+temp[1]
-                tmp1 = temp[2]+temp[3]
-                if tmp0.upper() == 'FA':
-                    num = int(tmp1, 16)
-                    if num > 0x7F:
-                        num -= 0x100
-                    space += num
-                    break
-        else:
-            break
-    return space
-
-def checkFirst(text: str) -> List[int]:
-    ret = []
-    lines = text.split('↵')
+def decomposeText(text: str):
+    text0 = deepcopy(text)
+    
+    head, text1 = checkHead(text0)    
+    lines = text1.split('↵')
+    rows = len(lines)
+    
+    sps = []
+    rawes = []
+    cols = []
     for line in lines:
-        _cols = checkFirstSpace(line)
-        ret.append(_cols)
-    sp0 = ret[0]
+        space, raw = checkFirstSpace(line)
+        col = checkLineLength(raw)
+        sps.append(space)
+        rawes.append(raw)
+        cols.append(col)
+    
+    sp0 = sps[0]
     AllSame = True
-    for i in range(1, len(ret)):
-        if sp0 != ret[i]:
+    for i in range(1, len(sps)):
+        if sp0 != sps[i]:
             AllSame = False
             break
     if AllSame:
-        return [sp0]
-    return ret
-
+        sps = [sp0]
+    
+    return head, sps, (rows, max(cols)), rawes
+    
 def checkSize(text: str):
     rows = 1
     cols = 1

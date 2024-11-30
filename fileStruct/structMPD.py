@@ -228,7 +228,7 @@ class TreasureSection:
         byte_stream = io.BytesIO(self.buffer)
         byte_stream.seek(self.ptrWeaponName)
         data = byte_stream.read(0x18)
-        len_data = getTextLength(data)
+        len_data = getByteTextLength(data)
         self.name_byte = data[:len_data]
 
     def cvtByte2Str(self, table: convert_by_TBL):
@@ -325,6 +325,52 @@ class ScriptSection:
                         if w < cols or h < rows:
                             logging.info(f'dialog text {code.Args[1]} is too long. box_w({w})<text_w({cols}), box_h({h})<text_h({rows})')
                         break
+    
+    def checkStringSize(self):
+        retCode = {}
+        dlgBoxes = {}
+        for idx, code in enumerate(self.scriptOpcodes.opcodes):
+            if code.Op not in [ 0x10, 0x11, 0x12 ]:
+                continue
+            
+            dlgBoxIdx = code.Args[0]&0xF
+            if code.Op == 0x10:
+                dlgBoxes.update({dlgBoxIdx : {'box' : {'opIdx': idx, 'code': code}}})
+            if code.Op == 0x12:
+                dlgBox = dlgBoxes.get(dlgBoxIdx)
+                if dlgBox is not None:
+                    dlgBox = dlgBoxes.pop(dlgBoxIdx)
+                    opIdx = dlgBox['box']['opIdx']
+                    code = dlgBox['box']['code']
+                    dialogue = dlgBox.get('dialogue')
+                    if dialogue is None:
+                        continue
+                    cols = []
+                    rows = []
+                    for k, v in dialogue.items():
+                        rows.append( v['size'][0] )
+                        cols.append( v['size'][1] )
+                    
+                    retCode[opIdx] = { 'code': code, 'dialogue': dialogue, 'dialogueMax': (max(rows), max(cols)) }
+            if code.Op == 0x11:
+                dlgBox = dlgBoxes[dlgBoxIdx]
+                dlgTextIdx = code.Args[1]
+                dlgText_ = code.Args[2]
+                dlgText = self.dialogText.strings_str[ dlgTextIdx ]
+
+                head, spaces, size, texts = dialog.decomposeText(dlgText)
+                #if len(spaces) == 1:
+                #    spaces = spaces[0]
+                #else:
+                #    spaces = f'{spaces}'
+                if dlgBoxes[dlgBoxIdx].get('dialogue') is not None:
+                    dlgBoxes[dlgBoxIdx]['dialogue'][dlgTextIdx] = { 'X': dlgText_, 'head': head, 'spaces': spaces, 'size': size, 'texts': texts }
+                else:
+                    dlgBoxes[dlgBoxIdx]['dialogue'] = {dlgTextIdx: { 'X': dlgText_, 'head': head, 'spaces': spaces, 'size': size, 'texts': texts }}
+                
+        return retCode
+                
+                    
        
     def cvtStr2Byte(self, table: convert_by_TBL):
         self.dialogText.cvtStr2Byte(table)

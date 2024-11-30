@@ -12,7 +12,7 @@ import fileStruct
 
 from fileStruct.structARM import ARMstruct
 from fileStruct.structZND import ZNDstruct
-from fileStruct.structMPD import MPDstruct
+from fileStruct.structMPD import MPDstruct, ScriptSection
 
 #from fileStruct.read_MON_BIN import MON_BIN
 from fileStruct.read_HELP_HF0 import *
@@ -1355,8 +1355,8 @@ def testMENU5():
     
     with open(f'work/strings/MENU5_ja.json', 'w', encoding='utf-8') as f:
         json.dump(textNstr, f, indent=2, ensure_ascii=False)
-testMENU5()
-exit()
+#testMENU5()
+#exit()
 
 def testNNclass():
     for name in rN.FileLoadFuncNames:
@@ -1479,31 +1479,181 @@ def readEVT():
         json.dump({'EVENT_EVT': texts}, f, indent=2, ensure_ascii=False)
 #readEVT()
 #exit()
-
-def testMPD():
-    folder_path = Path(PATH_USA_VARGRANTSTORY) / Path('MAP')
-    file_list = [file for file in folder_path.rglob('*.MPD') if file.is_file()]
+def testEVT():
+    folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('EVENT')
+    file_list = [file for file in folder_path.rglob('*.EVT') if file.is_file()]
     file_list = sorted(file_list)
 
-    #for filepath in tqdm(file_list, desc="Processing"):
+    fw = open('work/evt_dialog_jp.txt', 'wt', encoding='utf-8')
+    
     for filepath in file_list:
         relative_path = filepath.relative_to(folder_path)
         
-        map = MPDstruct(str(filepath))
-    
-        #if map.doorSection.buffer is not None:
-        #    with open(f'work/test/MAP/{relative_path.stem}.door.BIN', 'wb') as file:
-        #        file.write( map.doorSection.buffer )
+        idx = int(relative_path.stem)
+        if 500 < idx:
+            break
+        
+        with open(filepath, 'rb') as f:
+            buffer = f.read()
+        
+        evt = ScriptSection(buffer)
+        if evt.dialogText.strings.itemNums == 0:
+            continue
+        
+        evt.cvtByte2Str(jpnTBL)
+        evt.updateOpcode()
+        
+        fw.write(f"=== {relative_path.stem} ===\n")
+        fw.write(evt.scriptOpcodes.__repr__())
+        
+    fw.close()
+#testEVT()
+#exit()
+def testEVT2():
+    fw = open('work/evt_dialog.txt', 'wt', encoding='utf-8')
+    for idx in range(512):
+        if 500 < idx:
+            break
+        
+        jpPath = Path(PATH_JPN_VARGRANTSTORY) / Path(f'EVENT/{idx:04}.EVT')
+        with open(jpPath, 'rb') as f:
+            jpBuffer = f.read()
+        jpEVT = ScriptSection(jpBuffer)
+        if jpEVT.dialogText.strings.itemNums == 0:
+            continue
+        jpEVT.cvtByte2Str(jpnTBL)
+        jpEVT.updateOpcode()
+        jpCode = jpEVT.checkStringSize()
+        
+        krPath = Path(PATH_KOR_VARGRANTSTORY) / Path(f'EVENT/{idx:04}.EVT')
+        with open(krPath, 'rb') as f:
+            krBuffer = f.read()
+        krEVT = ScriptSection(krBuffer)
+        krEVT.cvtByte2Str(korTBL)
+        krEVT.updateOpcode()
+        krCode = krEVT.checkStringSize()
+
+        for k, v in jpCode.items():
+            jpBox = v
+            krBox = krCode[k]
+            
+            jpDialogueMax = jpBox['dialogueMax']
+            krDialogueMax = krBox['dialogueMax']
+            if jpDialogueMax[0] < krDialogueMax[0] or jpDialogueMax[1]+4 < krDialogueMax[1]:
+                indexes = [*jpBox['dialogue'].keys()]
+                fw.write(f"{idx}:{k}:{indexes} - {jpDialogueMax} < {krDialogueMax}\n")
+                
+            jpDialogue = jpBox['dialogue']
+            krDialogue = krBox['dialogue']
+            for kk, vv in jpDialogue.items():
+                if vv['size'][0] < krDialogue[kk]['size'][0]:
+                    fw.write(f"{idx}:{k}:{kk} - {vv['size']} < {krDialogue[kk]['size']}\n")
+
+    fw.close()
     #print(map)
+#testEVT2()
+
+def testMPD():
+    fw = open('work/mpd_dialog.txt', 'wt', encoding='utf-8')
+    for idx in range(512):
+        jpPath = Path(PATH_JPN_VARGRANTSTORY) / Path(f'MAP/MAP{idx:03}.MPD')
+        jpMPD = MPDstruct(str(jpPath))
+        if jpMPD.scriptSection.dialogText.strings.itemNums == 0:
+            continue
+        jpMPD.cvtByte2Str(jpnTBL)
+        jpMPD.scriptSection.updateOpcode()
+        jpCode = jpMPD.scriptSection.checkStringSize()
+        
+        krPath = Path(PATH_KOR_VARGRANTSTORY) / Path(f'MAP/MAP{idx:03}.MPD')
+        krMPD = MPDstruct(str(krPath))
+        krMPD.cvtByte2Str(korTBL)
+        krMPD.scriptSection.updateOpcode()
+        krCode = krMPD.scriptSection.checkStringSize()
+
+        for k, v in jpCode.items():
+            jpBox = v
+            krBox = krCode[k]
+            
+            jpDialogueMax = jpBox['dialogueMax']
+            krDialogueMax = krBox['dialogueMax']
+            if jpDialogueMax[0] < krDialogueMax[0] or jpDialogueMax[1]+4 < krDialogueMax[1]:
+                indexes = [*jpBox['dialogue'].keys()]
+                fw.write(f"{idx}:{k}:{indexes} - {jpDialogueMax} < {krDialogueMax}\n")
+                
+            jpDialogue = jpBox['dialogue']
+            krDialogue = krBox['dialogue']
+            for kk, vv in jpDialogue.items():
+                if vv['size'][0] < krDialogue[kk]['size'][0]:
+                    fw.write(f"{idx}:{k}:{kk} - {vv['size']} < {krDialogue[kk]['size']}\n")
+
+    fw.close()
+    #print(map)
+testMPD()
 
 def testMPD_():
-    filepath = Path(PATH_USA_VARGRANTSTORY) / Path('MAP/MAP042.MPD')
-    map = MPDstruct(str(filepath), fileStruct.structMPD.DoorPtrs_en)
-    print()
-#testMPD_()
+    log = {}
+    for idx in range(512):
+        jpPath = Path(PATH_JPN_VARGRANTSTORY) / Path(f'MAP/MAP{idx:03}.MPD')
+        jpMPD = MPDstruct(str(jpPath))
+        if jpMPD.scriptSection.dialogText.strings.itemNums == 0:
+            continue
+        jpMPD.cvtByte2Str(jpnTBL)
+        jpMPD.scriptSection.updateOpcode()
+        
+        #fw.write(jpMPD.scriptSection.scriptOpcodes.__repr__())
+        krCode = jpMPD.scriptSection.checkStringSize()
+        box = {}
+        for k, v in krCode.items():
+            style = v['code'].Args[1]
+            maxV = v['dialogueMax'][0]
+            dialogue = v['dialogue']
+            ll = []
+            for kk, vv in dialogue.items():
+                X = vv['X']
+                head = vv['head']
+                sizeV = vv['size'][0]
+                ll.append(f'{X}, {sizeV}, {head}')
+            box[k] = f'{style&0xF}({style>>4})[{maxV}]; {ll}'
+        log[f'MAP{idx:03}'] = box
+        
+    with open('work/mpd_box_jp.json', 'w', encoding='utf-8') as f:
+        json.dump(log, f, indent=2, ensure_ascii=False)
+
+def testEVT_():
+    log = {}
+    for idx in range(512):
+        if 500 < idx:
+            break
+        jpPath = Path(PATH_KOR_VARGRANTSTORY) / Path(f'EVENT/{idx:04}.EVT')
+        with open(str(jpPath), 'rb') as f:
+            buffer = f.read()
+        
+        evt = ScriptSection(buffer)
+        if evt.dialogText.strings.itemNums == 0:
+            continue
+        
+        evt.cvtByte2Str(korTBL)
+        evt.updateOpcode()
+        
+        krCode = evt.checkStringSize()
+        box = {}
+        for k, v in krCode.items():
+            style = v['code'].Args[1]
+            maxV = v['dialogueMax'][0]
+            dialogue = v['dialogue']
+            ll = []
+            for kk, vv in dialogue.items():
+                head = vv['head']
+                sizeV = vv['size'][0]
+                ll.append(f'{sizeV}: {head}')
+            box[k] = f'{style&0xF}({style>>4})[{maxV}]; {ll}'
+        log[f'EVT{idx:03}'] = box
+        
+    with open('work/evt_box_jp.json', 'w', encoding='utf-8') as f:
+        json.dump(log, f, indent=2, ensure_ascii=False)
 
 #utils.findStringsFromFile(str(Path(PATH_JPN_VARGRANTSTORY) / Path('MENU/NAMEDIC.BIN')))
-#exit()
+exit()
 
 def testNAMEDIC():
     NAMEDIC = rN.NAMEDIC(PATH_JPN_VARGRANTSTORY)

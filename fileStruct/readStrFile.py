@@ -57,7 +57,7 @@ class ReadStrings():
             pos = ptrs[idx]
             nextpos = ptrs[idx+1]
             data = buffer[pos:nextpos]
-            len_data = getTextLength(data)
+            len_data = getByteTextLength(data)
             self._byte.append(bytearray(data[:len_data]))
 
         if not self._byte:

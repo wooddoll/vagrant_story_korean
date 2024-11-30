@@ -103,7 +103,7 @@ def injectFile(image_path:str, path_file):
 
 #injectFile(PATH_TEMP_VARGRANTSTORY_IMAGE, "")
 
-def getTextLength(bytesText: bytes) -> int:
+def getByteTextLength(bytesText: bytes) -> int:
     pos = 0
     length = len(bytesText)
     while(pos < length):

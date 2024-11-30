@@ -22,7 +22,7 @@ from copy import deepcopy
 import shutil
 from fileStruct.structARM import ARMstruct
 from fileStruct.structZND import ZNDstruct, Drops
-from fileStruct.structMPD import MPDstruct, DoorPtrs_jp, DoorPtrs_en
+from fileStruct.structMPD import MPDstruct, DoorPtrs_jp, DoorPtrs_en, ScriptSection
 from fileStruct.read_EVT import EVENT_EVT
 from fileStruct import merge_StringBIN as mS
 from fileStruct.read_MAINMENU import *
@@ -329,8 +329,7 @@ def fixMPD(idx: int, mpd: MPDstruct):
 def update_MPD(index: int, kor_strings: dict):
     Name = f"MAP{index:03}"
     filepath = f"{PATH_JPN_VARGRANTSTORY}/MAP/{Name}.MPD"
-    if Name == 'MAP038':
-        print()
+
     mpd = MPDstruct(str(filepath), DoorPtrs_jp)
     mpd.cvtByte2Str(jpnTBL)
 
@@ -351,13 +350,19 @@ def update_MPD(index: int, kor_strings: dict):
                 ik2 = int(k2)
                 mpd.doorSection.strings[ik1]._str[ik2] = v2['string']
     
+    dialogBoxSize = dictTexts.get('dialogBoxSize')
+    if dialogBoxSize is not None:
+        len_dict -= 1
+        for k, v in dialogBoxSize.items():
+            mpd.scriptSection.scriptOpcodes.opcodes[int(k)].pos(w=v[0], h=v[1])
+    
     len_string = len(mpd.scriptSection.dialogText.strings_str)
     if len_dict > len_string:
         logging.critical(f"why? {Name} string number differnt! {len_dict} != {len_string}")
     
     
     for k, v in dictTexts.items():
-        if k in ['treasure', 'door']:
+        if k in ['treasure', 'door', 'dialogBoxSize']:
             continue
         
         idx = int(k)
@@ -371,7 +376,7 @@ def update_MPD(index: int, kor_strings: dict):
     mpd.scriptSection.updateOpcode()
     mpd.cvtStr2Byte(korTBL)
 
-    fixMPD(index, mpd)
+    fixMPD(index, mpd)    
     mpd.packData(f"{PATH_KOR_VARGRANTSTORY}/MAP/MAP{index:03}.MPD")
     
     return mpd
@@ -524,10 +529,10 @@ def rebuildNNclass(kor_strings: dict):
             replaceStr(loadJp.strings[8]._str, kor_strings['MENU9_9'])
         
         if name == 'BATTLE':
-            replaceStr(loadJp.strings[0]._str, kor_strings['BATTLE_1'])
+            #replaceStr(loadJp.strings[0]._str, kor_strings['BATTLE_1'])
             replaceStr(loadJp.words[0]._str, kor_strings['BATTLE_2'])
             #replaceStr(loadJp.strings[1]._str, kor_strings['BATTLE_3'])
-            replaceStr(loadJp.strings[1]._str, kor_strings['BATTLE_4'])
+            replaceStr(loadJp.strings[0]._str, kor_strings['BATTLE_4'])
         
         if name == 'MENU5':
             replaceStr(loadJp.strings[0]._str, kor_strings['MENU5_1'])
@@ -566,16 +571,21 @@ def update_EVT(kor_strings: dict):
     for k0, v0 in texts.items():
         int_k0 = int(k0)
 
-        #if 504 <= int_k0:   # after here, debug text
-        #    break
+        if 500 <= int_k0:   # after here, debug text
+            break
         
         for k1, v1 in v0.items():
+            if k1 == 'dialogBoxSize':
+                for k2, v2 in v1.items():
+                    evts_jp.evtFiles[int_k0].data.scriptOpcodes.opcodes[int(k2)].pos(w=v2[0], h=v2[1])
+                continue
+            
             int_k1 = int(k1)
             string = v1.get('string')
             if string is not None:
                 evts_jp.evtFiles[int_k0].strings_str[int_k1] = string
         
-        evts_jp.evtFiles[int_k0].strings.cvtStr2Byte(korTBL)
+        evts_jp.evtFiles[int_k0].cvtStr2Byte(korTBL)
         evts_jp.evtFiles[int_k0].packData(f"{PATH_KOR_VARGRANTSTORY}/EVENT/{int_k0:04}.EVT")
 
 
@@ -584,9 +594,8 @@ def stringBIN_merge(kor_strings: dict):
     for name in mS.FileLoadFuncNames:
         print(f"update {name}")
         Class_jp = mS.getNNClass(name)
-            
-        #Class_jp = globals()[f'mS.{name}']
-        if name in ['BATTLE_3', 'MON', 'MENU2_1', 'MENU0_1']:
+
+        if name in ['BATTLE_1', 'BATTLE_3', 'MON', 'MENU2_1', 'MENU0_1']:
             curr = Class_jp(PATH_KOR_VARGRANTSTORY)
         else:
             curr = Class_jp(PATH_JPN_VARGRANTSTORY)
@@ -714,6 +723,7 @@ def rebuildKor():
 #applyKorFont()
 
 rebuildKor()
+exit()
 
 def test1():
     system_dat = cvtFontBin.SYSTEM_DAT(f'{PATH_JPN_VARGRANTSTORY}')
@@ -785,4 +795,151 @@ def test6():
     
     menu9.packData('work/test/PACKjp')
 
-#test6()
+
+def adjustSpaceMPD():
+    with open('work/kor/MAP_MPD_ko.json', 'r', encoding='utf-8') as json_file:
+        jsonMPD = json.load(json_file)
+
+    for mapIdx in range(512):
+        if mapIdx in [215, 217, 218, 219]:
+            continue
+        
+        krPath = Path(PATH_KOR_VARGRANTSTORY) / Path(f'MAP/MAP{mapIdx:03}.MPD')
+        krMPD = MPDstruct(str(krPath))
+
+        if krMPD.scriptSection.dialogText.strings.itemNums == 0:
+            continue
+        krMPD.cvtByte2Str(korTBL)
+        krMPD.scriptSection.updateOpcode()
+        krCode = krMPD.scriptSection.checkStringSize()
+        
+        dialogBoxSize = {}
+        for k, v in krCode.items():
+            krBox = v
+            
+            krDialogueMax = krBox['dialogueMax']
+            if krDialogueMax[0] > krDialogueMax[1]:
+                continue
+            krDialogue = krBox['dialogue']
+            code = krBox['code']
+            w = code.Args[5]
+            h = code.Args[6]
+            dialogBoxSize[k] = (krDialogueMax[1]+2, h)
+            
+            for kk, vv in krDialogue.items():
+                size = vv['size']
+                spaces = vv['spaces']
+                head = vv['head']
+                texts = vv['texts']
+                x_space = krDialogueMax[1] - size[1]
+                y_space = krDialogueMax[0] - size[0]
+                
+                ret_text = head
+                if len(spaces) == 1:
+                    if spaces[0] == 0:
+                        continue
+                    space = 12 + 12 * (x_space // 2)
+                    for idx, txt in enumerate(texts):
+                        if 0 < idx:
+                            ret_text += '↵'
+                        if space == 12:
+                            ret_text += '☐' + txt
+                        elif space == 0:
+                            ret_text += txt
+                        else:
+                            ret_text += f'«FA{(0xFF & space):02X}»' + txt
+                else:
+                    maxSps = max(spaces)
+                    for idx, txt in enumerate(texts):
+                        if 0 < idx:
+                            ret_text += '↵'
+                        space = 12 + (spaces[idx] - maxSps) + 12 * (x_space // 2)
+                        if space == 12:
+                            ret_text += '☐' + txt
+                        elif space == 0:
+                            ret_text += txt
+                        else:
+                            ret_text += f'«FA{(0xFF & space):02X}»' + txt
+
+                jsonMPD[f'MAP{mapIdx:03}']['dialogBoxSize'] = dialogBoxSize
+                jsonMPD[f'MAP{mapIdx:03}'][f'{kk:03}']['string'] = ret_text
+    
+    with open('work/text/MAP_MPD_ko.json', 'w', encoding='utf-8') as json_file:
+        json.dump(jsonMPD, json_file, indent=2, ensure_ascii=False)
+
+def adjustSpaceEVT():
+    with open('work/kor/EVENT_EVT_ko.json', 'r', encoding='utf-8') as json_file:
+        jsonEVT = json.load(json_file)
+
+    for evtIdx in range(512):
+        if evtIdx in [14, 15]:
+            continue
+        if evtIdx > 500:
+            break
+        krPath = Path(PATH_KOR_VARGRANTSTORY) / Path(f'EVENT/{evtIdx:04}.EVT')
+        with open(krPath, 'rb') as f:
+            Buffer = f.read()
+        krEVT = ScriptSection(Buffer)
+
+        if krEVT.dialogText.strings.itemNums == 0:
+            continue
+        krEVT.cvtByte2Str(korTBL)
+        krEVT.updateOpcode()
+        krCode = krEVT.checkStringSize()
+        
+        dialogBoxSize = {}
+        for k, v in krCode.items():
+            krBox = v
+            
+            krDialogueMax = krBox['dialogueMax']
+            if krDialogueMax[0] > krDialogueMax[1]:
+                continue
+            krDialogue = krBox['dialogue']
+            code = krBox['code']
+            w = code.Args[5]
+            h = code.Args[6]
+            dialogBoxSize[k] = (krDialogueMax[1]+2, h)
+            
+            for kk, vv in krDialogue.items():
+                size = vv['size']
+                spaces = vv['spaces']
+                head = vv['head']
+                texts = vv['texts']
+                x_space = krDialogueMax[1] - size[1]
+                y_space = krDialogueMax[0] - size[0]
+                
+                ret_text = head
+                if len(spaces) == 1:
+                    if spaces[0] == 0:
+                        continue
+                    space = 12 + 12 * (x_space // 2)
+                    for idx, txt in enumerate(texts):
+                        if 0 < idx:
+                            ret_text += '↵'
+                        if space == 12:
+                            ret_text += '☐' + txt
+                        elif space == 0:
+                            ret_text += txt
+                        else:
+                            ret_text += f'«FA{(0xFF & space):02X}»' + txt
+                else:
+                    maxSps = max(spaces)
+                    for idx, txt in enumerate(texts):
+                        if 0 < idx:
+                            ret_text += '↵'
+                        space = 12 + (spaces[idx] - maxSps) + 12 * (x_space // 2)
+                        if space == 12:
+                            ret_text += '☐' + txt
+                        elif space == 0:
+                            ret_text += txt
+                        else:
+                            ret_text += f'«FA{(0xFF & space):02X}»' + txt
+
+                jsonEVT['EVENT_EVT'][f'{evtIdx:03}']['dialogBoxSize'] = dialogBoxSize
+                jsonEVT['EVENT_EVT'][f'{evtIdx:03}'][f'{kk:03}']['string'] = ret_text
+    
+    with open('work/text/EVENT_EVT_ko.json', 'w', encoding='utf-8') as json_file:
+        json.dump(jsonEVT, json_file, indent=2, ensure_ascii=False)
+
+adjustSpaceMPD()
+adjustSpaceEVT()

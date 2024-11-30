@@ -25,7 +25,7 @@
       "string": "OPTIONS"
     },
     "008": {
-      "string": "장비"
+      "string": "장비장착"
     },
     "009": {
       "string": "아이템을 장착한다。"

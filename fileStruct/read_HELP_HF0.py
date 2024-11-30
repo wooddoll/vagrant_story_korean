@@ -43,7 +43,7 @@ class ReadHelpStrings():
             pos = ptrs[idx]
             nextpos = ptrs[idx+1]
             data = buffer[pos:nextpos]
-            len_data = getTextLength(data)
+            len_data = getByteTextLength(data)
             self._byte.append(data[:len_data])
 
         len_buffer = len(self._byte[-1]) + 1

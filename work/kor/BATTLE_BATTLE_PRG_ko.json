@@ -25,10 +25,10 @@
       "string": "배"
     },
     "009": {
-      "string": "오른쪽 다리"
+      "string": "오른다리"
     },
     "010": {
-      "string": "왼쪽 다리"
+      "string": "왼다리"
     },
     "011": {
       "string": "입"
@@ -82,16 +82,16 @@
       "string": "유닛 다수"
     },
     "030": {
-      "string": "단일 부위"
+      "string": "단일부위"
     },
     "031": {
-      "string": "여러 부위"
+      "string": "여러부위"
     },
     "032": {
-      "string": "단일 부위"
+      "string": "단일부위"
     },
     "033": {
-      "string": "여러 부위"
+      "string": "여러부위"
     },
     "034": {
       "string": "이동 패널"
@@ -100,16 +100,16 @@
       "string": "보물상자"
     },
     "036": {
-      "string": "여러 부위"
+      "string": "여러부위"
     },
     "037": {
-      "string": "여러 부위"
+      "string": "여러부위"
     },
     "038": {
       "string": "함정"
     },
     "039": {
-      "string": "단일 부위・큐브"
+      "string": "단일부위・큐브"
     },
     "041": {
       "string": "타격/"
@@ -142,22 +142,22 @@
       "string": "암흑"
     },
     "051": {
-      "string": "/HUMAN"
+      "string": "/아인종"
     },
     "052": {
-      "string": "/BEAST"
+      "string": "/마수"
     },
     "053": {
-      "string": "/UNDEAD"
+      "string": "/언데드"
     },
     "054": {
-      "string": "/PHANTOM"
+      "string": "/사령"
     },
     "055": {
-      "string": "/DRAGON"
+      "string": "/용족"
     },
     "056": {
-      "string": "/EVIL"
+      "string": "/악마"
     },
     "057": {
       "string": "STR↯/"
@@ -202,34 +202,34 @@
       "string": "마법무효/"
     },
     "071": {
-      "string": "ITEM↯/"
+      "string": "장비↯/"
     },
     "072": {
-      "string": "ITEM⇪/"
+      "string": "장비⇪/"
     },
     "073": {
-      "string": "+ AIR/"
+      "string": "+바람/"
     },
     "074": {
-      "string": "+ FIRE/"
+      "string": "+불/"
     },
     "075": {
-      "string": "+ EARTH/"
+      "string": "+흙/"
     },
     "076": {
-      "string": "+ WATER/"
+      "string": "+물/"
     },
     "077": {
-      "string": "RESIST AIR/"
+      "string": "바람저항/"
     },
     "078": {
-      "string": "RESIST FIRE/"
+      "string": "불 저항/"
     },
     "079": {
-      "string": "RESIST EARTH/"
+      "string": "흙 저항/"
     },
     "080": {
-      "string": "RESIST WATER/"
+      "string": "물 저항/"
     }
   },
   "BATTLE_2": {
