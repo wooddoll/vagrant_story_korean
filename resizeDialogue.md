@@ -20,7 +20,7 @@ EVT파일은 MPD파일의 ScriptSection 부분만 잘라낸 형식으로 4KB 크
 
 참고(git code)
 - vagrant_story_korean/work/kor/MAP_MPD_ko.json, vagrant_story_korean/work\kor\EVENT_EVT_ko.json
-- vagrant_story_korean/fileStruct\scriptOPcodes.py
+- vagrant_story_korean/fileStruct/scriptOPcodes.py
 - vagrant_story_korean/rebuild.py, adjustSpaceMPD(), update_MPD(), adjustSpaceEVT(), update_EVT()
 
        
