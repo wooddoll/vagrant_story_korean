@@ -30,6 +30,7 @@
 
 - 대화문은 DialogText 부분이고, 말풍선은 Opcodes( https://datacrystal.tcrf.net/wiki/Vagrant_Story/Script_Opcodes )에 있습니다.
 - 말풍선 관련 op는 0x10, 0x11, 0x12 입니다.
+  
        Opcode 10: 800b6908 (0b) DialogShow(idDlg, Style, x,x, y, w, h, ?, ?, ?)
        Opcode 11: 800b6ab0 (04) DialogText(idDlg, idText, ?)
        Opcode 12: 800b6b74 (02) DialogHide(idDlg)
