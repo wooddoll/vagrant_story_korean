@@ -28,9 +28,13 @@
                +$00	2	Unknown data
 
 
-대화문은 DialogText 부분이고, 말풍선은 Opcodes( https://datacrystal.tcrf.net/wiki/Vagrant_Story/Script_Opcodes )에 있습니다.
-말풍선 관련 op는 0x10, 0x11, 0x12 입니다.
-말풍선 크기는 0x10(DialogShow(idDlg, Style, x,x, y, w, h, ?, ?, ?) 의 w, h 로 지정됩니다.
+- 대화문은 DialogText 부분이고, 말풍선은 Opcodes( https://datacrystal.tcrf.net/wiki/Vagrant_Story/Script_Opcodes )에 있습니다.
+- 말풍선 관련 op는 0x10, 0x11, 0x12 입니다.
+       Opcode 10: 800b6908 (0b) DialogShow(idDlg, Style, x,x, y, w, h, ?, ?, ?)
+       Opcode 11: 800b6ab0 (04) DialogText(idDlg, idText, ?)
+       Opcode 12: 800b6b74 (02) DialogHide(idDlg)
+
+- 말풍선 크기는 0x10(DialogShow(idDlg, Style, x,x, y, w, h, ?, ?, ?) 의 w, h 로 지정됩니다.
 
 지문이 가로 12칸, 세로 3줄 이라면 말풍선은 보통 w=14, h=5 로 정해져서 바깥쪽은 한 칸씩 비우도록 만들어 집니다.
 대체로 이런 크기로 정해지기는 하지만, 반드시 그런건 아니고, 딱 맞는 크기를 사용하는 Style도 있습니다. 
