@@ -5,7 +5,7 @@
 MPD파일의 구조는 https://datacrystal.tcrf.net/wiki/Vagrant_Story/MPD_files 를 참고하면 됩니다.
 EVT파일은 MPD파일의 ScriptSection 부분만 잘라낸 형식으로 4KB 크기로 zero padding되어 있습니다.
 
-대화문은 DialogText 부분이고, 말풍선은 Opcodes(https://datacrystal.tcrf.net/wiki/Vagrant_Story/Script_Opcodes)에 있습니다.
+대화문은 DialogText 부분이고, 말풍선은 Opcodes( https://datacrystal.tcrf.net/wiki/Vagrant_Story/Script_Opcodes )에 있습니다.
 말풍선 관련 op는 0x10, 0x11, 0x12 입니다.
 말풍선 크기는 0x10(DialogShow(idDlg, Style, x,x, y, w, h, ?, ?, ?) 의 w, h 로 지정됩니다.
 
