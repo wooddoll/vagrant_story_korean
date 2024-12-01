@@ -12,6 +12,7 @@
 - MENU/MENU12.BIN     ; ui 
 - MENU/ITEMHELP.BIN   ; item text
 - MENU/MENU?.PRG      ; ui
+- EVENT/*.EVT         ; dialog!!
 - MAP/*.MPD           ; dialog!!, treasure weapon name
 - MAP/*.ZND           ; NPC name, weapon name
 - SMALL/*.ARM         ; room names
