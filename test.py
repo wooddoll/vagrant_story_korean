@@ -137,9 +137,11 @@ def test4():
     znd = ZNDstruct(znd_path)
 
     znd.Enemy.cvtByte2Str(jpnTBL)
+    znd.Enemy.makeEasy()
 
     outpath = Path(PATH_TEMP) / Path('Test') / Path(PATH_testZND)
     znd.packData(str(outpath))
+
 
 def test4w():
     folder_path = Path(PATH_JPN_VARGRANTSTORY) / Path('MAP')
@@ -149,10 +151,13 @@ def test4w():
         relative_path = filepath.relative_to(folder_path)
         
         znd = ZNDstruct(str(filepath))
-        for idx in range(len(znd.TIM.TIM)):
-            with open(f'work/test/{relative_path.stem}_{idx:03}.TIM', 'wb') as f:
-                f.write(znd.TIM.TIM[idx].buffer)
-#test4w()
+        #znd.cvtByte2Str(jpnTBL)
+        znd.Enemy.makeEasy()
+        
+        outpath = Path(PATH_TEMP) / Path('Test/MAP') / Path(relative_path)
+        znd.packData(str(outpath))
+test4w()
+exit()
 
 def extract_ZND_jp_en():
     namesInfiles = {}
@@ -1588,7 +1593,7 @@ def testMPD():
 
     fw.close()
     #print(map)
-testMPD()
+#testMPD()
 
 def testMPD_():
     log = {}
@@ -1653,7 +1658,7 @@ def testEVT_():
         json.dump(log, f, indent=2, ensure_ascii=False)
 
 #utils.findStringsFromFile(str(Path(PATH_JPN_VARGRANTSTORY) / Path('MENU/NAMEDIC.BIN')))
-exit()
+#exit()
 
 def testNAMEDIC():
     NAMEDIC = rN.NAMEDIC(PATH_JPN_VARGRANTSTORY)

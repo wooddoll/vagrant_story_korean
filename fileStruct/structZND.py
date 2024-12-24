@@ -68,19 +68,38 @@ class Drops:
         if scale < 0:
             return
         
-        self.weapon = int(self.weapon * scale)
-        if 0xFF < self.weapon:
+        weapon = int(self.weapon * scale)
+        if 0xFF < weapon:
             self.weapon = 0xFF
-        self.shield = int(self.shield * scale)
-        if 0xFF < self.shield:
+        elif 0 < self.weapon and weapon == 0:
+            self.weapon = 1
+        else:
+            self.weapon = weapon
+
+        shield = int(self.shield * scale)
+        if 0xFF < shield:
             self.shield = 0xFF
-        self.accessory = int(self.accessory * scale)
-        if 0xFF < self.accessory:
+        elif 0 < self.shield and shield == 0:
+            self.shield = 1
+        else:
+            self.shield = shield
+
+        accessory = int(self.accessory * scale)
+        if 0xFF < accessory:
             self.accessory = 0xFF
+        elif 0 < self.accessory and accessory == 0:
+            self.accessory = 1
+        else:
+            self.accessory = accessory
+        
         for i in range(6):
-            self.armor[i] = int(self.armor[i] * scale)
-            if 0xFF < self.armor[i]:
+            armor = int(self.armor[i] * scale)
+            if 0xFF < armor:
                 self.armor[i] = 0xFF
+            elif 0 < self.armor[i] and armor == 0:
+                self.armor[i] = 1
+            else:
+                self.armor[i] = armor
             
 
 class EnemyStats:
@@ -96,21 +115,45 @@ class EnemyStats:
         if scale < 0:
             return
 
-        self.HP = int(self.HP * scale)
-        if 0xFFFF < self.HP:
+        HP = int(self.HP * scale)
+        if 0xFFFF < HP:
             self.HP = 0xFFFF
-        self.MP = int(self.MP * scale)
-        if 0xFFFF < self.MP:
+        elif 0 < self.HP and HP == 0:
+            self.HP = 1
+        else:
+            self.HP = HP
+
+        MP = int(self.MP * scale)
+        if 0xFFFF < MP:
             self.MP = 0xFFFF
-        self.STR = int(self.STR * scale)
-        if 0xFF < self.STR:
+        elif 0 < self.MP and MP == 0:
+            self.MP = 1
+        else:
+            self.MP = MP
+            
+        STR = int(self.STR * scale)
+        if 0xFF < STR:
             self.STR = 0xFF
-        self.INT = int(self.INT * scale)
-        if 0xFF < self.INT:
+        elif 0 < self.STR and STR == 0:
+            self.STR = 1
+        else:
+            self.STR = STR
+
+        INT = int(self.INT * scale)
+        if 0xFF < INT:
             self.INT = 0xFF
-        self.AGI = int(self.AGI * scale)
-        if 0xFF < self.AGI:
+        elif 0 < self.INT and INT == 0:
+            self.INT = 1
+        else:
+            self.INT = INT
+        
+        AGI = int(self.AGI * scale)
+        if 0xFF < AGI:
             self.AGI = 0xFF
+        elif 0 < self.AGI and AGI == 0:
+            self.AGI = 1
+        else:
+            self.AGI = AGI
 
 class ZND_Enemy:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
@@ -150,7 +193,7 @@ class ZND_Enemy:
             self.enemyStats[i].multiply(0.5)
             self.drops[i].multiply(3)
  
-     def unpackData(self, buffer: bytes):
+    def unpackData(self, buffer: bytes):
         if buffer is None:
             return
 
@@ -242,13 +285,13 @@ class ZND_Enemy:
         for idx in range(num_enemies):
             ptr_enemy_name = ptr_enemies + 0x464*idx + 4
             byte_stream.seek(ptr_enemy_name)
-            if self.name_byte[idx] and self.name_byte[idx][0] != 0:
+            if self.name_byte and self.name_byte[idx] and self.name_byte[idx][0] != 0:
                 byte_stream.write(self.name_byte[idx])
             #else:
             #    print(f'name: 0x00, {self.name_str[idx]}')
             ptr_weapon_name = ptr_enemies + 0x464*idx + 0x34 + 0xf4
             byte_stream.seek(ptr_weapon_name)
-            if self.weapon_str[idx] and self.weapon_byte[idx][0] != 0:
+            if self.weapon_str and self.weapon_str[idx] and self.weapon_byte[idx][0] != 0:
                 byte_stream.write(self.weapon_byte[idx])
             #else:
             #    print(f'weapon: 0x00, {self.weapon_str[idx]}')
