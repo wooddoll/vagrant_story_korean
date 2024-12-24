@@ -63,15 +63,65 @@ class Drops:
         self.shield = 0
         self.accessory = 0
         self.armor: List[int] = []
+
+    def multiply(self, scale) -> None:
+        if scale < 0:
+            return
         
+        self.weapon = int(self.weapon * scale)
+        if 0xFF < self.weapon:
+            self.weapon = 0xFF
+        self.shield = int(self.shield * scale)
+        if 0xFF < self.shield:
+            self.shield = 0xFF
+        self.accessory = int(self.accessory * scale)
+        if 0xFF < self.accessory:
+            self.accessory = 0xFF
+        for i in range(6):
+            self.armor[i] = int(self.armor[i] * scale)
+            if 0xFF < self.armor[i]:
+                self.armor[i] = 0xFF
+            
+
+class EnemyStats:
+    def __init__(self) -> None:
+        self.name = ''
+        self.HP = 0
+        self.MP = 0
+        self.STR = 0
+        self.INT = 0
+        self.AGI = 0
+
+    def multiply(self, scale) -> None:
+        if scale < 0:
+            return
+
+        self.HP = int(self.HP * scale)
+        if 0xFFFF < self.HP:
+            self.HP = 0xFFFF
+        self.MP = int(self.MP * scale)
+        if 0xFFFF < self.MP:
+            self.MP = 0xFFFF
+        self.STR = int(self.STR * scale)
+        if 0xFF < self.STR:
+            self.STR = 0xFF
+        self.INT = int(self.INT * scale)
+        if 0xFF < self.INT:
+            self.INT = 0xFF
+        self.AGI = int(self.AGI * scale)
+        if 0xFF < self.AGI:
+            self.AGI = 0xFF
+
 class ZND_Enemy:
     def __init__(self, buffer: Union[bytes, None] = None) -> None:
+        self.num_enemies = 0
         self.name_byte: List[bytearray] = []
         self.weapon_byte: List[bytearray] = []
 
         self.name_str: List[str] = []
         self.weapon_str: List[str] = []
 
+        self.enemyStats: List[EnemyStats] = []
         self.drops: List[Drops] = []
         
         if buffer is not None:
@@ -95,7 +145,12 @@ class ZND_Enemy:
         for text in self.weapon_str:
             self.weapon_byte.append(table.cvtStr2Byte(text))
 
-    def unpackData(self, buffer: bytes):
+    def makeEasy(self):
+        for i in range(self.num_enemies):
+            self.enemyStats[i].multiply(0.5)
+            self.drops[i].multiply(3)
+ 
+     def unpackData(self, buffer: bytes):
         if buffer is None:
             return
 
@@ -106,11 +161,11 @@ class ZND_Enemy:
         self.weapon_byte.clear()
 
         byte_stream.seek(header[2])
-        num_enemies = int4(byte_stream.read(4))
+        self.num_enemies = int4(byte_stream.read(4))
 
-        ptr_enemies = header[2] + 4 + 8*num_enemies
+        ptr_enemies = header[2] + 4 + 8*self.num_enemies
         byte_stream.seek(ptr_enemies)
-        for idx in range(num_enemies):
+        for idx in range(self.num_enemies):
             ptr_enemy_name = ptr_enemies + 0x464*idx + 4
             byte_stream.seek(ptr_enemy_name)
             byte_name = byte_stream.read(0x18)
@@ -121,8 +176,19 @@ class ZND_Enemy:
             byte_weapon = byte_stream.read(0x18)
             self.weapon_byte.append(bytearray(byte_weapon))
 
+        self.enemyStats.clear()
+        for idx in range(self.num_enemies):
+            self.enemyStats.append(EnemyStats())
+            ptr_enemy_stat = ptr_enemies + 0x464*idx + 0x1c
+            byte_stream.seek(ptr_enemy_stat)
+            self.enemyStats[-1].HP = int2(byte_stream.read(2))
+            self.enemyStats[-1].MP = int2(byte_stream.read(2))
+            self.enemyStats[-1].STR = int1(byte_stream.read(1))
+            self.enemyStats[-1].INT = int1(byte_stream.read(1))
+            self.enemyStats[-1].AGI = int1(byte_stream.read(1))
+
         self.drops.clear()
-        for idx in range(num_enemies):
+        for idx in range(self.num_enemies):
             self.drops.append(Drops())
             ptr_enemy_idx = ptr_enemies + 0x464*idx
             byte_stream.seek(ptr_enemy_idx + 0x34 + 0xf0 + 1)
@@ -130,7 +196,7 @@ class ZND_Enemy:
             byte_stream.seek(ptr_enemy_idx + 0x140 + 0xc0 + 1)
             self.drops[-1].shield = int1(byte_stream.read(1))
             byte_stream.seek(ptr_enemy_idx + 0x204 + 0x30)
-            self.drops[-1].shield = int1(byte_stream.read(1))
+            self.drops[-1].accessory = int1(byte_stream.read(1))
             for ibody in range(6):
                 byte_stream.seek(ptr_enemy_idx + 0x238 + ibody*0x5c + 0x20 + 0x30 + 1)
                 self.drops[-1].armor.append( int1(byte_stream.read(1)) )
@@ -145,7 +211,7 @@ class ZND_Enemy:
         byte_stream.seek(header[2])
         num_enemies = int4(byte_stream.read(4))
 
-        if num_enemies != len(self.name_byte) or num_enemies != len(self.weapon_byte):
+        if num_enemies != self.num_enemies or num_enemies != len(self.name_byte) or num_enemies != len(self.weapon_byte):
             logging.critical(f"check the number of enemies files, size different; privious({num_enemies}) != current({len(self.name_byte)}, {len(self.weapon_byte)})")
 
         for idx in range(num_enemies):
@@ -186,6 +252,28 @@ class ZND_Enemy:
                 byte_stream.write(self.weapon_byte[idx])
             #else:
             #    print(f'weapon: 0x00, {self.weapon_str[idx]}')
+
+        for idx in range(num_enemies):
+            ptr_enemy_stat = ptr_enemies + 0x464*idx + 0x1c
+            byte_stream.seek(ptr_enemy_stat)
+            byte_stream.write(bytes2(self.enemyStats[idx].HP))
+            byte_stream.write(bytes2(self.enemyStats[idx].MP))
+            byte_stream.write(bytes1(self.enemyStats[idx].STR))
+            byte_stream.write(bytes1(self.enemyStats[idx].INT))
+            byte_stream.write(bytes1(self.enemyStats[idx].AGI))
+
+        for idx in range(num_enemies):
+            ptr_enemy_idx = ptr_enemies + 0x464*idx
+            byte_stream.seek(ptr_enemy_idx + 0x34 + 0xf0 + 1)
+            byte_stream.write(bytes1(self.drops[idx].weapon))
+            byte_stream.seek(ptr_enemy_idx + 0x140 + 0xc0 + 1)
+            byte_stream.write(bytes1(self.drops[idx].shield))
+            byte_stream.seek(ptr_enemy_idx + 0x204 + 0x30)
+            byte_stream.write(bytes1(self.drops[idx].accessory))
+            
+            for ibody in range(6):
+                byte_stream.seek(ptr_enemy_idx + 0x238 + ibody*0x5c + 0x20 + 0x30 + 1)
+                byte_stream.write(bytes1(self.drops[idx].armor[ibody]))
 
         return byte_stream.getvalue()
         
